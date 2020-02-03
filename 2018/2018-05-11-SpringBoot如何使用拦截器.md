@@ -6,7 +6,7 @@ date: 2018-05-11 14:36:00
 
 # 1.配置拦截器
 
-```javascript
+```java
 @Configuration
 public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 
@@ -45,7 +45,7 @@ public void addInterceptors(InterceptorRegistry registry) {
 
 # 2.定义拦截器
 
-```javascript
+```java
 public class OneInterceptor implements HandlerInterceptor {
 
     /**

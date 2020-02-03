@@ -12,25 +12,25 @@ date: 2018-06-03 14:05:00
 
 只需要再导入mysql+mybatis两个包
 
-```javascript
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-        </dependency>
+```xml
+<dependency>
+    <groupId>org.mybatis.spring.boot</groupId>
+    <artifactId>mybatis-spring-boot-starter</artifactId>
+    <version>1.3.2</version>
+</dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <scope>runtime</scope>
+</dependency>
 ```
 
 # 2.数据源
 
 application.yml
 
-```javascript
+```java
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -47,7 +47,7 @@ logging:
 
 # 3.实体类
 
-```javascript
+```java
 public class User {
     private int id;
     private String name;
@@ -79,7 +79,7 @@ public class User {
 
 在启动类中添加对mapper包扫描@MapperScan
 
-```javascript
+```java
 //@MapperScan("") 相比指定扫描包的路径，我更喜欢在mapper接口上加mapper注解
 @SpringBootApplication
 public class MybatisZhujieApplication {
@@ -92,7 +92,7 @@ public class MybatisZhujieApplication {
 
 或者直接在Mapper类上面添加注解@Mapper
 
-```javascript
+```java
 @Mapper
 //@Repository此注解可不加，加是防止在使用@Autowired注解时IDEA报错
 public interface UserMapper {
@@ -115,7 +115,7 @@ public interface UserMapper {
 
 # 5.测试使用
 
-```javascript
+```java
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MybatisZhujieApplicationTests {
@@ -157,7 +157,7 @@ public class MybatisZhujieApplicationTests {
 
 在resources下新建mybatis-config.xml
 
-```javascript
+```java
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -181,7 +181,7 @@ public class MybatisZhujieApplicationTests {
 
 示例：
 
-```javascript
+```java
 package cn.zyzpp.entity;
 
 import java.util.Date;
@@ -208,7 +208,7 @@ public class Area {
 
 # 3.Dao层接口
 
-```javascript
+```java
 package cn.zyzpp.dao;
 
 import java.util.List;
@@ -262,7 +262,7 @@ public interface AreaDao {
 
 在/resources/mapper/下新建AreaDao.xml
 
-```javascript
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -315,7 +315,7 @@ public interface AreaDao {
 
 # 5.application.properties自定义配置
 
-```javascript
+```java
 #mysql
 jdbc.driverClass=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -331,7 +331,7 @@ type_alias_package=cn.zyzpp.entity
 
 DataSourceBean
 
-```javascript
+```java
 import java.beans.PropertyVetoException;
 
 import org.mybatis.spring.annotation.MapperScan;
@@ -372,7 +372,7 @@ public class DataSourceConfiguration {
 
 SqlSessionFactoryBean
 
-```javascript
+```java
 import javax.sql.DataSource;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -423,7 +423,7 @@ public class SessionFactoryConfiguration {
 
 # 7.开始使用
 
-```javascript
+```java
 @Service
 public class AreaServiceImpl implements AreaService {
     @Autowired

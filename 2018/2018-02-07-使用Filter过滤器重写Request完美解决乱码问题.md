@@ -4,13 +4,13 @@ date: 2018-02-07 23:31:00
 ---
 ### 一：原理
 
->*  1.对于Post方式提交的数据，我们可以通过直接设置request和response的编码方式来解决乱码问题；但是Get方式提交的数据，那么就需要编码再解码的方式解决乱码问题。
->*  2.我们一般对于GET请求获取参数有两个常用方法：   request.getParameter（String name）是获得相应名的数据，如果有重复的名，则返回第一个的值 . 接收一般变量 ，如text类型。   request.getParameterValues(String name)是获得如checkbox类（名字相同，但值有多个）的数据。 接收数组变量 ，如checkobx类型 。
->*  3.所以我们的思路就是重写上述这两个方法，达到解决GET取参乱码问题。
+>  1.对于Post方式提交的数据，我们可以通过直接设置request和response的编码方式来解决乱码问题；但是Get方式提交的数据，那么就需要编码再解码的方式解决乱码问题。
+>  2.我们一般对于GET请求获取参数有两个常用方法：   request.getParameter（String name）是获得相应名的数据，如果有重复的名，则返回第一个的值 . 接收一般变量 ，如text类型。   request.getParameterValues(String name)是获得如checkbox类（名字相同，但值有多个）的数据。 接收数组变量 ，如checkobx类型 。
+>  3.所以我们的思路就是重写上述这两个方法，达到解决GET取参乱码问题。
 
 ### 二：代码
 
-```javascript
+```java
 package cn.zyzpp.filter;
 
 import java.io.IOException;
@@ -63,9 +63,9 @@ public class FilterImpl implements javax.servlet.Filter {
 }
 ```
 
->*  继承HttpServletRequestWrapper类 ， 重写getParameter()和 getParameterValues()方法
+> 继承HttpServletRequestWrapper类 ， 重写getParameter()和 getParameterValues()方法
 
-```javascript
+```java
 package cn.zyzpp.filter;
 
 import java.io.UnsupportedEncodingException;
@@ -114,7 +114,7 @@ public class MyRequest extends HttpServletRequestWrapper {
 }
 ```
 
->本篇博客借鉴于： 
+>  本篇博客借鉴于： 
 >  http:// blog.csdn.net/melissa_heixiu/article/details/52705457 
 >  http:// blog.csdn.net/csdn_gia/article/details/54094426 
 >  可以看到，第一篇博客的思想是利用的req.getParameterMap()来获取到单个或多个参数；第二篇博客较简单，重写了request.getParameter()。 

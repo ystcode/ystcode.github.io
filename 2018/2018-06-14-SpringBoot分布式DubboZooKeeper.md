@@ -23,7 +23,7 @@ date: 2018-06-14 21:21:00
 
 *  使用以下命令提取tar文件
 
-```javascript
+```java
 $ cd opt/
 $ tar -zxf zookeeper-3.4.6.tar.gz
 $ cd zookeeper-3.4.6
@@ -38,7 +38,7 @@ $ mkdir data
 <span class="hljs-variable">$ </span>vi conf/zoo.cfg
 ```
 
-```javascript
+```java
 tickTime = 2000
 dataDir = /path/to/zookeeper/data
 clientPort = 2181
@@ -58,7 +58,7 @@ syncLimit = 2
 
 *  执行此命令后，你将收到以下响应
 
-```javascript
+```java
 $ JMX enabled by default
 $ Using config: /Users/../zookeeper-3.4.6/bin/../conf/zoo.cfg
 $ Starting zookeeper ... STARTED
@@ -68,7 +68,7 @@ $ Starting zookeeper ... STARTED
 
 ## 2.编程 - 需要的依赖
 
-```javascript
+```java
     <!--Dubbo与SpringBoot的集成 -->
     <dependency>
         <groupId>com.alibaba.boot</groupId>
@@ -96,7 +96,7 @@ $ Starting zookeeper ... STARTED
 
 *  1）在目录下新建service包，在该包下新建一个接口类
 
-```javascript
+```java
 package cn.zyzpp.ticket.service;
 
 public interface TicketService {
@@ -106,7 +106,7 @@ public interface TicketService {
 
 *  2）实现该接口方法
 
-```javascript
+```java
 package cn.zyzpp.ticket.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
@@ -127,7 +127,7 @@ public class TicketServiceImpl implements TicketService {
 
 *  3）application.yml
 
-```javascript
+```java
 server:
   port: 8082
 dubbo:
@@ -141,7 +141,7 @@ dubbo:
 
 **总结**
 
-```javascript
+```java
  将服务提供者注册到注册中心-->
  1.引入Dubbo和Zookeeper的相关依赖
  2.配置Dubbo的扫描包和注册中心地址
@@ -156,7 +156,7 @@ dubbo:
 
 *  1）配置application.yml
 
-```javascript
+```java
 server:
   port: 8081
 dubbo:
@@ -168,7 +168,7 @@ dubbo:
 
 *  2）拷贝服务端的接口类
 
-```javascript
+```java
 package cn.zyzpp.ticket.service;
 
 /*必须保证客户端与服务端的类路径一致，只保留该接口类即可。*/
@@ -180,7 +180,7 @@ public interface TicketService {
 
 *  3）使用服务端接口
 
-```javascript
+```java
 package cn.zyzpp.user.service;
 
 import cn.zyzpp.ticket.service.TicketService;
@@ -201,7 +201,7 @@ public class UserSerivce{
 
 *  4）测试：服务消费者消费服务
 
-```javascript
+```java
 package cn.zyzpp;
 
 import cn.zyzpp.user.service.UserSerivce;

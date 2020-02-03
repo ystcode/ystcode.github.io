@@ -24,18 +24,18 @@ date: 2018-03-10 21:17:00
 
 如下配置，可有可无：
 
-```
-<span class="hljs-preprocessor">#热部署生效</span>
-spring<span class="hljs-preprocessor">.devtools</span><span class="hljs-preprocessor">.restart</span><span class="hljs-preprocessor">.enabled</span>=true
-<span class="hljs-preprocessor">#设置重启的目录,添加那个目录的文件需要restart</span>
-spring<span class="hljs-preprocessor">.devtools</span><span class="hljs-preprocessor">.restart</span><span class="hljs-preprocessor">.additional</span>-paths=src/main/java
-<span class="hljs-preprocessor"># 为mybatis设置，生产环境可删除</span>
-restart<span class="hljs-preprocessor">.include</span><span class="hljs-preprocessor">.mapper</span>=/mapper-[%%w-%%.]+jar
-restart<span class="hljs-preprocessor">.include</span><span class="hljs-preprocessor">.pagehelper</span>=/pagehelper-[%%w-%%.]+jar
-<span class="hljs-preprocessor">#排除那个目录的文件不需要restart</span>
-<span class="hljs-preprocessor">#spring.devtools.restart.exclude=static/**,public/**</span>
-<span class="hljs-preprocessor">#classpath目录下的WEB-INF文件夹内容修改不重启</span>
-<span class="hljs-preprocessor">#spring.devtools.restart.exclude=WEB-INF/**</span>
+```properties
+#热部署生效
+spring.devtools.restart.enabled=true
+#设置重启的目录,添加那个目录的文件需要restart
+spring.devtools.restart.additional-paths=src/main/java
+# 为mybatis设置，生产环境可删除
+restart.include.mapper=/mapper-[%%w-%%.]+jar
+restart.include.pagehelper=/pagehelper-[%%w-%%.]+jar
+#排除那个目录的文件不需要restart
+#spring.devtools.restart.exclude=static/**,public/**
+#classpath目录下的WEB-INF文件夹内容修改不重启
+#spring.devtools.restart.exclude=WEB-INF/**
 ```
 
 ---
@@ -44,12 +44,12 @@ restart<span class="hljs-preprocessor">.include</span><span class="hljs-preproce
 
 1.Maven启动方式,添加依赖
 
-```javascript
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>springloaded</artifactId>
-            <veision>1.2.6.RELEASE</version>
-        </dependency>
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>springloaded</artifactId>
+    <veision>1.2.6.RELEASE</version>
+</dependency>
 ```
 
 需要以maven方式启动 

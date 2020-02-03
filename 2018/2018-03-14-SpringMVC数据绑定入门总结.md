@@ -9,7 +9,7 @@ date: 2018-03-14 21:46:00
 反例：[http://localhost:8080/demo/he?id=](http://localhost:8080/demo/he?id)（报400错误） 
 注意：String不是基本类型，具体参考>[Java数据类型](http://blog.csdn.net/ta1bin1/article/details/53666163)
 
-```javascript
+```java
 @RestController //定义控制器返回字符串
 public class HelloController {
 
@@ -29,7 +29,7 @@ public class HelloController {
 
 # 2.包装类和数组的处理
 
-```javascript
+```java
 @RestController 
 public class HelloController {
 
@@ -50,7 +50,7 @@ public class HelloController {
 
 # 3.简单对象&多层级对象&同属性对象
 
-```javascript
+```java
     //简单对象
     //http://127.0.0.1:8080/Spring/hi?age=10&name=Tom
     @RequestMapping(value="/hi", method = RequestMethod.GET)    
@@ -90,11 +90,11 @@ public class HelloController {
 
 # 4.List&Set&Map
 
-```javascript
+```java
 public class ListFrom {
     private List<Student> users ;
 
-    getter setter...
+    // getter setter...
 
     @Override
     public String toString() {
@@ -104,11 +104,11 @@ public class ListFrom {
 }
 ```
 
-```javascript
+```java
 public class MapFrom {
     private Map<String, Student> users ;
 
-    getter setter...
+    // getter setter...
 
     @Override
     public String toString() {
@@ -118,7 +118,7 @@ public class MapFrom {
 }
 ```
 
-```javascript
+```java
 @RestController
 public class DataController {
 
@@ -142,7 +142,7 @@ public class DataController {
 
 ###### `@RequestBody 注解`
 
-```javascript
+```java
     //发送json数据到该url即可实现数据绑定
     @RequestMapping(value="/json", method = RequestMethod.POST) 
     public String object3(@RequestBody Student s){
@@ -152,9 +152,7 @@ public class DataController {
 
 对于xml数据，需要在实体类中添加注释
 
-
-
-```
+```java
 @XmlRootElement(name = "admin")
 public class Admin {
 private String name;
@@ -180,7 +178,7 @@ this.age = age;
 
 然后
 
-```javascript
+```java
     //发送xml数据到该url即可实现数据绑定
     @RequestMapping(value="/xml", method = RequestMethod.POST)  
     public String object3(@RequestBody Admin s){
@@ -192,7 +190,7 @@ this.age = age;
 
 局部配置
 
-```javascript
+```java
     //PropertyEditor
     //http://127.0.0.1:8080/Spring_iMooc/date1?date1=2018-01-01
     @RequestMapping(value="/date1", method = RequestMethod.GET) 
@@ -206,6 +204,8 @@ this.age = age;
 ```
 
 全局配置 
+
+
 1）自定义Formatter ![](./20180314SpringMVC数据绑定入门总结/1136672-20190623133633958-362374272.png)
 
 
@@ -216,6 +216,7 @@ this.age = age;
 
 
 也可以使用自定义Converter 
+
 1）自定义 ![](./20180314SpringMVC数据绑定入门总结/1136672-20190623133722672-1306447048.png)
 
 
@@ -229,7 +230,7 @@ this.age = age;
 简单来说，就是把参数移到URL上，比如下面。
 
 ```
-   https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/pdf/spring-boot-reference.pdf<br />　 http://jbk.39.net/xebm/
+https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/pdf/spring-boot-reference.pdf<br />　 http://jbk.39.net/xebm/
 ```
 
 使用方法
@@ -240,8 +241,8 @@ this.age = age;
 
 路径URL也支持通配符匹配
 
-|||
 
+|||
 |---|---|
 |通配符|描述|
 |?|匹配任何单字符|

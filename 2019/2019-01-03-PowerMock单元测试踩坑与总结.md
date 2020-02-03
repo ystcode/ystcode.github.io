@@ -354,7 +354,7 @@ public class AutoPowerMock implements ApplicationListener<ContextRefreshedEvent>
 }
 ```
 
-### 我收藏的学习资源
+### 学习资源
 
 [IBM的PowerMock教程](https://www.ibm.com/developerworks/cn/java/j-lo-powermock/index.html)
 

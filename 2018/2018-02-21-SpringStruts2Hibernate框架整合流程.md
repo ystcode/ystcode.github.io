@@ -4,16 +4,16 @@ date: 2018-02-21 21:12:00
 ---
 ### 一：基本步骤
 
->1. 新建Maven项目，导入相关**依赖**（推荐）
->2. 在WEB-INF的**web.xml**中进行配置   &mdash;&mdash;&mdash;&mdash;&ndash;*Hibernate配置* &mdash;&mdash;&mdash;&mdash;&mdash;-
->3. 创建entity包，创建数据库相关**实体类**
->4. 根据实体类创建****.hbm.xml**映射文件(移动到resources/mapper下)或者直接使用hibernate注解   &mdash;&mdash;&ndash;*Spring整合Hibernate配置* &mdash;&mdash;&mdash;-
->5. 在resources下创建spring文件夹，新建**spring-dao.xml**，添加二者整合配置。   &mdash;&mdash;&mdash;&mdash;*Spring Service层配置*&mdash;&mdash;&mdash;&ndash;
->6. 在spring文件夹下新建**spring-service.xml**，配置service层的相关bean。   &mdash;&mdash;&mdash;&mdash;&ndash;*Spring整合Struts2*&mdash;&mdash;&mdash;&mdash;&mdash;-
->7. 创建.action包, 新建**Action**类
->8. 在spring文件夹下创建**spring-web.xml**配置struts2的Action类
->9. 在resources下新建**struts.xml**并配置action等   &mdash;&mdash;&mdash;&mdash;&ndash;&mdash;*日志记录*&mdash;&mdash;&mdash;&mdash;&mdash;-
->10. 在resources下创建**log4j.properties**文件即可。
+1. 新建Maven项目，导入相关**依赖**（推荐）
+2. 在WEB-INF的**web.xml**中进行配置   &mdash;&mdash;&mdash;&mdash;&ndash;*Hibernate配置* &mdash;&mdash;&mdash;&mdash;&mdash;-
+3. 创建entity包，创建数据库相关**实体类**
+4. 根据实体类创建****.hbm.xml**映射文件(移动到resources/mapper下)或者直接使用hibernate注解   &mdash;&mdash;&ndash;*Spring整合Hibernate配置* &mdash;&mdash;&mdash;-
+5. 在resources下创建spring文件夹，新建**spring-dao.xml**，添加二者整合配置。   &mdash;&mdash;&mdash;&mdash;*Spring Service层配置*&mdash;&mdash;&mdash;&ndash;
+6. 在spring文件夹下新建**spring-service.xml**，配置service层的相关bean。   &mdash;&mdash;&mdash;&mdash;&ndash;*Spring整合Struts2*&mdash;&mdash;&mdash;&mdash;&mdash;-
+7. 创建.action包, 新建**Action**类
+8. 在spring文件夹下创建**spring-web.xml**配置struts2的Action类
+9. 在resources下新建**struts.xml**并配置action等   &mdash;&mdash;&mdash;&mdash;&ndash;&mdash;*日志记录*&mdash;&mdash;&mdash;&mdash;&mdash;-
+10. 在resources下创建**log4j.properties**文件即可。
 
 ### 二：详细配置
 
@@ -22,9 +22,7 @@ date: 2018-02-21 21:12:00
 1.新建Maven项目，导入相关依赖（推荐） 
 若不使用maven：请前往[Maven官网](http://mvnrepository.com/)依次下载jar包导入）
 
-
-
-```
+```xml
     <properties>
         <!-- 统一源码的编码方式 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -209,7 +207,7 @@ date: 2018-02-21 21:12:00
 
 2.在WEB-INF的web.xml中进行配置
 
-```javascript
+```xml
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
@@ -245,7 +243,7 @@ date: 2018-02-21 21:12:00
 
 3.创建entity包，创建数据库相关实体类
 
-```javascript
+```java
 package cn.zyzpp.domain;
 
 public class Product {
@@ -298,7 +296,7 @@ public class Product {
 
 4.根据实体类创建**.hbm.xml映射文件(移动到resources/mapper下)
 
-```javascript
+```xml
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -321,7 +319,7 @@ public class Product {
 
 或者直接在实体类中使用注释
 
-```javascript
+```java
 package cn.zyzpp.domain;
 
 import javax.persistence.Column;
@@ -395,9 +393,7 @@ public class Employee {
 
 补充一步：新建ProductDao.java
 
-
-
-```
+```java
 public class ProductDao extends HibernateDaoSupport {
 public void saveProduct(Product product){
         System.out.println("注入sessionFactory后，可以直接调用HibernateTemplate");
@@ -409,7 +405,7 @@ this.getHibernateTemplate().save(product);
 
 5.在resources下创建spring文件夹，新建spring-dao.xml，添加二者整合配置。
 
-```javascript
+```properties
 /*推荐在resources下新建jdbc.properties而不是直接使用*/
 jdbc.driver=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://127.0.0.1:3306/domain?useUnicode=true&characterEncoding=utf-8
@@ -417,9 +413,7 @@ jdbc.username=root
 jdbc.password=
 ```
 
-
-
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -496,7 +490,7 @@ jdbc.password=
 
 6.在spring文件夹下新建spring-service.xml，配置service层的相关bean。
 
-```javascript
+```java
 package cn.zyzpp.service;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -522,7 +516,7 @@ public class ProductService {
 }
 ```
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -561,7 +555,7 @@ public class ProductService {
 
 7.创建.action包, 新建Action类
 
-```javascript
+```java
 package cn.zyzpp.action;
 
 import java.io.IOException;
@@ -611,7 +605,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 
 8.在spring文件夹下创建spring-web.xml配置struts2的Action类
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -640,7 +634,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 
 9.在resources下新建struts.xml并配置action等
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
@@ -667,7 +661,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 
 10.在resources下创建log4j.properties文件即可。
 
-```javascript
+```properties
 log4j.rootLogger=debug, stdout
 #log4j.logger.org.mybatis.example.BlogMapper=TRACE
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
@@ -676,13 +670,9 @@ log4j.appender.stdout.layout.ConversionPattern=[%t] %-5p [%c] - %m%n
 #DEBUG < INFO < WARN < ERROR <FATAL<br /><br />
 ```
 
-```
 最后，使用Tomcat的Maven插件，执行mvn tomcat:run启动项目！
-```
 
-
-
-```
+```xml
 <plugins>
     <plugin>
         <groupId>org.apache.tomcat.maven</groupId>

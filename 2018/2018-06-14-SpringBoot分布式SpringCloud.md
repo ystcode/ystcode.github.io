@@ -20,7 +20,7 @@ date: 2018-06-14 22:04:00
 
 1）导包
 
-```javascript
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-eureka-server</artifactId>
@@ -29,7 +29,7 @@ date: 2018-06-14 22:04:00
 
 2 )application.yml配置Eureka信息
 
-```javascript
+```yaml
 server:
   port: 8761
 eureka:
@@ -44,7 +44,7 @@ eureka:
 
 3）开启@EnableEurekaServer注解
 
-```javascript
+```java
 package cn.zyzpp.eurekaserver;
 
 import org.springframework.boot.SpringApplication;
@@ -74,7 +74,7 @@ public class EurekaServerApplication {
 
 1）导入依赖
 
-```javascript
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-eureka-server</artifactId>
@@ -83,7 +83,7 @@ public class EurekaServerApplication {
 
 2）application.yml配置Eureka信息
 
-```javascript
+```yaml
 server:
   port: 8001 #8002
 spring:
@@ -99,7 +99,7 @@ eureka:
 
 3）Service层方法
 
-```javascript
+```java
 package cn.zyzpp.providerticket.service;
 
 import org.springframework.stereotype.Service;
@@ -118,7 +118,7 @@ public class TicketService {
 
 4）暴露HTTP接口
 
-```javascript
+```java
 /**
  * Create by yster@foxmail.com 2018/6/4/004 18:39
  */
@@ -146,7 +146,7 @@ public class TicketControllert {
 
 1）application.yml配置Eureka信息
 
-```javascript
+```yaml
 server:
   port: 8200
 spring:
@@ -162,7 +162,7 @@ eureka:
 
 2）开启发现服务的功能，使用负载均衡机制（默认轮询）
 
-```javascript
+```java
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -189,7 +189,7 @@ public class ConsumerUserApplication {
 
 3）获取服务
 
-```javascript
+```java
 /**
  * Create by yster@foxmail.com 2018/6/4/004 19:13
  */

@@ -35,7 +35,7 @@ date: 2018-04-30 23:01:00
 
 2.启动与关闭
 
-```javascript
+```java
 进入到bin目录，使用命令./activemq start启动服务
 使用命令ps -ef |grep activemq查看进程是否存在
 使用命令./activemq stop关闭服务
@@ -43,7 +43,7 @@ date: 2018-04-30 23:01:00
 
 3.安装验证
 
-```javascript
+```java
 访问地址：http://Linux主机IP:8161/
 默认用户：admin
 默认密码：admin
@@ -51,7 +51,7 @@ date: 2018-04-30 23:01:00
 
 4.Maven依赖
 
-```javascript
+```xml
 <dependency>
      <groupId>org.apache.activemq</groupId>
      <artifactId>activemq-all</artifactId>
@@ -68,7 +68,7 @@ date: 2018-04-30 23:01:00
 
 1.编写AppProducer类
 
-```javascript
+```java
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -130,7 +130,7 @@ public class AppProducer {
 
 2.编写AppConsumer类
 
-```javascript
+```java
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -203,7 +203,7 @@ public class AppConsumer {
 
 1.编写AppProducer类
 
-```javascript
+```java
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -265,7 +265,7 @@ public class AppProducer {
 
 2.编写AppConsumer类
 
-```javascript
+```java
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -333,7 +333,7 @@ public class AppConsumer {
 
 **1.Maven依赖**
 
-```javascript
+```java
 
         <dependency>
             <groupId>org.apache.activemq</groupId>
@@ -358,7 +358,7 @@ public class AppConsumer {
 
 1）common.xml
 
-```javascript
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -395,7 +395,7 @@ public class AppConsumer {
 
 2）consumer.xml
 
-```javascript
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -424,7 +424,7 @@ public class AppConsumer {
 
 3）producer.xml
 
-```javascript
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -450,7 +450,7 @@ public class AppConsumer {
 
 ProducerService.java
 
-```javascript
+```java
 package cn.zyzpp.spring.producer;
 /**
  * Created by yster@foxmail.com
@@ -462,7 +462,7 @@ public interface ProducerService {
 
 ProducerServiceImpl.java
 
-```javascript
+```java
 package cn.zyzpp.spring.producer;
 
 import javax.annotation.Resource;
@@ -507,7 +507,7 @@ public class ProducerServiceImpl implements ProducerService {
 
 AppProducer.java
 
-```javascript
+```java
 package cn.zyzpp.spring.producer;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -532,7 +532,7 @@ public class AppProducer {
 
 ConsumerMessageListener.java
 
-```javascript
+```java
 package cn.zyzpp.spring.consumer;
 
 import javax.jms.JMSException;
@@ -561,7 +561,7 @@ public class ConsumerMessageListener implements MessageListener {
 
 AppConsumer.java
 
-```javascript
+```java
 package cn.zyzpp.spring.consumer;
 
 import org.springframework.context.ApplicationContext;
@@ -592,7 +592,7 @@ public class AppConsumer {
 
 集群方式
 
-```javascript
+```java
 客户端集群：让多个消费者消费同一个队列
 Broker cluster：多个Broker之间同步消息
 Master Slave：实现高可用
@@ -607,7 +607,7 @@ ActiveMQ失效转移（failover）-客户端配置
 
 transportOptions参数说明
 
-```javascript
+```java
 randomize默认为true，表示在URI列表中选择URI连接时是否采用随机策略
 initialReconnectDelay默认为10，单位毫秒，表示第一次尝试重连之间等待的时间
 maxReconnectDelay默认为30000，单位毫秒，最长重连的时间间隔
@@ -634,7 +634,7 @@ NetworkConnector（网络连接器）
 5-2 ActiveMQ集群理论 
 ActiveMQ Master Slace集群方案
 
-```javascript
+```java
 Share nothing storage master/slave（已过时，5.8+后移除）
 Shared storage master/slave 共享存储
 Replicated LevelDB Store基于负责的LevelDB Store
@@ -663,7 +663,7 @@ ActiveMQ集群配置方案 ![](./20180430Java消息中间件入门笔记ActiveMQ
 
 1.节点准备
 
-```javascript
+```java
 mkdir activemq创建目录
 cp -rf apache-activemq-5.15.3 activemq/activemq-a
 cp -rf apache-activemq-5.15.3 activemq/activemq-b
@@ -674,7 +674,7 @@ mkdir kahadb
 
 2.配置a节点
 
-```javascript
+```java
 cd activemq-a/
 cd conf/
 vim activemq.xml
@@ -686,7 +686,7 @@ vim jetty.xml：配置管理端口号，a节点使用默认端口，无须配置
 
 3.配置b节点
 
-```javascript
+```java
 vim activemq.xml
 配置网络连接器
     <networkConnectors>
@@ -709,7 +709,7 @@ vim jetty.xml
 
 4.配置c节点
 
-```javascript
+```java
 vim activemq.xml
 配置网络连接器
     <networkConnectors>
@@ -734,7 +734,7 @@ vim jetty.xml
 
 回到activemq目录，分别启动a，b，c三个节点
 
-```javascript
+```java
 ./activemq-a/bin/activemq start
 ./activemq-b/bin/activemq start
 ./activemq-c /bin/activemq start
@@ -742,13 +742,13 @@ vim jetty.xml
 
 检查是否都启动成功
 
-```javascript
+```java
 ps -ef |grep activemq
 ```
 
 检查是否对外提供服务，即端口是否被监听（占用）
 
-```javascript
+```java
 netstat -anp |grep 61616
 netstat -anp |grep 61617
 netstat -anp |grep 61618
@@ -758,7 +758,7 @@ netstat -anp |grep 61618
 
 测试，把b节点杀掉，看c节点能不能提供61618的服务
 
-```javascript
+```java
 ./activemq-b/bin/activemq stop
 netstat -anp |grep 61618
 ./activemq-b/bin/activemq start
@@ -771,7 +771,7 @@ netstat -anp |grep 61617
 
 生产者
 
-```javascript
+```java
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -835,7 +835,7 @@ public class AppProducerTest {
 
 消费者
 
-```javascript
+```java
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -902,7 +902,7 @@ public class AppConsumerTest {
 
 管理界面查看消息
 
-```javascript
+```java
 http://127.0.0.1:8161
 http://127.0.0.1:8162
 http://127.0.0.1:8163

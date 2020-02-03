@@ -18,7 +18,7 @@ date: 2018-06-23 01:58:00
 *  Mysql 5.7
 *  导入依赖
 
-```javascript
+```xml
         <!-- Web工程 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -52,7 +52,7 @@ date: 2018-06-23 01:58:00
 
 ## 2.开启Security并配置
 
-```javascript
+```java
 package cn.zyzpp.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,7 +131,7 @@ public class MySerurityConfig extends WebSecurityConfigurerAdapter {
 *  我们基本不会把用户信息保存在内存中，所以我们自定义认证方法。这里我推荐阅读 [认证(Authentication)与源码解读](http://www.tianshouzhi.com/api/tutorials/spring_security_4/263) 了解。
 *  自定义认证也有两种方法，第一是注入DaoAuthenticationProvider（org.springframework.security.authentication.dao）
 
-```javascript
+```java
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -149,7 +149,7 @@ public class MySerurityConfig extends WebSecurityConfigurerAdapter {
 
 *  然后改一下设置
 
-```javascript
+```java
 auth.authenticationProvider(authenticationProvider);
 ```
 
@@ -161,7 +161,7 @@ auth.authenticationProvider(authenticationProvider);
 
 ## 3.自定义AuthenticationProvider接口实现类
 
-```javascript
+```java
 package cn.zyzpp.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -238,7 +238,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider{
 
 ## 4.自定义UserDetailsService接口实现类
 
-```javascript
+```java
 package cn.zyzpp.security.config;
 
 import cn.zyzpp.security.entity.Role;
@@ -304,7 +304,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
 *  我们在保存用户信息到内存中时是这样的
 
-```javascript
+```java
   auth.inMemoryAuthentication()
       .withUser("张三")
       .password("123456")
@@ -314,7 +314,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
 *  角色和权限是分开设置的，但我们在自定义时只有权限设置，
 
-```javascript
+```java
 authorities.add(new SimpleGrantedAuthority("权限名"));
 ```
 
@@ -338,7 +338,7 @@ authorities.add(new SimpleGrantedAuthority("权限名"));
 
 # 5.获取Security登录异常信息
 
-```javascript
+```java
 package cn.zyzpp.security.controller;
 ...
 import cn.zyzpp.security.service.UserService;
@@ -395,7 +395,7 @@ public class MyController {
 
 *  Security规定若是GET访问则是请求页面，POST访问则为提交登录
 
-```javascript
+```java
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -427,7 +427,7 @@ public class MyController {
 
 #### 6.1 使用HTML sec标签 (推荐)
 
-```javascript
+```java
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
@@ -463,7 +463,7 @@ public class MyController {
 
 *  下面为我自己写的方法，看看就好！
 
-```javascript
+```java
     /**
      * 不使用sec标签（不推荐）
      * 在Controller获取用户信息
@@ -506,7 +506,7 @@ public class MyController {
 
 *  权限表
 
-```javascript
+```java
 /**
  * 权限表
  * Create by yster@foxmail.com 2018/6/21/021 18:00
@@ -524,7 +524,7 @@ public class Role {
 
 *  用户表
 
-```javascript
+```java
 /**
  * Create by yster@foxmail.com 2018/6/21/021 17:59
  */

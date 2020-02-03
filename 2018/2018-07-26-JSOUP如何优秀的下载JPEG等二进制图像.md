@@ -17,7 +17,7 @@ date: 2018-07-26 21:27:00
 
 这个示例是完整下载一张 [图片](http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg) 的所有步骤。
 
-```javascript
+```java
     @Test
     public void test() throws IOException {
         Response response = Jsoup.connect("http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg")
@@ -40,7 +40,7 @@ date: 2018-07-26 21:27:00
 
 ## 完美方案
 
-```javascript
+```java
     @Test
     public void test() throws IOException {
         Response response = Jsoup.connect("http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg")

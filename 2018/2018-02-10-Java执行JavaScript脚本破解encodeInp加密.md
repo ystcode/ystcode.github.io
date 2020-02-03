@@ -4,7 +4,7 @@ date: 2018-02-10 18:04:00
 ---
 # 一：背景
 
->*  在模拟登录某网站时遇到了用户名和密码被JS进行加密提交的问题，如图：
+> 在模拟登录某网站时遇到了用户名和密码被JS进行加密提交的问题，如图：
 
 ---
 
@@ -14,9 +14,9 @@ date: 2018-02-10 18:04:00
 
 # 二：解决方法
 
->*  1.我们首先需要获得该JS加密函数，一般如下：
+> 1.我们首先需要获得该JS加密函数，一般如下：
 
-*  conwork.js
+conwork.js
 
 ```javascript
 var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -47,19 +47,19 @@ function encodeInp(input) {
 }
 ```
 
->*  2.新建一个接口，内部实现和JS函数名相同的抽象方法：
+> 2.新建一个接口，内部实现和JS函数名相同的抽象方法：
 
-*  Methods.java
+Methods.java
 
-```javascript
+```java
 public interface Methods {
     public String encodeInp(String input);
 }
 ```
 
->*  3.Java执行JavaScript函数破解加密算法 ;
+> 3.Java执行JavaScript函数破解加密算法
 
-```javascript
+```java
     /**
      *  Java执行JavaScript脚本破解加密算法
      * @param str
@@ -90,5 +90,3 @@ public interface Methods {
 ```
 
 >注意：Js文件在实例中默认保存在项目源文件夹下
-
-####

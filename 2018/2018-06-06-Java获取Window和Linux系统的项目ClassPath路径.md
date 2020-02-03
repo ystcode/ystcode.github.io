@@ -4,7 +4,7 @@ date: 2018-06-06 15:54:00
 ---
 ## 不啰嗦，直接复制工具类
 
-```javascript
+```java
 /**
  * 在windows和linux系统下均可正常使用
  * Create by yster@foxmail.com 2018/6/6/006 14:51
@@ -62,7 +62,7 @@ public class PathUtil {
 
 ## 使用方法
 
-```javascript
+```java
 //自定义追加路径并格式化
 System.out.println(ProjectPath.getRootPath("userImg/test.txt"));
 //获取根目录
@@ -80,5 +80,3 @@ System.out.println(ProjectPath.getRootPath());
 但是如果是以war包方式启动获得的是：D:\apache-tomcat-9.0.7\bin
 
 所以此方法适合不依赖Tomcat容器（或者内嵌Tomcat如SpringBoot）的项目。
-
----

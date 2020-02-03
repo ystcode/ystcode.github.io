@@ -12,7 +12,7 @@ date: 2018-03-04 21:13:00
 
 **1.自定义配置类**
 
-```javascript
+```java
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
@@ -41,7 +41,7 @@ public class NettyConfig {
 
 **2.接受/处理/响应webSocket请求的核心业务处理类**
 
-```javascript
+```java
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
@@ -262,7 +262,7 @@ public class MyWebSocketChannelHandler extends ChannelInitializer<SocketChannel>
 
 **4.程序启动入口**
 
-```javascript
+```java
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
@@ -302,7 +302,7 @@ public class Main {
 
 **5.html聊天室页面**
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>

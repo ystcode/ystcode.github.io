@@ -15,7 +15,7 @@ Jpython使用时，版本很重要！大多数坑来源于此。这句话不听�
 
 **运行环境：Python2.7 + Jython-standalone-2.7.0**
 
-```javascript
+```xml
 <!--Maven依赖，jar包自行前往仓库下载-->
 <dependency>
     <groupId>org.python</groupId>
@@ -26,7 +26,7 @@ Jpython使用时，版本很重要！大多数坑来源于此。这句话不听�
 
 **1）Jython执行Python语句**
 
-```javascript
+```java
 import org.python.util.PythonInterpreter;
 
 public class HelloPython {
@@ -39,7 +39,7 @@ public class HelloPython {
 
 **2）Jython执行Python脚本**
 
-```javascript
+```java
 import org.python.util.PythonInterpreter;
 
 public class HelloPython {
@@ -52,7 +52,7 @@ public class HelloPython {
 
 **3）Jython执行Python方法获取返回值**
 
-```javascript
+```py
 PythonInterpreter interpreter = new PythonInterpreter();
 interpreter = new PythonInterpreter(); 
 interpreter.execfile("./pythonSrc/fibo.py"); 
@@ -63,7 +63,7 @@ System.out.println(o.toString());
 
 fibo.py
 
-```javascript
+```py
  # Fibonacci numbers module  
 def fib(n): # return Fibonacci series up to n  
     result = []  
@@ -94,7 +94,7 @@ Jython在执行普通py脚本时速度很慢，而且在含有第三方库（req
 
 关于路径问题，我们有两种解决方法，**一是手动添加第三方库路径**，调用
 
-```javascript
+```java
         PySystemState sys = Py.getSystemState(); 
         System.out.println(sys.path.toString());
         sys.path.add("F:\\Python27\\Lib\\site-packages\\jieba"); 
@@ -105,7 +105,7 @@ Jython在执行普通py脚本时速度很慢，而且在含有第三方库（req
 
 ## 最终方法来了：模拟控制台执行
 
-```javascript
+```java
 public class Cmd {
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -130,7 +130,7 @@ public class Cmd {
 
 time.py
 
-```javascript
+```java
 #!/usr/bin/python
 #coding=utf-8
 
@@ -146,7 +146,7 @@ my_test(sys.argv[1], sys.argv[2])
 
 执行结果
 
-```javascript
+```java
 name: huzhiwei
 25
 0
@@ -162,7 +162,7 @@ name: huzhiwei
 博主在模拟cmd调用Python时遇到一些情况，这类问题可以归类为&ldquo;超时，阻塞&rdquo;等 
 问题原因：
 
-```javascript
+```java
 Process p=Runtime.getRuntime().exec(String[] cmd);
 ```
 
@@ -176,7 +176,7 @@ Runtime.exec方法将产生一个本地的进程,并返回一个Process子类的
 
 完整代码：
 
-```javascript
+```java
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
