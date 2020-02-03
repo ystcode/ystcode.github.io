@@ -22,9 +22,9 @@ date: 2018-04-30 23:01:00
 程序执行效率低
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623140855578-456441710.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623140855578-456441710.png)
 
- 通过消息中间件解耦服务调用 ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623140911018-1785533760.png)
+ 通过消息中间件解耦服务调用 ![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623140911018-1785533760.png)
 
 ## 1.Linux安装消息中间件ActiveMQ
 
@@ -613,7 +613,7 @@ initialReconnectDelay默认为10，单位毫秒，表示第一次尝试重连之
 maxReconnectDelay默认为30000，单位毫秒，最长重连的时间间隔
 ```
 
-Broker cluster集群配置-原理 ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141025139-711217088.png)
+Broker cluster集群配置-原理 ![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141025139-711217088.png)
 
 NetworkConnector（网络连接器）
 
@@ -625,11 +625,11 @@ NetworkConnector（网络连接器）
 
 静态连接器
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141040319-129545758.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141040319-129545758.png)
 
 动态连接器
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141055607-1799797041.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141055607-1799797041.png)
 
 5-2 ActiveMQ集群理论 
 ActiveMQ Master Slace集群方案
@@ -642,22 +642,22 @@ Replicated LevelDB Store基于负责的LevelDB Store
 
 共享存储集群的原理
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141113527-2010375551.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141113527-2010375551.png)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141134719-1786163712.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141134719-1786163712.png)
 
 基于复制的LevelDB Store的原理
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141150768-217456903.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141150768-217456903.png)
 
 两种集群方式对比
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141205625-218950249.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141205625-218950249.png)
 
-三台服务器的完美集群方案 ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141219976-39752292.png)
+三台服务器的完美集群方案 ![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141219976-39752292.png)
 
 
-ActiveMQ集群配置方案 ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141236806-1456002102.png)
+ActiveMQ集群配置方案 ![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141236806-1456002102.png)
 
 配置过程
 
@@ -910,8 +910,8 @@ http://127.0.0.1:8163
 
 ## 6.扩展
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141258998-719758454.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141258998-719758454.png)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141313788-94022134.png)
+![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141313788-94022134.png)
 
 本文记录简要，推荐阅读 [慕课网-Java消息中间件学习总结](https://segmentfault.com/a/1190000010348979)

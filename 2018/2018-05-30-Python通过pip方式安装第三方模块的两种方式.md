@@ -52,7 +52,7 @@ pip uninstall 模块名
 
 [https://www.lfd.uci.edu/~gohlke/pythonlibs/](https://www.lfd.uci.edu/~gohlke/pythonlibs/)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180530Python通过pip方式安装第三方模块的两种方式/1136672-20190623141700863-1943886782.png)
+![](./20180530Python通过pip方式安装第三方模块的两种方式/1136672-20190623141700863-1943886782.png)
 
 *  下载第一个xxxxx-win32.whl，解压到本地。
 *  执行
@@ -65,4 +65,4 @@ pip install D:<span class="hljs-command">\本</span>地路径<span class="hljs-c
 
 ---
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180530Python通过pip方式安装第三方模块的两种方式/1136672-20190623141717895-943511979.png)
+![](./20180530Python通过pip方式安装第三方模块的两种方式/1136672-20190623141717895-943511979.png)

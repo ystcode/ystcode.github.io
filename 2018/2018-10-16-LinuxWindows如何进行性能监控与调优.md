@@ -10,7 +10,7 @@ date: 2018-10-16 23:06:00
 
 top命令的输出如下：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016225845263-1544463405.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016225845263-1544463405.png)
 
 
 top命令的输出可以分为两部分：前半部分是系统统计信息，后半部分是进程信息。在统计信息中，
@@ -90,7 +90,7 @@ options 选项可以指定sar命令对哪些性能数据进行采样（不同版
 下列使用sar命令获取内存使用情况，每秒钟采样一次，共计采样3次：
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230248149-227707056.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230248149-227707056.png)
 
 
 - kbmemfree  空闲的物理内存大小
@@ -108,7 +108,7 @@ options 选项可以指定sar命令对哪些性能数据进行采样（不同版
 vmstat 和 sar 工具类似，可以指定采样周期、采样频率，统计CPU、内存使用情况、swap使用情况等信息。
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230318634-33833888.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230318634-33833888.png)
 
 
 | 字段   | 说明                                                         |
@@ -124,7 +124,7 @@ vmstat 和 sar 工具类似，可以指定采样周期、采样频率，统计CP
 
 iostat可以提供详细的磁盘IO信息。基本使用如下：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230329945-1829508631.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230329945-1829508631.png)
 
 `iostat 1 2` 该命令显示了CPU的使用概况和磁盘IO的信息。输出信息每1秒采样1次，合计采样2次。如果只需要显示磁盘情况，不需要显示CPU使用情况，则可以使用命令：`iostat -d 1 2`
 
@@ -147,13 +147,13 @@ pidstat是一个性能强大的性能监测工具，它也是sysstat的组件之
 先是通过jps命令找到Java程序的PID，
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230855278-365210005.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230855278-365210005.png)
 
 
 
 然后使用pidstat命令输出程序的CPU使用情况。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230345786-207611756.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230345786-207611756.png)
 
 
 pidstat 的参数-p用于指定进程ID，-u表示对CPU使用率的监控。最后的参数1 3表示每秒钟采样1次，合计采样3次。从这个输出中可以看到，该应用程序CPU占用率达0.00%。pidstat可以进一步监控线程的信息。 使用以下命令：
@@ -185,7 +185,7 @@ pidstat -p 28475 -d -t 1 3
 使用 pidstat 命令。还可以监控指定进程的内存使用情况。
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230412250-1424652727.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230412250-1424652727.png)
 
 
 - minflt/s：表示该进程每秒 minor faults（不需要从磁盘中调出内存页）的总数。
@@ -200,9 +200,9 @@ pidstat -p 28475 -d -t 1 3
 
 快捷键 `Ctrl`+ `Alt`+ `.`
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230423896-1885512214.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230423896-1885512214.png)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230441030-452487368.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230441030-452487368.png)
 
 ## 2.2 perfmon性能监控工具
 
@@ -210,24 +210,24 @@ pidstat -p 28475 -d -t 1 3
 
 快捷键 `win`+ `R`打开运行，输入 perfmon ：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230501734-36785036.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230501734-36785036.png)
 
 
 打开性能监控工具
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230511983-719137382.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230511983-719137382.png)
 
 
 点击绿色的+号添加计数器，Process表示进程，Thread表示线程。
 
 下面我们将对QQ的部分线程进行监控，选中实例，点击添加，确定。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230522141-1067808817.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230522141-1067808817.png)
 
 
 生成报告。可以看到线程ID，占用CPU的多少。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230532349-653209157.png)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230532349-653209157.png)
 
 
 ## 2.3 Process Explorer
@@ -236,7 +236,7 @@ pidstat -p 28475 -d -t 1 3
 
 下载地址：https://docs.microsoft.com/zh-cn/sysinternals/downloads/process-explorer
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230554511-2092960750.jpg)
+![](./20181016LinuxWindows如何进行性能监控与调优/1136672-20181016230554511-2092960750.jpg)
 
 ## 2.4 pslist命令行
 

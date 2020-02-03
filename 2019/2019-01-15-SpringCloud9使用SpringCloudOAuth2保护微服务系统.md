@@ -14,7 +14,7 @@ OAth2是一个标准的授权协议。
 
 OAuth2的认证流程如图所示，具体如下。
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205133120-137954265.png)
+![](./20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205133120-137954265.png)
 
 
 （1）用户（资源持有者）打开客户端 ，客户端询问用户授权。
@@ -961,27 +961,27 @@ public class ServiceHiApplication {
 
 1.注册用户，返回注册成功信息
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205158547-4204804.png)
+![](./20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205158547-4204804.png)
 
 
 2.获取Token
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205207059-1130037922.png)
+![](./20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205207059-1130037922.png)
 
 
 3.访问/hi，不需要权限，只要Token正确即可
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205211570-700299116.png)
+![](./20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205211570-700299116.png)
 
 
 4.访问/hello，需要ROLE_ADMIN权限
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205217185-155545442.png)
+![](./20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205217185-155545442.png)
 
 
 访问不成功，在数据库role表添加权限信息ROLE_ADMIN，然后在user_role表关联下，再次访问。
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205222121-646779328.png)
+![](./20190115SpringCloud9使用SpringCloudOAuth2保护微服务系统/1136672-20190111205222121-646779328.png)
 
 需要注意的是Token在Header的位置，以及前戳。
 

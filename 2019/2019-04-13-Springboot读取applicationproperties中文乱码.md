@@ -9,7 +9,7 @@ File -> Settings -> Editor -> File Encodings
 
 将Properties Files (*.properties)下的Default encoding for properties files设置为UTF-8，将Transparent native-to-ascii conversion前的勾选上。如图所示：
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190413Springboot读取applicationproperties中文乱码/1136672-20190413233056897-401978446.jpg)
+![](./20190413Springboot读取applicationproperties中文乱码/1136672-20190413233056897-401978446.jpg)
 
 > 注意：做了上面操作后，一定要重新创建 application.properties 才有效！
 

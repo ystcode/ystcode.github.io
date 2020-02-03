@@ -2,7 +2,7 @@
 title: Java8之使用Optional进行Null处理
 date: 2018-12-29 15:12:00
 ---
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181229Java8之使用Optional进行Null处理/1136672-20181229151420068-1277416757.png)
+![](./20181229Java8之使用Optional进行Null处理/1136672-20181229151420068-1277416757.png)
 
 
 Optional类这是Java 8新增的一个类，用以解决程序中常见的`NullPointerException`异常问题，本篇文章将详细介绍`Optional`类，以及如何用它消除代码中的`null`检查。

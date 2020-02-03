@@ -69,7 +69,7 @@ public class DemoController {
 
 默认访问路径：[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190107SpringBoot整合Swagger2搭建API在线文档/1136672-20190107172818018-2009224915.png)
+![](./20190107SpringBoot整合Swagger2搭建API在线文档/1136672-20190107172818018-2009224915.png)
 
 ## 5.常用Swagger注解
 

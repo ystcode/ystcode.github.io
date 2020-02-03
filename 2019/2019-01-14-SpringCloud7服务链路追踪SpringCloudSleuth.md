@@ -381,14 +381,14 @@ public class ServiceZuulApplication {
 
 然后访问 http://localhost:9411，即访问 ZipKin 的展示界面.
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190114SpringCloud7服务链路追踪SpringCloudSleuth/1136672-20190114142828028-1168043022.png)
+![](./20190114SpringCloud7服务链路追踪SpringCloudSleuth/1136672-20190114142828028-1168043022.png)
 
 
 这个界面用于展示 ZipKin Server收集的链路数据，可以根据服务名、开始时间、结束时间、请求消耗的时间等条件来查找。单击“Find Tracks”按钮，可以查看请求的调用时间、消耗时间，以及请求的链路情况。
 
 单击顶部的“Dependencies”按钮，可以查看服务的依赖关系。
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190114SpringCloud7服务链路追踪SpringCloudSleuth/1136672-20190114142834562-1883629739.png)
+![](./20190114SpringCloud7服务链路追踪SpringCloudSleuth/1136672-20190114142834562-1883629739.png)
 
 
 

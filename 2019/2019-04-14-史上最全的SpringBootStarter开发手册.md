@@ -172,13 +172,13 @@ public class DemoApplication {
 
 到目前为止，spring-boot-starter-hello的自动配置功能已实现，并且正确使用了，但还有一点不够完美，如果你也按上面步骤实现了自己的spring-boot-starter-hello自动配置，在application.properties中配置hello.msg属性时，你会发现并没有提示你有关该配置的信息，但是如果你想配置tomcat端口时，输入server.port是有提示的： 
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190414史上最全的SpringBootStarter开发手册/1136672-20190414181200629-789304823.png)
+![](./20190414史上最全的SpringBootStarter开发手册/1136672-20190414181200629-789304823.png)
 
 
 这种功能如何做呢？在Spring Boot官方文档中就已经给出了方法，新建META-INF/spring-configuration-metadata.json文件，进行配置。
 
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190414史上最全的SpringBootStarter开发手册/1136672-20190414181210143-928022446.png)
+![](./20190414史上最全的SpringBootStarter开发手册/1136672-20190414181210143-928022446.png)
 
 
 那如何对spring-boot-starter-hello项目配置元数据呢？代码如下：
@@ -214,10 +214,10 @@ public class DemoApplication {
 
 然后我们将spring-boot-starter-hello项目重新打包使用，如下图所示，就有了属性的提示： 
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190414史上最全的SpringBootStarter开发手册/1136672-20190414181218586-1972970298.png)
+![](./20190414史上最全的SpringBootStarter开发手册/1136672-20190414181218586-1972970298.png)
 
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190414史上最全的SpringBootStarter开发手册/1136672-20190414181225048-2039493508.png)
+![](./20190414史上最全的SpringBootStarter开发手册/1136672-20190414181225048-2039493508.png)
 
 
 下面我们就列出有关groups、properties、hints具体使用，不过我建议你可以先跳过这部分枯燥的内容。

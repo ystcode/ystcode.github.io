@@ -4,7 +4,7 @@ date: 2019-01-13 18:37:00
 ---
 一个简单的微服务系统如下图:
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190113SpringCloud5路由网关SpringCloudZuul/1136672-20190219113332321-1724640990.png)
+![](./20190113SpringCloud5路由网关SpringCloudZuul/1136672-20190219113332321-1724640990.png)
 
 
 ## 1.为什么需要Zuul

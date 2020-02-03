@@ -66,7 +66,7 @@ HMACSHA256(
 
 认证流程图如下，客户端获取JWT后，以后每次请求都不需要再通过Uaa服务来判断该请求的用户以及该用户的权限。在微服务中，可以利用JWT实现单点登录。
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205340848-709620960.png)
+![](./20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205340848-709620960.png)
 
 
 ## 4.案例工程架构
@@ -79,7 +79,7 @@ HMACSHA256(
 
 工程架构图:
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205350367-620622310.png)
+![](./20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205350367-620622310.png)
 
 
 ## 5.构建auth-service工程
@@ -877,12 +877,12 @@ public class UserServiceApplication {
 
 1.注册用户
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205435427-801611061.png)
+![](./20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205435427-801611061.png)
 
 
 2.登录获取Token
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205440985-941962690.png)
+![](./20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205440985-941962690.png)
 
 
 3.访问/user/foo
@@ -893,12 +893,12 @@ public class UserServiceApplication {
 "Authorization":"Bearer {access_token}"
 ```
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205448004-931349601.png)
+![](./20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205448004-931349601.png)
 
 
 因为没有权限，访问被拒绝，我们手动在数据库添加"ROLE_ADMIN"权限，并与该用户关联。重新登录并获取Token，重新请求“/user/foo”接口
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205454613-1381333624.png)
+![](./20190116SpringCloud10使用SpringCloudOAuth2和JWT保护微服务/1136672-20190116205454613-1381333624.png)
 
 
 ## 总结

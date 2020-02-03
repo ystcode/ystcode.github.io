@@ -20,7 +20,7 @@ RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支�
 
 通常我们谈到队列服务, 会有三个概念： 发消息者、队列、收消息者，RabbitMQ 在这个基本概念之上, 多做了一层抽象, 在发消息者和 队列之间, 加入了交换器 (Exchange). 这样发消息者和队列就没有直接联系, 转而变成发消息者把消息给交换器, 交换器根据调度策略再把消息再给队列。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164032435-518255459.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164032435-518255459.png)
 
 *  左侧 P 代表 生产者，也就是往 RabbitMQ 发消息的程序。
 *  中间即是 RabbitMQ，*其中包括了 交换机 和 队列。*
@@ -176,7 +176,7 @@ tar -xvf rabbitmq-server-generic-unix-3.6.1.tar
 
 访问[http://localhost:15672/](http://localhost:15672/)，输入admin用户密码，登录成功！
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164105614-1084755460.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164105614-1084755460.png)
 
 ## 三：整合Spring Boot
 
@@ -204,28 +204,28 @@ spring:
     virtual-host: / #可以不用写
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164124506-2089241480.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164124506-2089241480.png)
 
 ### 3.发送direct消息
 
 direct 类型的行为是&rdquo;先匹配, 再投送&rdquo;. 即在绑定时设定一个 **routing_key**, 消息的**routing_key** 匹配时, 才会被交换器投送到绑定的队列中去.
 
-1.我们在RabbitMQ后台新建一个交换机，`demo-direct`交换机名，`direct`交换机类型，`Durable`持久化： ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164138611-577730450.png)
+1.我们在RabbitMQ后台新建一个交换机，`demo-direct`交换机名，`direct`交换机类型，`Durable`持久化： ![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164138611-577730450.png)
 
 
 2.再新建一个消息队列，取名为`demo`：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164156029-806630544.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164156029-806630544.png)
 
 3.点击`demo-direct`交换机进入绑定消息队列`demo`：
 
 如果没有指定routingkey，**消息队列的名称就是routingkey** 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164214112-1788211395.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164214112-1788211395.png)
 
 4.绑定成功后查看：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164229572-583721367.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164229572-583721367.png)
 
 你可以直接在交换机页面下方的`Publish message`发送消息，在消息队列的`Get message`查看消息，不过我们实际生产比较多使用编程：
 
@@ -293,19 +293,19 @@ class java.util.HashMap
 
 1.首先我们需要在RabbitMQ后台创建一个广播交换机：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164252661-676453988.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164252661-676453988.png)
 
 2.再创建一些（demo1，demo2）消息队列，以一个作为演示：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164310051-2000506595.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164310051-2000506595.png)
 
 3.进入创建的交换机页面：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164322845-1694571852.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164322845-1694571852.png)
 
 4.交换机与消息队列（demo1,demo2）进行绑定：
 
-如果没有指定routingkey，**消息队列的名称就是routingkey** ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164336132-1954704818.png)
+如果没有指定routingkey，**消息队列的名称就是routingkey** ![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164336132-1954704818.png)
 
 **在Spring Boot创建单元测试**
 
@@ -351,11 +351,11 @@ Book{name='<西游记>', anthony='吴承恩'}
 
 1.在rabbitmq后台新建一个topic交换机
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164359031-669150703.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164359031-669150703.png)
 
 2.新建一个消息队列`demo`
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164415551-1225635778.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164415551-1225635778.png)
 
 3.交换机绑定消息队列，注意此处的**路由键Routing key**使用了通配符
 
@@ -368,11 +368,11 @@ Book{name='<西游记>', anthony='吴承恩'}
 
 如果路由键为`demo.#`,那可以匹配`demo.`开头的所有路由键。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164429503-1278835699.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164429503-1278835699.png)
 
 4.查看此时的交换机
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164444881-1756671149.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164444881-1756671149.png)
 
 **在Spring Boot创建单元测试**
 
@@ -434,7 +434,7 @@ class java.util.HashMap
 
 2.登录后台查看，创建成功！
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164503903-1925060550.png)
+![](./20180718初窥RabbitMQ消息中间及SpringBoot整合/1136672-20190623164503903-1925060550.png)
 
 ### 7.监听消息队列
 

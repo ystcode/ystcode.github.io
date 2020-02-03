@@ -111,5 +111,5 @@ public class DruidConfig {
 
 访问http://localhost:8080/druid体验强大的Druid！
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180802SpringBoot整合Druid数据源/1136672-20180802204514162-477947424.png)
+![](./20180802SpringBoot整合Druid数据源/1136672-20180802204514162-477947424.png)
 > 官方Spring boot集成文档：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter

@@ -15,7 +15,7 @@ mysql5之前的版本，可以在jdbc连接的url中加入：autoReconnect = tru
 在window中最大为24天，以window为例： 
 
 
-![](/Users/yueshutong/Downloads/md/2017/LOCAL/20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623123008417-1023768128.png)
+![](./20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623123008417-1023768128.png)
 
 **这个方法并不推荐，原因：**
 
@@ -26,7 +26,7 @@ mysql5之前的版本，可以在jdbc连接的url中加入：autoReconnect = tru
 
 ***2.使用连接池***（推荐）
 
-**（1）无论是使用C3PO还是proxool连接池，一定要去hibernate解压包里找到相应文件夹的jar包，导入：** ![](/Users/yueshutong/Downloads/md/2017/LOCAL/20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623122921451-403699173.png)
+**（1）无论是使用C3PO还是proxool连接池，一定要去hibernate解压包里找到相应文件夹的jar包，导入：** ![](./20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623122921451-403699173.png)
 
 **有些人一直解决不了连接池问题，可能原因就在这里** 
 以proxool为例： 
