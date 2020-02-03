@@ -8,7 +8,7 @@ Jsoup使用手册：[http://www.open-open.com/jsoup/selector-syntax.htm](http://
 fastJson使用手册：[https://www.w3cschool.cn/fastjson/fastjson-ex2.html](https://www.w3cschool.cn/fastjson/fastjson-ex2.html) 
 在这里我就不重复写了，看官方API最靠谱！
 
-```javascript
+```java
 package com.zyzpp.jsoup;
 
 import java.io.IOException;
@@ -125,19 +125,18 @@ public class JsoupTest {
 }
 ```
 
----
 
-**看着内部类写满了构造方法和getter setter方法，有没有觉得没有必要写了呢？答案是必须写，因为我们使用的是fastJson：** 默认的构造函数一定要写，不然是无法解析的。
+看着内部类写满了构造方法和getter setter方法，有没有觉得没有必要写了呢？答案是必须写，因为我们使用的是fastJson： 默认的构造函数一定要写，不然是无法解析的。
 
 （对于fastjson 严格按照JavaBean的规范来，有一点不对就无法解析，这里一定要切记，每一个实体类的属性的get , set 方法必须写，且方法第四个字母必须大写，最好使用Eclipse的source->genreal setters and getters 生成get,set 方法，切记，切记 ）。对于Gson 这里就没有这么多的要求了，但最好还是按照JavaBean来写，避免一些位置的错误。（参考[http://blog.csdn.net/wx_962464/article/details/37612861](http://blog.csdn.net/wx_962464/article/details/37612861)）
 
 ---
 
-**项目到这里就已经可以发布到服务器上了，但是我们在客户端还需要解析json数据，这里可以参考我写的另一篇博客** 
- [http://blog.csdn.net/yueshutong123/article/details/78939083](http://blog.csdn.net/yueshutong123/article/details/78939083) 
+项目到这里就已经可以发布到服务器上了，但是我们在客户端还需要解析json数据，这里可以参考我写的另一篇博客
+
 下面我只写一下拿到json字符串之后要做的事：
 
-```javascript
+```java
 package com.zyzpp.jsoup;
 
 import java.util.List;
@@ -159,13 +158,10 @@ public class Demo {
 JSONArray：相当于List 
  JSONObject：相当于Map
 
-```javascript
+```java
 //如果不把内部类修饰为static，这句不好通过：
 List<NewBean> List = JSON.parseArray(json, NewBean.class);
 ```
 
----
 
 下载项目源代码：[http://download.csdn.net/download/yueshutong123/10182732](http://download.csdn.net/download/yueshutong123/10182732)
-
-***end***

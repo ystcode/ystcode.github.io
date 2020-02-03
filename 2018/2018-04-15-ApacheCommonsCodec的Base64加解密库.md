@@ -4,7 +4,7 @@ date: 2018-04-15 21:20:00
 ---
 下载地址：[http://commons.apache.org/proper/commons-codec/download_codec.cgi](http://commons.apache.org/proper/commons-codec/download_codec.cgi)
 
-```javascript
+```java
 import org.apache.commons.codec.binary.Base64;
 
 /**

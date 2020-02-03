@@ -23,14 +23,14 @@ date: 2018-05-18 13:14:00
 
 1.比如使用Shiro时我们自定义了Realm，并在其中使用了
 
-```javascript
+```java
     @Autowired
     private UserService userService;
 ```
 
 2.现在修改为
 
-```javascript
+```java
     @Autowired
     @Lazy
     private UserService userService;

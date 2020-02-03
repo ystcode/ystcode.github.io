@@ -63,7 +63,7 @@ RabbitMQ简单来说，就是生产者发送消息到虚拟主机，虚拟主机
 
 下载：
 
-```javascript
+```java
 wget http://erlang.org/download/otp_src_18.3.tar.gz
 ```
 
@@ -71,17 +71,17 @@ wget http://erlang.org/download/otp_src_18.3.tar.gz
 
 解压：
 
-```javascript
+```java
 tar -zxvf otp_src_18.3.tar.gz
 ```
 
 进入解压后的根目录：
 
-```javascript
+```java
 ./configure --prefix=/usr/local/erlang --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --without-javac
 ```
 
-```javascript
+```java
 make && make install 
 ```
 
@@ -93,20 +93,20 @@ make && make install
 vi /etc/profile
 ```
 
-```javascript
+```java
 export ERLANG=/usr/local/erlang/erlang
 export PATH=$ERLANG/bin:$PATH
 ```
 
 使环境变量生效
 
-```javascript
+```java
 source /etc/profile
 ```
 
 然后，我们测试下是否安装成功：
 
-```javascript
+```java
 [root@yueshutong ~]# erl
 Erlang/OTP 18 [erts-7.3] [source] [64-bit] [async-threads:10] [hipe] [kernel-poll:false]
 
@@ -120,33 +120,33 @@ Eshell V7.3  (abort with ^G)
 
 下载：
 
-```javascript
+```java
 wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.1/rabbitmq-server-generic-unix-3.6.1.tar.xz
 ```
 
 对于下载xz包进行解压，首先先下载xz压缩工具：
 
-```javascript
+```java
 yum install xz
 ```
 
 对rabbitmq包进行解压：
 
-```javascript
+```java
 xz -d xz -d rabbitmq-server-generic-unix-3.6.1.tar.xz
 ```
 
-```javascript
+```java
 tar -xvf rabbitmq-server-generic-unix-3.6.1.tar
 ```
 
 随后在`sbin`目录启用MQ管理方式：
 
-```javascript
+```java
 ./rabbitmq-plugins enable rabbitmq_management   #启动后台管理
 ```
 
-```javascript
+```java
 ./rabbitmq-server -detached #后台运行rabbitmq
 ```
 
@@ -160,13 +160,13 @@ tar -xvf rabbitmq-server-generic-unix-3.6.1.tar
 
 添加权限:
 
-```javascript
+```java
 ./rabbitmqctl set_permissions -p "/" admin ".*" ".*" ".*"  
 ```
 
 修改用户角色:
 
-```javascript
+```java
 ./rabbitmqctl set_user_tags admin administrator  
 ```
 
@@ -184,18 +184,18 @@ tar -xvf rabbitmq-server-generic-unix-3.6.1.tar
 
 ### 1.导入依赖
 
-```javascript
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
 ```
 
 ### 2.yml配置rabbitmq
 
 `virtual-host: /` 默认就是斜杠，具体查看rabbitmq后台admin栏。如果默认这行不用写。
 
-```javascript
+```java
 spring:
   rabbitmq:
     host: 127.0.0.1
@@ -237,7 +237,7 @@ direct 类型的行为是&rdquo;先匹配, 再投送&rdquo;. 即在绑定时设�
 
 **发送消息**
 
-```javascript
+```java
     @Autowired
     RabbitTemplate rabbitTemplate;
 
@@ -255,7 +255,7 @@ direct 类型的行为是&rdquo;先匹配, 再投送&rdquo;. 即在绑定时设�
 
 此时发送消息我们在rabbitmq网页发现消息是经序列化后的，我们如果想改变序列化机制为JSON，也很简单，只需要注入一个人Bean：
 
-```javascript
+```java
 @Configuration
 public class MyAMQPConfig {
     @Bean
@@ -271,7 +271,7 @@ public class MyAMQPConfig {
 
 `demo`是消息队列名，也就是消费者只需要得到消息队列的名字就可以接收队列中的消息。
 
-```javascript
+```java
     @Test
     public void receive(){
         Object o = rabbitTemplate.receiveAndConvert("demo");
@@ -282,7 +282,7 @@ public class MyAMQPConfig {
 
 查看打印
 
-```javascript
+```java
 class java.util.HashMap
 {msg=true, key=值}
 ```
@@ -313,7 +313,7 @@ class java.util.HashMap
 
 **发送消息**
 
-```javascript
+```java
     @Autowired
     RabbitTemplate rabbitTemplate;
 
@@ -329,7 +329,7 @@ class java.util.HashMap
 
 **接收消息**
 
-```javascript
+```java
     @Test
     public void receive(){
         Object o = rabbitTemplate.receiveAndConvert("demo");
@@ -340,7 +340,7 @@ class java.util.HashMap
 
 打印输出：
 
-```javascript
+```java
 class cn.zyzpp.rabbitmq.entity.Book
 Book{name='<西游记>', anthony='吴承恩'}
 ```
@@ -378,7 +378,7 @@ Book{name='<西游记>', anthony='吴承恩'}
 
 **发送消息**
 
-```javascript
+```java
     @Test
     public void contextLoads() {
         //message需要自己构造一个，定义消息体内容和消息体
@@ -393,7 +393,7 @@ Book{name='<西游记>', anthony='吴承恩'}
 
 **接收消息**
 
-```javascript
+```java
     @Test
     public void receive(){
         Object o = rabbitTemplate.receiveAndConvert("demo");
@@ -404,7 +404,7 @@ Book{name='<西游记>', anthony='吴承恩'}
 
 打印输出
 
-```javascript
+```java
 class java.util.HashMap
 {msg=true, key=topic交换机}
 ```
@@ -413,7 +413,7 @@ class java.util.HashMap
 
 1.上面演示的是通过RabbitMQ网页后台创建，通过编程的方式也非常简单：
 
-```javascript
+```java
     @Autowired
     AmqpAdmin amqpAdmin;
 
@@ -442,7 +442,7 @@ class java.util.HashMap
 
 1.开启基于注解的Rabbit模式
 
-```javascript
+```java
 @EnableRabbit   //开启基于注解的Rabbit模式
 @SpringBootApplication
 public class RabbitmqApplication {
@@ -457,7 +457,7 @@ public class RabbitmqApplication {
 
 注意此时你的消息队列已经有了`demo`和`demo.news`
 
-```javascript
+```java
 @Service
 public class BookService {
 
@@ -479,7 +479,7 @@ public class BookService {
 
 **测试用例**
 
-```javascript
+```java
     @Test
     public void send() {
         Book book = new Book();
@@ -492,13 +492,13 @@ public class BookService {
 
 **查看主控制台打印**
 
-```javascript
+```java
 收到消息：Book{name='<西游记>', anthony='吴承恩'}
 ```
 
 **测试用例**
 
-```javascript
+```java
     @Test
     public void contextLoads() {
         //message需要自己构造一个，定义消息体内容和消息体
@@ -513,7 +513,7 @@ public class BookService {
 
 **查看主控制台打印**
 
-```javascript
+```java
 收到消息：(Body:'{"msg":true,"key":"topic交换机"}' MessageProperties [headers={__ContentTypeId__=java.lang.Object, __KeyTypeId__=java.lang.Object, __TypeId__=java.util.HashMap}, timestamp=null, messageId=null, userId=null, receivedUserId=null, appId=null, clusterId=null, type=null, correlationId=null, correlationIdString=null, replyTo=null, contentType=application/json, contentEncoding=UTF-8, contentLength=0, deliveryMode=null, receivedDeliveryMode=PERSISTENT, expiration=null, priority=0, redelivered=false, receivedExchange=demo-topic, receivedRoutingKey=demo.hello, receivedDelay=null, deliveryTag=1, messageCount=0, consumerTag=amq.ctag-KRZh2DyNETjEaGSH0JZ2dA, consumerQueue=demo.news])
 [B@5332f99e
 MessageProperties [headers={__ContentTypeId__=java.lang.Object, __KeyTypeId__=java.lang.Object, __TypeId__=java.util.HashMap}, timestamp=null, messageId=null, userId=null, receivedUserId=null, appId=null, clusterId=null, type=null, correlationId=null, correlationIdString=null, replyTo=null, contentType=application/json, contentEncoding=UTF-8, contentLength=0, deliveryMode=null, receivedDeliveryMode=PERSISTENT, expiration=null, priority=0, redelivered=false, receivedExchange=demo-topic, receivedRoutingKey=demo.hello, receivedDelay=null, deliveryTag=1, messageCount=0, consumerTag=amq.ctag-KRZh2DyNETjEaGSH0JZ2dA, consumerQueue=demo.news]

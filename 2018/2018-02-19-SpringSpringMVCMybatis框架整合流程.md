@@ -4,22 +4,22 @@ date: 2018-02-19 15:13:00
 ---
 ### 一：基本步骤
 
->1. 新建Maven项目，导入相关**依赖**。（推荐）   *&mdash;&mdash;&mdash;&mdash;&ndash;Mybatis配置 &mdash;&mdash;&mdash;&mdash;&mdash;-*
->2. 新建entity包，并根据数据库(表)新建相关**实体类**。
->3. 新建dao包，并根据业务创建必要的mapper **接口类**。
->4. 在resources下新建**mybatis-config.xml**配置文件。
->5. 在resources源文件夹下新建mapper文件夹，根据3创建的接口类配置相应的**mapper.xml**   *&mdash;&mdash;&mdash;&mdash;Spring整合Mybatis&mdash;&mdash;&mdash;&mdash;&ndash;*
->6. 在resources文件夹下新建spring文件夹，新建**spring-dao.xml**，然后添加二者整合的配置。   *&mdash;&mdash;&mdash;&mdash;Spring Service层配置&mdash;&mdash;&mdash;&ndash;*
->7. 在spring文件夹下新建**spring-service.xml**，配置service层的相关bean。   *&mdash;&mdash;&mdash;&mdash;&ndash;SpringMVC配置&mdash;&mdash;&mdash;&mdash;&mdash;-*
->8. 在WEB-INF的**web.xml**中进行我们前端控制器DispatcherServlet的配置。
->9. 在spring文件夹下创建**spring-web.xml**，进行web层相关bean(即Controller)的配置。
+1. 新建Maven项目，导入相关**依赖**。（推荐）   *&mdash;&mdash;&mdash;&mdash;&ndash;Mybatis配置 &mdash;&mdash;&mdash;&mdash;&mdash;-*
+2. 新建entity包，并根据数据库(表)新建相关**实体类**。
+3. 新建dao包，并根据业务创建必要的mapper **接口类**。
+4. 在resources下新建**mybatis-config.xml**配置文件。
+5. 在resources源文件夹下新建mapper文件夹，根据3创建的接口类配置相应的**mapper.xml**   *&mdash;&mdash;&mdash;&mdash;Spring整合Mybatis&mdash;&mdash;&mdash;&mdash;&ndash;*
+6. 在resources文件夹下新建spring文件夹，新建**spring-dao.xml**，然后添加二者整合的配置。   *&mdash;&mdash;&mdash;&mdash;Spring Service层配置&mdash;&mdash;&mdash;&ndash;*
+7. 在spring文件夹下新建**spring-service.xml**，配置service层的相关bean。   *&mdash;&mdash;&mdash;&mdash;&ndash;SpringMVC配置&mdash;&mdash;&mdash;&mdash;&mdash;-*
+8. 在WEB-INF的**web.xml**中进行我们前端控制器DispatcherServlet的配置。
+9. 在spring文件夹下创建**spring-web.xml**，进行web层相关bean(即Controller)的配置。
 
 ### 二：详细配置
 
 1.新建Maven项目，导入相关依赖。（推荐） 
 若不使用maven：请前往[Maven官网](http://mvnrepository.com/)依次下载jar包导入）
 
-```javascript
+```xml
     <properties>
         <!-- 统一源码的编码方式 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -163,7 +163,7 @@ date: 2018-02-19 15:13:00
 
 2.新建entity包，并根据数据库(表)新建相关实体类。
 
-```javascript
+```java
 //举个栗子 getter/setter
 public class Seckill {
     private int id;
@@ -175,7 +175,7 @@ public class Seckill {
 
 3.新建dao包，并根据业务创建必要的mapper接口类。
 
-```javascript
+```java
 //再举个栗子
 public interface SeckillDao {
 
@@ -191,7 +191,7 @@ public interface SeckillDao {
 
 4.在resources下新建mybatis-config.xml配置文件。
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -213,7 +213,7 @@ public interface SeckillDao {
 
 5.在resources源文件夹下新建mapper文件夹，根据第3步创建的接口类配置相应的mapper.xml
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -233,7 +233,7 @@ public interface SeckillDao {
 
 6.在resources文件夹下新建spring文件夹，新建spring-dao.xml，然后添加二者整合的配置。
 
-```javascript
+```properties
 /*推荐：在resources包下创建jdbc.properties用于配置数据库的连接信息*/
 driver=com.mysql.jdbc.Driver
 url=jdbc:mysql://localhost:3306/seckill?useUnicode=true&characterEncoding=utf-8
@@ -241,7 +241,7 @@ username=root
 password=
 ```
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -299,7 +299,7 @@ password=
 
 7.在spring文件夹下新建spring-service.xml，配置service层的相关bean。
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -332,7 +332,7 @@ password=
 
 Service层的相关bean示例：
 
-```javascript
+```java
 //推荐：先定义service接口包再定义service.impl实现包
 //@Component 通用 @Service @Dao @Controller控制器
 @Service
@@ -347,12 +347,12 @@ public class SeckillServiceImpl implements SeckillService{
 
         return seckillDao.queryAll(0,4);
     }
-    ....
+    //....
 ```
 
 8.在WEB-INF的web.xml中进行我们前端控制器DispatcherServlet的配置。
 
-```javascript
+```xml
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
@@ -385,7 +385,7 @@ public class SeckillServiceImpl implements SeckillService{
 
 9.在spring文件夹下创建spring-web.xml，进行web层相关bean(即Controller)的配置。
 
-```javascript
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -425,7 +425,7 @@ public class SeckillServiceImpl implements SeckillService{
 
 web层的相关bean示例：
 
-```javascript
+```java
 @Controller //Controller层调用Service层，Service层调用Dao层
 @RequestMapping("/seckill") // url:/模块/资源/{id}/细分 /seckill/list
 public class SeckillController {
@@ -441,6 +441,5 @@ public class SeckillController {
         //list.jsp + model = ModelAndView
         return "list";      // /WEB-INF/jsp/"list".jsp
     }
+}
 ```
-
->*  转载注明：[http://blog.csdn.net/yueshutong123/article/details/79337142](http://blog.csdn.net/yueshutong123/article/details/79337142)

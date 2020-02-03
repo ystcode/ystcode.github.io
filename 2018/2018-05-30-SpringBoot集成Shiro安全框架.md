@@ -10,7 +10,7 @@ Spring集成Shiro的GitHub：[https://github.com/yueshutong/shiro-imooc](https:/
 
 # 一：导包
 
-```javascript
+```xml
         <!-- Shiro安全框架 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -31,7 +31,7 @@ Spring集成Shiro的GitHub：[https://github.com/yueshutong/shiro-imooc](https:/
 
 # 二：ShiroConfig配置
 
-```javascript
+```java
 
 import cn.zyzpp.shiro.CustomRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -164,7 +164,7 @@ public class ShiroConfig {
 
 # 三：自定义授权类
 
-```javascript
+```java
 import cn.zyzpp.service.user.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -240,7 +240,7 @@ public class CustomRealm extends AuthorizingRealm {
 
 ## 1）登录验证：
 
-```javascript
+```java
     @RequestMapping(value = "/login/result", method = RequestMethod.POST)
     public String userLogin(User user) {
         String error = null;
@@ -271,7 +271,7 @@ public class CustomRealm extends AuthorizingRealm {
 
 *  使用诸如    @RequiresRoles(“user”) 注解在controller层的方法上，进行角色验证，或者使用@RequiresPermissions(“index:hello”)进行权限验证，不过使用注解Shiro就只抛出异常，无法使用shiro设置自动跳转到页面等。针对这个问题，可以用@ControllerAdvice统一异常处理。
 
-```javascript
+```java
     @RequiresRoles("user")
     @RequestMapping(value = "/up")
     public String up(){

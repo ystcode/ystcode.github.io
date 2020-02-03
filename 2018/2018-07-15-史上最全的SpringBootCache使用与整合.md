@@ -91,7 +91,7 @@ IDE：IDEA
 
 ### 1.开始使用前需要导入依赖
 
-```javascript
+```java
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
@@ -100,7 +100,7 @@ IDE：IDEA
 
 ### 2.然后在启动类注解@EnableCaching开启缓存
 
-```javascript
+```java
 @SpringBootApplication
 @EnableCaching  //开启缓存
 public class DemoApplication{
@@ -116,7 +116,7 @@ public class DemoApplication{
 
 `@Cacheable`注解会先查询是否已经有缓存，有会使用缓存，没有则会执行方法并缓存。
 
-```javascript
+```java
     @Cacheable(value = "emp" ,key = "targetClass + methodName +#p0")
     public List<NewJob> queryAll(User uid) {
         return newJobDao.findAllByUid(uid);
@@ -135,31 +135,31 @@ public class DemoApplication{
 
 我们打开`@Cacheable`注解的源码，可以看到该注解提供的其他属性，如：
 
-```javascript
+```java
 String[] cacheNames() default {}; //和value注解差不多，二选一
 ```
 
-```javascript
+```java
 String keyGenerator() default ""; //key的生成器。key/keyGenerator二选一使用
 ```
 
-```javascript
+```java
 String cacheManager() default ""; //指定缓存管理器
 ```
 
-```javascript
+```java
 String cacheResolver() default ""; //或者指定获取解析器
 ```
 
-```javascript
+```java
 String condition() default ""; //条件符合则缓存
 ```
 
-```javascript
+```java
 String unless() default ""; //条件符合则不缓存
 ```
 
-```javascript
+```java
 boolean sync() default false; //是否使用异步模式
 ```
 
@@ -169,7 +169,7 @@ boolean sync() default false; //是否使用异步模式
 
 使用方法如下：
 
-```javascript
+```java
 @CacheConfig(cacheNames = {"myCache"})
 public class BotRelationServiceImpl implements BotRelationService {
     @Override
@@ -183,15 +183,15 @@ public class BotRelationServiceImpl implements BotRelationService {
 
 **查看它的其它属性**
 
-```javascript
+```java
 String keyGenerator() default "";  //key的生成器。key/keyGenerator二选一使用
 ```
 
-```javascript
+```java
 String cacheManager() default "";  //指定缓存管理器
 ```
 
-```javascript
+```java
 String cacheResolver() default ""; //或者指定获取解析器
 ```
 
@@ -199,7 +199,7 @@ String cacheResolver() default ""; //或者指定获取解析器
 
 `@CachePut`注解的作用 主要针对方法配置，能够根据方法的请求参数对其结果进行缓存，和 `@Cacheable` 不同的是，它每次都会触发真实方法的调用 。简单来说就是用户更新缓存数据。但需要注意的是该注解的`value` 和 `key` 必须与要更新的缓存相同，也就是与`@Cacheable` 相同。示例：
 
-```javascript
+```java
     @CachePut(value = "emp", key = "targetClass + #p0")
     public NewJob updata(NewJob job) {
         NewJob newJob = newJobDao.findAllById(job.getId());
@@ -216,27 +216,27 @@ String cacheResolver() default ""; //或者指定获取解析器
 
 **查看它的其它属性**
 
-```javascript
+```java
 String[] cacheNames() default {}; //与value二选一
 ```
 
-```javascript
+```java
 String keyGenerator() default "";  //key的生成器。key/keyGenerator二选一使用
 ```
 
-```javascript
+```java
 String cacheManager() default "";  //指定缓存管理器
 ```
 
-```javascript
+```java
 String cacheResolver() default ""; //或者指定获取解析器
 ```
 
-```javascript
+```java
 String condition() default ""; //条件符合则缓存
 ```
 
-```javascript
+```java
 String unless() default ""; //条件符合则不缓存
 ```
 
@@ -251,7 +251,7 @@ String unless() default ""; //条件符合则不缓存
 
 示例：
 
-```javascript
+```java
     @Cacheable(value = "emp",key = "#p0.id")
     public NewJob save(NewJob job) {
         newJobDao.save(job);
@@ -279,23 +279,23 @@ String unless() default ""; //条件符合则不缓存
 
 **其他属性**
 
-```javascript
+```java
 String[] cacheNames() default {}; //与value二选一
 ```
 
-```javascript
+```java
 String keyGenerator() default "";  //key的生成器。key/keyGenerator二选一使用
 ```
 
-```javascript
+```java
 String cacheManager() default "";  //指定缓存管理器
 ```
 
-```javascript
+```java
 String cacheResolver() default ""; //或者指定获取解析器
 ```
 
-```javascript
+```java
 String condition() default ""; //条件符合则清空
 ```
 
@@ -303,7 +303,7 @@ String condition() default ""; //条件符合则清空
 
 有时候我们可能组合多个Cache注解使用，此时就需要@Caching组合多个注解标签了。
 
-```javascript
+```java
     @Caching(cacheable = {
             @Cacheable(value = "emp",key = "#p0"),
             ...
@@ -330,23 +330,23 @@ Ehcache是一种广泛使用的开源Java分布式缓存。主要面向通用缓
 
 整合ehcache必须要导入它的依赖。
 
-```javascript
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-        </dependency>
+```xml
+<dependency>
+    <groupId>net.sf.ehcache</groupId>
+    <artifactId>ehcache</artifactId>
+</dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
 ```
 
 ### 2.yml配置
 
 需要说明的是`config: classpath:/ehcache.xml`可以不用写，因为默认就是这个路径。但`ehcache.xml`必须有。
 
-```javascript
+```yaml
 spring:
   cache:
     type: ehcache
@@ -358,7 +358,7 @@ spring:
 
 在resources目录下新建ehcache.xml，注释啥的应该可以说相当详细了
 
-```javascript
+```xml
 <ehcache>
 
     <!--
@@ -398,7 +398,7 @@ spring:
 
 `@CacheConfig(cacheNames = {&ldquo;myCache&rdquo;})`设置ehcache的名称，这个名称必须在ehcache.xml已配置 。
 
-```javascript
+```java
 @CacheConfig(cacheNames = {"myCache"})
 public class BotRelationServiceImpl implements BotRelationService {
 
@@ -432,7 +432,7 @@ public class BotRelationServiceImpl implements BotRelationService {
 
 就只需要这一个依赖！不需要`spring-boot-starter-cache`
 
-```javascript
+```xml
   <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -445,7 +445,7 @@ public class BotRelationServiceImpl implements BotRelationService {
 
 ### 3.配置Redis
 
-```javascript
+```properties
 # Redis数据库索引（默认为0）
 spring.redis.database=1
 # Redis服务器地址
@@ -471,7 +471,7 @@ spring.redis.timeout=0
 除了使用注解，我们还可以使用Redis模板。 
 Spring boot集成 Redis 客户端jedis。封装Redis 连接池，以及操作模板。 
 
-```javascript
+```java
     @Autowired
     private StringRedisTemplate stringRedisTemplate;//操作key-value都是字符串
 

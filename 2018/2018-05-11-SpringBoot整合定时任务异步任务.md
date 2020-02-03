@@ -6,7 +6,7 @@ date: 2018-05-11 11:00:00
 
 1.开启定时任务
 
-```javascript
+```java
 @SpringBootApplication
 //开启定时任务
 @EnableScheduling
@@ -20,7 +20,7 @@ public class SpringBootDemoApplication{
 
 2.使用定时任务
 
-```javascript
+```java
 @Component
 public class TestTask {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -39,7 +39,7 @@ public class TestTask {
 
 1.开启异步任务
 
-```javascript
+```java
 @SpringBootApplication
 //开启异步调用方法
 @EnableAsync
@@ -53,7 +53,7 @@ public class SpringBootDemoApplication{
 
 2.定义异步任务
 
-```javascript
+```java
 @Component
 public class AsyncTask {
 
@@ -73,7 +73,7 @@ public class AsyncTask {
 
 3.使用异步任务
 
-```javascript
+```java
     @Autowired
     private AsyncTask async;
 

@@ -4,15 +4,17 @@ date: 2018-02-28 22:21:00
 ---
 # 一：安装STS插件
 
->*  官网下载：[点此下载STS](https://spring.io/tools/sts/all)
->*  注意：STS版本必须与eclipse版本对应
->*  安装教程：[http://blog.csdn.net/cryhelyxx/article/details/53894405](http://blog.csdn.net/cryhelyxx/article/details/53894405)
+官网下载：[点此下载STS](https://spring.io/tools/sts/all)
+
+注意：STS版本必须与eclipse版本对应
+
+安装教程：[http://blog.csdn.net/cryhelyxx/article/details/53894405](http://blog.csdn.net/cryhelyxx/article/details/53894405)
 
 # 二：新建Spring boot项目
 
->1. 文件 &ndash;> 新建 &ndash;> Spring Starter Project
->2. 填写类似Mvane项目的一些配置，下一步
->3. 选择依赖：我们只勾选**web**即可
+1. 文件 &ndash;> 新建 &ndash;> Spring Starter Project
+2. 填写类似Mvane项目的一些配置，下一步
+3. 选择依赖：我们只勾选**web**即可
 
 # 三：项目开发
 
@@ -20,14 +22,14 @@ date: 2018-02-28 22:21:00
 
 1.使用application.properties（默认）
 
-```javascript
+```properties
 server.port=8081
 server.context-path=/demo
 ```
 
 2.使用application.yml（手动创建 | 推荐）
 
-```javascript
+```yaml
 server:
   port: 8080
   context-path: /demo
@@ -35,7 +37,7 @@ server:
 
 2.1 新建application-dev.yml
 
-```javascript
+```yaml
 server:
   port: 8080
   context-path: /demo
@@ -48,7 +50,7 @@ content: "cupSize: ${cupSize}, age: ${age}"
 
 2.2 新建application.yml
 
-```javascript
+```yaml
 #指定使用哪个子配置
 spring:
   profiles:
@@ -72,7 +74,7 @@ spring:
 
 ## 2.常用pom.xml依赖
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -164,14 +166,14 @@ spring:
 
 1.第一种方法
 
-```javascript
+```java
     @Value("${cupSize}")
     private String cupSize;
 ```
 
 2.第二种方法
 
-```javascript
+```java
 package cn.zyzpp.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -206,7 +208,7 @@ public class SpringBootDemoProperties {
 
 使用时
 
-```javascript
+```java
     @Autowired
     private SpringBootDemoProperties sbdp;
     ....
@@ -215,7 +217,7 @@ public class SpringBootDemoProperties {
 
 ## 4.如何使用Controller
 
-```javascript
+```java
 package cn.zyzpp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -252,7 +254,7 @@ public class HelloController {
 
 需要在application.yml配置
 
-```javascript
+```java
 package cn.zyzpp.entity;
 
 import javax.persistence.Entity;
@@ -317,7 +319,7 @@ public class Girl {
 
 创建一个接口类即可
 
-```javascript
+```java
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -345,7 +347,7 @@ public interface GirlRepository extends JpaRepository<Girl, Integer> {
 
 ## 6.事务管理
 
-```javascript
+```java
     /**
      * 事务管理测试
      */
@@ -365,7 +367,7 @@ public interface GirlRepository extends JpaRepository<Girl, Integer> {
 
 ## 7.使用AOP面向切面处理请求
 
-```javascript
+```java
 package cn.zyzpp.aspect;
 
 import javax.servlet.http.HttpServletRequest;
@@ -429,7 +431,7 @@ public class HttpAspect {
 
 1）自定义异常类
 
-```javascript
+```java
 package cn.zyzpp.exception;
 
 import cn.zyzpp.enums.ResultEnum;
@@ -465,7 +467,7 @@ public class GirlException extends RuntimeException {
 
 2）自定义异常信息
 
-```javascript
+```java
 package cn.zyzpp.enums;
 /**
 * Created by 巅峰小学生
@@ -500,7 +502,7 @@ public enum ResultEnum {
 
 3）在需要的地方抛出异常
 
-```javascript
+```java
     /**
      * @param id
      * @throws Exception
@@ -520,7 +522,7 @@ public enum ResultEnum {
 
 4）定义异常捕获类（核心类：上面3步可忽略，直接定义该类即可使用）
 
-```javascript
+```java
 package cn.zyzpp.handle;
 
 import org.slf4j.Logger;
@@ -565,7 +567,7 @@ public class ExceptionHandle {
 
 1.）使启动类继承SpringBootServletInitializer 覆写configure()方法。
 
-```javascript
+```java
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -587,13 +589,13 @@ public class SpringBootDemoApplication extends SpringBootServletInitializer{
 
 2.）修改pom.xml打包方式为war
 
-```javascript
+```xml
 <packaging>war</packaging>
 ```
 
 3.）确保嵌入servlet容器不干扰外部servlet容器部署war文件
 
-```javascript
+```xml
 <dependency>
    <groupId>org.springframework.boot</groupId>
    <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -601,4 +603,4 @@ public class SpringBootDemoApplication extends SpringBootServletInitializer{
 </dependency>
 ```
 
->*  若war在部署到容器中时遇到Project facet Cloud Foundry Standalone Application version 1.0 is not supported.错误；   解决办法: 项目右键Build Path -> Configure Build Path -> Project facet -> 勾掉Cloud Foundry Standalone Application
+> 若war在部署到容器中时遇到Project facet Cloud Foundry Standalone Application version 1.0 is not supported.错误；   解决办法: 项目右键Build Path -> Configure Build Path -> Project facet -> 勾掉Cloud Foundry Standalone Application

@@ -14,7 +14,7 @@ date: 2018-05-10 14:21:00
 
 1.添加依赖
 
-```javascript
+```xml
         <!-- ftl模板引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -24,7 +24,7 @@ date: 2018-05-10 14:21:00
 
 2.配置参数
 
-```javascript
+```yaml
 #Freemarker模板引擎
 spring:
   freemarker:
@@ -44,7 +44,7 @@ spring:
 3.模板使用 
 在templates文件夹下新建freemarker文件夹，然后在该文件夹下新建index.html
 
-```javascript
+```html
 <!DOCTYPE>
 <html>
 <head>
@@ -59,7 +59,7 @@ ${message}
 
 4.Controller返回视图
 
-```javascript
+```java
 @Controller()
 @RequestMapping("/ftl")
 public class FtlController {
@@ -77,7 +77,7 @@ public class FtlController {
 
 1.添加依赖
 
-```javascript
+```xml
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -86,7 +86,7 @@ public class FtlController {
 
 2.配置参数（一般情况不用配置）
 
-```javascript
+```yaml
 #Thymeleaf 静态资源配置
 spring:
   thymeleaf:
@@ -114,7 +114,7 @@ roles<span class="hljs-preprocessor">.superadmin</span>=superadmin
 2.模板使用 
 thymeleaf涉及的标签很多
 
-```javascript
+```html
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
@@ -219,7 +219,7 @@ URL:<br/>
 
 4.Controller返回视图
 
-```javascript
+```java
 @Controller
 @RequestMapping("th")
 public class ThymeleafController {

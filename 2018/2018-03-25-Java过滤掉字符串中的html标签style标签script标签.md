@@ -4,7 +4,7 @@ date: 2018-03-25 15:44:00
 ---
 ## 使用正则表达式
 
-```javascript
+```java
 import java.util.regex.Matcher;
 import java.util.regex.Pattern; 
 

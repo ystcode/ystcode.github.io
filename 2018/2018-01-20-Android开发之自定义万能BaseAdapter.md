@@ -2,7 +2,7 @@
 title: Android开发之自定义万能BaseAdapter
 date: 2018-01-20 13:04:00
 ---
-**话不多说哦，直接上模板：**
+话不多说哦，直接上模板：
 
 ```java
 package com.zyzpp.adapter;
@@ -219,7 +219,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
 }
 ```
 
-**下面说一下ListView（GridView）的使用流程：**
+下面说一下ListView（GridView）的使用流程：
 
 
 ```java

@@ -13,7 +13,7 @@ date: 2018-05-11 13:39:00
 >*  Connection requestBody​(String body)   Set a POST (or PUT) request body. Useful when a server expects a plain request body, not a set for URL encoded form key/value pairs. E.g.:
 >*  字符串连接requestBody(身体)   设置一个POST(或PUT)请求体。当服务器需要一个普通的请求体，而不是URL编码的表单键/值对的集合时，这很有用。例如:
 
-```javascript
+```java
 Jsoup.connect(url)
  .requestBody(json)
  .header("Content-Type", "application/json")

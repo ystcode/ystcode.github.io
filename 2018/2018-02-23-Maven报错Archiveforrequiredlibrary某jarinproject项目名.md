@@ -4,8 +4,6 @@ date: 2018-02-23 00:17:00
 ---
 ###### Maven报错Archive for required library:某.jar’ in project ‘项目名’cannot be read or is not a valid ZIP file
 
----
-
 #### 报错信息：项目出现红色叉号
 
 #### 报错原因：maven自动下载的依赖包错误

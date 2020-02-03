@@ -15,13 +15,13 @@ date: 2018-02-23 18:13:00
 
 ###### 1）Maven项目：
 
-```javascript
-        <!--此处使用hibernate4-->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-ehcache</artifactId>
-            <version>4.3.10.Final</version>
-        </dependency>
+```xml
+<!--此处使用hibernate4-->
+<dependency>
+    <groupId>org.hibernate</groupId>
+     <artifactId>hibernate-ehcache</artifactId>
+    <version>4.3.10.Final</version>
+</dependency>
 ```
 
 ###### 2)普通项目：
@@ -30,9 +30,8 @@ date: 2018-02-23 18:13:00
 
 ##### 第二步：在源文件夹下,创建ehcache.xml
 
-```javascript
+```xml
 <ehcache>
-
     <!-- 
         磁盘存储:将缓存中暂时不使用的对象,转移到硬盘,类似于Windows系统的虚拟内存
         path:指定在硬盘上存储对象的路径
@@ -72,13 +71,12 @@ date: 2018-02-23 18:13:00
         timeToLiveSeconds="600" 
         overflowToDisk="true" 
         />
-
 </ehcache>
 ```
 
 ##### 第三步：在hibernate.cfg.xml中配置
 
-```javascript
+```xml
      <!-- 配置二级缓存 -->
      <!-- hibernate4以前的版本 配置缓存的提供类-->
      <!-- <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</property> -->
@@ -88,7 +86,7 @@ date: 2018-02-23 18:13:00
 
 如果是Spring+Hibernate，需要在spring.xml中
 
-```javascript
+```xml
 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 <property name="hibernateProperties">
     <props>
@@ -112,7 +110,7 @@ date: 2018-02-23 18:13:00
 
 ##### 第四步：在需要缓存的对象中开启
 
-```javascript
+```xml
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -145,7 +143,7 @@ date: 2018-02-23 18:13:00
 
 若是使用hibernate注解：`@Cache(usage =CacheConcurrencyStrategy.READ_ONLY)`
 
-```javascript
+```java
 @Entity
 @Table(name = "EMPLOYEE")
 @Cache(usage =CacheConcurrencyStrategy.READ_ONLY,include="all", region="")  //开启缓存

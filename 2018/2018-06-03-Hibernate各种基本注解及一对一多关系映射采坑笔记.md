@@ -8,7 +8,7 @@ date: 2018-06-03 00:36:00
 
 # 1.基本注解
 
-```javascript
+```java
 @Table(name = " ",catalog=" ", schema=" ")
 //name表名，虽然可选，建议写上。catalog在MySql不支持，不必写。schema在MySql中指数据库名。
 
@@ -66,7 +66,7 @@ GenerationType.TABLE //使用指定表来决定主键取值，结合TableGenerat
 **解决方法：** 
 在进行多对多(一)保存操作时，数据表定义主键为自增，但在执行插入前需设置ID为-1。有多个级联关系，每个对象都要进行设置。即可避免该异常。如下：
 
-```javascript
+```java
    public void test() {
         User user=new User();
         user.setId(-1);  //加上这一句即可！！！
@@ -96,7 +96,7 @@ GenerationType.TABLE //使用指定表来决定主键取值，结合TableGenerat
 
 #### （1）单向
 
-```javascript
+```java
 @Entity
 @Table(name="User")
 public class User {
@@ -124,7 +124,7 @@ public class User {
 
 ### （2）双向
 
-```javascript
+```java
 @Entity
 @Table(name="Room")
 public class Room {
@@ -149,7 +149,7 @@ public class Room {
 
 # 4.一对多单向
 
-```javascript
+```java
 @Entity
 @Table(name="Room")
 public class Room {
@@ -174,7 +174,7 @@ public class Room {
 }
 ```
 
-```javascript
+```java
 //正常建表
 @Entity
 @Table(name="User")
@@ -197,7 +197,7 @@ public class User {
 
 # 5.多对一单向
 
-```javascript
+```java
 @Entity
 @Table(name="User")
 public class User {
@@ -221,7 +221,7 @@ public class User {
 }
 ```
 
-```javascript
+```java
 //正常建表
 @Entity
 @Table(name="Room")
@@ -242,7 +242,7 @@ public class Room {
 
 # 6.一对多（多对一）双向
 
-```javascript
+```java
 @Entity
 @Table(name="User")
 public class User {
@@ -266,7 +266,7 @@ public class User {
 }
 ```
 
-```javascript
+```java
 @Entity
 @Table(name="Room")
 public class Room {
@@ -295,7 +295,7 @@ public class Room {
 
 ### (1)单向
 
-```javascript
+```java
 @Entity
 @Table(name="t_course")
 public class Course
@@ -323,7 +323,7 @@ public class Course
 
 ### (2)双向
 
-```javascript
+```java
 @Entity
 @Table(name="t_teacher")
 public class Teacher

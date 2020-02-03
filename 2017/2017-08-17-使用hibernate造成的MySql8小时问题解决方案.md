@@ -2,11 +2,8 @@
 title: 使用hibernate造成的MySql 8小时问题解决方案
 date: 2017-08-17 17:02:00
 ---
-**本文借鉴了网上的很多博客,在此不再声明**
 
----
-
-***1.增加 MySQL 的 wait_timeout 属性的值***（不推荐）
+## 1.增加 MySQL 的 wait_timeout 属性的值（不推荐）
 
 mysql5之前的版本，可以在jdbc连接的url中加入：autoReconnect = true
 
@@ -17,22 +14,24 @@ mysql5之前的版本，可以在jdbc连接的url中加入：autoReconnect = tru
 
 ![](./20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623123008417-1023768128.png)
 
-**这个方法并不推荐，原因：**
+这个方法并不推荐，原因：
 
-*MySQL服务器所支撑的最大连接数是有限的，因为每一个连接、第一个表打开的操作都要消耗服务器内存，理想状态是当一个MySQL客户端连接完成工作就自动断开释放内存，如果你的你的网站有大量的MySQL链接请求，这些连接完成SQL执行任务后空闲着啥事也不干，白白占用内存资源，如果 这些连接堆积起来，将导致MySQL超过最大连接数，从而无法新建MySQL连接，有可能导致&ldquo;Too many connections&rdquo;的错误。 
-参考自：[http://blog.csdn.net/cenfei78325747/article/details/7854611](http://blog.csdn.net/cenfei78325747/article/details/7854611)*
+MySQL服务器所支撑的最大连接数是有限的，因为每一个连接、第一个表打开的操作都要消耗服务器内存，理想状态是当一个MySQL客户端连接完成工作就自动断开释放内存，如果你的你的网站有大量的MySQL链接请求，这些连接完成SQL执行任务后空闲着啥事也不干，白白占用内存资源，如果 这些连接堆积起来，将导致MySQL超过最大连接数，从而无法新建MySQL连接，有可能导致&ldquo;Too many connections&rdquo;的错误。 
+参考自：[http://blog.csdn.net/cenfei78325747/article/details/7854611](http://blog.csdn.net/cenfei78325747/article/details/7854611)
 
----
 
-***2.使用连接池***（推荐）
+## 2.使用连接池（推荐）
 
-**（1）无论是使用C3PO还是proxool连接池，一定要去hibernate解压包里找到相应文件夹的jar包，导入：** ![](./20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623122921451-403699173.png)
+（1）无论是使用C3PO还是proxool连接池，一定要去hibernate解压包里找到相应文件夹的jar包，导入：
+ ![](./20170817使用hibernate造成的MySql8小时问题解决方案/1136672-20190623122921451-403699173.png)
 
-**有些人一直解决不了连接池问题，可能原因就在这里** 
+有些人一直解决不了连接池问题，可能原因就在这里
+
 以proxool为例： 
-**（2）配置hibernate.cfg.xml**
 
-```javascript
+（2）配置hibernate.cfg.xml
+
+```xml
 <session-factory>
 <!-- 选择使用连接池 -->
 <property name="connection.provider_class">
@@ -43,14 +42,12 @@ mysql5之前的版本，可以在jdbc连接的url中加入：autoReconnect = tru
 <!-- 指明Proxool配置文件所在位置，这里与Hibernate的配置文件在同一目录下 -->
 <property name="proxool.xml">proxool.xml</property>
 
-..............
-
 </session-factory>
 ```
 
-**（3）在同一目录下配置proxool.xml**
+（3）在同一目录下配置proxool.xml
 
-```javascript
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <proxool>
 <!-- proxool别名 -->
@@ -84,7 +81,6 @@ connections决定 -->
 <!-- 用于测试的SQL语句 -->
 <house-keeping-test-sql>SELECT CURRENT_USER</house-keeping-test-sql>
 </proxool>
-</something-else-entirely>
 ```
 
 参考：[http://blog.csdn.net/u012377333/article/details/50600173](http://blog.csdn.net/u012377333/article/details/50600173)

@@ -4,16 +4,16 @@ date: 2018-02-19 20:35:00
 ---
 #### 一：前端优化
 
->1. 暴露接口，按钮防重复（点击一次按钮后就变成禁用，禁止重复提交）
->2. 采用CDN存储静态化的页面和一些静态资源（css，js等）
+1. 暴露接口，按钮防重复（点击一次按钮后就变成禁用，禁止重复提交）
+2. 采用CDN存储静态化的页面和一些静态资源（css，js等）
 
 ### 二：Redis后端缓存优化
 
->1. Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
->2. Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。
->3. 性能极高 &ndash; Redis能读的速度是110000次/s,写的速度是81000次/s 。
->4. 原子 &ndash; Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。
->5. **利用Redis可以减轻MySQL服务器的压力，减少了跟数据库服务器的通信次数。**
+1. Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
+2. Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。
+3. 性能极高 &ndash; Redis能读的速度是110000次/s,写的速度是81000次/s 。
+4. 原子 &ndash; Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。
+5. 利用Redis可以减轻MySQL服务器的压力，减少了跟数据库服务器的通信次数。
 
 #### 2.1 Redis服务端下载以及安装
 
@@ -23,40 +23,40 @@ date: 2018-02-19 20:35:00
 
 #### 2.2 在pom.xml中配置Redis客户端
 
-```javascript
-      <!-- redis客户端:Jedis -->
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.7.3</version>
-        </dependency>
+```xml
+<!-- redis客户端:Jedis -->
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>2.7.3</version>
+</dependency>
 ```
 
 由于Jedis并没有实现内部序列化操作，而Java内置的序列化机制性能又不高，我们需要考虑高并发优化，在这里我们采用开源社区提供的更高性能的自定义序列化工具protostuff。
 
 #### 2.3 在pom.xml中配置protostuff依赖
 
-```javascript
-        <!-- protostuff序列化依赖 -->
-        <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
-            <artifactId>protostuff-core</artifactId>
-            <version>1.0.8</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
-            <artifactId>protostuff-runtime</artifactId>
-            <version>1.0.8</version>
-        </dependency>
+```xml
+<!-- protostuff序列化依赖 -->
+<dependency>
+    <groupId>com.dyuproject.protostuff</groupId>
+    <artifactId>protostuff-core</artifactId>
+    <version>1.0.8</version>
+</dependency>
+<dependency>
+    <groupId>com.dyuproject.protostuff</groupId>
+    <artifactId>protostuff-runtime</artifactId>
+    <version>1.0.8</version>
+</dependency>
 ```
 
 #### 2.4 使用Redis优化数据库访问
 
->1. 流程：先去Redis缓存中查询，以此降低数据库的压力。如果在缓存中查询不到数据再去数据库中查询，再将查询到的数据放入Redis缓存中，这样下次就可以直接去缓存中直接查询到。
->2. 推荐：新建dao.cache包，实现RedisDao类。例子中缓存实体类名为Seckill.class。例子：
->3. 使用protostuff序列化工具时，被序列化的对象必须是pojo对象（具备setter/getter）
+1. 流程：先去Redis缓存中查询，以此降低数据库的压力。如果在缓存中查询不到数据再去数据库中查询，再将查询到的数据放入Redis缓存中，这样下次就可以直接去缓存中直接查询到。
+2. 推荐：新建dao.cache包，实现RedisDao类。例子中缓存实体类名为Seckill.class。例子：
+3. 使用protostuff序列化工具时，被序列化的对象必须是pojo对象（具备setter/getter）
 
-```javascript
+```java
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
@@ -131,11 +131,11 @@ public class RedisDao {
 }
 ```
 
->1. 在使用该RedisDao对象时，需要传入Ip地址和端口。
->2. `new RedisDao("localhost","6379");`
->3. 若使用Spring ICO容器，需配置：
+1. 在使用该RedisDao对象时，需要传入Ip地址和端口。
+2. `new RedisDao("localhost","6379");`
+3. 若使用Spring ICO容器，需配置：
 
-```javascript
+```xml
 <!--redisDao -->
 <bean id="redisDao" class="换成你的包dao.cache.RedisDao">
     <constructor-arg index="0" value="localhost" />
@@ -143,17 +143,17 @@ public class RedisDao {
 </bean>
 ```
 
-*  测试Demo：
+测试Demo：
 
-```javascript
-        Seckill seckill = redisDao.getSeckill(id);
-        if (seckill == null) {
-            seckill = seckillDao.queryById(id);
-            if (seckill != null) {
-                String result = redisDao.putSeckill(seckill);
-                System.out.pritln(result);
-                seckill = redisDao.getSeckill(id);
-                System.out.pritln(result);
-            }
-        }
+```java
+Seckill seckill = redisDao.getSeckill(id);
+if (seckill == null) {
+    seckill = seckillDao.queryById(id);
+    if (seckill != null) {
+        String result = redisDao.putSeckill(seckill);
+        System.out.pritln(result);
+        seckill = redisDao.getSeckill(id);
+        System.out.pritln(result);
+    }
+}
 ```

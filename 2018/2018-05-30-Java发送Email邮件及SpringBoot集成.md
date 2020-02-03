@@ -6,7 +6,7 @@ date: 2018-05-30 19:36:00
 
 ### 1.导包
 
-```javascript
+```xml
         <!--Java MAil 发送邮件API-->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -25,7 +25,7 @@ date: 2018-05-30 19:36:00
 
 *  实例：通过一个已知的163邮箱发送给他人邮件
 
-```javascript
+```java
     public static void main(String[] args) throws MessagingException {
         // 1.创建一个程序与邮件服务器会话对象 Session
         Properties props = new Properties();
@@ -65,7 +65,7 @@ date: 2018-05-30 19:36:00
 
 ##### 1.在resources下新建mailConfig.properties
 
-```javascript
+```properties
 mailConfig.properties
 #服务器
 mailHost=smtp.163.com
@@ -81,7 +81,7 @@ mailTimeout=25000
 
 ##### 2.新建一个类去读这个配置文件的内容
 
-```javascript
+```java
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -129,7 +129,7 @@ public class MailConfig {
 
 ##### 3.以上只是准备阶段，下面开始邮件编码
 
-```javascript
+```java
 
 import cn.zyzpp.config.MailConfig;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -194,7 +194,7 @@ public class MailUtil {
 
 ##### 4.开始发送一封邮件
 
-```javascript
+```java
     public static void main(String[] args){
         try {
             MailUtil.sendMail("xxxx@qq.com", "标题", "内容");
