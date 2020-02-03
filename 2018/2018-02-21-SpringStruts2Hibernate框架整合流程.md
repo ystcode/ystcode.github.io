@@ -17,7 +17,7 @@ date: 2018-02-21 21:12:00
 
 ### 二：详细配置
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180221SpringStruts2Hibernate框架整合流程/1136672-20191204110115530-714531501.png)
+![](./20180221SpringStruts2Hibernate框架整合流程/1136672-20191204110115530-714531501.png)
 
 1.新建Maven项目，导入相关依赖（推荐） 
 若不使用maven：请前往[Maven官网](http://mvnrepository.com/)依次下载jar包导入）

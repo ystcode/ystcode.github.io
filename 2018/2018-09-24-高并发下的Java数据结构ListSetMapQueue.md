@@ -130,7 +130,7 @@ BlockingQueue 典型的使用场景是生产者-消费者模式，生产者总�
 
 BlockingQueue 提供一种读写阻塞等待的机制，即如果消费者速度较快，则 BlockingQueue 则可能被清空，此时消费线程再试图从 BlockingQueue 读取数据时就会被阻塞。反之，如果生产线程较快，则 BlockingQueue 可能会被装满，此时，生产线程再试图向 BlockingQueue 队列装入数据时，便会被阻塞等待，其工作模式如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180924高并发下的Java数据结构ListSetMapQueue/1136672-20180924184610474-437423278.png)
+![](./20180924高并发下的Java数据结构ListSetMapQueue/1136672-20180924184610474-437423278.png)
 
 
 ## 5.并发Deque

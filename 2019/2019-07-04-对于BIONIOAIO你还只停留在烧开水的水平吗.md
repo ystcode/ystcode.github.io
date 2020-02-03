@@ -123,4 +123,4 @@ public static void main(String[] args) {
 
 最后补一张图：
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190704对于BIONIOAIO你还只停留在烧开水的水平吗/1136672-20190903120052795-798942145.png)
+![](./20190704对于BIONIOAIO你还只停留在烧开水的水平吗/1136672-20190903120052795-798942145.png)

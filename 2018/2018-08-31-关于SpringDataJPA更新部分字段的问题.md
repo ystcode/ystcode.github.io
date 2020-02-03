@@ -116,11 +116,11 @@ Hibernate: insert into name_href (href, name) values (?, ?)
 
 在上面的代码中，我们想要达到更新数据表中ID为1的name字段的值，并保持其它字段的值不变。执行程序后，我们查看数据表：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180831关于SpringDataJPA更新部分字段的问题/1136672-20180831163656240-1132328161.png)
+![](./20180831关于SpringDataJPA更新部分字段的问题/1136672-20180831163656240-1132328161.png)
 
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180831关于SpringDataJPA更新部分字段的问题/1136672-20180831163707815-1315750336.png)
+![](./20180831关于SpringDataJPA更新部分字段的问题/1136672-20180831163707815-1315750336.png)
 
 
 

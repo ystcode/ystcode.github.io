@@ -14,21 +14,21 @@ date: 2018-12-27 11:21:00
 
 ## 1.新建Mavne项目
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227111937348-1257242732.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227111937348-1257242732.png)
 
 ## 2.IDEA关联Tomcat
 
 打开项目，点击右上角Edit Configurations...
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227111950559-260308379.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227111950559-260308379.png)
 
 点开Defaults
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227111959506-1896232788.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227111959506-1896232788.png)
 
 配置Tomcat路径
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112007796-1541511473.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112007796-1541511473.png)
 
 点击 OK，继续点击 APPLY。 
 
@@ -36,7 +36,7 @@ date: 2018-12-27 11:21:00
 
 参考前面的步骤打开该页面
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112017775-366278633.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112017775-366278633.png)
 
 
 点击之后，弹出下图，一般来说啥都不需要干。
@@ -44,28 +44,28 @@ date: 2018-12-27 11:21:00
 这里有必要说一下，下面这张图圈出来的路径是IDEA默认在浏览器打开的网址。
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112026071-1704519619.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112026071-1704519619.png)
 
 点击Deployment，点击右边的+号，这一步是把该项目构建所得的war包与Tomcat进行关联，不进行这一步，那只能404了。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112037840-180433320.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112037840-180433320.png)
 
 
 点击OK即可。需要说明的是，因为是Maven web项目，所以默认已经存在弹出的demo:war，如果没有，一定要手动生成！
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112050145-1859894865.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112050145-1859894865.png)
 
 然后，Ok。
 
 看到下图圈出的路径的吗？这就是配置项目路径的地方，默认/，也就是根目录。你也可以配置为/demo。
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112057627-382323854.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112057627-382323854.png)
 
 回到主页面，点击运行即可。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112104855-1195009953.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112104855-1195009953.png)
 
 
 
@@ -73,7 +73,7 @@ date: 2018-12-27 11:21:00
 
 ## 4.如何手动生成Artifact？
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112115449-1812046227.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20181227112115449-1812046227.png)
 
 # 第二种：插件式
 
@@ -134,7 +134,7 @@ Maven项目引入依赖Servlet、Jsp等依赖：
 
 Tomcat 官方提供了嵌入包，点击 Download，下载：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20200125213407054-107078178.png)
+![](./20181227IDEAMavenTomcat构建Web项目的三种方法/1136672-20200125213407054-107078178.png)
 
 
 解压后导入即可，不过我喜欢用 maven 管理包依赖，所以可以全部替换成如下即可：

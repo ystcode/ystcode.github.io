@@ -176,7 +176,7 @@ public class Person {
 
 若是依旧无法自动提示，可以尝试开启IDE的Annonation Processing
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181127史上最全的SpringBoot配置文件详解/1136672-20181127132006953-952480469.png)
+![](./20181127史上最全的SpringBoot配置文件详解/1136672-20181127132006953-952480469.png)
 
 # 5.配置属性校验
 

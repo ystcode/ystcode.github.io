@@ -140,7 +140,7 @@ public class HelloController {
 
 ## 3.此时的架构
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190113SpringCloud2服务消费者restribbon/1136672-20190112235934296-1157757573.png)
+![](./20190113SpringCloud2服务消费者restribbon/1136672-20190112235934296-1157757573.png)
 
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*

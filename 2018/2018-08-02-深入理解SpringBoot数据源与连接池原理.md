@@ -29,7 +29,7 @@ date: 2018-08-02 19:12:00
 
 查看JPA的依赖关系，如图，其中已经包含JDBC。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802190956917-105926603.png)
+![](./20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802190956917-105926603.png)
 
 
 
@@ -164,21 +164,21 @@ org.apache.tomcat.jdbc.pool.DataSource、HikariDataSource、BasicDataSource、
 
 打开DataSourceAutoConfiguration自动配置类，在自动配置DataSource时会注入`DataSourceInitializer`，继续打开该类，
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191043849-640111764.png)
+![](./20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191043849-640111764.png)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191101982-80004440.png)
+![](./20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191101982-80004440.png)
 
 
 
 我们发现该类有一个方法被注解`@PostConstruct`，这个注解用于需要在依赖注入完成后执行任何初始化的方法上。该初始化方法调用了`runSchemaScripts();`
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191115632-921036606.png)
+![](./20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191115632-921036606.png)
 
 
 
 该方法的第一句就调用 `getScripts()`方法，获取SQL脚本，如图：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191126343-785360673.png)
+![](./20180802深入理解SpringBoot数据源与连接池原理/1136672-20180802191126343-785360673.png)
 
 
 

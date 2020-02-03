@@ -2,7 +2,7 @@
 title: 一种专门用于前后端分离的web服务器（JerryServer）
 date: 2018-09-06 21:01:00
 ---
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180906一种专门用于前后端分离的web服务器JerryServer/1136672-20180911004432096-695802899.png)
+![](./20180906一种专门用于前后端分离的web服务器JerryServer/1136672-20180911004432096-695802899.png)
 
 如果你还不了解现在的前后端分离，推荐阅读淘宝前端团队的[前后端分离的思考与实践](http://taobaofed.org/blog/2014/04/05/practice-of-separation-of-front-end-from-back-end/)
 
@@ -37,11 +37,11 @@ Jerry服务器是类似Tomcat的web服务器，帮助前后端完全分离的工
 
 解释：此流程图中只有request部分是前端负责，其余均为后端负责。
 
-![1536482289885](/Users/yueshutong/Downloads/md/2018/LOCAL/20180906一种专门用于前后端分离的web服务器JerryServer/1536482289885.png)
+![1536482289885](./20180906一种专门用于前后端分离的web服务器JerryServer/1536482289885.png)
 
 图2：使用本发明之后的Java web运行流程图
 
-![1536482313227](/Users/yueshutong/Downloads/md/2018/LOCAL/20180906一种专门用于前后端分离的web服务器JerryServer/1536482313227.png)
+![1536482313227](./20180906一种专门用于前后端分离的web服务器JerryServer/1536482313227.png)
 
 本项目的核心思想是代理服务器的角色，对于浏览器发起的请求，代理服务器接收后会提取请求中的相关信息，如GET或POST参数、Cookie，携带并转发至后端提供的接口。
 
@@ -63,11 +63,11 @@ Jerry服务器是类似Tomcat的web服务器，帮助前后端完全分离的工
 
 4. 访问http://localhost:8888出现如下界面（默认访问ROOT项目的index.html文件）
 
-   ![1537158441757](/Users/yueshutong/Downloads/md/2018/LOCAL/20180906一种专门用于前后端分离的web服务器JerryServer/1537158441757.png)
+   ![1537158441757](./20180906一种专门用于前后端分离的web服务器JerryServer/1537158441757.png)
 
    访问 <http://localhost:8888/admin> 并更改不同参数，体验动态渲染。
    
-   ![1537158422954](/Users/yueshutong/Downloads/md/2018/LOCAL/20180906一种专门用于前后端分离的web服务器JerryServer/1537158422954.png)
+   ![1537158422954](./20180906一种专门用于前后端分离的web服务器JerryServer/1537158422954.png)
 
 5. 安装成功！
 
@@ -110,7 +110,7 @@ HTML页面：
 
 后台监控页面预览：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180906一种专门用于前后端分离的web服务器JerryServer/1136672-20180911004809840-1264683670.png)
+![](./20180906一种专门用于前后端分离的web服务器JerryServer/1136672-20180911004809840-1264683670.png)
 
 ## 8、负载均衡
 

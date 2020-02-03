@@ -12,7 +12,7 @@ Visual VM是一个功能强大的多合一故障诊断和性能监控的可视�
 
 Visual VM插件的安装非常容易，既可以通过离线下载插件*.nbm。然后在 PLugin 对话框的Downloaded页面下，添加已下载的插件。也可以在Availble Plugin页面下，在线安装插件，如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195349854-1273448410.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195349854-1273448410.png)
 
 若是启动VisualVm.exe报错：Can'nt find java1.8 or or higher ,只需要编辑\etc\visualvm.conf文件，找到下面这行并重新指向本地Java路径即可。
 
@@ -28,7 +28,7 @@ visualvm_jdkhome="D:\Java\jdk1.8.0"
 
 1）Visual VM支持多种连接应用程序，最常见的就是本地连接。只要本地计算机内有Java应用程序正在执行，就可以监测到。如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195410417-1257919564.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195410417-1257919564.png)
 
 2）除了本地连接外，Visual VM也支持远程JMX连接。Java应用程序可以通过以下参数启动程序打开JMX端口：
 
@@ -42,12 +42,12 @@ visualvm_jdkhome="D:\Java\jdk1.8.0"
 
 添加JMX连接
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195437788-1988961039.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195437788-1988961039.png)
 
 
 添加成功后
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195453307-940304575.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195453307-940304575.png)
 
 
 3）添加远程主机。远程主机可以通过jstatd工具建立，如使用以下命令开启
@@ -66,7 +66,7 @@ permission java.security.AllPermission;
 
 接着在Visual VM中添加远程主机，如图。正确填写计算机IP地址。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195509688-319265979.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195509688-319265979.png)
 
 
 
@@ -76,12 +76,12 @@ permission java.security.AllPermission;
 
 单机Tab页面的Monitor页面，即可监控应用程序的CPU、堆、永久区、类加载和线程数的总体情况。通过页面上的Perform GC 和 Heap Dump按钮还可以手工执行Full GC和生成堆快照。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195525092-1676606830.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195525092-1676606830.png)
 
 
 ## 1.3 Thread Dump和分析
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195540985-452759335.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195540985-452759335.png)
 
 
 ## 1.4 性能分析
@@ -129,44 +129,44 @@ public class HProfTest {
 
 通过Visual VM的采样功能，可以找到占用CPU时间最长的方法。如图slowerMethod()方法占用时间最长。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195556939-1505328615.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195556939-1505328615.png)
 
 
 
 在Visual VM的默认统计信息中，不包含JDK内的函数调用统计，需要单击右上角的设置，手工配置。如图。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195614875-223850578.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195614875-223850578.png)
 
 
 ## 1.5 快照
 
 选中java应用，单击应用程序，即可查看堆Dump，线程Dump等。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195639494-1349795380.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195639494-1349795380.png)
 
 
 右击dump快照，可另存为。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195717251-1656409003.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195717251-1656409003.png)
 
 
 ## 1.6 内存快照分析
 
 通过选中右键的堆Dump命令，可以立即获得当前应用程序的内存快照，如图。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195731900-378544401.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195731900-378544401.png)
 
 
 在类页面中，还可以对两个不同的内存快照文件进行比较。这个功能可以帮助开发者快速分析同一应用程序运行的不同时刻，内存数据产生的变化。
 
 在这个类展示的页面中，如果需要获取类的更多信息，可以单击右键，进入该类的实例页面；或者直接双击。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195754049-628848661.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195754049-628848661.png)
 
 
 在实例页面中，将显示类的所有实例。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195807850-21279711.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195807850-21279711.png)
 
 
 ## 1.7 MBean管理
@@ -183,7 +183,7 @@ TDA 是Thread Dump Analyzer 的缩写，是一款线程快照分析工具。当�
 BTrace 通过字节码注入，动态监控系统的运行情况。它可以跟踪指定的方法调用、构造函数调用和系统内存等信息。在Visual VM中安装插件BTrace后，右击Java程序打开Trece application。如图。
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195822601-1464749633.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195822601-1464749633.png)
 
 
 BTrace脚本示范：
@@ -456,7 +456,7 @@ java.lang.Object[]#1055
 
 这说明一个Object数组引用了“56”这个字符串对象。在查询结果中单击 java.lang.Object[]#1077，可进一步找到引用 java.lang.Object[]#1077 对象的是一个ArrayList对象。如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195850014-339926264.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195850014-339926264.png)
 
 
 下例找出长度为2，并且至少被2个对象引用的字符串：
@@ -554,7 +554,7 @@ select "<b><em>"+toHtml(o)+"</em></b>" from java.util.Vector o
 
 输出部分结果如图7.44所示。直接点击输出对象，可以展示实例页面中的对应对象。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195929957-420535711.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195929957-420535711.png)
 
 
 ## 2.4 集合/统计函数
@@ -826,7 +826,7 @@ Visual VM不仅支持在OQL控制台上执行OQL查询语言，也可以通过�
 
 在进行OQL开发前，工程需要引用Visual VM安装目录下JAR包，如图7.45所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019200034314-1333959757.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019200034314-1333959757.png)
 
 
 这里以分析Tomcat堆溢出文件为例，展示程序化OQL带来的便利。 对于给定的Tomcat堆溢出Dump文件，这里将展示如何通过程序，计算Tomcat平均每秒产生的session数量，代码如下：
@@ -880,7 +880,7 @@ count/(max-min)+"次/秒"
 
 下图显示了在OQL控制台中，执行上述脚本以及输出结果。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019200319928-990945901.png)
+![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019200319928-990945901.png)
 
 
 细心的读者可能会发现，这个结果和使用Java访问Dump文件时的结果有所差异，这是因为JavaScript是弱类型语言，在处理整数除法时和Java有所不同，读者可以自行研究，在此不予展开讨论。

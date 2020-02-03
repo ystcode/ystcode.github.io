@@ -8,11 +8,11 @@ date: 2019-01-13 15:54:00
 
 Netflix开源了Hystrix组件，实现了熔断器模式，Spring Cloud 对这一组件进行了整合。 在微服务架构中，一个请求需要调用多个服务是非常常见的，如下图： 
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190113SpringCloud4熔断器Hystrix/1136672-20190113155321755-145172210.png)
+![](./20190113SpringCloud4熔断器Hystrix/1136672-20190113155321755-145172210.png)
 
 较底层的服务如果出现故障，会导致连锁故障。当对特定的服务的调用的不可用达到一个阀值（Hystric 是5秒20次） 断路器将会被打开。 
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190113SpringCloud4熔断器Hystrix/1136672-20190113155330180-2008967766.png)
+![](./20190113SpringCloud4熔断器Hystrix/1136672-20190113155330180-2008967766.png)
 
 
 断路打开后，可用避免连锁故障，fallback方法可以直接返回一个固定值。 
@@ -170,7 +170,7 @@ public class ServiceRibbonApplication {
 ```
 启动程序，访问 http://localhost:8765/hystrix.stream 浏览器上会显示熔断器的数据指标，访问 http://localhost:8765/hystrix 浏览器会显示 Hystrix Dashboard 的界面。如下图。在界面上依次填写图示数据，点击"Monitor Stream"，进入页面。
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190113SpringCloud4熔断器Hystrix/1136672-20190113155402105-978461618.png)
+![](./20190113SpringCloud4熔断器Hystrix/1136672-20190113155402105-978461618.png)
 
 
 [Hystrix Dashboard 官方文档](https://github.com/Netflix/Hystrix/wiki)

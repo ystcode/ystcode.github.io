@@ -213,7 +213,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider{
 ### 讲一下：
 
 *  这里说Security的一个坑：
-*  相信你也看到了有的教程上说抛出`UsernameNotFoundException` 用户找不到，`BadCredentialsException` 坏的凭据，但这两个类都是继承自`AuthenticationException`抽象类，当你抛出这俩异常时，Security底层会捕捉到你抛出的异常，如图： ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/1136672-20190623143204532-489929076.png)
+*  相信你也看到了有的教程上说抛出`UsernameNotFoundException` 用户找不到，`BadCredentialsException` 坏的凭据，但这两个类都是继承自`AuthenticationException`抽象类，当你抛出这俩异常时，Security底层会捕捉到你抛出的异常，如图： ![](./20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/1136672-20190623143204532-489929076.png)
 
 *  看到了吧，`AuthenticationException`异常并不会被抛出，debug调式一下，你就会感受到它的曲折历程，相当感人！然后莫名其妙的被换掉了，而且无解。
 
@@ -419,7 +419,7 @@ public class MyController {
 ### 讲一下：
 
 *  如果你debug追踪一下，你就可以了解Security的运行原理
-*  Security的`SimpleUrlAuthenticationFailureHandler`（简单认证故障处理）会把异常保存到`request`或`session`中，`forwardToDestination`默认为`false`，也就是保存在`session`，实际我们测试是保存在`request`。 ![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/1136672-20190623143007720-493280.png)
+*  Security的`SimpleUrlAuthenticationFailureHandler`（简单认证故障处理）会把异常保存到`request`或`session`中，`forwardToDestination`默认为`false`，也就是保存在`session`，实际我们测试是保存在`request`。 ![](./20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/1136672-20190623143007720-493280.png)
 
 ---
 

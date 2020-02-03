@@ -260,7 +260,7 @@ public class AdminClientApplication {
 
 依次启动 eureka-server、admin-server 和 admin-client 工程，在浏览器访问 admin-server 的主页 http://localhost:5000/，浏览器显示界面如图:
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190115SpringCloud8微服务监控SpringBootAdmin/1136672-20190115160638548-2097074062.png)
+![](./20190115SpringCloud8微服务监控SpringBootAdmin/1136672-20190115160638548-2097074062.png)
 
 
 "JOURNAL"选项为服务注册、下线、剔除的时间线。

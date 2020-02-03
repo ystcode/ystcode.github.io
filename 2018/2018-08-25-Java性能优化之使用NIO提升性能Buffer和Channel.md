@@ -15,7 +15,7 @@ NIO是New I/O的简称，具有以下特性：
 5. 提供了基于 Selector 的异步网络 I/O。
 
 与流式的 I/O 不同，NIO是基于块（Block）的，它以块为基本单位处理数据。在NIO中，最为重要的两个组件是缓冲 Buffer 和通道 Channel 。缓冲是一块连续的内存块，是 NIO 读写数据的中转地。通道表示缓冲数据的源头或者目的地，它用于向缓冲读取或者写入数据，是访问缓冲的接口。
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20180827095558254-1784082752.png)
+![](./20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20180827095558254-1784082752.png)
 
 
 本文主要是介绍通过NIO中的Buffer和Channel，来提升系统性能。
@@ -24,7 +24,7 @@ NIO是New I/O的简称，具有以下特性：
 
 在NIO的实现中，Buffer是一个抽象类。JDK为每一种 Java 原生类型都创建了一个Buffer，如图
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20180825215246676-175583860.png)
+![](./20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20180825215246676-175583860.png)
 
 
 在NIO中和Buffer配合使用的还有 Channel 。Channel 是一个双向通道，即可读又可写。
@@ -81,7 +81,7 @@ buffer中有三个重要参数：位置（position）、容量（capacity）、�
 
 接着 wChannel 通道的 write() 方法会读取ByteBuffer缓冲区的数据到文件，和 read() 操作一样，write() 操作也会设置position的位置到当前位置。为了便于下次读入数据到缓冲区，我们调用clear()方法将position，capacity，limit初始化。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20181011153240644-1389263275.png)
+![](./20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20181011153240644-1389263275.png)
 
 
 
@@ -260,7 +260,7 @@ I/O和NIO的最大区别就是 **传统I/O是面向（缓冲）流，NIO是面�
 
 无论使用哪种方式进行文件 I/O，如果能合理地使用缓冲，就能有效的提高I/O的性能。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20180829162917240-1225424014.png)
+![](./20180825Java性能优化之使用NIO提升性能Buffer和Channel/1136672-20180829162917240-1225424014.png)
 
 用传统I/O实现刚开始的文件复制例子，代码如下：
 

@@ -59,4 +59,4 @@ restart<span class="hljs-preprocessor">.include</span><span class="hljs-preproce
 
 需要下载该Jar包，右击运行配置
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180310SpringBoot热部署的实现方式/1136672-20190623134033406-240474200.png)
+![](./20180310SpringBoot热部署的实现方式/1136672-20190623134033406-240474200.png)

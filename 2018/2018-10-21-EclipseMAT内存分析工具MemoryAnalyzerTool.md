@@ -12,7 +12,7 @@ MAT是Memory Analyzer的简称，它是一款功能强大的Java堆内存分析�
 
 单击左上角的“File”菜单下的“Accquire Heap Dump”选项后，会弹出当前Java应用程序列表，选择要分析的应用程序即可，如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133015399-606074002.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133015399-606074002.png)
 
 除了直接在MAT中导出正在运行的应用程序堆快照外，也可以通过“Open Heap Dump”来打开一个既存的堆快照文件。
 
@@ -20,36 +20,36 @@ MAT是Memory Analyzer的简称，它是一款功能强大的Java堆内存分析�
 
 如图所示，显示了正常打开堆快照文件后的MAT的界面。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133028829-1684985949.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133028829-1684985949.png)
 
 
 右侧界面中，显示了堆快照文件的大小、类、实例和ClassLoader的总数。在右侧的饼图中，显示了当前堆快照中最大的对象。将鼠标悬停在饼图中，可以在左侧的Inspector界面中，查看该对象的相应信息。在饼图中单击某对象，可以对选中的对象进行更多的操作。
 
 在工具栏上单击柱状图，可以显示系统中所有类的内存使用情况。图为系统内所有类的统计信息，包含类的实例数量和占用的空间。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133041124-1573052408.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133041124-1573052408.png)
 
 
 另外一个实用的功能是，可以通过MAT查看系统中的Java线程，如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133049958-1016929039.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133049958-1016929039.png)
 
 
 当然，这里查看Java层面的应用线程，对于虚拟机的系统线程是无法显示的。通过线程的堆栈，还可以查看局部变量的信息。如上图所示，带有“\<local>”标记的，就为当前帧栈的局部变量，这部分信息可能存在缺失。
 
 MAT的另外一个常用功能，是在各个对象的引用列表中穿梭查看。对于给定一个对象，通过MAT可以找到引用当前对象的对象，即入引用（Incomming References），以及当前对象引用的对象，即出引用（Outgoing References），如图7.11所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133101029-1832804542.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133101029-1832804542.png)
 
 
 下图显示了with outgoing reference 的输出。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133113892-1093423683.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133113892-1093423683.png)
 
 
 为了方便查看，柱状图还提供了根据Class Loader和包对类进行排序。如下图是按照包排序的柱状图输出。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133132734-437500692.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133132734-437500692.png)
 
 
 ## 2  浅堆和深堆
@@ -77,12 +77,12 @@ MAT的另外一个常用功能，是在各个对象的引用列表中穿梭查�
 
 如图7.14所示，显示了一个简单的对象引用关系图，对象A引用了C和D，对象B引用了C和E。那么对象A的浅堆大小只是A本身，不含C和D，而A的实际大小为A、C、D三者之和。而A的深堆大小为A与D之和，由于对象C还可以通过对象B访问到，因此不在对象A的深堆范围内。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133220561-1945091957.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133220561-1945091957.png)
 
 
 在MAT中查看对象浅堆和深堆的大小：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133235337-1958853731.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133235337-1958853731.png)
 
 
 选中对象，单击右键，在弹出的菜单中都有 Show Retained Set 命令，它可用于显示指定类或者对象的保留集。
@@ -102,14 +102,14 @@ MAT提供了一个称为支配树（Dominator Tree）的对象图。支配树体
 
 如图7.19所示，左图表示对象引用图，右图表示左图所对应的支配树。对象A和B由根对象直接支配，由于在到对象C的路径中，可以经过A，也可以经过B，因此对象C的直接支配者也是根对象。对象F与对象D相互引用，因为到对象F的所有路径必然经过对象D，因此，对象D是对象F的直接支配者。而到对象D的所有路径中，必然经过对象C，即使是从对象F到对象D的引用，从根节点出发，也是经过对象C的，所以，对象D的直接支配者为对象C。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133248973-699143823.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133248973-699143823.png)
 
 
 同理，对象E支配对象G。到达对象H的可以通过对象D，也可以通过对象E，因此对象D和E都不能支配对象H，而经过对象C既可以到达D也可以到达E，因此对象C为对象H的直接支配者。
 
 在MAT中，单击工具栏上的对象支配树按钮，可以打开对象支配树视图，如图7.20所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133301309-1544418628.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133301309-1544418628.png)
 
 
 > 注意：对象支配树中，某一个对象的子树，表示在该对象被回收后，也将被回收的对象的集合。
@@ -143,14 +143,14 @@ MAT提供了一个称为支配树（Dominator Tree）的对象图。支配树体
 
 通过MAT，可以列出所有的根对象，如下图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133318417-1021232108.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133318417-1021232108.png)
 
 
 ## 5 内存泄漏检测
 
 MAT  提供了自动检测内存泄漏，以及统计堆快照内对象分布情况的工具，如图所示：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133330855-2095540601.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133330855-2095540601.png)
 
 
 
@@ -160,14 +160,14 @@ MAT  提供了自动检测内存泄漏，以及统计堆快照内对象分布情
 
 在MAT中，可以自动查找并显示消耗内存最多的几个对象，如图所示，可以打开以饼图和表格为形式的最大对象报告。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133341916-903616930.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133341916-903616930.png)
 
 
 ## 7 查找支配者
 
 通过MAT，开发人员还可以很方便地查找某一个对象或者类的支配者。如下图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133352545-955197698.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133352545-955197698.png)
 
 
 在参数对话框中，务必正确填写 -skip 参数。查询结果会忽略所有定义在 -skip 参数中的类和实例。![1540034225002](MAT内存分析工具.assets/1540034225002.png)
@@ -176,12 +176,12 @@ MAT  提供了自动检测内存泄漏，以及统计堆快照内对象分布情
 
 ## 8 线程分析
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133404925-1385767261.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133404925-1385767261.png)
 
 
 ## 9 集合使用情况分析
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133415679-1453033935.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133415679-1453033935.png)
 
 
 使用这些工具，可以查看数组、集合的填充率；可以观察集合内的数据；也可以分析哈希表的冲突率。
@@ -200,7 +200,7 @@ select * from java.util.ArrayList A
 
 以上查询的输出如图所示，在输出结果中，结果集中的每条记录都可以展开，查看各自的引用对象。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133429321-1340200017.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133429321-1340200017.png)
 
 
 OQL还可以指定对象的属性进行输出，下例输出所有Vector对象的内部数组，输出结果如图7.31所示。使用“OBJECTS”关键字，可以将返回结果集中的项以对象的形式显示。
@@ -209,7 +209,7 @@ OQL还可以指定对象的属性进行输出，下例输出所有Vector对象�
 SELECT OBJECTS v.elementData FROM java.util.Vector v 
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133442912-2032120200.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133442912-2032120200.png)
 
 
 下例显示String对象的char数组（用于JDK 1.7的堆）：
@@ -246,7 +246,7 @@ SELECT * FROM java.lang.String s
 SELECT * FROM "java\.lang\..*" 
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133455032-38764985.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133455032-38764985.png)
 
 也可以直接使用类的地址进行搜索。使用类的地址的好处是可以区分被不同ClassLoader加载的同一种类型。下例中“0x37a014d8”为类的地址。
 
@@ -256,7 +256,7 @@ select * from 0x37a014d8
 
 有多种方法可以获得类的地址，在MAT中，一种最为简单的方法如图所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133510795-1160884693.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133510795-1160884693.png)
 
 
 在From子句中，还可以使用“INSTANCEOF”关键字，返回指定类的所有子类实例。下例的查询返回了当前堆快照中所有的抽象集合实例，包括java.util.Vector、java.util.ArrayList和java.util.HashSet等。
@@ -274,7 +274,7 @@ SELECT * FROM OBJECTS java.lang.String
 以上查询的返回结果如图所示。它仅返回一条记录，表示java.lang.String的类的信息。如果不使用“OBJECTS”关键字，这个查询将返回所有的java.lang.String实例。
 
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133527684-421072241.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133527684-421072241.png)
 
 
 “OBJECTS”关键字也支持与正则表达式一起使用。下面的查询，返回了所有满足给定正则表达式的所有类，其结果如图所示。
@@ -283,7 +283,7 @@ SELECT * FROM OBJECTS java.lang.String
 SELECT * FROM OBJECTS "cn\.zyzpp\..*" 
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133619147-1771304705.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133619147-1771304705.png)
 
 
 注意：在From子句中使用OBJECTS关键字，将返回符合条件的类信息，而非实例信息。这与Select子句中的OBJECTS关键字是完全不同的。
@@ -334,7 +334,7 @@ SELECT toString(f.path.value) FROM java.io.File f
 
 以上查询得到的结果如图7.38所示。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133637101-849777617.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133637101-849777617.png)
 
 
 这些堆内对象的属性与Java对象一致，拥有与Java对象相同的结果。
@@ -411,7 +411,7 @@ select * from ${snapshot}.getClasses()
 select * from INSTANCEOF java.util.Vector 
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133653028-1498592582.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133653028-1498592582.png)
 
 
 下例显示当前对象是否是数组。
@@ -467,7 +467,7 @@ SELECT objects dominators(s) FROM cn.zyzpp.jConsole.HProfTest s
 
 以上查询的输出如图所示，显示HProfTest对象支配了1个字符串对象。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133709431-328772286.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133709431-328772286.png)
 
 
 函数dominatorof()与dominators()的功能相反，它获取直接支配当前对象的对象。
@@ -478,7 +478,7 @@ SELECT distinct objects dominatorof(s) FROM cn.zyzpp.jConsole.HProfTest s
 
 以上查询的输出如图所示，显示所有的HProfTest对象直接被主线程支配。
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133722238-1664340600.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133722238-1664340600.png)
 
 
 注意：函数dominatorof()与dominators()的功能正好相反。dominatorof()用于获得直接支配当前对象的对象，而dominators()用于获取直接支配对象。
@@ -495,7 +495,7 @@ SELECT objects inbounds(w) FROM geym.zbase.ch7.heap.WebPage w
 SELECT distinct objects classof(obj) FROM "cn\.zyzpp\..*" obj 
 ```
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133736926-141720229.png)
+![](./20181021EclipseMAT内存分析工具MemoryAnalyzerTool/1136672-20181021133736926-141720229.png)
 
 # 参考
 

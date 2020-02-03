@@ -40,9 +40,9 @@ date: 2018-02-06 19:00:00
 
 右击项目构建路径build path:
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623124520961-689058546.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623124520961-689058546.png)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623124940843-1650781146.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623124940843-1650781146.png)
 
 显而易见，这种方法为我们多建立了一个源文件夹，我们移除，然后增加没有的src/test/resources源文件夹。
 
@@ -56,31 +56,31 @@ date: 2018-02-06 19:00:00
 
 maven的底层文件这么多，我们如何得知该修改哪一个呢？看下面这幅图：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125018869-1605419513.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125018869-1605419513.png)
 
 没错，我们的maven模板就来源于这个！然后我们在maven的本地仓库中搜索，找到了具有相同名称的jar包：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125035183-1092310233.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125035183-1092310233.png)
 
 我们打开这个压缩包，查看到目录为：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125045652-475194136.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125045652-475194136.png)
 
 打开pom.xml发现，这正是我们需要的默认模板。默认的模板排版既不简洁也缺少我们的默认servlet API和tomcat容器（或jetty），我们更改一下：
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125054423-130441451.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125054423-130441451.png)
 
-![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125104484-1481962920.png)
+![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125104484-1481962920.png)
 
 这样看起来是不是美观了，而且每次新建项目也不需要我们再重复再做相同的工作。
 
 这样就解决了第四个问题，那第三个如何解决呢？简单！我们找到
 
-**![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125115830-1356539700.png)**
+**![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125115830-1356539700.png)**
 
 web.xml，更改里面的默认代码为：
 
-**![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125123709-1446935000.png)**
+**![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125123709-1446935000.png)**
 
 保存后，新建项目，我们发现默认的Dynamic Web Project的版本变成3.0，证明思路是可行的。
 
@@ -95,7 +95,7 @@ web.xml，更改里面的默认代码为：
 
 我们可以尝试借鉴这段代码，在web.xml中使用！上图：
 
-**![](/Users/yueshutong/Downloads/md/2018/LOCAL/20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125134080-1344210020.png)**
+**![](./20180206探究如何永久更改Maven的DynamicWebProject版本及pomxml默认配置/1136672-20190623125134080-1344210020.png)**
 
 保存，新建项目！我们惊喜的发现项目名称已经实现自动配置，说明我们的思路是正确！
 
@@ -105,4 +105,4 @@ web.xml，更改里面的默认代码为：
 
 如果觉得配置麻烦可以直接下载笔者配置好的jar包，直接替换使用
 
-下载地址：<a href="http://download.csdn.net/download/yueshutong123/10243745" rel="nofollow">点击打开链接</a>
+下载地址：[点击打开链接](http://download.csdn.net/download/yueshutong123/10243745)

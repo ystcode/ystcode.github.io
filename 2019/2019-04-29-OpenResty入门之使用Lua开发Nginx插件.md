@@ -308,7 +308,7 @@ ngx.var.b : hello world<br/>
 
 现在已经学会了content_by_lua 与 set_by_lua 指令，其它类似的指令还有很多，那么这些指令都是有什么区别呢？主要区别是指令的运行周期不同，如图所示。（图片来源于网络）
 
-![](/Users/yueshutong/Downloads/md/2019/LOCAL/20190429OpenResty入门之使用Lua开发Nginx插件/1136672-20190429193756195-648255891.png)
+![](./20190429OpenResty入门之使用Lua开发Nginx插件/1136672-20190429193756195-648255891.png)
 
 ## 8.其它指令
 
