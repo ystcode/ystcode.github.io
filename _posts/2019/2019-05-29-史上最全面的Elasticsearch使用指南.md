@@ -30,7 +30,7 @@ elasticsearch简写es，es是一个高扩展、开源的全文检索和分析引
 
 ### ES的存储结构
 
-<img src="https://ws1.sinaimg.cn/large/007MoNnNly1g3i3230k4vj30rr0dbgqz.jpg" referrerPolicy="no-referrer"/>
+![](./20190529史上最全面的Elasticsearch使用指南/2342342.png)
 
 ES存储结构可以与MYSQL进行类比，关系如下：
 
@@ -42,7 +42,6 @@ ES存储结构可以与MYSQL进行类比，关系如下：
 | 属性 | 数据表的一列 |
 
  
-
 
 ## 第一章：安装
 
@@ -87,7 +86,7 @@ tar -zxvf elasticsearch-2.4.1.tar.gz
 # the most important settings you may want to configure for a production cluster.
 #
 # Please see the documentation for further information on configuration options:
-# <http://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html>
+# 
 #
 # ---------------------------------- Cluster -----------------------------------
 #
@@ -140,7 +139,7 @@ network.host: 0.0.0.0
 http.port: 9200
 #
 # For more information, see the documentation at:
-# <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-network.html>
+# 
 #
 # --------------------------------- Discovery ----------------------------------
 #
@@ -154,7 +153,7 @@ http.port: 9200
 # discovery.zen.minimum_master_nodes: 3
 #
 # For more information, see the documentation at:
-# <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery.html>
+# 
 #
 # ---------------------------------- Gateway -----------------------------------
 #
@@ -163,7 +162,7 @@ http.port: 9200
 # gateway.recover_after_nodes: 3
 #
 # For more information, see the documentation at:
-# <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-gateway.html>
+# 
 #
 # ---------------------------------- Various -----------------------------------
 #
@@ -178,8 +177,6 @@ http.port: 9200
 ```
 
 ES配置详解参考：https://www.cnblogs.com/hanyouchun/p/5163183.html
-
-
 
 ### 4.启动
 
@@ -217,8 +214,6 @@ su admin
 ./elasticsearch -d
 ```
 
-
-
 ### 5.查看内存
 
 执行命令
@@ -227,12 +222,11 @@ su admin
  ps -ef|grep elasticsearch
 ```
 
-<img src="http://ww1.sinaimg.cn/large/007MoNnNly1g3i32tp7phj30hs04hweg.jpg" referrerPolicy="no-referrer" />
+![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i32tp7phj30hs04hweg.jpg)
 
 可以看到在内存为2G的主机上，Elasticsearch的运行内存为 `-Xms256m -Xmx1g`
 
 ### 7.内存优化
-
 
 1.最简单的一个方法就是指定ES_HEAP_SIZE环境变量。服务进程在启动时候会读取这个变量，并相应的设置堆的大小。设置命令如下： 
 
@@ -292,7 +286,7 @@ http://你的服务器IP:9200/_plugin/head/
 
 出现
 
-<img src="http://ww1.sinaimg.cn/large/007MoNnNly1g3i334hjpnj311x062t96.jpg" referrerPolicy="no-referrer" />
+![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i334hjpnj311x062t96.jpg)
 
 ### 8.数据迁移
 
@@ -440,7 +434,6 @@ POST http://localhost:9200/schools/_search
    }
 }
 
-
 JSON
 ```
 
@@ -484,8 +477,6 @@ GET /my_index/my_type/_search
 }
 ```
 
-
-
 ### 2.提高精度
 
 使用`"operator": "and"`提高精度或者 `"minimum_should_match": "90%"` 控制精度
@@ -505,8 +496,6 @@ GET /my_index/my_type/_search
     }
 }
 ```
-
-
 
 ### 3.组合查询
 
@@ -574,8 +563,6 @@ GET /_search?size=5&from=5
 GET /_search?size=5&from=10
 ```
 
-
-
 ### 6.指定返回属性
 
 只返回查询文档的name和sysptom属性。
@@ -616,8 +603,6 @@ GET /_search?size=5&from=10
 }
 ```
 
-
-
 ## 第四章：SpringBoot
 
 Spring Boot默认支持两种技术来和ES交互，一种是Spring Data，一种是JEST（默认不生效）
@@ -631,27 +616,13 @@ Spring Boot默认支持两种技术来和ES交互，一种是Spring Data，一�
 Add the Maven dependency:（增加Maven的依赖）
 
 ```xml
-<dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-elasticsearch</artifactId>
-    <version>x.y.z.RELEASE</version>
-</dependency>
+org.springframework.dataspring-data-elasticsearchx.y.z.RELEASE
 ```
 
 If you'd rather like the latest snapshots of the upcoming major version, use our Maven snapshot repository and declare the appropriate dependency version.（如果您希望获得即将发布的主要版本的最新快照，请使用我们的Maven快照存储库并声明适当的依赖版本。）
 
 ```xml
-<dependency>
-  <groupId>org.springframework.data</groupId>
-  <artifactId>spring-data-elasticsearch</artifactId>
-  <version>x.y.z.BUILD-SNAPSHOT</version>
-</dependency>
-
-<repository>
-  <id>spring-libs-snapshot</id>
-  <name>Spring Snapshot Repository</name>
-  <url>http://repo.spring.io/libs-snapshot</url>
-</repository>
+org.springframework.dataspring-data-elasticsearchx.y.z.BUILD-SNAPSHOTspring-libs-snapshotSpring Snapshot Repositoryhttp://repo.spring.io/libs-snapshot
 ```
 
 | spring data elasticsearch | elasticsearch |
@@ -666,7 +637,7 @@ If you'd rather like the latest snapshots of the upcoming major version, use our
 
 比如我的Spring Boot项目为`1.5.13.RELEASE`，在IDEA左侧可以查看到elasticsearch的版本
 
-<img src="http://ww1.sinaimg.cn/large/007MoNnNly1g3i33hhy62j30c802zaa1.jpg" referrerPolicy="no-referrer" />
+![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i33hhy62j30c802zaa1.jpg)
 
 那我可以找到最接近的`2.1.x`对应的elasticsearch版本为2.4，我们这个项目使用的是2.4.1完全ok没问题。
 
@@ -684,32 +655,21 @@ cluster-name可以在访问9200端口时查看到。
 
 然后我们启动项目测试一下，出现如图所示，-测试没问题。
 
-<img src="http://ww1.sinaimg.cn/large/007MoNnNly1g3i33r4xy6j30nh060mxq.jpg" referrerPolicy="no-referrer"/>
+![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i33r4xy6j30nh060mxq.jpg)
 
 ### 2.依赖冲突
 
 在实际项目中，我们基本都需要其他spring data 依赖，这时候启动elasticsearch就会报错，比如：
 
 ```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-neo4j</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
+org.springframework.bootspring-boot-starter-data-elasticsearchorg.springframework.bootspring-boot-starter-data-neo4jorg.springframework.bootspring-boot-starter-data-jpa
 ```
 
 再次启动程序，报错：
 
 ```
 Caused by: java.lang.NoSuchFieldError: LUCENE_5_3_1
-	at org.elasticsearch.Version.<clinit>(Version.java:279) ~[elasticsearch-2.4.6.jar:2.4.6]
+	at org.elasticsearch.Version.(Version.java:279) ~[elasticsearch-2.4.6.jar:2.4.6]
 	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:131) ~[elasticsearch-2.4.6.jar:2.4.6]
 ```
 
@@ -732,11 +692,7 @@ Caused by: java.lang.NoSuchFieldError: LUCENE_5_3_1
 解决方法就是在pom.xml中导入依赖即可：
 
 ```xml
-<dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-core</artifactId>
-      <version>5.5.4</version>
-</dependency>
+org.apache.lucenelucene-core5.5.4
 ```
 
 ### 2.入门
@@ -804,7 +760,7 @@ public class Book {
 
 ```java
 @Repository
-public interface BookRepository extends ElasticsearchRepository<Book,Integer> {
+public interface BookRepository extends ElasticsearchRepository {
     Book findAllByName(String name);
 }
 ```
@@ -836,8 +792,6 @@ public class RobotsApplicationTests {
 Book{id=1, name='《西游记后传》', anthony='小白龙'}
 ```
 
-
-
 ## 第五章：JEST
 
 JEST默认不生效，需要我们导入依赖，JEST使用9200端口通过HTTP访问ES。
@@ -845,17 +799,7 @@ JEST默认不生效，需要我们导入依赖，JEST使用9200端口通过HTTP�
 ### 1.导入依赖
 
 ```xml
-<!-- JEST方式 -->
-<dependency>
-    <groupId>io.searchbox</groupId>
-    <artifactId>jest</artifactId>
-    <version>1.0.3</version>
-</dependency>
-<dependency>
-    <groupId>com.sun.jna</groupId>
-    <artifactId>jna</artifactId>
-    <version>3.0.9</version>
-</dependency>
+io.searchboxjest1.0.3com.sun.jnajna3.0.9
 ```
 
 ### 2.配置
@@ -927,8 +871,6 @@ public class Book {
 
 个人觉得：JEST查询的不同与优势是可以获取全部的返回信息。
 
-
-
 ## 第六章：Repository
 
 ### 1.查询
@@ -938,22 +880,22 @@ public class Book {
 如官方示例：
 
 ```java
-   public interface BookRepository extends Repository<Book, String> {
+   public interface BookRepository extends Repository {
 
-        List<Book> findByNameAndPrice(String name, Integer price);
+        List findByNameAndPrice(String name, Integer price);
 
-        List<Book> findByNameOrPrice(String name, Integer price);
+        List findByNameOrPrice(String name, Integer price);
         
-        Page<Book> findByName(String name,Pageable page);
+        Page findByName(String name,Pageable page);
 
-        Page<Book> findByNameNot(String name,Pageable page);
+        Page findByNameNot(String name,Pageable page);
 
-        Page<Book> findByPriceBetween(int price,Pageable page);
+        Page findByPriceBetween(int price,Pageable page);
 
-        Page<Book> findByNameLike(String name,Pageable page);
+        Page findByNameLike(String name,Pageable page);
 
         @Query("{\"bool\" : {\"must\" : {\"term\" : {\"message\" : \"?0\"}}}}")
-        Page<Book> findByMessage(String message, Pageable pageable);
+        Page findByMessage(String message, Pageable pageable);
     }
 ```
 
@@ -996,7 +938,7 @@ public class Book {
         sampleEntity2.setId(documentId2);
         sampleEntity2.setMessage("test message");
 
-        List<SampleEntity> sampleEntities = Arrays.asList(sampleEntity1, sampleEntity2);
+        List sampleEntities = Arrays.asList(sampleEntity1, sampleEntity2);
 
         //bulk index
         repository.save(sampleEntities);
@@ -1080,8 +1022,6 @@ IndexQuery的作用是保存对象到elasticsearch。用法如下。
         elasticsearchTemplate.update(updateQuery);
 ```
 
-
-
 ### 4.查询
 
 查询不同于前面几个，查询比较复杂，比如模糊查询，组合查询，准确查询等。这些变化来源于不同的`QueryBuilder`，查询的模板是相同的。如下：
@@ -1098,14 +1038,14 @@ IndexQuery的作用是保存对象到elasticsearch。用法如下。
                 .withPageable(pageable) // 自定义分页
                 .build();
                 
-        Page<Book> sampleEntities = elasticsearchTemplate.queryForPage(searchQuery,Book.class);
+        Page sampleEntities = elasticsearchTemplate.queryForPage(searchQuery,Book.class);
 
         System.out.println("页数" + sampleEntities.getTotalPages());
         System.out.println("行数" + sampleEntities.getTotalElements());
         System.out.println("大小" + sampleEntities.getSize());
         System.out.println("当前第几页" + sampleEntities.getNumber());
         System.out.println("当前页的数量"+sampleEntities.getNumberOfElements());
-        System.out.println("List<Book>:"+sampleEntities.getContent());
+        System.out.println("List:"+sampleEntities.getContent());
 ```
 
 其它条件查询下面讲解！
@@ -1128,11 +1068,11 @@ IndexQuery的作用是保存对象到elasticsearch。用法如下。
 
 ###  Id（标识）
 
-​         每个文档ID标识了一个文档。一个文档的索引/类型/ ID必须是唯一的。如果没有提供ID，将是自动生成。（还可以看到路由\<routing>）
+​         每个文档ID标识了一个文档。一个文档的索引/类型/ ID必须是唯一的。如果没有提供ID，将是自动生成。（还可以看到路由\）
 
 ### Field（字段）
 
-​         文档中包含的一组字段或键值对。字段的值可以是一个简单的（标量）值（如字符串，整数，日期），或者一个嵌套的结构就像一个数组或对象。一个字段就是类似关系数据库表中的一列。映射的每个字段有一个字段的类型“type”（不要与文档类型混淆），表示那种类型的数据可以存储在该字段里，如：整数\<integer>，字符串\<string>，对象\<object>。映射还允许你定义（除其他事项外）一个字段的值如何进行分析。
+​         文档中包含的一组字段或键值对。字段的值可以是一个简单的（标量）值（如字符串，整数，日期），或者一个嵌套的结构就像一个数组或对象。一个字段就是类似关系数据库表中的一列。映射的每个字段有一个字段的类型“type”（不要与文档类型混淆），表示那种类型的数据可以存储在该字段里，如：整数\，字符串\，对象\。映射还允许你定义（除其他事项外）一个字段的值如何进行分析。
 
 ### Index（索引）
 
@@ -1185,8 +1125,6 @@ IndexQuery的作用是保存对象到elasticsearch。用法如下。
 ### Type(类型)
 
 ​         Type是相当于关系数据库中的“表”。每种类型都有一列字段，用来定义文档的类型。映射定义了对在文档中的每个字段如何进行分析。
-
-
 
 ## 第九章：构建查询
 
@@ -1323,8 +1261,6 @@ wrapperQuery(String source)
 
 只需要明确一点，我们使用上述静态方法只是为了方便创建QueryBuilder系列对象。
 
-
-
 ## 第十章：条件查询
 
 我们调用QueryBuilders 的静态方法创建完具体的QueryBuilder对象之后，传入`.withQuery(QueryBuilder)`方法就可以实现的自定义查询。
@@ -1342,8 +1278,6 @@ MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("字段名", "查询�
 ```
 QueryBuilder queryBuilder = QueryBuilders.matchPhraseQuery("name", "Love You");
 ```
-
-
 
 ### 3.模糊匹配
 
@@ -1421,8 +1355,6 @@ boost(float boost)
 ignoreLike(String... likeText)
 ```
 
-
-
 ### 4.组合查询
 
 ```java
@@ -1431,8 +1363,6 @@ QueryBuilder queryBuilder = QueryBuilders.boolQuery()
                 .must(QueryBuilders.wildcardQuery("name", "西游?")) //Not
                 .should(QueryBuilders.matchQuery("name", "西游记")); //Or
 ```
-
-
 
 ### 5.包裹查询
 
@@ -1443,8 +1373,6 @@ QueryBuilder queryBuilder = QueryBuilders
                 .constantScoreQuery(QueryBuilders.matchQuery("name", "西游记"))
                 .boost(2.0f);
 ```
-
-
 
 ### 6.范围查询
 
@@ -1475,7 +1403,5 @@ QueryBuilder queryBuilder = QueryBuilders.wildcardQuery("user", "ki*hy");
 ```java
 QueryBuilders.constantScoreQuery(FilterBuilders.termQuery("name", "kimchy")).boost(2.0f);
 ```
-
-
 
 > 其实还有很多，未完待续。

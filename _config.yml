@@ -231,6 +231,8 @@ font:
 social:
  GitHub: https://github.com/yueshutong
  WeChat: /assets/img/wechat.png
+ Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bBUfGAkeLAoDFAENBQBCDwMB
+ QQGroup: https://shang.qq.com/wpa/qunwpa?idkey=3654af881aa88cda36003bc4320f360d91a1bce83e7cd8a3c4005e200a1b7092
 # Social Links Icons
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -244,8 +246,9 @@ social_icons:
   Gitee: github-square
   Twitter: twitter
   Weibo: weibo
-  QQ: qq
+  QQGroup: qq
   WeChat: wechat
+  Email: fa-envelope
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
