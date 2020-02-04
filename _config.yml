@@ -19,7 +19,7 @@ alipay: /assets/img/alipay.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url: https://www.yueshutong.cn
+url:
 baseurl:
 permalink: pretty
 
@@ -230,8 +230,6 @@ font:
   #LinkLabel: Link
 social:
  GitHub: https://github.com/yueshutong
- Gitee: https://gitee.com/zyzpp
- QQ: http://shang.qq.com/wpa/qunwpa?idkey=8f453f49b00d4b0e159e3087bfc853ca1221ea8485c9a26c7a6809ef31ec753e
  WeChat: /assets/img/wechat.png
 # Social Links Icons
 # Icon Mapping:
@@ -251,7 +249,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: /assets/img/blog_logo.jpg
+avatar: /assets/img/logo.png
 
 
 # Table Of Contents in the Sidebar
@@ -275,7 +273,7 @@ toc:
 sidebar:
   # Sidebar Position, available value: left | right
 #  position: left
-  position: right
+  position: left
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
@@ -380,7 +378,7 @@ highlight_theme: night bright
 
 # MathJax Support
 mathjax:
-  enable: false
+  enable: true
   per_page: false
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
@@ -497,7 +495,7 @@ gitalk:
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: true
+  ua_enable: false
   admin_enable: false
   user_id: 0
   #admin_nickname: Author
