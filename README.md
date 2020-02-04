@@ -1,6 +1,3 @@
-# MyBlog
-
-My personal blog, not just technical articles!
 
 ## Contributing
 
