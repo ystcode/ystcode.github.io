@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Netty入门（一）之webSocket聊天室
 date: 2018-03-04 21:13:00
 ---

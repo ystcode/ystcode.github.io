@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 史上最全的Spring Boot配置文件详解
 date: 2018-11-27 13:20:00
 ---

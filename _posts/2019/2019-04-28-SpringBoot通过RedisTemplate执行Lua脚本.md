@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot通过RedisTemplate执行Lua脚本
 date: 2019-04-28 19:50:00
 ---

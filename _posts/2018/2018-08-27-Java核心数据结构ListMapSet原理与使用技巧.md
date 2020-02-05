@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java核心数据结构(List,Map,Set)原理与使用技巧
 date: 2018-08-27 19:36:00
 ---

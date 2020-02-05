@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（1）服务注册与发现Eureka
 date: 2019-01-12 22:53:00
 ---

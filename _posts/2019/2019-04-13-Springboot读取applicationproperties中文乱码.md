@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Spring boot读取application.properties中文乱码
 date: 2019-04-13 23:32:00
 ---

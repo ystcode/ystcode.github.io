@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java过滤掉字符串中的html标签、style标签、script标签
 date: 2018-03-25 15:44:00
 ---

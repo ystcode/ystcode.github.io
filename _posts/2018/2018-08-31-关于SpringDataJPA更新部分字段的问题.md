@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 关于Spring Data JPA更新部分字段的问题
 date: 2018-08-31 16:33:00
 ---

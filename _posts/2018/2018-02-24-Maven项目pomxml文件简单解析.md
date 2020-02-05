@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Maven项目pom.xml文件简单解析
 date: 2018-02-24 21:48:00
 ---

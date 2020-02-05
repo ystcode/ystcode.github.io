@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java8之使用Optional进行Null处理
 date: 2018-12-29 15:12:00
 ---

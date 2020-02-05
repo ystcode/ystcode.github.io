@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Hibernate缓存策略(一级缓存和EHcache二级缓存)
 date: 2018-02-23 18:13:00
 ---

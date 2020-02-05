@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Git&Github基本操作与分支管理
 date: 2018-12-28 21:00:00
 ---

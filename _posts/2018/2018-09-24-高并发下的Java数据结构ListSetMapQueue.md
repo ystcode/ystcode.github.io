@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 高并发下的Java数据结构(List、Set、Map、Queue)
 date: 2018-09-24 18:46:00
 ---

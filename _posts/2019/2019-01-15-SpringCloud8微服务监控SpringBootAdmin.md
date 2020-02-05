@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（8）微服务监控Spring Boot Admin
 date: 2019-01-15 16:06:00
 ---

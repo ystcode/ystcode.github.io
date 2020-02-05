@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（6）分布式配置中心Spring Cloud Config
 date: 2019-01-14 00:53:00
 ---

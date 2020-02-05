@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（5）路由网关Spring Cloud Zuul
 date: 2019-01-13 18:37:00
 ---

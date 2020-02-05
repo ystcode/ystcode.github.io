@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot集成Shiro安全框架
 date: 2018-05-30 13:37:00
 ---

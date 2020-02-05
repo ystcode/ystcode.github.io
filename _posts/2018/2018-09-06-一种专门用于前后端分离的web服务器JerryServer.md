@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 一种专门用于前后端分离的web服务器（JerryServer）
 date: 2018-09-06 21:01:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: JSOUP如何优秀的下载JPEG等二进制图像
 date: 2018-07-26 21:27:00
 ---

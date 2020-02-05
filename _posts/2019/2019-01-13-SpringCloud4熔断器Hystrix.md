@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（4）熔断器 Hystrix
 date: 2019-01-13 15:54:00
 ---

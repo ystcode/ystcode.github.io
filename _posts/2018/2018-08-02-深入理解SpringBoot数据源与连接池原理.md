@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 深入理解Spring Boot数据源与连接池原理
 date: 2018-08-02 19:12:00
 ---

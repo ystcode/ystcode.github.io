@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 使用try-with-resources优雅的关闭IO流
 date: 2019-04-17 18:49:00
 ---

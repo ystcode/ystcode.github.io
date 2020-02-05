@@ -1,4 +1,5 @@
 ---
+layout: post
 title: JDK命令行（jps、jstat、jinfo、jmap、jhat、jstack、jstatd、hprof）与JConsole
 date: 2018-10-18 18:57:00
 ---

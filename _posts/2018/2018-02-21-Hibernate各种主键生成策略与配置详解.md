@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Hibernate各种主键生成策略与配置详解
 date: 2018-02-21 23:01:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: IDEA搭建本地服务器解决无法连接https://start.spring.io
 date: 2018-07-10 20:13:00
 ---

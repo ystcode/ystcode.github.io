@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 封装HttpUrlConnection开箱即用
 date: 2017-12-30 20:04:00
 ---

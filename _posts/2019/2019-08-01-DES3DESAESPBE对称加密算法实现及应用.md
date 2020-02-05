@@ -1,4 +1,5 @@
 ---
+layout: post
 title: DES、3DES、AES、PBE对称加密算法实现及应用
 date: 2019-08-01 15:10:00
 ---

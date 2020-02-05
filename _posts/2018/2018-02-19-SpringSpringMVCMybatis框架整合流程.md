@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Spring+SpringMVC+Mybatis框架整合流程
 date: 2018-02-19 15:13:00
 ---

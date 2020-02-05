@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 开启Tomcat的manager页面访问
 date: 2018-12-27 11:30:00
 ---

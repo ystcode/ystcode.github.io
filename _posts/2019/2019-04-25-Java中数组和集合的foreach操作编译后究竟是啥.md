@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java中数组和集合的foreach操作编译后究竟是啥
 date: 2019-04-25 13:02:00
 ---

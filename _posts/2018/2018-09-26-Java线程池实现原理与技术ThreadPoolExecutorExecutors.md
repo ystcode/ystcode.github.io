@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java线程池实现原理与技术(ThreadPoolExecutor、Executors)
 date: 2018-09-26 12:24:00
 ---

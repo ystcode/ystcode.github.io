@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（2）服务消费者（rest+ribbon）
 date: 2019-01-13 00:00:00
 ---

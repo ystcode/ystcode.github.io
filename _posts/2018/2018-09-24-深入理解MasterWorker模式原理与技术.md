@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 深入理解［Master-Worker模式］原理与技术
 date: 2018-09-24 14:11:00
 ---

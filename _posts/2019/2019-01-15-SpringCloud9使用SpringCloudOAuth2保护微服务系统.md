@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（9）使用Spring Cloud OAuth2保护微服务系统
 date: 2019-01-15 16:10:00
 ---

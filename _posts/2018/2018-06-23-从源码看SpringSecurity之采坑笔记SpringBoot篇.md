@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 从源码看Spring Security之采坑笔记（Spring Boot篇）
 date: 2018-06-23 01:58:00
 ---

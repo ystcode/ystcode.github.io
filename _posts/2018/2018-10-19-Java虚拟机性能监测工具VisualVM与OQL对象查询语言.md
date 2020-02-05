@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java虚拟机性能监测工具Visual VM与OQL对象查询语言
 date: 2018-10-19 20:03:00
 ---

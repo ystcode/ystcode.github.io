@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 图解HTTP，TCP，IP，MAC的关系
 date: 2018-05-07 14:44:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: eclipse不能运行Struts2项目
 date: 2017-11-20 13:32:00
 ---

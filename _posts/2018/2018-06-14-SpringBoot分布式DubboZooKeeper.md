@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot分布式 - Dubbo+ZooKeeper
 date: 2018-06-14 21:21:00
 ---

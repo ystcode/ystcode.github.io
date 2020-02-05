@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java系统高并发之Redis后端缓存优化
 date: 2018-02-19 20:35:00
 ---

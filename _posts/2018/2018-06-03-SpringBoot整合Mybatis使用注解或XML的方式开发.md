@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot整合Mybatis使用注解或XML的方式开发
 date: 2018-06-03 14:05:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot集成Freemarker与Thymeleaf
 date: 2018-05-10 14:21:00
 ---

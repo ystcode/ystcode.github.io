@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot整合Swagger2搭建API在线文档
 date: 2019-01-07 17:29:00
 ---
