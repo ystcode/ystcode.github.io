@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 十分钟学会Java8：lambda表达式和Stream API
 date: 2018-10-01 17:47:00
 ---

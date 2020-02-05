@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Bloom Filter（布隆过滤器）如何解决缓存穿透
 date: 2019-03-20 12:53:00
 ---

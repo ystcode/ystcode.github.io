@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot如何使用拦截器
 date: 2018-05-11 14:36:00
 ---

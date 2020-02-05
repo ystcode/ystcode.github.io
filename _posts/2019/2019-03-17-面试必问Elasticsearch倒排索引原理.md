@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 面试必问Elasticsearch倒排索引原理
 date: 2019-03-17 20:46:00
 ---

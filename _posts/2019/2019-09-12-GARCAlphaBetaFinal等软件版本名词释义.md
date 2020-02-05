@@ -1,4 +1,5 @@
 ---
+layout: post
 title: GA,RC,Alpha,Beta,Final等软件版本名词释义
 date: 2019-09-12 13:27:00
 ---

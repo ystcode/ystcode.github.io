@@ -1,4 +1,5 @@
 ---
+layout: post
 title: JDBC、Tomcat为什么要破坏双亲委派模型？
 date: 2019-08-29 17:19:00
 ---

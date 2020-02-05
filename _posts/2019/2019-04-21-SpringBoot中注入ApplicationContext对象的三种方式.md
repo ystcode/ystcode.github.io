@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot中注入ApplicationContext对象的三种方式
 date: 2019-04-21 20:57:00
 ---

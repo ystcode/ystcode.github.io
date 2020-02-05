@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java性能优化之使用NIO提升性能（Buffer和Channel）
 date: 2018-08-25 21:53:00
 ---

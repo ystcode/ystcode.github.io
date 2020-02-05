@@ -1,4 +1,5 @@
 ---
+layout: post
 title: $.Ajax、$.Get、$.Post代码实例参数解析
 date: 2019-07-09 00:19:00
 ---

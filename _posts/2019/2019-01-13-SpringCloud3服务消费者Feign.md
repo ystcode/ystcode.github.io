@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（3）服务消费者（Feign）
 date: 2019-01-13 00:35:00
 ---

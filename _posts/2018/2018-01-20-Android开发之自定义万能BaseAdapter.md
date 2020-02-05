@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Android开发之自定义万能BaseAdapter
 date: 2018-01-20 13:04:00
 ---

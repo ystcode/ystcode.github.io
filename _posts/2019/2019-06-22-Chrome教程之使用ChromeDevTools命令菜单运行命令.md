@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Chrome教程之使用Chrome DevTools命令菜单运行命令
 date: 2019-06-22 17:25:00
 ---

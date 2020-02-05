@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java消息中间件入门笔记 - ActiveMQ篇
 date: 2018-04-30 23:01:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 读取ClassPath下resource文件的正确姿势
 date: 2019-07-11 23:01:00
 ---

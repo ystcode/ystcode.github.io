@@ -1,4 +1,5 @@
 ---
+layout: post
 title: MyIsam与InnoDB存储引擎主要区别
 date: 2019-04-17 10:26:00
 ---

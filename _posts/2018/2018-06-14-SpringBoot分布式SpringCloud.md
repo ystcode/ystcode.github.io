@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot分布式 - SpringCloud
 date: 2018-06-14 22:04:00
 ---

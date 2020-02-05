@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringCloud（10）使用Spring Cloud OAuth2和JWT保护微服务
 date: 2019-01-16 20:55:00
 ---

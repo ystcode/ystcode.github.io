@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Gradle构建工具从入门到精通（IDEA）
 date: 2018-11-02 21:33:00
 ---

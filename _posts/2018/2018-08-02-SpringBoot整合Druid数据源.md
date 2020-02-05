@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot整合Druid数据源
 date: 2018-08-02 20:45:00
 ---

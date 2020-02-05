@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 史上最全面的Elasticsearch使用指南
 date: 2019-05-29 13:06:00
 ---
@@ -222,7 +223,7 @@ su admin
  ps -ef|grep elasticsearch
 ```
 
-![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i32tp7phj30hs04hweg.jpg)
+![](./20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i32tp7phj30hs04hweg.jpg)
 
 可以看到在内存为2G的主机上，Elasticsearch的运行内存为 `-Xms256m -Xmx1g`
 
@@ -286,7 +287,7 @@ http://你的服务器IP:9200/_plugin/head/
 
 出现
 
-![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i334hjpnj311x062t96.jpg)
+![](./20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i334hjpnj311x062t96.jpg)
 
 ### 8.数据迁移
 
@@ -637,7 +638,7 @@ org.springframework.dataspring-data-elasticsearchx.y.z.BUILD-SNAPSHOTspring-libs
 
 比如我的Spring Boot项目为`1.5.13.RELEASE`，在IDEA左侧可以查看到elasticsearch的版本
 
-![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i33hhy62j30c802zaa1.jpg)
+![](./20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i33hhy62j30c802zaa1.jpg)
 
 那我可以找到最接近的`2.1.x`对应的elasticsearch版本为2.4，我们这个项目使用的是2.4.1完全ok没问题。
 
@@ -655,7 +656,7 @@ cluster-name可以在访问9200端口时查看到。
 
 然后我们启动项目测试一下，出现如图所示，-测试没问题。
 
-![](/Users/yueshutong/IdeaProjects/yueshutong.github.io/_posts/2019/LOCAL/20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i33r4xy6j30nh060mxq.jpg)
+![](./20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i33r4xy6j30nh060mxq.jpg)
 
 ### 2.依赖冲突
 

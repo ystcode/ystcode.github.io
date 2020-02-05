@@ -1,4 +1,5 @@
 ---
+layout: post
 title: OpenResty入门之使用Lua开发Nginx插件
 date: 2019-04-29 19:32:00
 ---

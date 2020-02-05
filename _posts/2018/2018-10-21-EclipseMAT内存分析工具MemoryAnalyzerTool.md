@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Eclipse MAT内存分析工具（Memory Analyzer Tool）
 date: 2018-10-21 13:38:00
 ---

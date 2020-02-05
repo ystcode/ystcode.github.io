@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 基于注解处理器开发自动生成getter和setter方法的插件
 date: 2018-11-12 13:24:00
 ---

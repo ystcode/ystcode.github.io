@@ -1,4 +1,5 @@
 ---
+layout: post
 title: JavaScript判断对象是否是NULL
 date: 2019-03-21 20:09:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: DH、RSA与ElGamal非对称加密算法实现及应用
 date: 2019-07-28 21:52:00
 ---

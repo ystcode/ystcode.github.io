@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 史上最全的Spring Boot Cache使用与整合
 date: 2018-07-15 21:59:00
 ---

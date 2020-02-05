@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 2小时学会Spring Boot（IDE：eclipse）
 date: 2018-02-28 22:21:00
 ---

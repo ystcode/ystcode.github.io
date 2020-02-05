@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java执行JavaScript脚本破解encodeInp()加密
 date: 2018-02-10 18:04:00
 ---

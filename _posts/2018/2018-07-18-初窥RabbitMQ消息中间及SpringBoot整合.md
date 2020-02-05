@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 初窥RabbitMQ消息中间及SpringBoot整合
 date: 2018-07-18 23:42:00
 ---

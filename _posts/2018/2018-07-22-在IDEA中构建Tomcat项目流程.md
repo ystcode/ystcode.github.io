@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 在IDEA中构建Tomcat项目流程
 date: 2018-07-22 19:08:00
 ---

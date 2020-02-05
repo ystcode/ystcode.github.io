@@ -1,4 +1,5 @@
 ---
+layout: post
 title: IDEA+Maven+Tomcat构建Web项目的三种方法
 date: 2018-12-27 11:21:00
 ---

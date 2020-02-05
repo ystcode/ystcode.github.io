@@ -1,4 +1,5 @@
 ---
+layout: post
 title: SpringBoot使用H2内嵌数据库
 date: 2019-05-01 19:00:00
 ---

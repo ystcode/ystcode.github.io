@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Apache Commons Codec的Base64加解密库
 date: 2018-04-15 21:20:00
 ---

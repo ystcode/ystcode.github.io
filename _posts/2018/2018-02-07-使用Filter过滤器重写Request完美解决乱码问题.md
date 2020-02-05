@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 使用Filter过滤器+重写Request完美解决乱码问题
 date: 2018-02-07 23:31:00
 ---

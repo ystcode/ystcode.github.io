@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 详解InheritableThreadLocal类原理
 date: 2019-08-16 15:14:00
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Java获取Window和Linux系统的项目ClassPath路径
 date: 2018-06-06 15:54:00
 ---
@@ -80,3 +81,4 @@ System.out.println(ProjectPath.getRootPath());
 但是如果是以war包方式启动获得的是：D:\apache-tomcat-9.0.7\bin
 
 所以此方法适合不依赖Tomcat容器（或者内嵌Tomcat如SpringBoot）的项目。
+

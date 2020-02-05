@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Hibernate各种基本注解及一对一(多)关系映射采坑笔记
 date: 2018-06-03 00:36:00
 ---
