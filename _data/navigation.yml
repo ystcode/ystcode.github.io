@@ -9,5 +9,7 @@ main:
     url: /rewards/
   - title: "联系"
     url: /relation/
+  - title: "搜索"
+    url: javascript:void(0);
   - title: "GitHub"
     url: https://github.com/yueshutong

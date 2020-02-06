@@ -80,17 +80,16 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
  * Links
  */
 a {
-    color: #2568ba;
+    color: #2196F3;
     text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: #2568ba !important;
 }
 
 a:visited {
     color: #1d508f;
-}
-
-a:hover {
-    color: #111;
-    text-decoration: underline;
 }
 
 /**
