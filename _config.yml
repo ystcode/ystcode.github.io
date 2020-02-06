@@ -17,7 +17,7 @@ title: 薛勤的博客
 author: 薛勤
 description: "一位阿里人的技术进阶之路"
 baseurl:  # the subpath of your site, e.g. /blog
-url: "https://yueshutong.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url:  # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: UTC
 exclude:
@@ -32,6 +32,8 @@ exclude:
   - vendor
 favicon: /assets/img/favicon.ico
 css: /assets/main.css
+
+post_imgs_prefix: https://raw.githubusercontent.com/yueshutong/yueshutong.github.io/master/_posts
 
 # Appreciating Your Boss
 #reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
