@@ -3,111 +3,126 @@ layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    {% if page.external-url %}
-      <h1 class="post-title" itemprop="name headline"><a href="{{ page.external-url }}">{{ page.title | escape }} &rarr;</a></h1>
-    {% else %}
-      <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-    {% endif %}
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y-%m-%d %H:%M:%S" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}{% if page.categories != empty or page.tags != empty %}{% include category_links.html categories=page.categories tags=page.tags %}{% endif %}</p>
-  </header>
+    <header class="post-header">
+        {% if page.external-url %}
+        <h1 class="post-title" itemprop="name headline"><a href="{{ page.external-url }}">{{
+            page.title | escape }} &rarr;</a></h1>
+        {% else %}
+        <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+        {% endif %}
+        <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{
+                page.date | date: "%Y-%m-%d %H:%M:%S" }}
+            </time>
+            {% if page.author %} • <span itemprop="author" itemscope
+                                         itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{%
+            endif %}{% if page.categories != empty or page.tags != empty %}{% include
+            category_links.html categories=page.categories tags=page.tags %}{% endif %}
+        </p>
+    </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
-  {% if site.comments == true and page.comments != false %}
-    <div class="post-comments" itemprop="comment">
-      {% include custom_comments_provider.html %}
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
     </div>
-  {% endif %}
+
+    {% if site.comments == true and page.comments != false %}
+    <div class="post-comments" itemprop="comment">
+        {% include custom_comments_provider.html %}
+    </div>
+    {% endif %}
 
 </article>
 
 <!-- 微信公众号二维码 -->
 {% if site.wechat_subscriber.enabled %}
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="{{ site.wechat_subscriber.qcode }}" alt="{{ site.author }} wechat" style="width: 200px; max-width: 100%;"/>
+<div id="wechat_subscriber"
+     style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="{{ site.wechat_subscriber.qcode }}"
+         alt="{{ site.author }} wechat" style="width: 200px; max-width: 100%;"/>
     <div style="color: #616161;">{{ site.wechat_subscriber.description }}</div>
 </div>
 {% endif %}
 
 <!-- 支付宝/微信赞赏二维码 -->
 {% if site.alipay or site.wechatpay %}
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
     <div>{{ site.reward_comment }}</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
+    <button id="rewardButton" disable="enable"
+            onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>赏</span>
     </button>
     <div id="QR" style="display: none;">
-      {% if site.wechatpay %}
+        {% if site.wechatpay %}
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="{{ site.wechatpay }}" alt="{{ site.author }} WeChat Pay"/>
-          <p>微信打赏</p>
+            <img id="wechat_qr" src="{{ site.wechatpay }}" alt="{{ site.author }} WeChat Pay"/>
+            <p>微信打赏</p>
         </div>
-      {% endif %}
-      {% if site.alipay %}
+        {% endif %}
+        {% if site.alipay %}
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="{{ site.alipay }}" alt="{{ site.author }} Alipay"/>
-          <p>支付宝打赏</p>
+            <img id="alipay_qr" src="{{ site.alipay }}" alt="{{ site.author }} Alipay"/>
+            <p>支付宝打赏</p>
         </div>
-      {% endif %}
+        {% endif %}
     </div>
-  </div>
+</div>
 {% endif %}
 
 <!-- 上一篇、下一篇 -->
 <div class="pagination">
-  <ul>
-  {% if page.previous %}
-    <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; {{ page.previous.title }}</a></li>
-  {% else %}
-    <li class="prev disabled"><a>&laquo; 上一篇</a></li>
-  {% endif %}
-  {% if page.next %}
-    <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{ page.next.title }} &raquo;</a></li>
-  {% else %}
-    <li class="next disabled"><a>下一篇 &raquo;</a>
-  {% endif %}
-  </ul>
+    <ul>
+        {% if page.previous %}
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}"
+                            title="{{ page.previous.title }}">&laquo; {{ page.previous.title }}</a>
+        </li>
+        {% else %}
+        <li class="prev disabled"><a>&laquo; 上一篇</a></li>
+        {% endif %}
+        {% if page.next %}
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{
+            page.next.title }} &raquo;</a></li>
+        {% else %}
+        <li class="next disabled"><a>下一篇 &raquo;</a>
+            {% endif %}
+    </ul>
 </div>
 
 <!-- 来必力City版安装代码 -->
 <div id="lv-container" data-id="city" data-uid="MTAyMC80NDUyOS8yMTA2MA==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
 
-       if (typeof LivereTower === 'function') { return; }
+            if (typeof LivereTower === 'function') {
+                return;
+            }
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
 
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-</script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
 <!-- City版安装代码已完成 -->
 
 <!-- 解决_post文件夹相对路径图片无法加载问题 -->
 <script type="text/javascript">
-  window.οnlοad = function () {
     const prefix = '{{site.post_imgs_prefix}}'
     const imgs = document.querySelectorAll(".post-content img")
     for (let i = 0; i < imgs.length; i++) {
-      const img = imgs[i]
-      const href = window.location.href
-      if (img.src && img.src.startsWith(href)) {
-        // 图片相对路径
-        const src = img.src.substring(href.length)
-        // md文档所在文件夹（_post/???）
-        const number = Number(src.substring(0, 4))
-        if (!isNaN(number)) {
-          img.src = prefix + '/' + number + '/' + src
+        const img = imgs[i]
+        const href = window.location.href
+        if (img.src && img.src.startsWith(href)) {
+            // 图片相对路径
+            const src = img.src.substring(href.length)
+            // md文档所在文件夹（_post/???）
+            const number = Number(src.substring(0, 4))
+            if (!isNaN(number)) {
+                img.src = prefix + '/' + number + '/' + src
+            }
         }
-      }
     }
-  }
 </script>
