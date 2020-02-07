@@ -2,6 +2,7 @@
 layout: post
 title: 使用Filter过滤器+重写Request完美解决乱码问题
 date: 2018-02-07 23:31:00
+author: 薛勤
 ---
 ### 一：原理
 
@@ -120,3 +121,4 @@ public class MyRequest extends HttpServletRequestWrapper {
 >  http:// blog.csdn.net/csdn_gia/article/details/54094426 
 >  可以看到，第一篇博客的思想是利用的req.getParameterMap()来获取到单个或多个参数；第二篇博客较简单，重写了request.getParameter()。 
 >  笔者比着葫芦画瓢，增加了request.getParameterValues()方法，并解决了参数为空导致的自定义Request类空指针异常。
+

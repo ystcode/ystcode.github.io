@@ -2,6 +2,7 @@
 layout: post
 title: 封装HttpUrlConnection开箱即用
 date: 2017-12-30 20:04:00
+author: 薛勤
 ---
 因为经常用到 便写出来方边使用 直接复制本类即可
 
@@ -186,3 +187,4 @@ public static void main(String[] args) throws IOException {
 
 }
 ```
+

@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot整合Mybatis使用注解或XML的方式开发
 date: 2018-06-03 14:05:00
+author: 薛勤
 ---
 2018-6-4
 
@@ -442,3 +443,4 @@ public class AreaServiceImpl implements AreaService {
     }
     ....
 ```
+

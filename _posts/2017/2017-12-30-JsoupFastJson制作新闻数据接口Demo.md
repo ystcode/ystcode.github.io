@@ -2,6 +2,7 @@
 layout: post
 title: Jsoup+FastJson制作新闻数据接口-Demo
 date: 2017-12-30 21:51:00
+author: 薛勤
 ---
 **经常用到 编写出来直接拿来用 ** 
 这个适合在服务端结合servlet来做接口：需要下载jsoup+fastjson两个包 
@@ -166,4 +167,5 @@ List<NewBean> List = JSON.parseArray(json, NewBean.class);
 
 
 下载项目源代码：[http://download.csdn.net/download/yueshutong123/10182732](http://download.csdn.net/download/yueshutong123/10182732)
+
 

@@ -2,6 +2,7 @@
 layout: post
 title: Redis进阶之使用Lua脚本自定义Redis命令
 date: 2019-04-28 19:13:00
+author: 薛勤
 ---
 ## 1.在Redis中使用Lua
 
@@ -103,3 +104,4 @@ redis.LOG_WARNING
 > 本文并没有详细讲解如何读取复杂参数以及结合程序开发，详细可以参考我的另一篇文章：
 > 
 > [SpringBoot通过RedisTemplate执行Lua脚本](https://www.cnblogs.com/yueshutong/p/10786163.html)
+

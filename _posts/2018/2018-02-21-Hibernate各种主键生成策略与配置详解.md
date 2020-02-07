@@ -2,6 +2,7 @@
 layout: post
 title: Hibernate各种主键生成策略与配置详解
 date: 2018-02-21 23:01:00
+author: 薛勤
 ---
 转载自：[原文博客](https://www.cnblogs.com/hoobey/p/5508992.html)
 
@@ -316,3 +317,4 @@ hilo算法生成的标志只能在一个数据库中保证唯一。
 7、Hibernate的各版本主键生成策略配置有略微差别，但实现基本相同。如，有的版本默认sequence不指定序列名，则使用名为hibernate_sequence的序列，有的版本则必须指定序列名。
 
 8、还可以自定义主键生成策略，这里暂时不讨论，只讨论官方自带生成策略。
+

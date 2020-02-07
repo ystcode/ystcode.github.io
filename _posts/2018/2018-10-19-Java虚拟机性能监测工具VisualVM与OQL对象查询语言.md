@@ -2,6 +2,7 @@
 layout: post
 title: Java虚拟机性能监测工具Visual VM与OQL对象查询语言
 date: 2018-10-19 20:03:00
+author: 薛勤
 ---
 # 1.Visual VM多合一工具
 
@@ -902,3 +903,4 @@ min(map(heap.objects('org.apache.catalina.session.StandardSession'),'it.creation
 ```
 
 >因JDK版本问题，无法保证上述操作的有效性，仅供学习与参考。
+

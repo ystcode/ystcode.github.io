@@ -2,6 +2,7 @@
 layout: post
 title: 开启Tomcat的manager页面访问
 date: 2018-12-27 11:30:00
+author: 薛勤
 ---
 # 如何进入Tomcat的manager页面
 
@@ -27,3 +28,4 @@ manager-script,manager-status"/>
 再次访问 [http://localhost:8080/manager/html](http://localhost:8080/manager/html) 输入admin 和 123456 即可进入。
 
 ![](./20181227开启Tomcat的manager页面访问/1136672-20181227112902322-1176730706.png)
+

@@ -2,6 +2,7 @@
 layout: post
 title: Linux、Windows如何进行性能监控与调优
 date: 2018-10-16 23:06:00
+author: 薛勤
 ---
 # 1.Linux命令行工具
 
@@ -278,3 +279,4 @@ pslist [-d] [-m] [-x] [-t] [-s [n] [-r n] [name|pid]
 # 参考
 
 *《Java程序性能优化》葛一鸣著*
+

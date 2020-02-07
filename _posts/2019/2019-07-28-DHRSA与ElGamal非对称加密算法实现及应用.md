@@ -2,6 +2,7 @@
 layout: post
 title: DH、RSA与ElGamal非对称加密算法实现及应用
 date: 2019-07-28 21:52:00
+author: 薛勤
 ---
 ## 1.对称加密与非对称加密概述
 
@@ -305,3 +306,4 @@ public class ElGamal {
 图解流程：
 
 <img src="http://ww2.sinaimg.cn/large/006tNc79gy1g5ft1xdwrej30xy0l846b.jpg" referrerPolicy="no-referrer"/>
+

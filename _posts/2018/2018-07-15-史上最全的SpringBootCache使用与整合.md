@@ -2,6 +2,7 @@
 layout: post
 title: 史上最全的Spring Boot Cache使用与整合
 date: 2018-07-15 21:59:00
+author: 薛勤
 ---
 ## 一：Spring缓存抽象
 
@@ -491,3 +492,4 @@ Spring boot集成 Redis 客户端jedis。封装Redis 连接池，以及操作模
         stringRedisTemplate.opsForValue().append("msg","hello");
     }
 ```
+

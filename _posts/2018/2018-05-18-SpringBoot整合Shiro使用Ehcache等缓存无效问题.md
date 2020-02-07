@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot整合Shiro使用Ehcache等缓存无效问题
 date: 2018-05-18 13:14:00
+author: 薛勤
 ---
 # 前言
 
@@ -40,3 +41,4 @@ date: 2018-05-18 13:14:00
 即可，还有方法，比如ApplicationContextRegister.getBean()手动注入Bean。
 
 *延伸阅读：<a id="cb_post_title_url" href="https://www.cnblogs.com/yueshutong/p/9381540.html">史上最全的Spring Boot Cache使用与整合</a>*
+

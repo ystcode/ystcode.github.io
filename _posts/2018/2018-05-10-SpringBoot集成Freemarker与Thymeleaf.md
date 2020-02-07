@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot集成Freemarker与Thymeleaf
 date: 2018-05-10 14:21:00
+author: 薛勤
 ---
 # 一:概括
 
@@ -288,3 +289,4 @@ public class ThymeleafController {
     }
 }
 ```
+

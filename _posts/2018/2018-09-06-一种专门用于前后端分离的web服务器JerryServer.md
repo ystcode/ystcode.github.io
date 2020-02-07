@@ -2,6 +2,7 @@
 layout: post
 title: 一种专门用于前后端分离的web服务器（JerryServer）
 date: 2018-09-06 21:01:00
+author: 薛勤
 ---
 ![](./20180906一种专门用于前后端分离的web服务器JerryServer/1136672-20180911004432096-695802899.png)
 
@@ -257,3 +258,4 @@ Jerry把所有的web项目与页面都放在了webapps下，服务器也只会�
 *若使用出现Bug等问题，请到以下地址留言评论，或者加入QQ群交流。*
 
 Github：<https://github.com/yueshutong/JerryServer/> 
+

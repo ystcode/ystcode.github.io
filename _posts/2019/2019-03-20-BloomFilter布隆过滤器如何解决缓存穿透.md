@@ -2,6 +2,7 @@
 layout: post
 title: Bloom Filter（布隆过滤器）如何解决缓存穿透
 date: 2019-03-20 12:53:00
+author: 薛勤
 ---
 本文摘抄自我的微信公众号“程序员柯南”，欢迎关注！<a target="_blank" href="https://mp.weixin.qq.com/s?__biz=MzI3NTU2MDYwMg==&mid=2247483752&idx=1&sn=0c84947d0001ef7b8100887e7b0f5df3&chksm=eb03a09ddc74298b737d9dcf6aa6f64ab3b13d5daf00810c4ef7bc88c94af70110d71d2dbe85&token=1156381232&lang=zh_CN#rd">原文阅读</a>
 
@@ -23,3 +24,4 @@ Bloom Filter的基本原理是位数组与Hash函数的联合使用。
 所以，使用Bloom Filter法的难点是如何根据输入元素个数n，来确定位数组m的大小以及Hash函数。
 
 Bloom Filter的优点是具有很好的空间效率和时间效率。它的插入和查询时间都是常数，另外，它不保存元素本身，具有良好的安全性。然而，这些优点都是以牺牲正确率为代价的。当插入的元素越多，错判的概率越大。另外，Bloom Filter只能插入元素，不能删除元素，原因是多个元素可能共用了位数组中的同一个位。
+

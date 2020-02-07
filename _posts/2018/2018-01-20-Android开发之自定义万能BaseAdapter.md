@@ -2,6 +2,7 @@
 layout: post
 title: Android开发之自定义万能BaseAdapter
 date: 2018-01-20 13:04:00
+author: 薛勤
 ---
 话不多说哦，直接上模板：
 
@@ -263,3 +264,4 @@ private void useListView() {
  });
  }
 ```
+

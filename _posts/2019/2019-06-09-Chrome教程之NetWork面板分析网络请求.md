@@ -2,6 +2,7 @@
 layout: post
 title: Chrome教程之NetWork面板分析网络请求
 date: 2019-06-09 18:14:00
+author: 薛勤
 ---
 > 官方文档：https://developers.google.com/web/tools/chrome-devtools/network/
 
@@ -233,3 +234,4 @@ date: 2019-06-09 18:14:00
 `main.css`已被封锁
 
 7.取消选中**启用请求阻止**复选框。
+
