@@ -18,8 +18,8 @@
                                      moreLink: '<a id="readMore1" style="visibility: hidden"  href="#">展开阅读全文</a>',
                                      lessLink: '<a style="visibility: hidden" href="#">收起</a>'
                                  })
-        $('#readMore1').after(`<div id="readMore2" style="width: 100%;text-align: center">
-        <a style="font-size: 16px;color: #03A9F4;" onclick="readMoreOpen('${key}','${img}')" href="#">展开阅读全文</a>
+        $('#readMore1').after(`<div style="width: 100%;text-align: center">
+        <a id="readMore2" style="font-size: 16px;color: #03A9F4;" onclick="readMoreOpen('${key}','${img}')" href="#">展开阅读全文</a>
     </div>`)
     }
 
@@ -43,10 +43,11 @@
                    dataType: 'text',
                    success: function (result) { //成功响应的结果
                        if ((result + '') === 'true') {
-                           $('#gzh').remove()
-                           $('#readMore1').click()
-                           $('#readMore2').remove()
+                           // $('#gzh').remove()
+                           // $('#readMore1').click()
+                           // $('#readMore2').css("visibility","hidden");
                            setCookie(loginSiteKey, 'true', 7)
+                           window.location.reload();
                        } else {
                            sub.value = '提交失败'
                        }
