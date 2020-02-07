@@ -2,13 +2,7 @@
 <script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/Readmore.js/2.2.1/readmore.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        readMoreOne('.post', '博客解锁',
-                    '{{site.wechat_subscriber.qcode}}')
-    });
-
-    const loginSiteKey = 'loginSite'
-
+    let loginSiteKey = 'loginSite'
     function readMoreOne(node, key, img) {
         if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
             return
@@ -76,4 +70,9 @@
         }
         return "";
     }
+
+    $(document).ready(function () {
+        readMoreOne('.post', '博客解锁',
+                    '{{site.wechat_subscriber.qcode}}')
+    });
 </script>
