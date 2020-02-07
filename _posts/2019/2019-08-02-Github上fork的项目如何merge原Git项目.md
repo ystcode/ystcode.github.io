@@ -2,6 +2,7 @@
 layout: post
 title: Github上fork的项目如何merge原Git项目
 date: 2019-08-02 17:11:00
+author: 薛勤
 ---
 ## 问题场景
 
@@ -37,3 +38,4 @@ $ git remote add upstream 原始项目仓库的git地址
 小明再去打开心爱的IDEA，在merge的时候果然发现多了原Git仓库master分支选项，问题解决～
 
 <img src="http://ww3.sinaimg.cn/large/006tNc79gy1g5lfuqqp0bj31am0kg0y2.jpg" referrerPolicy="no-referrer"/>
+

@@ -2,6 +2,7 @@
 layout: post
 title: 2小时学会Spring Boot（IDE：eclipse）
 date: 2018-02-28 22:21:00
+author: 薛勤
 ---
 # 一：安装STS插件
 
@@ -605,3 +606,4 @@ public class SpringBootDemoApplication extends SpringBootServletInitializer{
 ```
 
 > 若war在部署到容器中时遇到Project facet Cloud Foundry Standalone Application version 1.0 is not supported.错误；   解决办法: 项目右键Build Path -> Configure Build Path -> Project facet -> 勾掉Cloud Foundry Standalone Application
+

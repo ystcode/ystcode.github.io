@@ -2,6 +2,7 @@
 layout: post
 title: 关于Spring Data JPA更新部分字段的问题
 date: 2018-08-31 16:33:00
+author: 薛勤
 ---
 ## 1、问题背景
 
@@ -145,3 +146,4 @@ JPA更新字段的手段有两种，一种是通过设置主键进行save()保�
 
 
 > 推荐我的另一篇文章：两行代码玩转Spring Data排序与分页
+

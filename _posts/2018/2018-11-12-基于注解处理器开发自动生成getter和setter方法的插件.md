@@ -2,6 +2,7 @@
 layout: post
 title: 基于注解处理器开发自动生成getter和setter方法的插件
 date: 2018-11-12 13:24:00
+author: 薛勤
 ---
 昨天无意中，逛到了[lombok](https://www.projectlombok.org/)的网站，并看到了首页的5分钟视频，视频中的作者只是在实体类中写了几个字段，就可以自动编译为含setter、getter、toString()等方法的class文件。看着挺新奇的，于是自己研究了一下原理，整理下发出来。
 
@@ -469,3 +470,4 @@ public class Demo {
 </plugin>
 </plugins>
 ```
+

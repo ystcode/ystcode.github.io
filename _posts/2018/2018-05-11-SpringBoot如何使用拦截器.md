@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot如何使用拦截器
 date: 2018-05-11 14:36:00
+author: 薛勤
 ---
 ![](./20180511SpringBoot如何使用拦截器/1136672-20190501164102333-599528024.png)
 
@@ -82,3 +83,4 @@ public class OneInterceptor implements HandlerInterceptor {
     }
 }
 ```
+

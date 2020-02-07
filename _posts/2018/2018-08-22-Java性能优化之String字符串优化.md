@@ -2,6 +2,7 @@
 layout: post
 title: Java性能优化之String字符串优化
 date: 2018-08-22 21:59:00
+author: 薛勤
 ---
 > 字符串是软件开发中最重要的对象之一。通常，字符串对象在内存中是占据了最大的空间块，因此如何高效地处理字符串，必将是提高整体性能的关键所在。
 
@@ -216,3 +217,4 @@ int compareToIgnoreCase(String str)
 
 
 > 本文参考《Java程序性能优化》葛一鸣著
+

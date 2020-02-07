@@ -2,6 +2,7 @@
 layout: post
 title: Spring+SpringMVC+Mybatis框架整合流程
 date: 2018-02-19 15:13:00
+author: 薛勤
 ---
 ### 一：基本步骤
 
@@ -444,3 +445,4 @@ public class SeckillController {
     }
 }
 ```
+

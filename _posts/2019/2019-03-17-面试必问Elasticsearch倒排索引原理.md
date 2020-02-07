@@ -2,6 +2,7 @@
 layout: post
 title: 面试必问Elasticsearch倒排索引原理
 date: 2019-03-17 20:46:00
+author: 薛勤
 ---
 本文摘抄自我的微信公众号“程序员柯南”，欢迎关注！<a target="_blank" href="https://mp.weixin.qq.com/s?__biz=MzI3NTU2MDYwMg==&mid=2247483742&idx=1&sn=8d34a552bb4a05b3ce1eba064a1d5cf9&chksm=eb03a0abdc7429bd8923933910a7cdf17f9dfdbdcf495963ddb9a5046b3723a16165fcc23232#rd">原文阅读</a>
 
@@ -34,3 +35,4 @@ hattori（D2）
 结合之前的说的正向索引，不难发现。正向索引是通过文档去查找单词，反向索引则是通过单词去查找文档。
 
 倒排索引的优点还包括在处理复杂的多关键字查询时，可在倒排表中先完成查询的并、交等逻辑运算，得到结果后再对记录进行存取，这样把对文档的查询转换为地址集合的运算，从而提高查找速度。
+

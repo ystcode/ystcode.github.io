@@ -2,6 +2,7 @@
 layout: post
 title: Java中数组和集合的foreach操作编译后究竟是啥
 date: 2019-04-25 13:02:00
+author: 薛勤
 ---
 今天和同事在关于foreach编译后是for循环还是迭代器有了不同意见，特做了个Demo，了解一下。
 
@@ -85,3 +86,4 @@ public class Demo {
 总结：
 
 foreach对于数组来说依旧是for循环，对List、Map集合来说是迭代器。
+

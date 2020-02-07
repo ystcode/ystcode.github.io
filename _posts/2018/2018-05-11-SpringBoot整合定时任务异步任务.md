@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot整合定时任务异步任务
 date: 2018-05-11 11:00:00
+author: 薛勤
 ---
 # 1.定时任务
 
@@ -82,3 +83,4 @@ public class AsyncTask {
 ```
 
 >就是这么简洁不墨迹~~
+

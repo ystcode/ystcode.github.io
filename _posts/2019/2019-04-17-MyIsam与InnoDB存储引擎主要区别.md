@@ -2,6 +2,7 @@
 layout: post
 title: MyIsam与InnoDB存储引擎主要区别
 date: 2019-04-17 10:26:00
+author: 薛勤
 ---
 <p>MyIsam与InnoDB主要有以下4点大的区别，缓存机制，事务支持，锁定实现，数据物理存储方式（包括索引和数据）。</p>
 <h3>1.缓存机制</h3>
@@ -37,3 +38,4 @@ date: 2019-04-17 10:26:00
 <p>&nbsp;</p>
 <p>以上参考mysql 核心内幕总结的，有不对的地方欢迎拍砖。</p>
 <p><span style="color: #808080;"><em>本文转载自：<a href="https://www.cnblogs.com/ijia/p/3826990.html#4233076"><span style="color: #808080;">https://www.cnblogs.com/ijia/p/3826990.html</span></a></em></span></p>
+

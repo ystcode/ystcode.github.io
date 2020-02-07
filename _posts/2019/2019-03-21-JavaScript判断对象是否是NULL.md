@@ -2,6 +2,7 @@
 layout: post
 title: JavaScript判断对象是否是NULL
 date: 2019-03-21 20:09:00
+author: 薛勤
 ---
 这个方法是我踩了很多坑之后找到的，对数组等类型的对象都很好使，果断收藏！
 
@@ -21,3 +22,4 @@ function isEmpty(obj) {
 }
 
 ```
+

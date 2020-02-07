@@ -2,6 +2,7 @@
 layout: post
 title: SpringCloud（7）服务链路追踪Spring Cloud Sleuth
 date: 2019-01-14 14:29:00
+author: 薛勤
 ---
 ## 1.简介
 
@@ -670,3 +671,4 @@ zipkin:
 上一节讲述了如何将链路数据存储在ElasticSearch 中， ElasticSearch 可以和Kibana 结合，将链路数据展示在Kibana 上。安装完成Kibana 后启动， Kibana 默认会向本地端口为 9200 的 ElasticSearch 读取数据。Kibana 默认的端口为5601 ，访问 Kibana 的主页 http://localhost:5601, 单击 “Management” 按钮，然后单击“Add New”， 添加一个index 。我们将在上节 ElasticSearch 中写入链路数据的 index 配置为“ zipkin ”，那么在界面填写为 ”zipkin-*“ ， 单击“ C reate ”按钮，创建完成 index 后，单击 “Discover ”，就可以在界面上展示链路数据了。
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*
+

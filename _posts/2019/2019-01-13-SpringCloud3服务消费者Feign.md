@@ -2,6 +2,7 @@
 layout: post
 title: SpringCloud（3）服务消费者（Feign）
 date: 2019-01-13 00:35:00
+author: 薛勤
 ---
 上一篇文章，讲述了如何通过 RestTemplate+Ribbon 去消费服务，这篇文章主要讲述如何通过Feign去消费服务。
 
@@ -166,3 +167,4 @@ public class HiController {
 关于@FeignClient注解参考 [FeignClient注解及性能优化注意事项](https://www.cnblogs.com/moonandstar08/p/7565442.html)
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*
+

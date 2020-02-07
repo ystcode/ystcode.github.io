@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot热部署的实现方式
 date: 2018-03-10 21:17:00
+author: 薛勤
 ---
 # 一：热部署的实现
 
@@ -61,3 +62,4 @@ restart.include.pagehelper=/pagehelper-[%%w-%%.]+jar
 需要下载该Jar包，右击运行配置
 
 ![](./20180310SpringBoot热部署的实现方式/1136672-20190623134033406-240474200.png)
+

@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot整合Druid数据源
 date: 2018-08-02 20:45:00
+author: 薛勤
 ---
 ## 一：Druid介绍
 
@@ -114,3 +115,4 @@ public class DruidConfig {
 
 ![](./20180802SpringBoot整合Druid数据源/1136672-20180802204514162-477947424.png)
 > 官方Spring boot集成文档：https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+

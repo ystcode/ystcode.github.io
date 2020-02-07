@@ -2,6 +2,7 @@
 layout: post
 title: SpringBoot使用H2内嵌数据库
 date: 2019-05-01 19:00:00
+author: 薛勤
 ---
 ## 1.驱动
 
@@ -105,3 +106,4 @@ jdbc:h2:tcp://localhost/mem:gacl  //内存数据库
 ### 扩展
 
 [https://www.cnblogs.com/xuyatao/p/7080095.html](https://www.cnblogs.com/xuyatao/p/7080095.html)
+
