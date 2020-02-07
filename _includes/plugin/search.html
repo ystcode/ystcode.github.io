@@ -1,5 +1,7 @@
 <!-- HTML elements for search -->
-<div style="z-index: 9; width: 54%; background-color: rgb(250, 250, 250); margin: 0px auto; position: absolute; border: 1px solid rgb(238, 242, 248); top: 56px; left: 23%; display: none;" id="search">
+<div style="z-index: 9; width: 54%; background-color: rgb(250, 250, 250); margin: 0 auto;
+    position: absolute; border: 1px solid rgb(238, 242, 248);
+    border-top: none; border-bottom: none;top: 56px; left: 23%; display: none;" id="search">
     <input type="text" id="search-input" placeholder="Search blog posts.." style="
     color: #314659;
     border: solid 1px #eef2f8;
@@ -30,7 +32,9 @@
             })
         }
     }
-    document.getElementsByTagName('main')[0].addEventListener('click',()=>{document.getElementById('search').style.display = 'none'})
+    document.getElementsByTagName('main')[0].addEventListener('click', () => {
+        document.getElementById('search').style.display = 'none'
+    })
     var sjs = SimpleJekyllSearch({
                                      searchInput: document.getElementById('search-input'),
                                      resultsContainer: document.getElementById('results-container'),
