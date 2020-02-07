@@ -28,6 +28,31 @@ table {
     text-align: left;
 }
 
+table{
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
+table,td,th{
+    border: 1px solid #E0E0E0;
+}
+table{
+    border-right: none;
+    border-top: none;
+}
+th{
+    border-left: none;
+    border-bottom: none;
+    background-color: #EEEEEE;
+    text-align: center;
+    padding: 2px;
+}
+td {
+    border-left: none;
+    border-bottom: none;
+    text-align: center;
+    padding: 2px;
+}
+
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -89,7 +114,7 @@ a:hover {
 }
 
 a:visited {
-    color: #1d508f;
+    /*color: #1d508f;*/
 }
 
 /**
