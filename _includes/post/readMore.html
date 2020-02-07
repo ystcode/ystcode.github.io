@@ -1,0 +1,78 @@
+<!--阅读全文-->
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/Readmore.js/2.2.1/readmore.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        readMoreOne('.post', '博客解锁',
+                    '{{site.wechat_subscriber.qcode}}')
+    });
+
+    const loginSiteKey = 'loginSite'
+
+    function readMoreOne(node, key, img) {
+        if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
+            return
+        }
+        document.querySelector(node).style.overflowY = 'hidden'
+        $(node).readmore({
+                                     moreLink: '<a id="readMore1" style="visibility: hidden"  href="#">展开阅读全文</a>',
+                                     lessLink: '<a style="visibility: hidden" href="#">收起</a>'
+                                 })
+        $('#readMore1').after(`<div id="readMore2" style="width: 100%;text-align: center">
+        <a style="font-size: 16px;color: #03A9F4;" onclick="readMoreOpen('${key}','${img}')" href="#">展开阅读全文</a>
+    </div>`)
+    }
+
+    function readMoreOpen(key,img) {
+        $('body').append(`
+<div id="gzh" style="position: fixed;background: whitesmoke;align-content: center;text-align: center;width: 80%;height: 45%;padding: 5% 0;z-index: 9;left: 10%;bottom: 20%;">
+    <p style="margin: 0;font-size: 16px;">扫码关注微信公众号回复<span style="color: red;">${key}</span>获取验证码</p>
+    <input style="height: 20px" type="text" id="key"/>
+    <input type="submit" style="font-size: 15px;border: 1px #BDBDBD solid;border-radius: 2px;background-color: #fff;" value="提交" onclick="loginApp(this)"/>
+    <img src="${img}"
+    style="display: block; margin: 10px auto;max-width: 200px;"/>
+    <p>广告合作请加微信codeblog</p>
+</div>`)
+    }
+
+    function loginApp(sub) {
+        var key = $('input[id=key]').val()
+        $.ajax({
+                   url: `https://f.onblogs.cn/vip/authcode?code=${key}&group=ystblog`,
+                   type: 'POST',
+                   dataType: 'text',
+                   success: function (result) { //成功响应的结果
+                       if ((result + '') === 'true') {
+                           $('#gzh').remove()
+                           $('#readMore1').click()
+                           $('#readMore2').remove()
+                           setCookie(loginSiteKey, 'true', 7)
+                       } else {
+                           sub.value = '提交失败'
+                       }
+                   },
+                   error: function (xhr, status, error) {
+                       alert('网络错误，进入试用')
+                   }
+               })
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
