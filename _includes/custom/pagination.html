@@ -1,0 +1,18 @@
+<!-- 上一篇、下一篇 -->
+<div class="pagination">
+    <ul>
+        {% if page.previous %}
+        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}"
+                            title="{{ page.previous.title }}">&laquo; {{ page.previous.title }}</a>
+        </li>
+        {% else %}
+        <li class="prev disabled"><a>&laquo; 上一篇</a></li>
+        {% endif %}
+        {% if page.next %}
+        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">{{
+            page.next.title }} &raquo;</a></li>
+        {% else %}
+        <li class="next disabled"><a>下一篇 &raquo;</a>
+            {% endif %}
+    </ul>
+</div>
