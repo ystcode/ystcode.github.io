@@ -9,8 +9,9 @@
             return
         }
         document.querySelector(node).style.overflowY = 'hidden'
+        const h = parseInt(document.getElementsByClassName('post-content')[0].clientHeight * 0.7)
         $(node).readmore({
-                             collapsedHeight: parseInt(document.getElementsByClassName('post-content')[0].clientHeight * 0.7),
+                             collapsedHeight: h,
                              moreLink: '<a id="readMore1" style="visibility: hidden"  href="#">展开阅读全文</a>',
                              lessLink: '<a style="visibility: hidden" href="#">收起</a>'
                          })
