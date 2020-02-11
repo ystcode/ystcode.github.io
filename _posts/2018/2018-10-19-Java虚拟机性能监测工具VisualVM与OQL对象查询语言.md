@@ -174,7 +174,7 @@ public class HProfTest {
 ## 1.7 MBean管理
 
 Visual VM可以通过插件，集成JConsole的MBean管理功能。
-关于JConsole MBean的使用请参考另一篇博客：[https://www.cnblogs.com/yueshutong/p/9812464.html](https://www.cnblogs.com/yueshutong/p/9812464.html)
+关于JConsole MBean的使用请参考另一篇博客：[/](/)
 
 ## 1.8 TDA使用
 
@@ -903,4 +903,5 @@ min(map(heap.objects('org.apache.catalina.session.StandardSession'),'it.creation
 ```
 
 >因JDK版本问题，无法保证上述操作的有效性，仅供学习与参考。
+
 
