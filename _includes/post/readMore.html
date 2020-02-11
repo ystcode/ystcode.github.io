@@ -3,7 +3,7 @@
 <script src="//cdn.bootcss.com/Readmore.js/2.2.1/readmore.min.js"></script>
 <script type="text/javascript">
     const loginSiteKey = 'loginSite'
-    const height = parseInt(parseInt(document.getElementsByClassName('post-content')[0].clientHeight) * 0.5)
+    const height = parseInt(document.getElementsByClassName('post-content')[0].clientHeight* 0.5)
 
     function readMoreOne(node, key, img) {
         if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
@@ -67,7 +67,7 @@
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i].trim();
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(name) === 0) {
                 return c.substring(name.length, c.length);
             }
         }
@@ -75,8 +75,7 @@
     }
 
     $(document).ready(function () {
-        readMoreOne('.post', '博客解锁',
-                    '{{site.wechat_subscriber.qcode}}')
+        readMoreOne('.post', '博客解锁', '{{site.wechat_subscriber.qcode}}')
     });
 </script>
 </div>
