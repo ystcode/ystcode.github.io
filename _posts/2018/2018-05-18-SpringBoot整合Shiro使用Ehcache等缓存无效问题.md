@@ -40,5 +40,6 @@ author: 薛勤
 
 即可，还有方法，比如ApplicationContextRegister.getBean()手动注入Bean。
 
-*延伸阅读：<a id="cb_post_title_url" href="https://www.cnblogs.com/yueshutong/p/9381540.html">史上最全的Spring Boot Cache使用与整合</a>*
+*延伸阅读：<a id="cb_post_title_url" href="/">史上最全的Spring Boot Cache使用与整合</a>*
+
 

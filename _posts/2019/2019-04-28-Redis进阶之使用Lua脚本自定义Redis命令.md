@@ -103,5 +103,6 @@ redis.LOG_WARNING
 
 > 本文并没有详细讲解如何读取复杂参数以及结合程序开发，详细可以参考我的另一篇文章：
 > 
-> [SpringBoot通过RedisTemplate执行Lua脚本](https://www.cnblogs.com/yueshutong/p/10786163.html)
+> [SpringBoot通过RedisTemplate执行Lua脚本](/)
+
 

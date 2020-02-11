@@ -168,7 +168,7 @@ public class DemoApplication {
 
 重启项目，再次刷新访问，浏览器响应：Hello Mark 你好！
 
-> 如果你遇到中文乱码，可以参考 [Spring boot读取application.properties中文乱码](https://www.cnblogs.com/yueshutong/p/10703561.html) 
+> 如果你遇到中文乱码，可以参考 [Spring boot读取application.properties中文乱码](/) 
 
 ## 4.元数据的配置
 
@@ -358,4 +358,5 @@ public class RedisExistsCondition implements Condition {
 *[编写自己的SpringBoot-starter](https://mp.weixin.qq.com/s/a--34E6iFTopUVC6orW7Jw)*
 
 *[SpringBoot自定义Starter](https://shimo.im/docs/ywxu41XEYxYXYy3U/read)*
+
 
