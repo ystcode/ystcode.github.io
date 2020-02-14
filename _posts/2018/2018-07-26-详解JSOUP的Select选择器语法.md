@@ -3,6 +3,7 @@ layout: post
 title: 详解JSOUP的Select选择器语法
 date: 2018-07-26 19:55:00
 author: 薛勤
+tags: [Java,Jsoup]
 ---
 本文参考：[JSOUP中文文档](http://www.open-open.com/jsoup/selector-syntax.htm)
 

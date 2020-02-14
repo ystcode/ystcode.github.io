@@ -3,6 +3,7 @@ layout: post
 title: 史上最全的Spring Boot Cache使用与整合
 date: 2018-07-15 21:59:00
 author: 薛勤
+tags: [SpringBoot]
 ---
 ## 一：Spring缓存抽象
 
@@ -428,7 +429,7 @@ public class BotRelationServiceImpl implements BotRelationService {
 ### 1.启动Redis
 
 下载地址：[https://github.com/MicrosoftArchive/redis/releases](https://github.com/MicrosoftArchive/redis/releases) 
-![这里写图片描述](https://img-blog.csdn.net/20180715212453491?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1ZXNodXRvbmcxMjM/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70)
+![这里写图片描述](./20180715史上最全的SpringBootCache使用与整合/20180715212453491.png)
 
 ### 2.导入依赖
 

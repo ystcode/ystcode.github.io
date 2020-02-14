@@ -296,14 +296,14 @@ pre > code {
 }
 
 .post-archives .post-link {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .post-archives > li {
     margin-bottom: 30px;
 }
 
-.post-meta {
+.post-meta, .post-meta a {
     font-size: 14px;
     color: #757575;
 }

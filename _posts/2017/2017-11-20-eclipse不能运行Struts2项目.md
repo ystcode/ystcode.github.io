@@ -3,6 +3,7 @@ layout: post
 title: eclipse不能运行Struts2项目
 date: 2017-11-20 13:32:00
 author: 薛勤
+tags: [eclipse,Struts2]
 ---
 刚接触Struts2项目，本想写个HelloWorld上手，谁知道光eclipse配置tomcat就鼓捣一晚上，查阅各种资料。
 

@@ -3,8 +3,9 @@ layout: post
 title: 史上最全面的Elasticsearch使用指南
 date: 2019-05-29 13:06:00
 author: 薛勤
+tags: [Elasticsearch]
 ---
--  Create by yster@foxmail.com  2018-7-1
+-  Create by yster@foxmail.com  2018-7-1 侵权必究
 -  官方文档：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
 -  23个很有用的查询示例：https://www.coyee.com/article/10764-23-useful-elasticsearch-example-queries/
 -  ES配置详解：https://www.cnblogs.com/hanyouchun/p/5163183.html

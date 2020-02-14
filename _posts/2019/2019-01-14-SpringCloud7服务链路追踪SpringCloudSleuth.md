@@ -3,6 +3,7 @@ layout: post
 title: SpringCloud（7）服务链路追踪Spring Cloud Sleuth
 date: 2019-01-14 14:29:00
 author: 薛勤
+tags: [SpringCloud]
 ---
 ## 1.简介
 

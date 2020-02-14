@@ -3,6 +3,7 @@ layout: post
 title: Hibernate各种基本注解及一对一(多)关系映射采坑笔记
 date: 2018-06-03 00:36:00
 author: 薛勤
+tags: [Hibernate]
 ---
 >*  hibernate提供两种方式配置关系映射，一种XMl配置，一种注解。SpringBoot已经自带了hibernate注解方式，我也是特别喜欢使用注解，特此记下常用的知识点。
 

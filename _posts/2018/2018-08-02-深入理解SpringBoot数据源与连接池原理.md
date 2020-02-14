@@ -3,6 +3,7 @@ layout: post
 title: 深入理解Spring Boot数据源与连接池原理
 date: 2018-08-02 19:12:00
 author: 薛勤
+tags: [SpringBoot]
 ---
 ## 一：开始
 在使用Spring Boot数据源之前，我们一般会导入相关依赖。其中数据源核心依赖就是`spring‐boot‐starter‐jdbc`

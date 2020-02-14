@@ -3,6 +3,7 @@ layout: post
 title: 史上最全的Spring Boot配置文件详解
 date: 2018-11-27 13:20:00
 author: 薛勤
+tags: [SpringBoot]
 ---
 > Spring Boot在工作中是用到的越来越广泛了，简单方便，有了它，效率提高不知道多少倍。Spring Boot配置文件对Spring Boot来说就是入门和基础，经常会用到，所以写下做个总结以便日后查看。
 
@@ -379,8 +380,6 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 
 5.RandomValuePropertySource配置的random.*属性值
 
-
-
 ***由jar包外向jar包内进行寻找***
 
 优先加载带{profile}
@@ -394,7 +393,6 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 8.jar包外部的application.properties或application.yml(不带spring.profile)配置文件
 
 9.jar包内部的application.properties或application.yml(不带spring.profile)配置文件
-
 
 
 10.@Configuration注解类上的@PropertySource
@@ -435,9 +433,7 @@ org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfig
 
 3.对每一个自动配置类进行自动配置功能。
 
-------
-
-4.以HttpEncodingAutoConfiguration（Http编码自动配置）为例解释自动配置原理；
+以HttpEncodingAutoConfiguration（Http编码自动配置）为例解释自动配置原理；
 
 ```java
 @Configuration   //表示这是一个配置类，以前编写的配置文件一样，也可以给容器中添加组件
@@ -528,7 +524,7 @@ public class HttpEncodingProperties {
 
 我们可以通过在properties（yml）启用  debug=true 属性来让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效。
 
-```
+```java
 ============================
 CONDITIONS EVALUATION REPORT
 ============================

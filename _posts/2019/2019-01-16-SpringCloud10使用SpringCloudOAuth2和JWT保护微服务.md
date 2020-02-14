@@ -3,6 +3,7 @@ layout: post
 title: SpringCloud（10）使用Spring Cloud OAuth2和JWT保护微服务
 date: 2019-01-16 20:55:00
 author: 薛勤
+tags: [SpringCloud]
 ---
 采用Spring Security AOuth2 和 JWT 的方式，避免每次请求都需要远程调度 Uaa 服务。采用Spring Security OAuth2 和 JWT 的方式，Uaa 服务只验证一次，返回JWT。返回的 JWT 包含了用户的所有信息，包括权限信息。
 

@@ -3,6 +3,7 @@ layout: post
 title: 十分钟学会Java8：lambda表达式和Stream API
 date: 2018-10-01 17:47:00
 author: 薛勤
+tags: [Java,lambda]
 ---
 Java8 的新特性：Lambda表达式、强大的 Stream API、全新时间日期 API、ConcurrentHashMap、MetaSpace。总得来说，Java8 的新特性使 Java 的运行速度更快、代码更少、便于并行、最大化减少空指针异常。
 

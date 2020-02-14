@@ -3,6 +3,7 @@ layout: post
 title: Github上fork的项目如何merge原Git项目
 date: 2019-08-02 17:11:00
 author: 薛勤
+tags: [Github]
 ---
 ## 问题场景
 

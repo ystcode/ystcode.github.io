@@ -3,6 +3,7 @@ layout: post
 title: SpringCloud（3）服务消费者（Feign）
 date: 2019-01-13 00:35:00
 author: 薛勤
+tags: [SpringCloud]
 ---
 上一篇文章，讲述了如何通过 RestTemplate+Ribbon 去消费服务，这篇文章主要讲述如何通过Feign去消费服务。
 

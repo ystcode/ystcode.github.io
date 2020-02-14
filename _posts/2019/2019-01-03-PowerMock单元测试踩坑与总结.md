@@ -3,6 +3,7 @@ layout: post
 title: PowerMock单元测试踩坑与总结
 date: 2019-01-03 11:06:00
 author: 薛勤
+tags: [Mock]
 ---
 ## 1.Mock是什么？
 
