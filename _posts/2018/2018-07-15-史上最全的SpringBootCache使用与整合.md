@@ -94,11 +94,11 @@ IDE：IDEA
 
 ### 1.开始使用前需要导入依赖
 
-```java
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
 ```
 
 ### 2.然后在启动类注解@EnableCaching开启缓存
@@ -120,10 +120,10 @@ public class DemoApplication{
 `@Cacheable`注解会先查询是否已经有缓存，有会使用缓存，没有则会执行方法并缓存。
 
 ```java
-    @Cacheable(value = "emp" ,key = "targetClass + methodName +#p0")
-    public List<NewJob> queryAll(User uid) {
-        return newJobDao.findAllByUid(uid);
-    }
+@Cacheable(value = "emp" ,key = "targetClass + methodName +#p0")
+public List<NewJob> queryAll(User uid) {
+    return newJobDao.findAllByUid(uid);
+}
 ```
 
 此处的`value`是必需的，它指定了你的缓存存放在哪块命名空间。
@@ -203,18 +203,18 @@ String cacheResolver() default ""; //或者指定获取解析器
 `@CachePut`注解的作用 主要针对方法配置，能够根据方法的请求参数对其结果进行缓存，和 `@Cacheable` 不同的是，它每次都会触发真实方法的调用 。简单来说就是用户更新缓存数据。但需要注意的是该注解的`value` 和 `key` 必须与要更新的缓存相同，也就是与`@Cacheable` 相同。示例：
 
 ```java
-    @CachePut(value = "emp", key = "targetClass + #p0")
-    public NewJob updata(NewJob job) {
-        NewJob newJob = newJobDao.findAllById(job.getId());
-        newJob.updata(job);
-        return job;
-    }
+@CachePut(value = "emp", key = "targetClass + #p0")
+public NewJob updata(NewJob job) {
+    NewJob newJob = newJobDao.findAllById(job.getId());
+    newJob.updata(job);
+    return job;
+}
 
-    @Cacheable(value = "emp", key = "targetClass +#p0")//清空缓存
-    public NewJob save(NewJob job) {
-        newJobDao.save(job);
-        return job;
-    }
+@Cacheable(value = "emp", key = "targetClass +#p0")//清空缓存
+public NewJob save(NewJob job) {
+    newJobDao.save(job);
+    return job;
+}
 ```
 
 **查看它的其它属性**
@@ -255,29 +255,29 @@ String unless() default ""; //条件符合则不缓存
 示例：
 
 ```java
-    @Cacheable(value = "emp",key = "#p0.id")
-    public NewJob save(NewJob job) {
-        newJobDao.save(job);
-        return job;
-    }
+@Cacheable(value = "emp",key = "#p0.id")
+public NewJob save(NewJob job) {
+    newJobDao.save(job);
+    return job;
+}
 
-    //清除一条缓存，key为要清空的数据
-    @CacheEvict(value="emp",key="#id")
-    public void delect(int id) {
-        newJobDao.deleteAllById(id);
-    }
+//清除一条缓存，key为要清空的数据
+@CacheEvict(value="emp",key="#id")
+public void delect(int id) {
+    newJobDao.deleteAllById(id);
+}
 
-    //方法调用后清空所有缓存
-    @CacheEvict(value="accountCache",allEntries=true)
-    public void delectAll() {
-        newJobDao.deleteAll();
-    }
+//方法调用后清空所有缓存
+@CacheEvict(value="accountCache",allEntries=true)
+public void delectAll() {
+    newJobDao.deleteAll();
+}
 
-    //方法调用前清空所有缓存
-    @CacheEvict(value="accountCache",beforeInvocation=true)
-    public void delectAll() {
-        newJobDao.deleteAll();
-    }
+//方法调用前清空所有缓存
+@CacheEvict(value="accountCache",beforeInvocation=true)
+public void delectAll() {
+    newJobDao.deleteAll();
+}
 ```
 
 **其他属性**
@@ -307,20 +307,20 @@ String condition() default ""; //条件符合则清空
 有时候我们可能组合多个Cache注解使用，此时就需要@Caching组合多个注解标签了。
 
 ```java
-    @Caching(cacheable = {
-            @Cacheable(value = "emp",key = "#p0"),
-            ...
-    },
-    put = {
-            @CachePut(value = "emp",key = "#p0"),
-            ...
-    },evict = {
-            @CacheEvict(value = "emp",key = "#p0"),
-            ....
-    })
-    public User save(User user) {
+@Caching(cacheable = {
+        @Cacheable(value = "emp",key = "#p0"),
+        ...
+},
+put = {
+        @CachePut(value = "emp",key = "#p0"),
+        ...
+},evict = {
+        @CacheEvict(value = "emp",key = "#p0"),
         ....
-    }
+})
+public User save(User user) {
+    ....
+}
 ```
 
 下面讲到的整合第三方缓存组件都是基于上面的已经完成的步骤，所以一个应用要先做好你的缓存逻辑，再来整合其他cache组件。
@@ -436,10 +436,10 @@ public class BotRelationServiceImpl implements BotRelationService {
 就只需要这一个依赖！不需要`spring-boot-starter-cache`
 
 ```xml
-  <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-  </dependency>
+<dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
 ```
 
 当你导入这一个依赖时，SpringBoot的CacheManager就会使用RedisCache。
@@ -475,22 +475,22 @@ spring.redis.timeout=0
 Spring boot集成 Redis 客户端jedis。封装Redis 连接池，以及操作模板。 
 
 ```java
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;//操作key-value都是字符串
+@Autowired
+private StringRedisTemplate stringRedisTemplate;//操作key-value都是字符串
 
-    @Autowired
-    private RedisTemplate redisTemplate;//操作key-value都是对象
+@Autowired
+private RedisTemplate redisTemplate;//操作key-value都是对象
 
-    /**
-     *  Redis常见的五大数据类型：
-     *  stringRedisTemplate.opsForValue();[String(字符串)]
-     *  stringRedisTemplate.opsForList();[List(列表)]
-     *  stringRedisTemplate.opsForSet();[Set(集合)]
-     *  stringRedisTemplate.opsForHash();[Hash(散列)]
-     *  stringRedisTemplate.opsForZSet();[ZSet(有序集合)]
-     */
-    public void test(){
-        stringRedisTemplate.opsForValue().append("msg","hello");
-    }
+/**
+ *  Redis常见的五大数据类型：
+ *  stringRedisTemplate.opsForValue();[String(字符串)]
+ *  stringRedisTemplate.opsForList();[List(列表)]
+ *  stringRedisTemplate.opsForSet();[Set(集合)]
+ *  stringRedisTemplate.opsForHash();[Hash(散列)]
+ *  stringRedisTemplate.opsForZSet();[ZSet(有序集合)]
+ */
+public void test(){
+    stringRedisTemplate.opsForValue().append("msg","hello");
+}
 ```
 
