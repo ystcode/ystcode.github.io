@@ -3,6 +3,7 @@ layout: post
 title: Spring MVC数据绑定入门总结
 date: 2018-03-14 21:46:00
 author: 薛勤
+tags: [SpringBoot]
 ---
 # 1.基本类型
 

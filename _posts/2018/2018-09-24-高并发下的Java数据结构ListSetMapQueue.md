@@ -3,6 +3,7 @@ layout: post
 title: 高并发下的Java数据结构(List、Set、Map、Queue)
 date: 2018-09-24 18:46:00
 author: 薛勤
+tags: [Java,多线程]
 ---
 由于并行程序与串行程序的不同特点，适用于串行程序的一些数据结构可能无法直接在并发环境下正常工作，这是因为这些数据结构不是线程安全的。本节将着重介绍一些可以用于多线程环境的数据结构，如并发List、并发Set、并发Map等。
 
@@ -118,8 +119,6 @@ ConcurrentHashMap的内部实现进行了锁分离（或锁分段），所以它
 
 锁分离：首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。有些方法需要跨段，比如size()和containsValue()，它们可能需要锁定整个表而而不仅仅是某个段，这需要按顺序锁定所有段，操作完毕后，又按顺序释放所有段的锁。
 
-> 上述文字部分参考自文章：[Java集合---ConcurrentHashMap原理分析](https://www.cnblogs.com/ITtangtang/p/3948786.html)
-
 ## 4.并发Queue
 
 在并发队列上，JDK提供了两套实现，一个是以 ConcurrentLinkedQueue 为代表的高性能队列，一个是以 BlockingQueue 接口为代表的阻塞队列。不论哪种实现，都继承自 Queue 接口。
@@ -150,4 +149,3 @@ LinkedBlockingDeque 是一个线程安全的双端队列实现。可以说，它
 ## 参考
 
 *《Java程序性能优化》葛一鸣著*
-

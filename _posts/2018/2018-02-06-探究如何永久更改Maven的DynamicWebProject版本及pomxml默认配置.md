@@ -3,6 +3,7 @@ layout: post
 title: 探究如何永久更改Maven的Dynamic Web Project版本及pom.xml默认配置
 date: 2018-02-06 19:00:00
 author: 薛勤
+tags: [Maven]
 ---
 # 一：问题
 

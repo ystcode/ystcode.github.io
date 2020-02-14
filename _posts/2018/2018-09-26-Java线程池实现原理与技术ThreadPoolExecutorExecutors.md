@@ -3,6 +3,7 @@ layout: post
 title: Java线程池实现原理与技术(ThreadPoolExecutor、Executors)
 date: 2018-09-26 12:24:00
 author: 薛勤
+tags: [Java,多线程]
 ---
 > 本文将通过实现一个简易的线程池理解线程池的原理，以及介绍JDK中自带的线程池ThreadPoolExecutor和Executor框架。
 

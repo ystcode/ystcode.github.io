@@ -3,6 +3,7 @@ layout: post
 title: Java获取Window和Linux系统的项目ClassPath路径
 date: 2018-06-06 15:54:00
 author: 薛勤
+tags: [Java,Windows,Linux]
 ---
 ## 不啰嗦，直接复制工具类
 

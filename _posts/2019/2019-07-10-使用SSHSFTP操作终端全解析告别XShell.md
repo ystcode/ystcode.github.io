@@ -3,6 +3,7 @@ layout: post
 title: 使用SSH+SFTP操作终端全解析，告别XShell
 date: 2019-07-10 20:46:00
 author: 薛勤
+tags: [SSH,SFTP]
 ---
 ## 1.前言
 

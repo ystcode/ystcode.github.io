@@ -3,6 +3,7 @@ layout: post
 title: 警告:Establishing SSL connection without server's identity verification is not recommended
 date: 2018-06-04 00:59:00
 author: 薛勤
+tags: [MySQL]
 ---
 SpringBoot启东时红色警告：
 

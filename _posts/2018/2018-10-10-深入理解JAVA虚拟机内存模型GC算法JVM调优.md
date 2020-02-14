@@ -3,8 +3,8 @@ layout: post
 title: 深入理解JAVA虚拟机（内存模型+GC算法+JVM调优）
 date: 2018-10-10 18:41:00
 author: 薛勤
+tags: [Java,JVM]
 ---
-[TOC]
 
 # 1.Java虚拟机内存模型
 

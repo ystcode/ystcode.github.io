@@ -3,8 +3,8 @@ layout: post
 title: Bloom Filter（布隆过滤器）如何解决缓存穿透
 date: 2019-03-20 12:53:00
 author: 薛勤
+tags: [布隆过滤器]
 ---
-本文摘抄自我的微信公众号“程序员柯南”，欢迎关注！<a target="_blank" href="https://mp.weixin.qq.com/s?__biz=MzI3NTU2MDYwMg==&mid=2247483752&idx=1&sn=0c84947d0001ef7b8100887e7b0f5df3&chksm=eb03a09ddc74298b737d9dcf6aa6f64ab3b13d5daf00810c4ef7bc88c94af70110d71d2dbe85&token=1156381232&lang=zh_CN#rd">原文阅读</a>
 
 #### 缓存穿透是什么？
 

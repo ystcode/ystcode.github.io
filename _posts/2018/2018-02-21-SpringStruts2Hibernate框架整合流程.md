@@ -3,6 +3,7 @@ layout: post
 title: Spring+Struts2+Hibernate框架整合流程
 date: 2018-02-21 21:12:00
 author: 薛勤
+tags: [Spring,Struts2,Hibernate]
 ---
 ### 一：基本步骤
 

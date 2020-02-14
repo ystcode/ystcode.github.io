@@ -3,6 +3,7 @@ layout: post
 title: JSOUP如何POST只含JSON格式的数据
 date: 2018-05-11 13:39:00
 author: 薛勤
+tags: [Jsoup]
 ---
 # 引言
 

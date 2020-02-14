@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Spring boot读取application.properties中文乱码
+title: SpringBoot读取application.properties中文乱码
 date: 2019-04-13 23:32:00
 author: 薛勤
+tags: [SpringBoot]
 ---
-**解决方案**
+解决方案
+
 在IDEA环境下：
 
 File -> Settings -> Editor -> File Encodings

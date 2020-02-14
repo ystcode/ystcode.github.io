@@ -3,6 +3,7 @@ layout: post
 title: 两行代码玩转Spring Data排序和分页
 date: 2018-07-31 17:18:00
 author: 薛勤
+tags: [SpringData]
 ---
 ## 一：唠嗑
 
