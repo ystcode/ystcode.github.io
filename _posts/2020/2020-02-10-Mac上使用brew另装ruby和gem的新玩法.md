@@ -3,7 +3,7 @@ layout: post
 title: Mac上使用brew另装ruby和gem的新玩法
 date: 2020-02-10 11:05:00
 author: 薛勤
-tags: Mac
+tags: [Mac]
 ---
 
 众所周知，Mac 开机自带 ruby 环境，位于`/Library/Ruby`系统资源库中，通过终端执行 `ruby -v`可以看到 ruby 的版本号：
@@ -182,4 +182,3 @@ ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin19]
 使用 `source`命令使之生效即可。
 
 接下来，你可以放心在自己的 Mac 上使用 ruby 和 gem 了。
-
