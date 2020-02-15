@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<div class="home">
+
+    <h1 class="page-heading">'{{ page.title | escape }}'</h1>
+
+    {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
+
+    <ul class="post-archives">
+        {% for post in page.posts %}
+        {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
+        {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
+
+        <li>
+        <span class="post-meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+          {% if post.categories != empty or post.tags != empty %}
+            {% include category_links.html categories=post.categories tags=post.tags %}
+          {% endif %}
+          {% if post.external-url %}
+            • <a href="{{ post.url | relative_url }}">Permalink</a>
+          {% endif %}
+        </span>
+
+            <h2>
+                {% if post.external-url %}
+                <a class="post-link" href="{{ post.external-url }}">{{ post.title | escape }}
+                    &rarr;</a>
+                {% else %}
+                <a class="post-link" href="{{ post.url | relative_url }}" {% if lang !=empty %}
+                   lang="{{ lang }}" {% endif %}>{{ post.title | escape }}</a>
+                {% endif %}
+            </h2>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+
+    var dataStr = `{ {% for tag in site.tags %}{% if tag[0] != site.tags.first[0] %},{% endif %}"{{ tag[0] }}":[{% for post in tag[1] %}{% if post != tag[1].first %},{% endif %}{"url":"{{post.url}}", "title":"{{post.title}}", "date":"{{post.date | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }`;
+    var data = JSON.parse(dataStr);
+    console.log(data)
+    var tag = GetQueryString('tag');
+    var archieves = data[tag];
+    console.log(archieves)
+</script>
