@@ -3,7 +3,7 @@ layout: post
 title: Java获取文件Content-Type的四种方法
 date: 2018-09-08 00:22:00
 author: 薛勤
-tags: [Java]
+tags: Java
 ---
 > [HTTP Content-Type在线工具](http://tool.oschina.net/commons) 
 
@@ -144,4 +144,3 @@ nio 和 net的方式区别不大。Magic的异常需要注意。javax.activation
         return content_type;
     }
 ```
-
