@@ -3,7 +3,7 @@ layout: post
 title: 用Java执行Python：Jython踩坑笔记
 date: 2018-04-16 17:39:00
 author: 薛勤
-tags: [Java]
+tags: Java
 ---
 ### 常见的java调用python脚本方式
 
@@ -254,5 +254,6 @@ class InputStreamRunnable implements Runnable {
 ```
 
 使用时直接调用该工具类即可。
+
 
 

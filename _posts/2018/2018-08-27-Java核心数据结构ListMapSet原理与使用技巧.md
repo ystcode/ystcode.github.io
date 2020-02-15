@@ -3,7 +3,7 @@ layout: post
 title: Java核心数据结构(List,Map,Set)原理与使用技巧
 date: 2018-08-27 19:36:00
 author: 薛勤
-tags: [Java]
+tags: Java
 ---
 JDK提供了一组主要的数据结构实现，如List、Map、Set等常用数据结构。这些数据都继承自 java.util.Collection 接口，并位于 java.util 包内。
 
@@ -323,4 +323,5 @@ RandomAccess接口是一个标志接口，本身并没有提供任何方法，�
 在应用程序中，如果需要通过索引下标对 List 做随机访问，尽量不要使用 LinkedList，ArrayList和Vector都是不错的选择。
 
 > 本文已授权微信公众号“后端技术精选”发布
+
 

@@ -3,7 +3,7 @@ layout: post
 title: Netty入门（一）之webSocket聊天室
 date: 2018-03-04 21:13:00
 author: 薛勤
-tags: [Netty]
+tags: Netty
 ---
 #### 一：简介
 
@@ -370,4 +370,5 @@ public class Main {
 >*  如何在让很多客户机进行聊天呢？
 >*  比如：电脑版QQ。
 >*  请阅读：Netty入门（二）之PC聊天室
+
 

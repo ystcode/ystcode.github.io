@@ -3,7 +3,7 @@ layout: post
 title: 警告:Establishing SSL connection without server's identity verification is not recommended
 date: 2018-06-04 00:59:00
 author: 薛勤
-tags: [MySQL]
+tags: MySQL
 ---
 SpringBoot启东时红色警告：
 
@@ -45,4 +45,5 @@ jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=
 再次推荐大家阅读这篇博客：https://www.cnblogs.com/mysql-dba/p/7061300.html
 
 深入了解SSL
+
 
