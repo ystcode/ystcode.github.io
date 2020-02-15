@@ -3,7 +3,7 @@ layout: post
 title: Eclipse MAT内存分析工具（Memory Analyzer Tool）
 date: 2018-10-21 13:38:00
 author: 薛勤
-tags: [eclipse,MAT]
+tags: [eclipse]
 ---
 # MAT内存分析工具
 
@@ -503,4 +503,5 @@ SELECT distinct objects classof(obj) FROM "cn\.zyzpp\..*" obj
 # 参考
 
 *《Java程序性能优化》葛一鸣*
+
 
