@@ -3,7 +3,7 @@ layout: post
 title: 高并发下的Java数据结构(List、Set、Map、Queue)
 date: 2018-09-24 18:46:00
 author: 薛勤
-tags: [Java]
+tags: Java
 ---
 由于并行程序与串行程序的不同特点，适用于串行程序的一些数据结构可能无法直接在并发环境下正常工作，这是因为这些数据结构不是线程安全的。本节将着重介绍一些可以用于多线程环境的数据结构，如并发List、并发Set、并发Map等。
 
@@ -149,3 +149,4 @@ LinkedBlockingDeque 是一个线程安全的双端队列实现。可以说，它
 ## 参考
 
 *《Java程序性能优化》葛一鸣著*
+

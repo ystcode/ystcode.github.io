@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（8）微服务监控Spring Boot Admin
 date: 2019-01-15 16:06:00
 author: 薛勤
-tags: [SpringCloud]
+tags: SpringCloud
 ---
 ## 1.简介
 
@@ -332,4 +332,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 重新启动 admin-server 工程，在浏览器中访问 http://localhost:5000/，输入用户名admin，密码为123456，登录即可。
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*
+
 

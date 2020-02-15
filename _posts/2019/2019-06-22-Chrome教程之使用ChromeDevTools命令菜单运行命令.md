@@ -3,7 +3,7 @@ layout: post
 title: Chrome教程之使用Chrome DevTools命令菜单运行命令
 date: 2019-06-22 17:25:00
 author: 薛勤
-tags: [Chrome]
+tags: Chrome
 ---
 ## 1.模拟移动设备
 
@@ -41,4 +41,5 @@ tags: [Chrome]
 从 **Geolocation** 列表中选择其中一个预设，或选择 **Custom location** 以输入自己的坐标，或选择 **Location unavailable** 以测试您的页面在地理定位处于错误状态时的表现。
 
 <img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3c9g31870j31300sagz5.jpg" referrerPolicy="no-referrer"/>
+
 

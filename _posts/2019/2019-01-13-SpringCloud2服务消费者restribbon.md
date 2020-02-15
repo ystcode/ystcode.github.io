@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（2）服务消费者（rest+ribbon）
 date: 2019-01-13 00:00:00
 author: 薛勤
-tags: [SpringCloud]
+tags: SpringCloud
 ---
 ## 1.准备工作
 
@@ -147,4 +147,5 @@ public class HelloController {
 
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*
+
 

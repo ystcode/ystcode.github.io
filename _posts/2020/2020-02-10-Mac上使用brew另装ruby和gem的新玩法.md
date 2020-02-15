@@ -4,7 +4,7 @@ title: Mac上使用brew另装ruby和gem的新玩法
 date: 2020-02-10 11:05:00
 author: 薛勤
 category: 
-tags: [Mac]
+tags: Mac
 ---
 
 众所周知，Mac 开机自带 ruby 环境，位于`/Library/Ruby`系统资源库中，通过终端执行 `ruby -v`可以看到 ruby 的版本号：

@@ -3,7 +3,7 @@ layout: post
 title: GA,RC,Alpha,Beta,Final等软件版本名词释义
 date: 2019-09-12 13:27:00
 author: 薛勤
-tags: [软件工程]
+tags: 软件工程
 ---
 ![](./20190912GARCAlphaBetaFinal等软件版本名词释义/006y8mN6ly1g6vptfgg6lj30zw0u076m.jpg)
 
@@ -66,4 +66,5 @@ tags: [软件工程]
 | Build                      | 内部标号                                                     |
 | Delux                      | 豪华版                                                       |
 | Plus                       | 加强版                                                       |
+
 

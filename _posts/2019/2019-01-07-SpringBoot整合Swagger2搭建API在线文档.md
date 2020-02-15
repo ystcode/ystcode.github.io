@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot整合Swagger2搭建API在线文档
 date: 2019-01-07 17:29:00
 author: 薛勤
-tags: [Swagger]
+tags: Swagger
 ---
 Swagger，中文“拽”的意思，它是一个功能强大的在线API在线文档，目前它的版本为2.x，所以称为Swagger2。Swagger2提供了在线文档的查阅和测试功能。利用Swagger2很容易构建RESTful风格的API，在SpringBoot中集成Swagger2，步骤如下。
 
@@ -88,4 +88,5 @@ public class DemoController {
 ### 学习资源
 
 [Swagger-Core Annotations](https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X)
+
 

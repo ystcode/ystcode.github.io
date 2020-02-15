@@ -3,7 +3,7 @@ layout: post
 title: Hibernate缓存策略(一级缓存和EHcache二级缓存)
 date: 2018-02-23 18:13:00
 author: 薛勤
-tags: [Hibernate]
+tags: Hibernate
 ---
 ![这里写图片描述](https://img-blog.csdn.net/20180223162218460?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
 ![这里写图片描述](https://img-blog.csdn.net/20180223161810212?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
@@ -174,4 +174,5 @@ public class Employee {
 ![这里写图片描述](https://img-blog.csdn.net/20180223171553208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
 ![这里写图片描述](https://img-blog.csdn.net/20180223181223515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
 ![这里写图片描述](https://img-blog.csdn.net/20180223181234742?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70)
+
 

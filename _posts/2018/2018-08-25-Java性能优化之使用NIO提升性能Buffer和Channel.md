@@ -3,7 +3,7 @@ layout: post
 title: Java性能优化之使用NIO提升性能（Buffer和Channel）
 date: 2018-08-25 21:53:00
 author: 薛勤
-tags: [Java]
+tags: Java
 ---
 在软件系统中，由于IO的速度要比内存慢，因此，I/O读写在很多场合都会成为系统的瓶颈。提升I/O速度，对提升系统整体性能有着很大的好处。
 
@@ -304,5 +304,6 @@ I/O和NIO的最大区别就是 **传统I/O是面向（缓冲）流，NIO是面�
 ## 参考
 
 *Java程序性能优化 葛一鸣著*
+
 
 
