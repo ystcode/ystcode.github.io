@@ -3,7 +3,9 @@ layout: post
 title: Java发送Email邮件及SpringBoot集成
 date: 2018-05-30 19:36:00
 author: 薛勤
-tags: [Java,SpringBoot]
+tags:
+  - Java
+  - SpringBoot
 ---
 # 一：普通方式发送
 
@@ -208,4 +210,3 @@ public class MailUtil {
         }
     }
 ```
-

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 史上最全的Spring-Boot-Starter开发手册
+title: 史上最全的Spring Boot Starter开发手册
 date: 2019-04-14 18:13:00
 author: 薛勤
-tags: [SpringBoot]
+tags: SpringBoot
 ---
 ## 1.文章前言
 
@@ -333,7 +333,7 @@ hints数组中包含的JSON对象可以包含以下属性：
 
 当这些注解不再满足我们的需求之后，还可以通过实现 Condition 接口，自定义条件判断：
 
-```
+```java
 public class RedisExistsCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
@@ -359,5 +359,3 @@ public class RedisExistsCondition implements Condition {
 *[编写自己的SpringBoot-starter](https://mp.weixin.qq.com/s/a--34E6iFTopUVC6orW7Jw)*
 
 *[SpringBoot自定义Starter](https://shimo.im/docs/ywxu41XEYxYXYy3U/read)*
-
-
