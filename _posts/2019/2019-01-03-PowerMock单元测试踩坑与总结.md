@@ -3,7 +3,7 @@ layout: post
 title: PowerMock单元测试踩坑与总结
 date: 2019-01-03 11:06:00
 author: 薛勤
-
+tags: [Mock]
 ---
 ## 1.Mock是什么？
 
@@ -366,6 +366,4 @@ public class AutoPowerMock implements ApplicationListener<ContextRefreshedEvent>
 [SpringMVC测试mockMVC](https://www.cnblogs.com/lyy-2016/p/6122144.html)
 
 > 本文已授权公众号后端技术精选发布
-
-
 

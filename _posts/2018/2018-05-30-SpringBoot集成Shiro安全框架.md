@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot集成Shiro安全框架
 date: 2018-05-30 13:37:00
 author: 薛勤
-
+tags: [SpringBoot]
 ---
 ##### 跟着我的步骤：先运行起来再说
 
@@ -285,6 +285,4 @@ public class CustomRealm extends AuthorizingRealm {
 ---
 
 本实例旨在讲解SpringBoot集成，Shiro教程推荐：[http://wiki.jikexueyuan.com/project/shiro/](http://wiki.jikexueyuan.com/project/shiro/)
-
-
 

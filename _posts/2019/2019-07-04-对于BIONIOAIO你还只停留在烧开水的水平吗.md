@@ -3,7 +3,7 @@ layout: post
 title: 对于BIO/NIO/AIO，你还只停留在烧开水的水平吗？
 date: 2019-07-04 21:05:00
 author: 薛勤
-
+tags: [Java]
 ---
 ## 1.发发牢骚
 
@@ -127,6 +127,4 @@ public static void main(String[] args) {
 最后补一张图：
 
 ![](./20190704对于BIONIOAIO你还只停留在烧开水的水平吗/1136672-20190903120052795-798942145.png)
-
-
 

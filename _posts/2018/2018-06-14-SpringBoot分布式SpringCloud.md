@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot分布式 - SpringCloud
 date: 2018-06-14 22:04:00
 author: 薛勤
-
+tags: [SpringCloud]
 ---
 # 一：介绍
 
@@ -215,6 +215,4 @@ public class UserController {
 ---
 
 本文只讲解了服务的注册与发现，Spring cloud的更多内容推荐阅读：[SpringCloud分布式教程](https://download.csdn.net/download/yueshutong123/10501017)
-
-
 

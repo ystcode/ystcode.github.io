@@ -3,7 +3,7 @@ layout: post
 title: 史上最全的Spring Boot Starter开发手册
 date: 2019-04-14 18:13:00
 author: 薛勤
-
+tags: [SpringBoot]
 ---
 ## 1.文章前言
 
@@ -359,7 +359,5 @@ public class RedisExistsCondition implements Condition {
 *[编写自己的SpringBoot-starter](https://mp.weixin.qq.com/s/a--34E6iFTopUVC6orW7Jw)*
 
 *[SpringBoot自定义Starter](https://shimo.im/docs/ywxu41XEYxYXYy3U/read)*
-
-
 
 

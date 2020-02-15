@@ -3,7 +3,7 @@ layout: post
 title: 不依赖Spring使用AspectJ达到AOP面向切面编程
 date: 2019-05-11 13:32:00
 author: 薛勤
-
+tags: [AOP]
 ---
 网上大多数介绍AspectJ的文章都是和Spring容器混用的，但有时我们想自己写框架就需要抛开Spring造轮子，类似使用原生AspectJ达到面向切面编程。步骤很简单，只需要两步。
 
@@ -110,6 +110,4 @@ public class TestComponent {
 关于更多的AspectJ的介绍，可以参考下面这一篇，写的相当不错。
 
 [原生AspectJ用法分析以及spring-aop原理分析](https://blog.mythsman.com/2017/12/21/1/)
-
-
 

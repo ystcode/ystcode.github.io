@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot读取application.properties中文乱码
 date: 2019-04-13 23:32:00
 author: 薛勤
-
+tags: [SpringBoot]
 ---
 解决方案
 
@@ -18,6 +18,4 @@ File -> Settings -> Editor -> File Encodings
 > 注意：做了上面操作后，一定要重新创建 application.properties 才有效！
 
 *原文：https://www.cnblogs.com/diffx/p/9866717.html*
-
-
 

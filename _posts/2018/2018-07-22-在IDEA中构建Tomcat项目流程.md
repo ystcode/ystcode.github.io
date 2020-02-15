@@ -3,7 +3,7 @@ layout: post
 title: 在IDEA中构建Tomcat项目流程
 date: 2018-07-22 19:08:00
 author: 薛勤
-
+tags: [IDEA]
 ---
 打开你的IDEA，跟着我走！
 
@@ -40,6 +40,4 @@ Tomcat关联输出的war包，这样我们就构建好了！右上角切换tomca
 ![](./20180722在IDEA中构建Tomcat项目流程/1136672-20190623162820380-350108863.png)
 
 举一反三，在使用Maven方式构建webApp项目时，该方法同样适用！
-
-
 

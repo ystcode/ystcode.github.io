@@ -3,7 +3,7 @@ layout: post
 title: DES、3DES、AES、PBE对称加密算法实现及应用
 date: 2019-08-01 15:10:00
 author: 薛勤
-
+tags: [密码学]
 ---
 ## 1.对称加密算法概述
 
@@ -412,6 +412,4 @@ public class PBE {
 应用举例：
 
 <img src="http://ww1.sinaimg.cn/large/006tNc79gy1g5k6nj51hdj30xk0mc44w.jpg" referrerPolicy="no-referrer"/>
-
-
 

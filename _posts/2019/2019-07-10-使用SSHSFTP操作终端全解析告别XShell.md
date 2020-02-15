@@ -3,7 +3,7 @@ layout: post
 title: 使用SSH+SFTP操作终端全解析，告别XShell
 date: 2019-07-10 20:46:00
 author: 薛勤
-
+tags: [SSH,SFTP]
 ---
 ## 1.前言
 
@@ -550,7 +550,4 @@ rmdir path
 我是薛勤，咱们下期见！关注我，带你领略更多编程技能！
 
 > 参考：https://www.cnblogs.com/ftl1012/p/ssh.html
-
-
-
 

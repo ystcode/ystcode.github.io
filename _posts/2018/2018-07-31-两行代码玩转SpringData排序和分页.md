@@ -3,7 +3,7 @@ layout: post
 title: 两行代码玩转Spring Data排序和分页
 date: 2018-07-31 17:18:00
 author: 薛勤
-
+tags: [SpringData]
 ---
 ## 一：唠嗑
 
@@ -357,6 +357,4 @@ Pageable previousPageable()
 ------
 
 关于Spring Data的排序与分页就到这里，记得点赞哦~~~
-
-
 
