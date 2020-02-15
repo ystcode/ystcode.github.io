@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（1）服务注册与发现Eureka
 date: 2019-01-12 22:53:00
 author: 薛勤
-tags: [SpringCloud]
+tags: SpringCloud
 ---
 ## 1.创建1个空白的工程
 
@@ -258,4 +258,3 @@ eureka:
 也就是说，端口为8761和8762的两台 Eureka-server 相互感应，当有服务注册时，两个Eureka-eserver是对等的，它们都存有相同的信息，这就是通过服务器的冗余来增加可靠性，当有一台服务器宕机了，服务并不会终止，因为另一台服务存有相同的数据。
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*
-

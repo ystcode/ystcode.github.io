@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（5）路由网关Spring Cloud Zuul
 date: 2019-01-13 18:37:00
 author: 薛勤
-tags: [SpringCloud]
+tags: SpringCloud
 ---
 一个简单的微服务系统如下图:
 
@@ -296,4 +296,3 @@ Zuul 采用的是异步阻塞模型，性能比 Nginx 差，由于 Zuul 和其�
 另外一种就是常见的集群是通过 Nginx 和 Zuul 相互结合来做负载均衡。
 
 > *参考方志朋《深入理解Spring Cloud与微服务构建》*
-

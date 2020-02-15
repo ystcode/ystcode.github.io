@@ -3,7 +3,7 @@ layout: post
 title: IDEA搭建本地服务器解决无法连接https://start.spring.io
 date: 2018-07-10 20:13:00
 author: 薛勤
-tags: [SpringBoot]
+tags: SpringBoot
 ---
 ##### 通过IntellJ IDEA创建Spring Boot项目时，发生以下的问题。如图：
 
@@ -40,4 +40,3 @@ tags: [SpringBoot]
 #### 完美！
 
 ## 下载地址：[https://download.csdn.net/download/yueshutong123/10533392](https://download.csdn.net/download/yueshutong123/10533392)
-
