@@ -43,7 +43,7 @@ alipay: /assets/img/alipay.png
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  qcode: /assets/img/wechat.png
+  qcode: /assets/img/wechat2.png
   description: "欢迎您扫一扫订阅我的微信公众号！"
 
 # Social media
@@ -56,9 +56,9 @@ comments: false
 
 # Plugins
 plugins:
-  - jekyll-archives
   - jekyll-paginate
   - jekyll-sitemap
+#  - jekyll-archives
 
 # Build settings
 markdown: kramdown
@@ -79,11 +79,11 @@ kramdown:
   toc_levels: 1..6
 
 # jekyll-archives
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layout: category_archives
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
+#jekyll-archives:
+#  enabled:
+#    - categories
+#    - tags
+#  layout: category_archives
+#  permalinks:
+#    category: /categories/:name/
+#    tag: /tags/:name/
