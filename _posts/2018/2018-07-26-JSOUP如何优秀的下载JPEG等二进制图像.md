@@ -3,7 +3,7 @@ layout: post
 title: JSOUP如何优秀的下载JPEG等二进制图像
 date: 2018-07-26 21:27:00
 author: 薛勤
-
+tags: [Jsoup]
 ---
 ## 引言
 
@@ -68,6 +68,4 @@ author: 薛勤
         bufferedInputStream.close();
     }
 ```
-
-
 

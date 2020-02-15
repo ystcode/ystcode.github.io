@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（10）使用Spring Cloud OAuth2和JWT保护微服务
 date: 2019-01-16 20:55:00
 author: 薛勤
-
+tags: [SpringCloud]
 ---
 采用Spring Security AOuth2 和 JWT 的方式，避免每次请求都需要远程调度 Uaa 服务。采用Spring Security OAuth2 和 JWT 的方式，Uaa 服务只验证一次，返回JWT。返回的 JWT 包含了用户的所有信息，包括权限信息。
 
@@ -910,6 +910,4 @@ public class UserServiceApplication {
 这个架构的优点在于，一次获取Token ， 多次使用，不再每次询问Uaa 服务该Token 所对应的用户信息和用户的权限信息。这个架构也有缺点，例如一旦用户的权限发生了改变， 该Token 中存储的权限信息并没有改变， 需要重新登录获取新的Token 。就算重新获取了Token,如果原来的Token 没有过期，仍然是可以使用的，所以需要根据具体的业务场景来设置Token的过期时间。一种改进方式是将登录成功后获取的Token 缓存在网关上，如果用户的权限更改，将网关上缓存的Token 删除。当请求经过网关，判断请求的Token 在缓存中是否存在，如果缓存中不存在该Token ，则提示用户重新登录。
 
 >*参考：《深入理解Spring Cloud与微服务构建》方志朋*
-
-
 

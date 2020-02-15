@@ -3,7 +3,7 @@ layout: post
 title: Java过滤掉字符串中的html标签、style标签、script标签
 date: 2018-03-25 15:44:00
 author: 薛勤
-
+tags: [Java]
 ---
 ## 使用正则表达式
 
@@ -40,6 +40,4 @@ public class HTMLSpirit{
 ```
 
 >转载自:[https://www.cnblogs.com/luyang1990/p/6047074.html](https://www.cnblogs.com/luyang1990/p/6047074.html)
-
-
 

@@ -3,7 +3,7 @@ layout: post
 title: 深入理解［Master-Worker模式］原理与技术
 date: 2018-09-24 14:11:00
 author: 薛勤
-
+tags: [设计模式]
 ---
 Master-Worker模式是常用的并行模式之一。它的核心思想是，系统由两类进程协作工作：Master进程和Worker进程。Master进程负责接收和分配任务，Worker进程负责处理子任务。当各个Worker进程将子任务处理完成后，将结果返回给Master进程，由Master进程做归纳和汇总，从而得到系统的最终结果，其处理过程如图1所示。
 
@@ -294,6 +294,4 @@ MasterWorker类的方法摘要，其它请自行下载API文档。[cbbs-java-api
 ## 参考
 
 *《Java程序性能优化》葛一鸣著*
-
-
 

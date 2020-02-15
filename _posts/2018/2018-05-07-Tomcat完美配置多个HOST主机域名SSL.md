@@ -3,7 +3,7 @@ layout: post
 title: Tomcat完美配置多个HOST主机,域名,SSL
 date: 2018-05-07 22:59:00
 author: 薛勤
-
+tags: [Tomcat]
 ---
 这里是Tomcat9版本，其它版本基本一致！
 
@@ -42,6 +42,4 @@ author: 薛勤
 ![](./20180507Tomcat完美配置多个HOST主机域名SSL/1136672-20190623135937136-1417557358.png)
 
 ###### 3.上面两个hostname都明白吧？
-
-
 

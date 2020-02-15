@@ -3,7 +3,7 @@ layout: post
 title: 使用try-with-resources优雅的关闭IO流
 date: 2019-04-17 18:49:00
 author: 薛勤
-
+tags: [Java]
 ---
 Java类库中包括许多必须通过调用close方法来手工关闭的资源。例如InputStream、OutputStream和java.sql.Connection。客户端经常会忽略资源的关闭，造成严重的性能后果也就可想而知了。根据经验，try-finally 语句是确保资源会被适当关闭的最佳方法，就算是发生异常或者返回也一样：
 
@@ -72,6 +72,4 @@ public String tryresources(String path){
 ```
 
 有了 try-with-resources 语句，在使用必须关闭的资源时，就能更轻松地正确编写代码了。
-
-
 

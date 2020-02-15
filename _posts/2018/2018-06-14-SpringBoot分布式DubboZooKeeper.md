@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot分布式 - Dubbo+ZooKeeper
 date: 2018-06-14 21:21:00
 author: 薛勤
-
+tags: [SpringBoot,Dubbo,ZooKeeper]
 ---
 # 一：介绍
 
@@ -229,7 +229,4 @@ public class ConsumerUserApplicationTests {
 ```
 
 ---
-
-
-
 

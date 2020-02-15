@@ -3,7 +3,7 @@ layout: post
 title: 图解HTTP，TCP，IP，MAC的关系
 date: 2018-05-07 14:44:00
 author: 薛勤
-
+tags: [HTTP]
 ---
 ## 入门
 
@@ -17,6 +17,4 @@ author: 薛勤
 
 
 ![](./20180507图解HTTPTCPIPMAC的关系/1136672-20190623140124684-759993153.png)
-
-
 
