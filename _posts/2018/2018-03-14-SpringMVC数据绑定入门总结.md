@@ -3,7 +3,7 @@ layout: post
 title: Spring MVC数据绑定入门总结
 date: 2018-03-14 21:46:00
 author: 薛勤
-tags: SpringBoot
+
 ---
 # 1.基本类型
 
@@ -251,5 +251,6 @@ https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/pdf/spring-boot
 |?|匹配任何单字符|
 |*|匹配0或者任意数量的字符|
 |**|匹配0或者更多的目录|
+
 
 

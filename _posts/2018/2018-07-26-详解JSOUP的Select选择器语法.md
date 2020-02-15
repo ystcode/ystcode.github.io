@@ -3,7 +3,7 @@ layout: post
 title: 详解JSOUP的Select选择器语法
 date: 2018-07-26 19:55:00
 author: 薛勤
-tags: Java
+
 ---
 本文参考：[JSOUP中文文档](http://www.open-open.com/jsoup/selector-syntax.htm)
 
@@ -157,6 +157,7 @@ Elements select = document.getElementsByClass("ul-ss-3 jb-xx-bw");
 |`:only-child`|具有父元素且父元素没有其他元素子元素的元素||
 |`:only-of-type`|具有父元素的元素，其父元素没有具有相同展开元素名称的其他元素子元素||
 |`:empty`|没有孩子的元素。||
+
 
 
 

@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（9）使用Spring Cloud OAuth2保护微服务系统
 date: 2019-01-15 16:10:00
 author: 薛勤
-tags: SpringCloud
+
 ---
 # 一、简介
 
@@ -994,5 +994,6 @@ public class ServiceHiApplication {
 这个架构的缺陷就是每次请求都需要资源服务内部远程调用 auth-service 服务来验证 Token 的正确性，以及该Token对应的用户所具有的权限，额外多了一次内部请求。如果在高并发的情况下，auth-service 需要集群部署，并且需要做缓存处理。所以最佳方案还是使用 Spring Security OAuth2 以JWT的形式来保护Spring Cloud构建的微服务系统。
 
 > *参考：《深入理解Spring Cloud与微服务构建》方志朋*
+
 
 

@@ -3,7 +3,7 @@ layout: post
 title: 探究如何永久更改Maven的Dynamic Web Project版本及pom.xml默认配置
 date: 2018-02-06 19:00:00
 author: 薛勤
-tags: Maven
+
 ---
 # 一：问题
 
@@ -109,5 +109,6 @@ web.xml，更改里面的默认代码为：
 如果觉得配置麻烦可以直接下载笔者配置好的jar包，直接替换使用
 
 下载地址：[点击打开链接](http://download.csdn.net/download/yueshutong123/10243745)
+
 
 

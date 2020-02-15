@@ -3,7 +3,7 @@ layout: post
 title: Java线程池实现原理与技术(ThreadPoolExecutor、Executors)
 date: 2018-09-26 12:24:00
 author: 薛勤
-tags: Java
+
 ---
 > 本文将通过实现一个简易的线程池理解线程池的原理，以及介绍JDK中自带的线程池ThreadPoolExecutor和Executor框架。
 
@@ -508,6 +508,7 @@ futureTask.isDone方法表示任务是否已经完成，若任务完成，则返
 *《Java程序性能优化》葛一鸣著*
 
 *《Java并发编程的艺术》方、魏、程著*
+
 
 
 
