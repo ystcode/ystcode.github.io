@@ -3,7 +3,7 @@ layout: post
 title: Linux下快速配置Java开发环境
 date: 2018-08-10 10:14:00
 author: 薛勤
-tags: [Java,Linux]
+tags: [Java]
 ---
 ## 1.下载
 
@@ -89,4 +89,5 @@ java version "1.8.0_144"
 Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
 Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
 ```
+
 

@@ -3,7 +3,7 @@ layout: post
 title: 从源码看Spring Security之采坑笔记（Spring Boot篇）
 date: 2018-06-23 01:58:00
 author: 薛勤
-tags: [SpringSecurity,SpringBoot]
+tags: [SpringSecurity]
 ---
 # 一：唠嗑
 
@@ -575,4 +575,5 @@ public class SerurityConfig extends WebSecurityConfigurerAdapter {
 
 如何在方法上写权限注解呢？
 例如有权限点字符串&ldquo;ROLE_ADMIN&rdquo;，在方法上可以写为 @PreAuthorize(&ldquo;hasRole(&lsquo;ADMIN&rsquo;)&rdquo;)，也可以写为 @PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_ADMIN&rsquo;)&rdquo;)，这二者是等价的。加多个权限点，可以写为 @PreAuthorize(&ldquo;hasRole(&lsquo;ADMIN&rsquo;,&lsquo;USER&rsquo;)&rdquo;)、@PreAuthorize(&ldquo;hasAuthority(&lsquo;ROLE_ADMIN&rsquo;,&lsquo;ROLE_USER&rsquo;)&rdquo;)。
+
 
