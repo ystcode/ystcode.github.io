@@ -3,7 +3,7 @@ layout: post
 title: Java执行JavaScript脚本破解encodeInp()加密
 date: 2018-02-10 18:04:00
 author: 薛勤
-tags: [JavaScript]
+tags: JavaScript
 ---
 # 一：背景
 
@@ -93,4 +93,3 @@ public interface Methods {
 ```
 
 >注意：Js文件在实例中默认保存在项目源文件夹下
-

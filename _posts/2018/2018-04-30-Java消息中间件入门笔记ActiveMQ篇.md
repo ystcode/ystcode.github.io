@@ -3,7 +3,9 @@ layout: post
 title: Java消息中间件入门笔记 - ActiveMQ篇
 date: 2018-04-30 23:01:00
 author: 薛勤
-tags: [Java,ActiveMQ]
+tags:
+  - Java
+  - ActiveMQ
 ---
 ## 入门
 
@@ -918,4 +920,3 @@ http://127.0.0.1:8163
 ![](./20180430Java消息中间件入门笔记ActiveMQ篇/1136672-20190623141313788-94022134.png)
 
 本文记录简要，推荐阅读 [慕课网-Java消息中间件学习总结](https://segmentfault.com/a/1190000010348979)
-

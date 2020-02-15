@@ -3,7 +3,10 @@ layout: post
 title: IDEA+Maven+Tomcat构建Web项目的三种方法
 date: 2018-12-27 11:21:00
 author: 薛勤
-tags: [IDEA,Maven,Tomcat]
+tags:
+  - IDEA
+  - Maven
+  - Tomcat
 ---
 本文将介绍三种方法，一种是本地计算机已经下载安装了Tomcat，需要将项目的war包放在Tomcat容器中，第二种使用Tomcat的Maven插件嵌入到Maven项目中，该方式不需要本地拥有Tomcat环境，第三种，直接将Tomcat以依赖的方式嵌入进Web项目中。
 
@@ -274,4 +277,3 @@ public class BootStrap {
 ### 参考
 
 https://geek-docs.com/servlet/servlet-tutorial/embeddedtomcat.html
-

@@ -3,7 +3,7 @@ layout: post
 title: 读取ClassPath下resource文件的正确姿势
 date: 2019-07-11 23:01:00
 author: 薛勤
-tags: [Java]
+tags: Java
 ---
 ## 1.前言
 
@@ -122,4 +122,3 @@ String resourcePath = resource.getPath(); //获取resources根目录
 关于如何正确读取ClassPath下的资源文件相信你已经掌握了正确姿势。
 
 我是薛勤，咱们下期见！关注我，带你领略更多编程技能！
-

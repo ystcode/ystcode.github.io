@@ -3,7 +3,7 @@ layout: post
 title: Python通过pip方式安装第三方模块的两种方式
 date: 2018-05-30 15:21:00
 author: 薛勤
-tags: [Python]
+tags: Python
 ---
 # 一：环境
 
@@ -69,4 +69,3 @@ pip install D:<span class="hljs-command">\本</span>地路径<span class="hljs-c
 ---
 
 ![](./20180530Python通过pip方式安装第三方模块的两种方式/1136672-20190623141717895-943511979.png)
-

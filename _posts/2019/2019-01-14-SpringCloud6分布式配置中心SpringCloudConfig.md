@@ -3,7 +3,7 @@ layout: post
 title: SpringCloud（6）分布式配置中心Spring Cloud Config
 date: 2019-01-14 00:53:00
 author: 薛勤
-tags: [SpringCloud]
+tags: SpringCloud
 ---
 ## 1.Spring Cloud Config 简介
 
@@ -365,4 +365,3 @@ management.security.enabled=false
 > foo version 2
 
 更改远程 Git 仓库，将 foo 的值改为“foo version 2”。访问 http://localhost:8762/bus/refresh 请求刷新配置，使用“destination”参数，例如 “/bus/refresh?destination=eureka-client:\*\*”，即刷新服务名为 eureka-client 的所有服务实例。
-

@@ -3,7 +3,9 @@ layout: post
 title: 初窥RabbitMQ消息中间及SpringBoot整合
 date: 2018-07-18 23:42:00
 author: 薛勤
-tags: [SpringBoot,RabbitMQ]
+tags:
+  - SpringBoot
+  - RabbitMQ
 ---
 ## 一：RabbitMQ简介
 
@@ -521,4 +523,3 @@ public class BookService {
 [B@5332f99e
 MessageProperties [headers={__ContentTypeId__=java.lang.Object, __KeyTypeId__=java.lang.Object, __TypeId__=java.util.HashMap}, timestamp=null, messageId=null, userId=null, receivedUserId=null, appId=null, clusterId=null, type=null, correlationId=null, correlationIdString=null, replyTo=null, contentType=application/json, contentEncoding=UTF-8, contentLength=0, deliveryMode=null, receivedDeliveryMode=PERSISTENT, expiration=null, priority=0, redelivered=false, receivedExchange=demo-topic, receivedRoutingKey=demo.hello, receivedDelay=null, deliveryTag=1, messageCount=0, consumerTag=amq.ctag-KRZh2DyNETjEaGSH0JZ2dA, consumerQueue=demo.news]
 ```
-
