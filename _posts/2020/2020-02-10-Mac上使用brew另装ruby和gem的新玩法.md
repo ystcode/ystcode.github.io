@@ -3,7 +3,6 @@ layout: post
 title: Mac上使用brew另装ruby和gem的新玩法
 date: 2020-02-10 11:05:00
 author: 薛勤
-category: 
 tags: Mac
 ---
 
@@ -183,3 +182,4 @@ ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin19]
 使用 `source`命令使之生效即可。
 
 接下来，你可以放心在自己的 Mac 上使用 ruby 和 gem 了。
+

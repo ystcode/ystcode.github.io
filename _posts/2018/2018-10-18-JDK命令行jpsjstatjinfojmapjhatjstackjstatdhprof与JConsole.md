@@ -3,7 +3,7 @@ layout: post
 title: JDK命令行（jps、jstat、jinfo、jmap、jhat、jstack、jstatd、hprof）与JConsole
 date: 2018-10-18 18:57:00
 author: 薛勤
-tags: Java
+
 ---
 很多资料在介绍JDK命令行工具时并不是在Java8环境下，因此还在使用过时的永久区系列的参数，给一些读者造成困难。
 
@@ -570,5 +570,6 @@ JConsole启动后，连接到任意Java应用程序，便可以进入JTop页面�
 # 参考
 
 *《Java程序性能优化》葛一鸣著*
+
 
 

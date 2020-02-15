@@ -3,7 +3,7 @@ layout: post
 title: OpenResty入门之使用Lua开发Nginx插件
 date: 2019-04-29 19:32:00
 author: 薛勤
-tags: Nginx
+
 ---
 > 记住一点：nginx配置文件很多坑来源自你的空格少了或多了。
 
@@ -561,6 +561,7 @@ local resp, err = http_post_client("http://127.0.0.1/index.html?name=test",body,
 > <https://blog.csdn.net/qq_21860077/article/details/83623888> 
 >
 > Nginx API for Lua：<https://www.cnblogs.com/wangxusummer/p/4309007.html>
+
 
 
 

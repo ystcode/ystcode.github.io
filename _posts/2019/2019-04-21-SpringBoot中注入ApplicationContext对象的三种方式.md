@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot中注入ApplicationContext对象的三种方式
 date: 2019-04-21 20:57:00
 author: 薛勤
-tags: SpringBoot
+
 ---
 在项目中，我们可能需要手动获取spring中的bean对象，这时就需要通过 ApplicationContext 去操作一波了！
 
@@ -77,5 +77,6 @@ public class SpringContextHolder implements ApplicationContextAware {
 可以在使用类上添加 @DependsOn(“springContextHolder”)，确保在此之前 SpringContextHolder 类已加载！
 
 > 本文转载自：<https://blog.csdn.net/Abysscarry/article/details/80490624>
+
 
 

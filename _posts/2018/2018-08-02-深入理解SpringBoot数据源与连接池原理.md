@@ -3,7 +3,7 @@ layout: post
 title: 深入理解Spring Boot数据源与连接池原理
 date: 2018-08-02 19:12:00
 author: 薛勤
-tags: SpringBoot
+
 ---
 ## 一：开始
 在使用Spring Boot数据源之前，我们一般会导入相关依赖。其中数据源核心依赖就是`spring‐boot‐starter‐jdbc`
@@ -334,5 +334,6 @@ spring:
 | `logValidationErrors`           | 布尔值。设为 `true` 时，能将验证阶段的错误记录到日志文件中，错误会被记录为 SEVERE。考虑到了向后兼容性，默认值为 `false`。 |
 | `propagateInterruptState`       | 布尔值。传播已中断的线程（还没有清除中断状态）的中断状态。考虑到了向后兼容性，默认值为 `false`。 |
 | `ignoreExceptionOnPreLoad`      | 布尔值。在初始化池时，是否忽略连接创建错误。取值为 `true`时表示忽略；设为 `false` 时，抛出异常，从而宣告池初始化失败。默认值为 `false`。 |
+
 
 

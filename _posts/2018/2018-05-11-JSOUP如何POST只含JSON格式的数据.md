@@ -3,7 +3,7 @@ layout: post
 title: JSOUP如何POST只含JSON格式的数据
 date: 2018-05-11 13:39:00
 author: 薛勤
-tags: Jsoup
+
 ---
 # 引言
 
@@ -29,5 +29,6 @@ Jsoup.connect(url)
 ---
 
 ###### 在jsoup-1.8中若找不到.requestBody()方法，建议使用1.10系列版本！
+
 
 

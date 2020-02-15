@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot WebSocket从入门到放弃
 date: 2018-11-18 15:16:00
 author: 薛勤
-tags: SpringBoot
+
 ---
 在构建Spring boot项目时已经提供webSocket依赖的勾选。webSocket是TCP之上的一个非常薄的轻量级层 ，webSocket主要的应用场景离不开即时通讯与消息推送，但只要应用程序需要在浏览器和服务器之间来回发送消息，就可以使用webSocket来降低客户端流量与服务器的负载。
 
@@ -673,6 +673,7 @@ stompClient.send("/app/chatOut", {},$("#id").val());
 ------
 
 关于Spring boot webSocket就先到这里，更多请持续关注我的博客！
+
 
 
 

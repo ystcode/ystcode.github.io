@@ -3,7 +3,7 @@ layout: post
 title: 解决SpringBoot无法读取js/css静态资源的新方法
 date: 2019-05-07 11:36:00
 author: 薛勤
-tags: SpringBoot
+
 ---
 ### 前言
 
@@ -187,5 +187,6 @@ public class ReadClasspathFile {
         response.getOutputStream().write(Optional.ofNullable(s).orElse("404".getBytes()));
     }
 ```
+
 
 
