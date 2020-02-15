@@ -9,3 +9,4 @@ _site
 .idea
 *.iml
 .jekyll-cache
+package-lock.json
