@@ -3,7 +3,7 @@ layout: post
 title: 使用hibernate造成的MySql 8小时问题解决方案
 date: 2017-08-17 17:02:00
 author: 薛勤
-tags: [hibernate]
+tags: [Hibernate]
 ---
 
 ## 1.增加 MySQL 的 wait_timeout 属性的值（不推荐）
