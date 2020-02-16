@@ -59,7 +59,6 @@ comments: false
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-#  - jekyll-archives
 
 # Build settings
 markdown: kramdown
@@ -79,12 +78,3 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   toc_levels: 1..6
 
-# jekyll-archives
-#jekyll-archives:
-#  enabled:
-#    - categories
-#    - tags
-#  layout: category_archives
-#  permalinks:
-#    category: /categories/:name/
-#    tag: /tags/:name/
