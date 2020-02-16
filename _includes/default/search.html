@@ -49,6 +49,7 @@
             // 打开
             a.addEventListener('click', function () {
                 document.getElementById('search').style.display = 'block'
+                document.getElementById('search-input').select()
                 document.getElementsByTagName('main')[0].classList.add("touMing")
             })
         }
@@ -58,7 +59,7 @@
         document.getElementById('search').style.display = 'none'
         document.getElementsByTagName('main')[0].classList.remove("touMing")
     })
-    let sjs = SimpleJekyllSearch({
+    SimpleJekyllSearch({
                                      searchInput: document.getElementById('search-input'),
                                      resultsContainer: document.getElementById('results-container'),
                                      json: '/search.json',
