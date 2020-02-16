@@ -3,13 +3,13 @@ layout: default
 ---
 <div class="home">
 
-    {% for tag in site.tags %}
-    <h1 class="page-heading" id="{{ tag[0] }}">{{ tag[0] }}</h1>
+    {% for category in site.categories %}
+    <h1 class="page-heading" id="{{ category[0] }}">{{ category[0] }}</h1>
 
     {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
 
     <ul class="post-archives">
-        {% for post in tag[1] %}
+        {% for post in category[1] %}
         {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
         {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
@@ -42,7 +42,7 @@ layout: default
 </div>
 
 <script type="text/javascript">
-    const mao = window.location.search.replace("?",'')
+    const mao = decodeURI(window.location.search.replace("?",''))
     if (mao){
         const home = document.getElementsByClassName('home')[0]
         for(const h1 of home.getElementsByTagName('h1')){
