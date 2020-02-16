@@ -42,7 +42,7 @@ layout: default
 </div>
 
 <script type="text/javascript">
-    const mao = window.location.search.replace("?",'')
+    const mao = decodeURI(window.location.search.replace("?",''))
     if (mao){
         const home = document.getElementsByClassName('home')[0]
         for(const h1 of home.getElementsByTagName('h1')){
