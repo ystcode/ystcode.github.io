@@ -129,7 +129,7 @@ RSA算法支持公钥加密、私钥解密以及私钥加密、公钥解密。
 
 RSA算法既可以用于加密也可用于数字签名。
 
-<img src="http://ww3.sinaimg.cn/large/006tNc79gy1g5eb184d72j31520lckad.jpg" referrerPolicy="no-referrer"/>
+![](./20190728DHRSA与ElGamal非对称加密算法实现及应用/19153274.png)
 
 Java代码：
 
@@ -213,7 +213,7 @@ public class RSA {
 
 图解流程：
 
-<img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5edse0tq8j314g0men8e.jpg" referrerPolicy="no-referrer"/>
+![](./20190728DHRSA与ElGamal非对称加密算法实现及应用/90462684.png)
 
 ## 4.非对称加密算法ElGamal
 
@@ -306,4 +306,4 @@ public class ElGamal {
 
 图解流程：
 
-<img src="http://ww2.sinaimg.cn/large/006tNc79gy1g5ft1xdwrej30xy0l846b.jpg" referrerPolicy="no-referrer"/>
+![](./20190728DHRSA与ElGamal非对称加密算法实现及应用/77964127.png)

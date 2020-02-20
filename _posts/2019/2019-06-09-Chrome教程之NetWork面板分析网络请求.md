@@ -29,19 +29,19 @@ tags: Chrome
 
 **概要**：请求总数、总数据量、总花费时间等。
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3c6vbw2flj30zk0j24as.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/23305644.png)
 
 ## 3.控制器
 
-<img src="http://ww4.sinaimg.cn/large/006tNc79ly1g3c6vh8vfnj311e0oijvq.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/90637079.png)
 
 ### 模拟慢速网络
 
-<img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3c6vmho64j3160092gqt.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/39538201.png)
 
 还可以自定义，点击Add...
 
-<img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3c6vp6e32j31600dk0uf.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/71681239.png)
 
 ## 4.过滤器
 
@@ -51,19 +51,19 @@ tags: Chrome
 
 1.键入png到**过滤**文本框。仅显示包含文本的文件png。在这种情况下，与过滤器匹配的唯一文件是PNG图像。
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3c8rj21y7j313k0u0awx.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/86551535.png)
 
 2.类型`/.*\.[cj]s+$/`。DevTools过滤掉任何资源，其文件名不以a `j`或`c`后跟1个或多个`s`字符结尾。
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3c8r8tyo9j313k0u0x4j.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/42220950.png)
 
 3.类型`-main.css`。DevTools过滤掉了`main.css`。如果任何其他文件与模式匹配，它们也将被过滤掉。
 
-<img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3c8qw2k0aj312c0t27q6.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/83372692.png)
 
 ### 4.2按类型
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3c6w6ihd0j316004amxt.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/52990236.png)
 
 - XHR、JS、CSS、Img、Media、Font、Doc、WS（WebSocket）、Manifest或Other（此处为列出的任何其他类型）
 - 多个类型，按住Command（Mac）或Ctrl（Windows、Linux）
@@ -74,7 +74,7 @@ tags: Chrome
 
 下面演示使用Filter过滤器，如图所示：
 
-<img src="http://ww3.sinaimg.cn/large/006tNc79ly1g3c6w9ondtj31600jm0y0.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/43085756.png)
 
 - **domain**:仅显示来自指定域的资源。您可以使用通配符字符（*）纳入多个域
 - **has-response-header**：显示包含指定HTTP响应标头的资源
@@ -106,7 +106,7 @@ tags: Chrome
 
 ## 6.请求列表
 
-<img src="http://ww4.sinaimg.cn/large/006tNc79ly1g3c6wdiy74j31600jmtec.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/95321918.png)
 
 简单介绍下每列的含义：
 
@@ -131,17 +131,17 @@ tags: Chrome
 
 **鼠标右键单击，添加其他列：**
 
-<img src="http://ww3.sinaimg.cn/large/006tNc79ly1g3c6wgthzij31600kmdy9.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/5837328.png)
 
 **还可以自定义header头**：
 
-<img src="http://ww3.sinaimg.cn/large/006tNc79ly1g3c6wjt03vj31600qq4py.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/7644926.png)
 
 ## 7.预览请求内容
 
 如图所示，在请求列表点击以下
 
-<img src="http://ww4.sinaimg.cn/large/006tNc79ly1g3c6wnax78j316i0u0dqj.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/82487175.png)
 
 功能包括：
 
@@ -163,9 +163,9 @@ tags: Chrome
 
 下面演示如何查看请求上下游，首先按住 shift 键，其次移动鼠标到不同请求，如图所示：
 
-<img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3c6wsihstj31580ccteg.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/51995864.png)
 
-<img src="http://ww3.sinaimg.cn/large/006tNc79ly1g3c6wvatl9j31580cc7an.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/41425755.png)
 
 ## 8.浏览器加载时间
 
@@ -182,7 +182,7 @@ tags: Chrome
 
 点击请求列表后，找到Timing，看到如图所示的字段
 
-<img src="http://ww4.sinaimg.cn/large/006tNc79ly1g3c6wzzwxtj31ey0i8wj6.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/59564703.png)
 
 **Queueing**：浏览器在以下情况下对请求排队
 
@@ -216,21 +216,21 @@ tags: Chrome
 
 1.按Control+ Shift+ P或 Command+ Shift+ P（Mac）打开**命令菜单**。
 
-<img src="http://ww3.sinaimg.cn/large/006tNc79ly1g3c8s0s4f4j30y30u0nfq.jpg" referrerPolicy="no-referrer"/>
+![](./20190609Chrome教程之NetWork面板分析网络请求/92883004.png)
 
 2.键入`block`，选择“ **显示请求阻止”**，然后按Enter。
 
- <img src="http://ww1.sinaimg.cn/large/006tNc79ly1g3c8sx9s8rj31260ryqin.jpg" referrerPolicy="no-referrer"/>
+ ![](./20190609Chrome教程之NetWork面板分析网络请求/44971180.png)
 
 3.单击**添加模式**。
 
 4.类型`main.css`。
 
- <img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3c8t7zlsdj30zr0u0axr.jpg" referrerPolicy="no-referrer"/>
+ ![](./20190609Chrome教程之NetWork面板分析网络请求/34933993.png)
 
 5.单击**添加**。
 
-6.重新加载页面。正如预期的那样，页面的样式有点混乱，因为它的主样式表已被阻止。请注意`main.css`网络日志中的行。红色文本表示资源已被阻止。  <img src="http://ww4.sinaimg.cn/large/006tNc79ly1g3c8tpvpa0j30vf0u0hac.jpg" referrerPolicy="no-referrer"/>
+6.重新加载页面。正如预期的那样，页面的样式有点混乱，因为它的主样式表已被阻止。请注意`main.css`网络日志中的行。红色文本表示资源已被阻止。  ![](./20190609Chrome教程之NetWork面板分析网络请求/6991222.png)
 
 `main.css`已被封锁
 

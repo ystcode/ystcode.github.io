@@ -9,7 +9,7 @@ tags: Java
 
 相信大家在网上看过不少讲解 BIO/NIO/AIO 的文章，文章中举起栗子来更是夯吃夯吃一大堆，让人越看越觉得 What are you 讲啥嘞？
 
-<img src="http://ww3.sinaimg.cn/bmiddle/9150e4e5ly1flfjndveawj20ku0jwq4z.jpg" referrerPolicy="no-referrer" style="width:300px"/>
+![](./20190704对于BIONIOAIO你还只停留在烧开水的水平吗/58826626.png)
 
 本文将针对 BIO/NIO/AIO 、阻塞与非阻塞、同步与异步等特别容易混淆的概念进行对比区分，理清混乱的思路。
 
@@ -37,7 +37,7 @@ tags: Java
 
 **简而言之，同步和异步最关键的区别在于同步必须等待（BIO）或者主动的去询问（NIO）IO是否完成，而异步（AIO）操作提交后只需等待操作系统的通知即可。**（思考一下：操作系统底层通过什么去通知数据使用者？）
 
-<img src="http://ww2.sinaimg.cn/large/9150e4e5ly1fswbux3qi6j206y06cmx4.jpg" referrerPolicy="no-referrer" style="width:300px"/>
+![](./20190704对于BIONIOAIO你还只停留在烧开水的水平吗/3585992.png)
 
 大型网站一般都会使用消息中间件进行解藕、异步、削峰，生产者将消息发送给消息中间件就返回，消息中间件将消息转发到消费者进行消费，这种操作方式其实就是异步。
 
@@ -51,7 +51,7 @@ tags: Java
 
 阻塞和非阻塞是针对于进程在访问数据的时候，根据IO操作的就绪状态来采取的不同方式，说白了是一种读取或者写入操作方法的实现方式，**阻塞方式下读取或者写入函数将一直等待（BIO），而非阻塞方式下，读取或者写入方法会立即返回一个状态值（NIO）**。
 
-<img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4n2464kjyj30dm0c6af7.jpg" referrerPolicy="no-referrer" style="width:300px"/>
+![](./20190704对于BIONIOAIO你还只停留在烧开水的水平吗/37357828.png)
 
 BIO对应的Socket网络编程代码如下，其中`server.accept()`代码会一直阻塞当前线程，直到有新的客户端与之连接后，就创建一个新的线程进行处理，注意这里是一次连接创建一个线程。
 
@@ -73,7 +73,7 @@ public static void main(String[] args) throws IOException {
 
 NIO的Socket网络编程代码如下图（在网上找了半天），我们只需要观察NIO的关键两个点：轮询、IO多路复用。
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79ly1g4mzwnuijnj30u00xcnm9.jpg" referrerPolicy="no-referrer"/>
+![](./20190704对于BIONIOAIO你还只停留在烧开水的水平吗/60390458.png)
 
 找到`while(true){}`代码就找到了轮询的代码，其中调用的 `selector.select()` 方法会一直阻塞到某个注册的通道有事件就绪，然后返回当前就绪的通道数，也就是非阻塞概念中提到的状态值。
 
