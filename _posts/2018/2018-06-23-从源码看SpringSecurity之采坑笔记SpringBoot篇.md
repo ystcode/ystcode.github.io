@@ -325,14 +325,14 @@ authorities.add(new SimpleGrantedAuthority("权限名"));
 
 *  定义以后你会发现这真真真&hellip;的是权限，不是角色，联想到上面Security的角色和权限其实是不同的，我想我应该是错过了什么？
 *  然后翻看Security源码： 
-![这里写图片描述](https://img-blog.csdn.net/2018062301043516?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1ZXNodXRvbmcxMjM/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70)
+![这里写图片描述](./20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/20940172.png)
 
 *  翻译过来：如果调用hasRole(&ldquo;ADMIN&rdquo;)或hasRole(&ldquo;ROLE_ADMIN&rdquo;) 
 方法时，当Role前缀为&rdquo;ROLE_&rdquo;(默认)时将使用ROLE_ADMIN角色。
 
 *  而我们在把用户信息保存到内存时，底层是这样的：
    
-   ![这里写图片描述](https://img-blog.csdn.net/20180623011548399?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1ZXNodXRvbmcxMjM/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70)
+![这里写图片描述](./20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/97410174.png)
 
 *  解读一下就是在调用`.roles("ROLE_VIP1")`方法注册Role时，先通过`role.startsWith("ROLE_")`断言输入的角色名是否是`"ROLE_"`开头的，如果不是，补充`"RELE_"`前戳。
 
@@ -345,7 +345,7 @@ authorities.add(new SimpleGrantedAuthority("权限名"));
 
 ```java
 package cn.zyzpp.security.controller;
-...
+
 import cn.zyzpp.security.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -424,7 +424,8 @@ public class MyController {
 ### 讲一下：
 
 *  如果你debug追踪一下，你就可以了解Security的运行原理
-*  Security的`SimpleUrlAuthenticationFailureHandler`（简单认证故障处理）会把异常保存到`request`或`session`中，`forwardToDestination`默认为`false`，也就是保存在`session`，实际我们测试是保存在`request`。 ![](./20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/1136672-20190623143007720-493280.png)
+*  Security的`SimpleUrlAuthenticationFailureHandler`（简单认证故障处理）会把异常保存到`request`或`session`中，`forwardToDestination`默认为`false`，也就是保存在`session`，实际我们测试是保存在`request`。 
+![](./20180623从源码看SpringSecurity之采坑笔记SpringBoot篇/1136672-20190623143007720-493280.png)
 
 ---
 

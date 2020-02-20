@@ -139,7 +139,7 @@ public class DES {
 
 应用例子：
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79gy1g5k7772am7j316g0kun4c.jpg" referrerPolicy="no-referrer"/>
+![](./20190801DES3DESAESPBE对称加密算法实现及应用/79894070.png)
 
 ## 3.对称加密算法-3DES
 
@@ -411,4 +411,4 @@ public class PBE {
 
 应用举例：
 
-<img src="http://ww1.sinaimg.cn/large/006tNc79gy1g5k6nj51hdj30xk0mc44w.jpg" referrerPolicy="no-referrer"/>
+![](./20190801DES3DESAESPBE对称加密算法实现及应用/13991282.png)

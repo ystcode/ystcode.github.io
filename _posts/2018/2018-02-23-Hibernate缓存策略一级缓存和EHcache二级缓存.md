@@ -5,12 +5,12 @@ date: 2018-02-23 18:13:00
 author: 薛勤
 tags: Hibernate
 ---
-![这里写图片描述](https://img-blog.csdn.net/20180223162218460?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223161810212?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223161844257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/2018022317121010?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223171500474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223171528835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70)
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/83695343.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/46911074.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/178488.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/74264619.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/59245171.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/60123880.png)
 
 ### 如何配置二级缓存：
 
@@ -170,7 +170,7 @@ public class Employee {
 }
 ```
 
-![这里写图片描述](https://img-blog.csdn.net/20180223181141941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223171553208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223181223515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70) 
-![这里写图片描述](https://img-blog.csdn.net/20180223181234742?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXVlc2h1dG9uZzEyMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA/dissolve/70)
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/76838753.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/31289291.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/24745996.png) 
+![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/68542215.png)
