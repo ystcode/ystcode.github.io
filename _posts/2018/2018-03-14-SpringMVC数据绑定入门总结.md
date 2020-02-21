@@ -232,13 +232,13 @@ this.age = age;
 
 简单来说，就是把参数移到URL上，比如下面。
 
-```
+```java
 https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/pdf/spring-boot-reference.pdf<br />　 http://jbk.39.net/xebm/
 ```
 
 使用方法
 
-```
+```java
 @RequestMapping("/subject/{name}")<br />public String demo(@PathVariable("name") String name){<br />　　return name;<br />}<br />
 ```
 

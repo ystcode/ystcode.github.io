@@ -9,7 +9,7 @@ tags: SpringBoot
 在使用Spring Boot数据源之前，我们一般会导入相关依赖。其中数据源核心依赖就是`spring‐boot‐starter‐jdbc`
 如下
 
-```
+```java
 <dependency>
 	<groupId>org.springframework.boot</groupId>            
 	<artifactId>spring‐boot‐starter‐jdbc</artifactId>            
@@ -23,7 +23,7 @@ tags: SpringBoot
 
 或者你使用的是JPA：
 
-```
+```java
 <dependency>
      <groupId>org.springframework.boot</groupId>
      <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -41,7 +41,7 @@ tags: SpringBoot
 
 配置我们的Mysql数据库连接信息：
 
-```
+```java
 spring:
   datasource:
     username: root
@@ -54,7 +54,7 @@ spring:
 
 编写单元测试
 
-```
+```java
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RobotsApplicationTests {
@@ -72,7 +72,7 @@ public class RobotsApplicationTests {
 
 查看打印：
 
-```
+```java
 class org.apache.tomcat.jdbc.pool.DataSource
 ```
 
@@ -82,7 +82,7 @@ class org.apache.tomcat.jdbc.pool.DataSource
 
 且数据源的相关配置都在DataSourceProperties里面，如下：
 
-```
+```java
 @ConfigurationProperties(prefix = "spring.datasource")
 public class DataSourceProperties
 		implements BeanClassLoaderAware, EnvironmentAware, InitializingBean {
@@ -105,7 +105,7 @@ public class DataSourceProperties
 
 找到`org.springframework.boot.autoconfigure.jdbc`包下的`DataSourceConfiguration`类
 
-```
+```java
 abstract class DataSourceConfiguration {
 
 	@ConditionalOnClass(org.apache.tomcat.jdbc.pool.DataSource.class)
@@ -138,7 +138,7 @@ abstract class DataSourceConfiguration {
 
 SpringBoot默认可以支持；
 
-```
+```java
 org.apache.tomcat.jdbc.pool.DataSource、HikariDataSource、BasicDataSource、
 ```
 
@@ -148,7 +148,7 @@ org.apache.tomcat.jdbc.pool.DataSource、HikariDataSource、BasicDataSource、
 
 找到这个类的最下面，如果`spring.datasource.type`的值不属于上面的几个，那么可以自己定义数据源：
 
-```
+```java
 
 	@ConditionalOnMissingBean(DataSource.class)
 	@ConditionalOnProperty(name = "spring.datasource.type")
@@ -187,17 +187,17 @@ org.apache.tomcat.jdbc.pool.DataSource、HikariDataSource、BasicDataSource、
 
 所以我们想要初始化一些数据库脚本，可以依照这个规则
 
-```
+```java
 schema‐*.sql、data‐*.sql
 ```
 
 例如：
 
-```
+```java
 schema.sql，schema‐all.sql；
 ```
 也可以使用如下指定具体位置
-```
+```java
   schema:    
       ‐ classpath:department.sql
 ```
@@ -212,7 +212,7 @@ schema.sql，schema‐all.sql；
 
 自动配置了JdbcTemplate操作数据库，示例：
 
-```
+```java
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RobotsApplicationTests {
@@ -254,7 +254,7 @@ SpringBoot创建默认DataSource时，规则如下：
 
 - 可以使用spring.datasource.type属性指定连接池类型
 
-  ```
+  ```java
   spring.datasource.type=org.apache.commons.dbcp.BasicDataSource
   ```
 
@@ -262,7 +262,7 @@ SpringBoot创建默认DataSource时，规则如下：
 
 在数据源那一讲中，我们已经知道Spring data默认使用tomcat-jdbc时，所以直接在application.yml增加配置项spring.datasource.tomcat.*来控制链接池的行为。比如如下配置。
 
-```
+```java
 spring:
     datasource:
         url: jdbc:mysql://localhost:3306/jackieathome?useSSL=false

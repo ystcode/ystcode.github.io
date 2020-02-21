@@ -49,11 +49,11 @@ String.split()方法使用简单，功能强大，支持正则表达式，但是
 
 StringTokenizer类是JDK中提供的专门用来处理字符串分割的工具类。构造方法：
 
-```
+```java
 public StringTokenizer(String str, String delim, boolean returnDelims) 
 ```
 其中str是要分割的字符串，delim是分割符，returnDelims是否返回分隔符，默认false。
-```
+```java
   String s = "a;b;c";
   StringTokenizer stringTokenizer = new StringTokenizer(s, ";", false);
   System.out.println(stringTokenizer.countTokens());
@@ -66,7 +66,7 @@ public StringTokenizer(String str, String delim, boolean returnDelims)
 
 indexOf()方法是一个执行速度非常快的方法，subString()是采用了时间换空间技术，因此速度相对快。
 
-```
+```java
     public static List<String> mySplit(String str, String delim){
         List<String> stringList = new ArrayList<>();
         while(true) {
@@ -103,7 +103,7 @@ charAt(int index) 返回指定索引处的 char 值。功能和indexOf()相反�
 
 这两个Java内置函数效率远远低于charAt()方法。单元测试：
 
-```
+```java
     @Test
     public void test(){
         String str = "hello";
@@ -120,13 +120,13 @@ charAt(int index) 返回指定索引处的 char 值。功能和indexOf()相反�
 
 #### 1、String常量的累加操作
 
-```
+```java
 String s = "123"+"456"+"789";
 ```
 
 虽然从理论上说字符串的累加的效率并不高，但该语句执行耗时为0；反编译代码后，我们发现代码是
 
-```
+```java
 String s = "123456789";
 ```
 
@@ -157,7 +157,7 @@ StringBuffer和StringBuilder的是对String的封装，String是对char数组的
 
 在初始化时，容量参数默认是16个字节。在构造方法中指定容量参数：
 
-```
+```java
 public StringBuilder(int capacity) 
 ```
 
@@ -165,46 +165,46 @@ public StringBuilder(int capacity)
 
 判断字符串相等（忽略大小写）
 
-```
+```java
 equalsIgnoreCase(String anotherString)
 ```
 
 判断是否存在子字符串（返回布尔类型）
 
-```
+```java
 contains(CharSequence s)
 ```
 
  将指定字符串连接到此字符串的结尾
 
-```
+```java
 concat(String str)
 ```
 
 使用指定的格式字符串和参数返回一个格式化字符串
 
-```
+```java
 format(String format, Object... args)
 ```
 使用默认语言环境的规则将此 String 中的所有字符都转换为小写。
-```
+```java
 toLowerCase() 
 ```
 使用默认语言环境的规则将此 String 中的所有字符都转换为大写。
-```
+```java
 toUpperCase() 
 ```
 返回字符串的副本，忽略前导空白和尾部空白。
-```
+```java
 trim() 
 ```
 使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
 
-```
+```java
 String replaceAll(String regex, String replacement)
 ```
 按字典顺序比较两个字符串，不考虑大小写。
-```
+```java
 int compareToIgnoreCase(String str)
 ```
 

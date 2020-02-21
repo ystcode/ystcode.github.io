@@ -11,7 +11,7 @@ tags: SpringBoot
 
 下面进入正题，来看下我的实体类中的字段：
 
-```
+```java
  @ElementCollection(fetch = FetchType.LAZY)//定义基本类型或可嵌入类的实例集合
  @OrderColumn(name="position")//如果使用的是List，你需要多定义一个字段维护集合顺序
  private List<String> part;
@@ -38,7 +38,7 @@ JPA更新字段的手段有两种，一种是通过设置主键进行save()保�
 
 下面看下定义的实体类，主要由主键id，字段name，以及集合part组成，集合为Lazy懒加载。
 
-```
+```java
 @Entity
 @Table(name = "name_href")
 public class NameHref {
@@ -56,7 +56,7 @@ public class NameHref {
 
 当我们定义集合part为Lazy懒加载，正常来说使用JPA获取实体后是取不到part的值的，（执行get方法会报错）所以更新字段后part的值到底是不是为NULL，我们来看单元测试：
 
-```
+```java
     @Autowired
     NameHrefRepository nameHrefRepository;
 
@@ -82,7 +82,7 @@ public class NameHref {
 
 这段代码是先新建一个实体保存到数据库然后再获取该实体，修改部分字段，使用save()方法保存。执行完后我们查看数据库字段：href属性已经被成功修改，而且声明为LAZY的集合part也还在。说明save()方法正确执行了updata操作。那JPA究竟如何执行的，看下SQL记录：
 
-```
+```java
 Hibernate: select namehref0_.id as id1_20_, namehref0_.href as href2_20_, namehref0_.name as name3_20_ from name_href namehref0_ where namehref0_.name=?
 Hibernate: select namehref0_.id as id1_20_0_, namehref0_.href as href2_20_0_, namehref0_.name as name3_20_0_ from name_href namehref0_ where namehref0_.id=?
 Hibernate: update name_href set href=?, name=? where id=?
@@ -90,7 +90,7 @@ Hibernate: update name_href set href=?, name=? where id=?
 
 一共执行了三句SQL，第一句是由find方法执行的查询操作，第二句第三句是由save()方法进行的操作。由此可知，JPA更新字段的原理大概是先执行select语句判断是否数据已存在，若存在则执行updata语句进行更新操作。那JPA是如何对save()操作进行分辨的呢？答案是主键是否被赋值。来看下面的测试方法：
 
-```
+```java
         NameHref nameHref = new NameHref();
 //        nameHref.setId(-1);
         String name = "博客园";
@@ -101,7 +101,7 @@ Hibernate: update name_href set href=?, name=? where id=?
 
 上面的代码把setId()方法注释掉后，执行程序，查看SQL打印：
 
-```
+```java
 Hibernate: insert into name_href (href, name) values (?, ?)
 ```
 
@@ -109,7 +109,7 @@ Hibernate: insert into name_href (href, name) values (?, ?)
 
 到这里还没有结束，如果你不是通过Repository获取的实体对象，而是自己定义实体对象并对主键赋值，想达到更新部分字段的目的，那么你通过save()方法更新字段后会出现未定义的字段为NULL的情况。来看下面的测试用例：
 
-```
+```java
         NameHref nameHref = new NameHref();
         nameHref.setId(1);
         String name = "博客园2号";
@@ -131,7 +131,7 @@ Hibernate: insert into name_href (href, name) values (?, ?)
 
 除了字段id，name（name被成功修改），其它字段都变成了NULL，这是为什么呢？来看下SQL执行记录：
 
-```
+```java
 Hibernate: select namehref0_.id as id1_20_0_, namehref0_.href as href2_20_0_, namehref0_.name as name3_20_0_ from name_href namehref0_ where namehref0_.id=?
 Hibernate: update name_href set href=?, name=? where id=?
 Hibernate: delete from name_href_part where name_href_id=?

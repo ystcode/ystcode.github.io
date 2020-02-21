@@ -22,7 +22,7 @@ Visual VM插件的安装非常容易，既可以通过离线下载插件*.nbm。
 
 若是启动VisualVm.exe报错：Can'nt find java1.8 or or higher ,只需要编辑\etc\visualvm.conf文件，找到下面这行并重新指向本地Java路径即可。
 
-```
+```java
 visualvm_jdkhome="D:\Java\jdk1.8.0"
 ```
 
@@ -38,7 +38,7 @@ visualvm_jdkhome="D:\Java\jdk1.8.0"
 
 2）除了本地连接外，Visual VM也支持远程JMX连接。Java应用程序可以通过以下参数启动程序打开JMX端口：
 
-```
+```java
 -Djava.rmi.server.hostname=127.0.0.1       #远程服务器的ip地址
 -Dcom.sun.management.jmxremote
 -Dcom.sun.management.jmxremote.port=8888   #指定jmx监听的端口
@@ -58,13 +58,13 @@ visualvm_jdkhome="D:\Java\jdk1.8.0"
 
 3）添加远程主机。远程主机可以通过jstatd工具建立，如使用以下命令开启
 
-```
+```java
  jstatd -J-Djava.security.policy=c:\jstatd.all.policy
 ```
 
 文本文件jstatd.all.policy的内容为：
 
-```
+```java
 grant codebase "file:${java.home}/../lib/tools.jar" {
 permission java.security.AllPermission;
 };
@@ -96,7 +96,7 @@ Visual VM有CPU和内存两个采样器。
 
 编写测试程序：
 
-```
+```java
 public class HProfTest {
     public void slowMethod(){
         try {
@@ -194,7 +194,7 @@ BTrace 通过字节码注入，动态监控系统的运行情况。它可以跟�
 
 BTrace脚本示范：
 
-```
+```java
 @BTrace
 public class TimeLogger {
 
@@ -226,7 +226,7 @@ public class TimeLogger {
 
 监控参数
 
-```
+```java
  public static void endMethod(@ProbeClassName String pcn, @ProbeMethodName String pmn, AnyType[]  args){
 	//pcn 类名称
 
@@ -249,7 +249,7 @@ method="\<init>"  //监控构造函数
 
 OQL 语言是一种类似SQL的查询语言。基本语法如下：
 
-```
+```java
 select <JavaScript expression to select>
 [ from [instanceof] <class name> <identifier>
 [ where <JavaScript boolean expression to filter> ] ]
@@ -261,19 +261,19 @@ select 子句和where 子句支持使用Javascript 语法处理较为复杂的�
 
 在Visual VM的OQL中，可以直接访问对象的属性和部分方法。如下例中，直接使用了String对象的count属性，筛选出长度大于等于100的字符串：
 
-```
+```java
 select s from java.lang.String s where s.count >= 100
 ```
 
 选取长度大于等于256的 int 数组：
 
-```
+```java
 select a from int[] a where a.length >= 256
 ```
 
 筛选出表示两位数整数的字符串：
 
-```
+```java
 select {instance: s, content: s.toString()} from java.lang.String s where /^\d{2}$/(s.toString())
 ```
 
@@ -281,13 +281,13 @@ select {instance: s, content: s.toString()} from java.lang.String s where /^\d{2
 
 下例使用 instance 关键字选取所有的ClassLoader，包括子类：
 
-```
+```java
 select cl from instanceof java.lang.ClassLoader cl;
 ```
 
 由于在Java程序中，一个类可能会被多个ClassLoader同时载入，因此，这种情况下，可能需要使用Class的ID来指定Class。如下例，选出了所有ID为0x37A014D8的Class对象实例。
 
-```
+```java
 select s from 0x37A014D8 s;
 ```
 
@@ -315,19 +315,19 @@ heap对象是 Visual VM OQL 的内置对象。通过 heap 对象可以实现一�
 
 下例查找java.util.Vector类：
 
-```
+```java
 select heap.findClass("java.util.Vector") 
 ```
 
 查找java.util.Vector的所有父类：
 
-```
+```java
 select heap.findClass("java.util.Vector").superclasses() 
 ```
 
 输出结果如下：
 
-```
+```java
 java.util.AbstractList  
 java.util.AbstractCollection  
 java.lang.Object 
@@ -335,37 +335,37 @@ java.lang.Object
 
 查找所有在java.io包下的对象：
 
-```
+```java
 select filter(heap.classes(), "/java.io./(it.name)") 
 ```
 
 查找字符串“56”的引用链：
 
-```
+```java
 select heap.livepaths(s) from java.lang.String s where s.toString()=='56' 
 ```
 
 如下是一种可能的输出结果，其中java.lang.String#1600即字符串“56”。它显示了该字符串被一个WebPage对象持有。
 
-```
+```java
 java.lang.String#1600->geym.zbase.ch7.heap.WebPage#57->java.lang.Object[]#341->java.util.Vector#11->geym.zbase.ch7.heap.Student#3 
 ```
 
 查找这个堆的根对象：
 
-```
+```java
 select heap.roots() 
 ```
 
 下例查找当前堆中所有java.io.File对象实例，参数true表示java.io.File的子类也需要被显示：
 
-```
+```java
 select heap.objects("java.io.File",true) 
 ```
 
 下例访问了TraceStudent类的静态成员webpages对象：
 
-```
+```java
 select heap.findClass("geym.zbase.ch7.heap.TraceStudent").webpages 
 ```
 
@@ -397,13 +397,13 @@ Class对象拥有以下方法。
 
 下例将返回所有Vector类以及子类的类型：
 
-```
+```java
 select classof(v) from instanceof java.util.Vector v 
 ```
 
 一种可能的输出如下：
 
-```
+```java
 java.util.Vector  
 java.util.Vector  
 java.util.Stack 
@@ -415,7 +415,7 @@ objectid()函数返回对象的ID。使用方法如objectid(objname)。
 
 返回所有Vector对象（不包含子类）的ID：
 
-```
+```java
 select objectid(v) from  java.util.Vector v 
 ```
 
@@ -425,19 +425,19 @@ reachables()函数返回给定对象的可达对象集合。使用方法如reach
 
 下例返回'56'这个String对象的所有可达对象：
 
-```
+```java
 select reachables(s) from java.lang.String s where s.toString()=='56'
 ```
 
 它的部分输出如下：
 
-```
+```java
 char[]#264
 ```
 
 这里的返回结果是 java.lang.String.value 域的引用对象。即，给定的 String 类型的 value 域指向对象 char[]#264。如果使用过滤，要求输出结果中不包含 java.lang.String.value 域的引用对象，代码如下：
 
-```
+```java
 select reachables(s, "java.lang.String.value") from java.lang.String s where s.toString()=='56'
 ```
 
@@ -449,13 +449,13 @@ select reachables(s, "java.lang.String.value") from java.lang.String s where s.t
 
 下例返回了引用“56”String对象的对象集合：
 
-```
+```java
 select referrers(s) from java.lang.String s where s.toString()=='56'
 ```
 
 它的输出可能如下：
 
-```
+```java
 java.lang.Object[]#1077
 java.lang.Object[]#1055
 ```
@@ -467,7 +467,7 @@ java.lang.Object[]#1055
 
 下例找出长度为2，并且至少被2个对象引用的字符串：
 
-```
+```java
 select s.toString() from java.lang.String s where (s.count==2 && count(referrers(s)) >=2)
 ```
 
@@ -479,13 +479,13 @@ referees()函数返回给定对象的直接引用对象集合，用法形如：r
 
 下例返回了File对象的静态成员引用：
 
-```
+```java
 select referees(heap.findClass("java.io.File")) 
 ```
 
 下例返回长度为2，并且至少被2个对象引用的字符串的直接引用：
 
-```
+```java
 select referees(s) from java.lang.String s where (s.count==2 && count(referrers(s)) >=2 )
 ```
 
@@ -497,19 +497,19 @@ sizeof()函数返回指定对象的大小（不包括它的引用对象），即
 
 下例返回所有int数组的大小以及对象：
 
-```
+```java
 select {size:sizeof(o),Object:o} from int[] o 
 ```
 
 下例返回所有Vector的大小以及对象：
 
-```
+```java
 select {size:sizeof(o),Object:o} from java.util.Vector o 
 ```
 
 它的输出可能为如下形式：
 
-```
+```java
 {
 size = 36,
 Object = java.util.Vector#5
@@ -528,13 +528,13 @@ rsizeof()函数返回对象以及其引用对象的大小总和，即深堆（Re
 
 下例显示了所有Vector对象的Shallow Size以及Retained Size：
 
-```
+```java
 select {size:sizeof(o),rsize:rsizeof(o)} from java.util.Vector o 
 ```
 
 部分输出可能如下所示：
 
-```
+```java
 {
 size = 36,
 rsize = 572
@@ -554,7 +554,7 @@ toHtml()函数将对象转为HTML显示。
 
 下例将Vector对象的输出使用HTML进行加粗和斜体显示：
 
-```
+```java
 select "<b><em>"+toHtml(o)+"</em></b>" from java.util.Vector o 
 ```
 
@@ -579,13 +579,13 @@ contains()函数判断给定集合是否包含满足给定表达式的对象。�
 
 下例返回被 File 对象引用的 String 对象集合。首先通过 referrers(s) 得到所有引用String 对象的对象集合。使用 contains() 函数及其参数布尔等式表达式classof(it).name == 'java.io.File')，将 contains() 的筛选条件设置为类名是java.io.File 的对象。
 
-```
+```java
 select s.toString() from java.lang.String s where contains(referrers(s), "classof(it).name == 'java.io.File'") 
 ```
 
 以上查询的部分输出结果如下：
 
-```
+```java
 D:\Java\jdk1.8.0\jre\lib\ext\sunpkcs11.jar
 D:\Java\jdk1.8.0\jre\lib\ext\sunec.jar
 D:\Java\jdk1.8.0\jre\lib\ext\nashorn.jar
@@ -607,13 +607,13 @@ count()函数返回指定集合内满足给定布尔表达式的对象数量。�
 
 下例返回堆中所有java.io包中的类的数量，布尔表达式使用正则表达式表示。
 
-```
+```java
 select count(heap.classes(), "/java.io./(it.name)") 
 ```
 
 下列返回堆中所有类的数量。
 
-```
+```java
 select count(heap.classes()) 
 ```
 
@@ -629,13 +629,13 @@ filter()函数返回给定集合中，满足某一个布尔表达式的对象子
 
 下例返回所有java.io包中的类。
 
-```
+```java
 select filter(heap.classes(), "/java.io./(it.name)") 
 ```
 
 下例返回了当前堆中，引用了java.io.File对象并且不在java.io包中的所有对象实例。首先使用referrers()函数得到所有引用java.io.File对象的实例，接着使用filter()函数进行过滤，只选取不在java.io包中的对象。
 
-```
+```java
 select filter(referrers(f), "! /java.io./(classof(it).name)") from java.io.File f 
 ```
 
@@ -645,7 +645,7 @@ length()函数返回给定集合的数量，使用方法形如length(set)。
 
 下例返回当前堆中所有类的数量。
 
-```
+```java
 select length(heap.classes()) 
 ```
 
@@ -661,13 +661,13 @@ map()函数将结果集中的每一个元素按照特定的规则进行转换，
 
 下例将当前堆中的所有File对象进行格式化输出：
 
-```
+```java
 select map(heap.objects("java.io.File"), "index + '=' + it.path.toString()") 
 ```
 
 输出结果为：
 
-```
+```java
 0=D:\tools\jdk1.7_40\jre\bin\zip.dll
 1=D:\tools\jdk1.7_40\jre\bin\zip.dll
 2=D:\tools\jdk1.7_40\jre\lib\ext
@@ -688,7 +688,7 @@ max()函数计算并得到给定集合的最大元素。使用方法为：max(se
 
 下例显示了当前堆中最长的String长度。对于JDK 1.6得到的堆，首先使用heap.objects()函数得到所有String对象，接着，使用map()函数将String对象集合转为String对象的长度集合，最后，使用max()函数得到集合中的最大元素。对于JDK 1.7得到的堆，由于String结构发生变化，故通过String.value得到字符串长度。
 
-```
+```java
 JDK 1.6导出的堆  
 select max(map(heap.objects('java.lang.String', false), 'it.count'))   
 JDK 1.7导出的堆  
@@ -697,13 +697,13 @@ select max(map(filter(heap.objects('java.lang.String', false),'it.value!=null'),
 
 以上OQL的输出为最大字符串长度，输出如下：
 
-```
+```java
 734.0 
 ```
 
 下例取得当前堆的最长字符串。它在max()函数中设置了比较表达式，指定了集合中对象的比较逻辑。
 
-```
+```java
 JDK 1.6导出的堆  
 select max(heap.objects('java.lang.String'), 'lhs.count > rhs.count')   
 JDK 1.7导出的堆  
@@ -712,7 +712,7 @@ select max(filter(heap.objects('java.lang.String'),'it.value!=null'), 'lhs. valu
 
 与上例相比，它得到的是最大字符串对象，而非对象的长度：
 
-```
+```java
 java.lang.String#908 
 ```
 
@@ -726,13 +726,13 @@ min()函数计算并得到给定集合的最小元素。使用方法为：min(se
 
 下例返回当前堆中数组长度最小的Vector对象的长度：
 
-```
+```java
 select min(map(heap.objects('java.util.Vector', false), 'it.elementData. length')) 
 ```
 
 下例得到数组元素长度最长的一个Vector对象：
 
-```
+```java
 select min(heap.objects('java.util.Vector'), 'lhs.elementData.length > rhs.elementData.length') 
 ```
 
@@ -746,14 +746,14 @@ sort()函数对指定的集合进行排序。它的一般使用方法为：sort(
 
 下例将当前堆中的所有Vector按照内部数组的大小进行排序：
 
-```
+```java
 select sort(heap.objects('java.util.Vector'), 
 'lhs.elementData.length - rhs.elementData.length') 
 ```
 
 下例将当前堆中的所有Vector类（包括子类），按照内部数据长度大小，从小到大排序，并输出Vector对象的实际大小以及对象本身。
 
-```
+```java
 select map(    sort(          
 heap.objects('java.util.Vector'),       
 'lhs.elementData.length - rhs.elementData.length' ), 
@@ -772,7 +772,7 @@ top()函数返回在给定集合中，按照特定顺序排序的前几个对象
 
 下例显示了长度最长的前5个字符串：
 
-```
+```java
 JDK 1.6的堆  
 select top(heap.objects('java.lang.String'), 'rhs.count - lhs.count', 5)   
 JDK 1.7的堆  
@@ -781,7 +781,7 @@ select top(filter(heap.objects('java.lang.String'),'it.value!=null'), 'rhs. valu
 
 下例显示长度最长的5个字符串，输出它们的长度与对象：
 
-```
+```java
 JDK 1.6的堆  
 select map(top(heap.objects('java.lang.String'), 'rhs.count - lhs.count', 5), '{ length: it.count, obj: it }')  
 JDK 1.7的堆  
@@ -790,7 +790,7 @@ select map(top(filter(heap.objects('java.lang.String'),'it.value!=null'), 'rhs.v
 
 上述查询的部分输出可能如下所示：
 
-```
+```java
 {  
 length = 734.0, 
 obj = java.lang.String#908  } 
@@ -806,13 +806,13 @@ sum()函数用于计算集合的累计值。它的一般使用方法为：sum(se
 
 下例计算所有 java.util.Properties 对象的可达对象的总大小：
 
-```
+```java
 select sum(map(reachables(p), 'sizeof(it)')) from java.util.Properties p 
 ```
 
 将使用 sum() 函数的第2个参数 expression 代替 map() 函数，实现相同的功能：
 
-```
+```java
 select sum(reachables(p), 'sizeof(it)') from java.util.Properties p 
 ```
 
@@ -822,7 +822,7 @@ unique()函数将除去指定集合中的重复元素，返回不包含重复元
 
 下例返回当前堆中，有多个不同的字符串：
 
-```
+```java
 select count(unique(map(heap.objects('java.lang.String'), 'it.value'))) 
 ```
 
@@ -837,7 +837,7 @@ Visual VM不仅支持在OQL控制台上执行OQL查询语言，也可以通过�
 
 这里以分析Tomcat堆溢出文件为例，展示程序化OQL带来的便利。 对于给定的Tomcat堆溢出Dump文件，这里将展示如何通过程序，计算Tomcat平均每秒产生的session数量，代码如下：
 
-```
+```java
 public class AveLoadTomcatOOM {
     public static final String dumpFilePath = "d:/tmp/tomcat_oom/tomcat.hprof";
 
@@ -864,7 +864,7 @@ public class AveLoadTomcatOOM {
 
 运行上述代码，得到输出如下：
 
-```
+```java
 平均压力：311.34375次/秒 
 ```
 
@@ -872,7 +872,7 @@ public class AveLoadTomcatOOM {
 
 除了使用以上方式外，Visual VM的OQL控制台也支持直接使用JavaScript代码进行编程，如下代码实现了相同功能：
 
-```
+```java
 var sessions=toArray(heap.objects("org.apache.catalina.session.StandardSession"));  
 var count=sessions.length;  
 var createtimes=new Array();  
@@ -893,7 +893,7 @@ count/(max-min)+"次/秒"
 
 Visual VM的OQL是非常灵活的，除了上述使用JavaScript风格外，也可以使用如下函数式编程风格计算：
 
-```
+```java
 count(heap.objects('org.apache.catalina.session.StandardSession'))/  (  
 max(map(heap.objects('org.apache.catalina.session.StandardSession'),'it.creationTime'))/1000-  
 min(map(heap.objects('org.apache.catalina.session.StandardSession'),'it.creationTime'))/1000  ) 
@@ -902,7 +902,7 @@ min(map(heap.objects('org.apache.catalina.session.StandardSession'),'it.creation
 
 上述代码使用了count()、min()、max()、map()等函数，共同完成了平均值的计算。执行上述代码，输出如下：
 
-```
+```java
 312.1240594043491 
 ```
 

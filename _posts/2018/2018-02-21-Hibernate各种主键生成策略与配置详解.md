@@ -239,7 +239,7 @@ Oracle中，使用select rawtohex(sys_guid()) from dual语句获得的为32位�
 
 自动增长，适用于支持自增字段的数据库
 
-```
+```java
 <span class="hljs-variable">@Id</span>
 
 <span class="hljs-variable">@GeneratedValue</span>(strategy = <span class="hljs-constant">GenerationType</span>.<span class="hljs-constant">IDENTITY</span>)
@@ -249,7 +249,7 @@ Oracle中，使用select rawtohex(sys_guid()) from dual语句获得的为32位�
 
 如MySQL，会使用自增字段，需要将主键设置成auto_increment。
 
-```
+```java
 <span class="hljs-variable">@Id</span>
 
 <span class="hljs-variable">@GeneratedValue</span>(strategy = <span class="hljs-constant">GenerationType</span>.<span class="hljs-constant">AUTO</span>)

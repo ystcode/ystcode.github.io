@@ -225,7 +225,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider{
 *  没错，你没看错，`AccountStatusException`异常被直接抛出了，这正是我们需要的；有的同学可能想到了自定义异常，但我们是结合Security框架，要按人家的规则来，不信你试试。
 *  附一些常用异常
 
-```
+```java
  <span class="hljs-comment">/* 
     AuthenticationException常用的的子类：(会被底层换掉，不推荐使用)
     UsernameNotFoundException 用户找不到
@@ -560,7 +560,7 @@ public class User {
 
 Spring Security从2.0版本开始，提供了方法级别的安全支持，并提供了 JSR-250 的支持。写一个配置类 SecurityConfig 继承 WebSecurityConfigurationAdapter，并加上相关注解，就可以开启方法级别的保护。
 
-```
+```java
 @EnableWebSecurity
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)

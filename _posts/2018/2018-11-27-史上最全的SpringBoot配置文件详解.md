@@ -21,7 +21,7 @@ tags: SpringBoot
 
 application.properties 配置文件比较简单，形式如下
 
-```
+```java
 key = value
 ```
 
@@ -33,7 +33,7 @@ application.yml 配置文件使用YMAL语言，YMAL不是如XML般的标记语�
 
 1.直接写
 
-```
+```java
 name=zhangsan
 ```
 
@@ -41,12 +41,12 @@ name=zhangsan
 
 不会转义字符串里面的特殊字符，特殊字符会作为本身想表示的意思
 
-   ```
+   ```java
 name: "zhangsan \n lisi"
    ```
 输出：
 
-```
+```java
 zhangsan
 lisi
 ```
@@ -55,12 +55,12 @@ lisi
 
 会转义特殊字符，特殊字符最终只是一个普通的字符串数据
 
-   ```
+   ```java
 name: ‘zhangsan \n lisi’
    ```
 输出：
 
-```
+```java
 zhangsan \n lisi
 ```
 
@@ -68,7 +68,7 @@ zhangsan \n lisi
 
 例如配置类中的字段为
 
-```
+```java
 Map<String,String> maps;
 ```
 
@@ -225,7 +225,7 @@ public class Person {
 
 除了在默认的application文件进行属性配置，我们也可以自定义配置文件，例如新建 peoson.properties ，配置内容如下
 
-```
+```java
 person.mail=yster@foxmail.com
 ```
 
@@ -260,7 +260,7 @@ Spring Boot配置文件支持占位符，一些用法如下
 
 ## 7.1 随机数
 
-```
+```java
 ${random.value}
 ${random.int}
 ${random.long}
@@ -324,7 +324,7 @@ spring:
 
 1.使用命令行：
 
-```
+```java
 java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 ```
 
@@ -332,7 +332,7 @@ java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 
 2.虚拟机参数：
 
-```
+```java
 -Dspring.profiles.active=dev
 ```
 
@@ -354,7 +354,7 @@ springboot 启动会扫描以下位置的application.properties或者application
 
 我们还可以通过spring.config.location来改变默认的配置文件位置，示例：
 
-```
+```java
 java -jar spring-boot-demo-0.0.1-SNAPSHOT.jar --spring.config.location=G:/application.properties
 ```
 
@@ -366,7 +366,7 @@ SpringBoot也可以从以下位置加载配置，优先级从高到低，高优�
 
 所有的配置都可以在命令行上进行指定
 
-```
+```java
 java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --server.context-path=/abc
 ```
 
@@ -424,7 +424,7 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 
 每一个这样的  xxxAutoConfiguration类都是容器中的一个组件，都加入到容器中,用他们来做自动配置。
 
-```
+```java
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\

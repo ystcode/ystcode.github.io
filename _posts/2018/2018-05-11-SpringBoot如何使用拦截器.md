@@ -31,7 +31,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 
 
 
-```
+```java
 @Configuration
 public class InterceptorConfigurer implements WebMvcConfigurer {
 

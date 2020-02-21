@@ -11,7 +11,7 @@ tags:
 
 消息中间件带来的好处：
 
-```
+```java
 1）解耦：系统解耦
 2）异步：异步执行
 3）横向扩展 
@@ -22,7 +22,7 @@ tags:
 栗子： 
 通过服务调用让其它系统感知事件发生
 
-```
+```java
 系统之间高耦合
 程序执行效率低
 ```
@@ -590,7 +590,7 @@ public class AppConsumer {
 
 为什么要对消息中间件集群
 
-```
+```java
 实现高可用，以排除单点故障引起的服务中断
 实现负载均衡，以提升效率为更多客户提供服务
 ```
@@ -605,7 +605,7 @@ Master Slave：实现高可用
 
 ActiveMQ失效转移（failover）-客户端配置
 
-```
+```java
 允许当其中一台消息服务器宕机时，客户端在传输层上重新连接到其它消息服务器
 语法：<span class="hljs-tag">failover</span><span class="hljs-pseudo">:(uri1</span>,&hellip;,<span class="hljs-tag">uriN</span>)?<span class="hljs-tag">transportOptions</span>
 ```
@@ -622,7 +622,7 @@ Broker cluster集群配置-原理 ![](./20180430Java消息中间件入门笔记A
 
 NetworkConnector（网络连接器）
 
-```
+```java
 网络连接器主要用于配置ActiveMQ服务器与服务器之间的网络通讯方式，
 用于服务器透传消息。
 网络连接器分为静态连接器和动态连接器

@@ -63,7 +63,7 @@ public <T> T execute(RedisScript<T> script, RedisSerializer<?> argsSerializer, R
 
 ## 3.Lua脚本
 
-```
+```java
 --获取KEY
 local key1 = KEYS[1]
 local key2 = KEYS[2]

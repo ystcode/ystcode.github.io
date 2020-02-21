@@ -945,7 +945,7 @@ public class HiController {
 
 6.启动类
 
-```
+```java
 @SpringBootApplication
 @EnableEurekaClient
 public class ServiceHiApplication {

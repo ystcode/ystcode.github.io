@@ -14,17 +14,17 @@ tags:
 
 正向索引的这种查询效率也不需要我多吐槽了。倒排索引的思路其实也并不难。再举一个例子，有两段文本
     
-```
+```java
 D1：Hello, conan!
 
 D2：Hello, hattori!
 ```
 第一步，找到所有的单词
-```
+```java
 Hello、conan、hattori
 ```
 第二步，找到包含这些单词的文本位置
-```
+```java
 Hello（D1，D2）
 
 conan（D1）

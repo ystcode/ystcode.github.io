@@ -40,7 +40,7 @@ $ mkdir data
 
 *  使用命令 vi conf/zoo.cfg 和所有以下参数设置为起点，打开名为 conf/zoo.cfg 的配置文件。
 
-```
+```java
 <span class="hljs-variable">$ </span>vi conf/zoo.cfg
 ```
 
@@ -58,7 +58,7 @@ syncLimit = 2
 
 *  执行以下命令
 
-```
+```java
 <span class="hljs-variable">$ </span>bin/zkServer.sh start
 ```
 

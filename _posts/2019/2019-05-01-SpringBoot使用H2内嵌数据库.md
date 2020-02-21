@@ -48,13 +48,13 @@ JDBC URL的作用可以决定H2是用内存还是磁盘文件存储数据等，�
 
 连接语法（[] 可选，<>可变）：
 
-```
+```java
 jdbc:h2:[file:][<path>]<databaseName>
 ```
 
 例如：
 
-```
+```java
 jdbc:h2:~/test       //连接位于用户目录下的test数据库
 
 jdbc:h2:file:/data/sample
@@ -70,13 +70,13 @@ jdbc:h2:file:E:/H2/gacl  //只在Windows下使用
 
 连接语法：
 
-```
+```java
 jdbc:h2:mem:<databasename>
 ```
 
 示例：
 
-```
+```java
 jdbc:h2:mem:test_mem
 ```
 
@@ -88,13 +88,13 @@ jdbc:h2:mem:test_mem
 
 连接语法：
 
-```
+```java
 jdbc:h2:tcp://<server>[:<port>]/[<path>]<databaseName>
 ```
 
 范例：
 
-```
+```java
 jdbc:h2:tcp://localhost/~/test  //用户目录下
 
 jdbc:h2:tcp://localhost/E:/H2/gacl  //指定目录

@@ -15,7 +15,7 @@ tags:
 
 (1)编写Java文件，在类上写@Data注解
 
-```
+```java
 @Data
 public class Demo {
     private String name;
@@ -25,17 +25,17 @@ public class Demo {
 
 (2)javac编译，lombok.jar是lombok的jar包。
 
-```
+```java
 javac -cp lombok.jar Demo.java
 ```
 
 (3)javap查看Demo.class类文件
 
-```
+```java
 javap Demo
 ```
 Demo.class：
-```
+```java
 public class Demo {
   public Demo();
   public java.lang.String getName();
@@ -90,7 +90,7 @@ public class Demo {
 
 一个普通的注解处理器文件如下：
 
-```
+```java
 package com.example;
 
 import java.util.LinkedHashSet;
@@ -138,7 +138,7 @@ public class MyProcessor extends AbstractProcessor {
 
 关于`getSupportedAnnotationTypes()`和`getSupportedSourceVersion()`这两个方法，你也可以使用相应注解进行代替。代码如下：
 
-```
+```java
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes("com.example.MyAnnotation")
 public class MyProcessor extends AbstractProcessor {
@@ -153,7 +153,7 @@ public class MyProcessor extends AbstractProcessor {
 
 ## 3.1 自定义注解
 
-```
+```java
 @Retention(RetentionPolicy.CLASS)
 @Target(ElementType.TYPE)
 public @interface Data {
@@ -163,7 +163,7 @@ public @interface Data {
 
 ## 3.2 自定义注解处理器
 
-```
+```java
 public class DataAnnotationProcessor extends AbstractProcessor {
     private Messager messager; //用于打印日志
     private Elements elementUtils; //用于处理元素
@@ -339,7 +339,7 @@ public class DataAnnotationProcessor extends AbstractProcessor {
 
 javawriter框架引用如下：
 
-```
+```java
 compile 'com.squareup:javawriter:2.5.1'
 ```
 
@@ -347,7 +347,7 @@ compile 'com.squareup:javawriter:2.5.1'
 
 编码结束后，还需要把注解处理器注册到javac编译器，所以需要提供一个 .jar 文件。就像其他 .jar 文件一样，你将你已经编译好的注解处理器打包到此文件中。并且，在你的 .jar 文件中，你必须打包一个特殊的文件javax.annotation.processing.Processor到META-INF/services目录下。因此你的 .jar 文件目录结构看起来就你这样： 
 
-```
+```java
 MyProcess.jar
     -com
         -example
@@ -359,7 +359,7 @@ MyProcess.jar
 
 javax.annotation.processing.Processor 文件的内容是一个列表，每一行是一个注解处理器的全称。例如：
 
-```
+```java
 com.example.MyProcess
 ```
 
@@ -371,13 +371,13 @@ com.example.MyProcess
 
 添加对谷歌自动注册注解库的引用
 
-```
+```java
 implementation ‘com.google.auto.service:auto-service:1.0-rc4’
 ```
 
 在注解处理器类前面声明
 
-```
+```java
 @AutoService(Processor.class)
 ```
 
@@ -387,7 +387,7 @@ implementation ‘com.google.auto.service:auto-service:1.0-rc4’
 
 (1)写个Demo.java
 
-```
+```java
 import cn.zyzpp.annotation.Data;
 
 @Data
@@ -399,13 +399,13 @@ public class Demo {
 
 (2)编译java文件，在该Demo.java文件夹下打开控制台窗口，记得把打包的jar包一起放在此目录。
 
-```
+```java
 javac -cp annotation-1.0-SNAPSHOT.jar Demo.java
 ```
 
 (3)使用javap查看编译后的Demo.class
 
-```
+```java
 Compiled from "Demo.java"
 public class Demo {
   public Demo();
@@ -418,7 +418,7 @@ public class Demo {
 
 再看此时的Demo.java代码
 
-```
+```java
 public class Demo {
   private double abc;
   private String name;

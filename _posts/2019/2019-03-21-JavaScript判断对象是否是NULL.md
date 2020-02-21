@@ -7,7 +7,7 @@ tags: JavaScript
 ---
 这个方法是我踩了很多坑之后找到的，对数组等类型的对象都很好使，果断收藏！
 
-```
+```java
 function isEmpty(obj) {
 // 检验 undefined 和 null
     if (!obj && obj !== 0 && obj !== '') {

@@ -22,7 +22,7 @@ Master进程为主要进程，它维护了一个Worker进程队列、子任务�
 
 基于以上的思路实现一个简易的master-worker框架。其中Master部分的代码如下：
 
-```
+```java
 public class Master {
     //任务队列
     protected Queue<Object> workQuery = new ConcurrentLinkedQueue<Object>();
@@ -72,7 +72,7 @@ public class Master {
 
 对应的Worker进程的代码实现：
 
-```
+```java
 public class Worker implements Runnable {
     //任务队列，用于取得子任务
     protected Queue<Object> workQueue;
@@ -113,7 +113,7 @@ public class Worker implements Runnable {
 
 例如，要实现计算1+2+..+100的结果，代码如下：
 
-```
+```java
 public class PlusWorker extends Worker {
 
     @Override
@@ -156,7 +156,7 @@ public class PlusWorker extends Worker {
 
 运行结果：
 
-```
+```java
 result: 5050
 ```
 
@@ -182,7 +182,7 @@ Amino框架需要自行下载，下载地址：[https://sourceforge.net/projects
 
 下面用Amino框架演示1+2+..+100的完整示例。
 
-```
+```java
 public class Pow3 implements Doable<Integer,Integer> {
     @Override
     public Integer run(Integer input) {
@@ -192,7 +192,7 @@ public class Pow3 implements Doable<Integer,Integer> {
 }
 ```
 
-```
+```java
 public class Pow3Dyn implements DynamicWorker<Integer,Integer> {
     @Override
     public Integer run(Integer integer, WorkQueue<Integer> workQueue) {
@@ -202,7 +202,7 @@ public class Pow3Dyn implements DynamicWorker<Integer,Integer> {
 }
 ```
 
-```
+```java
 public class AminoDemo {
 
     /
@@ -268,7 +268,7 @@ public class AminoDemo {
 
 运行结果：
 
-```
+```java
 result:5050
 result:5050
 ```
