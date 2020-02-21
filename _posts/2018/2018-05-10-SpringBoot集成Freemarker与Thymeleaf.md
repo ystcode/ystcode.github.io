@@ -18,11 +18,11 @@ tags: SpringBoot
 1.添加依赖
 
 ```xml
-        <!-- ftl模板引擎 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
+<!-- ftl模板引擎 -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-freemarker</artifactId>
+</dependency>
 ```
 
 2.配置参数
@@ -81,10 +81,10 @@ public class FtlController {
 1.添加依赖
 
 ```xml
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
 ```
 
 2.配置参数（一般情况不用配置）

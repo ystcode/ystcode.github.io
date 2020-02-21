@@ -29,17 +29,17 @@ LinkedList 使用了循环双向链表数据结构。LinkedList 由一系列表�
 LinkedList的表项源码：
 
 ```java
-    private static class Node<E> {
-        E item;
-        Node<E> next;
-        Node<E> prev;
+private static class Node<E> {
+    E item;
+    Node<E> next;
+    Node<E> prev;
 
-        Node(Node<E> prev, E element, Node<E> next) {
-            this.item = element;
-            this.next = next;
-            this.prev = prev;
-        }
+    Node(Node<E> prev, E element, Node<E> next) {
+        this.item = element;
+        this.next = next;
+        this.prev = prev;
     }
+}
 ```
 
 无论LinkedList是否为空，链表都有一个header表项，它既是链表的开始，也表示链表的结尾。它的后驱表项便是链表的第一个元素，前驱表项便是链表的最后一个元素。如图所示：
@@ -253,18 +253,18 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 举个例子，当我们要使用for循环遍历集合时
 
 ```java
-        for (int i =0;i<collection.size();i++){
-            //.....
-        }
+for (int i =0;i<collection.size();i++){
+    //.....
+}
 ```
 
 很明显，每次循环都会调用size()方法，并且每次都会返回相同的数值。分离所有类似的代码对提升循环性能有着积极地意义。因此，可以将上段代码改造成
 
 ```java
-        int size= collection.size();
-        for (int i =0;i<size;i++){
-            //.....
-        }
+int size= collection.size();
+for (int i =0;i<size;i++){
+    //.....
+}
 ```
 
 当元素的数量越多时，这样的处理就越有意义。
@@ -274,24 +274,24 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 假设我们有一段类似的操作如下
 
 ```java
-        int size= collection.size();
-        for (int i =0;i<size;i++){
-            if (list.get(i)==1||list.get(i)==2||list.get(i)==3){
-                //...
-            }
-        }
+int size= collection.size();
+for (int i =0;i<size;i++){
+    if (list.get(i)==1||list.get(i)==2||list.get(i)==3){
+        //...
+    }
+}
 ```
 
 虽然每次循环调用get(i)的返回值不同，但在同一次调用中，结果是相同的，因此可以提取这些相同的操作。
 
 ```java
-        int size= collection.size();
-        int k=0;
-        for (int i =0;i<size;i++){
-            if ((k = list.get(i))==1||k==2||k==3){
-                //...
-            }
-        }
+int size= collection.size();
+int k=0;
+for (int i =0;i<size;i++){
+    if ((k = list.get(i))==1||k==2||k==3){
+        //...
+    }
+}
 ```
 
 ### 3.减少方法调用
@@ -301,13 +301,13 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 假设上面的代码是Vector.class的子类的部分代码，那么可以这么改写
 
 ```java
-        int size = this.elementCount;
-        Object k=null;
-        for (int i =0;i<size;i++){
-            if ((k = elementData[i])=="1"||k=="2"||k=="3"){
-                //...
-            }
-        }
+int size = this.elementCount;
+Object k=null;
+for (int i =0;i<size;i++){
+    if ((k = elementData[i])=="1"||k=="2"||k=="3"){
+        //...
+    }
+}
 ```
 
 可以看到，原本的 size() 和 get() 方法被直接替代为访问原始变量，这对系统性能的提升是非常有用的。

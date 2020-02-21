@@ -255,7 +255,7 @@ SpringBoot创建默认DataSource时，规则如下：
 - 可以使用spring.datasource.type属性指定连接池类型
 
   ```java
-  spring.datasource.type=org.apache.commons.dbcp.BasicDataSource
+spring.datasource.type=org.apache.commons.dbcp.BasicDataSource
   ```
 
 ### 2.控制连接池行为

@@ -16,9 +16,9 @@ CountDownLatch允许一个或多个线程等待其他线程完成操作。
 其实最简单的做噶是使用join()方法，join用于让当前执行线程等待join线程执行结束。其实现原理是不停检查join线程是否存活，如果join线程存活则让当前线程永远等待。其中，wait(0) 表示永远等待下去，代码片段如下：
 
 ```java
-            while (isAlive()) {
-                wait(0);
-            }
+while (isAlive()) {
+    wait(0);
+}
 ```
 
 知道线程中止后，线程的 this.notifyAll() 方法被调用，调用 notifyAll() 方法是在 JVM里实现的，所以在JDK里看不到，大家可以查看JVM源码。
@@ -28,20 +28,20 @@ CountDownLatch允许一个或多个线程等待其他线程完成操作。
 示例代码：
 
 ```java
-    public static void main(String[] args) throws InterruptedException {
-        CountDownLatch c = new CountDownLatch(2);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(1);
-                c.countDown();
-                System.out.println(2);
-                c.countDown();//注释这行
-            }
-        }).start();
-        c.await();
-        System.out.println("3");
-    }
+public static void main(String[] args) throws InterruptedException {
+    CountDownLatch c = new CountDownLatch(2);
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            System.out.println(1);
+            c.countDown();
+            System.out.println(2);
+            c.countDown();//注释这行
+        }
+    }).start();
+    c.await();
+    System.out.println("3");
+}
 ```
 
 运行结果：
@@ -71,24 +71,24 @@ CyclicBarrier默认的构造方法是CyclicBarrier(int parties)，其参数表�
 示例代码：
 
 ```java
-    public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
-        CyclicBarrier c = new CyclicBarrier(2);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    c.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("1");
+public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
+    CyclicBarrier c = new CyclicBarrier(2);
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                c.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
             }
-        }).start();
-        c.await();
-        System.out.println(2);
-    }
+            System.out.println("1");
+        }
+    }).start();
+    c.await();
+    System.out.println(2);
+}
 ```
 
 运行结果：
@@ -114,29 +114,29 @@ CyclicBarrier还提供一个更高级的构造函数CyclicBarrier(int parties, R
 示例代码：
 
 ```java
-    public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
-        CyclicBarrier c = new CyclicBarrier(2, new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(3);
+public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
+    CyclicBarrier c = new CyclicBarrier(2, new Runnable() {
+        @Override
+        public void run() {
+            System.out.println(3);
+        }
+    });
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                c.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
             }
-        });
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    c.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("1");
-            }
-        }).start();
-        c.await();
-        System.out.println(2);
-    }
+            System.out.println("1");
+        }
+    }).start();
+    c.await();
+    System.out.println(2);
+}
 ```
 
 运行结果：
@@ -160,32 +160,32 @@ CyclicBarrier还提供其他有用的方法，比如getNumberWaiting方法可以
 示例代码：
 
 ```java
-    public static void main(String[] args){
-        CyclicBarrier c = new CyclicBarrier(2);
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    c.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
+public static void main(String[] args){
+    CyclicBarrier c = new CyclicBarrier(2);
+    Thread t = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                c.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
             }
-        });
-        t.start();
-        t.interrupt();
-        try {
-            c.await();
-        } catch (InterruptedException e) {
-//            e.printStackTrace();
-        } catch (BrokenBarrierException e) {
-//            e.printStackTrace();
-        }finally {
-            System.out.println(c.isBroken());
         }
+    });
+    t.start();
+    t.interrupt();
+    try {
+        c.await();
+    } catch (InterruptedException e) {
+          e.printStackTrace();
+    } catch (BrokenBarrierException e) {
+          e.printStackTrace();
+    }finally {
+        System.out.println(c.isBroken());
     }
+}
 ```
 
 运行结果：
@@ -253,32 +253,32 @@ Exchanger（交换者）是一个用于线程间协作的工具类。Exchanger�
 **2、**Exchanger也可以用于校对工作。比如我们需要将纸制银流通过人工的方式录入成电子银行流水，为了避免错误，采用AB岗两人进行录入，录入到Excel之后，系统需要加载这两个Excel，并对这两个Excel数据进行校对，看看是否录入的一致。代码如下：
 
 ```java
-    public static void main(String[] args) {
-        Exchanger<String> exchanger = new Exchanger<>();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String a = "银行流水A";
-                    exchanger.exchange(a);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+public static void main(String[] args) {
+    Exchanger<String> exchanger = new Exchanger<>();
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                String a = "银行流水A";
+                exchanger.exchange(a);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String b = "银行流水B";
-                    String a = exchanger.exchange(b);
-                    System.out.println("在B中获取到录入的A是："+a);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        }
+    }).start();
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                String b = "银行流水B";
+                String a = exchanger.exchange(b);
+                System.out.println("在B中获取到录入的A是："+a);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        }).start();
-    }
+        }
+    }).start();
+}
 ```
 
 运行结果：

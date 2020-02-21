@@ -86,50 +86,50 @@ tags:
 Maven项目引入依赖Servlet、Jsp等依赖：
 
 ```xml
-       <!--Servlet web相关依赖 -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <!--可选的-->
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
+<!--Servlet web相关依赖 -->
+ <dependency>
+     <groupId>javax.servlet</groupId>
+     <artifactId>javax.servlet-api</artifactId>
+     <version>3.1.0</version>
+     <scope>provided</scope>
+ </dependency>
+ <dependency>
+     <groupId>javax.servlet.jsp</groupId>
+     <artifactId>jsp-api</artifactId>
+     <version>2.2</version>
+     <scope>provided</scope>
+ </dependency>
+ <!--可选的-->
+ <dependency>
+     <groupId>taglibs</groupId>
+     <artifactId>standard</artifactId>
+     <version>1.1.2</version>
+ </dependency>
+ <dependency>
+     <groupId>jstl</groupId>
+     <artifactId>jstl</artifactId>
+     <version>1.2</version>
+ </dependency>
 ```
 
 引入Tomcat插件：
 
 ```xml
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <hostName>localhost</hostName>
-                    <uriEncoding>UTF-8</uriEncoding>
-                    <path>/</path>
-                    <port>8080</port>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+                <hostName>localhost</hostName>
+                <uriEncoding>UTF-8</uriEncoding>
+                <path>/</path>
+                <port>8080</port>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 运行当前项目，执行命令：`mvn tomcat7:run`

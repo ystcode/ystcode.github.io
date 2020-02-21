@@ -399,7 +399,7 @@ permission java.security.AllPermission;
 然后，使用以下命令再次开启jstatd服务器：
 
 ```java
- jstatd -J-Djava.security.policy=c:\jstatd.all.policy
+jstatd -J-Djava.security.policy=c:\jstatd.all.policy
 ```
 
 服务器即可开启成功。

@@ -41,38 +41,38 @@ JDBC的Driver接口定义在JDK中，其实现由各个数据库的服务商来�
 查看DriverManager类的源码，看到在使用DriverManager的时候会触发其静态代码块，调用 loadInitialDrivers() 方法，并调用ServiceLoader.load(Driver.class) 加载所有在META-INF/services/java.sql.Driver 文件里边的类到JVM内存，完成驱动的自动加载。
 
 ```java
-    static {
-        loadInitialDrivers();
-        println("JDBC DriverManager initialized");
-    }
+static {
+    loadInitialDrivers();
+    println("JDBC DriverManager initialized");
+}
 
-    private static void loadInitialDrivers() {
+private static void loadInitialDrivers() {
 
-        AccessController.doPrivileged(new PrivilegedAction<Void>() {
-            public Void run() {
+    AccessController.doPrivileged(new PrivilegedAction<Void>() {
+        public Void run() {
 
-                ServiceLoader<Driver> loadedDrivers = ServiceLoader.load(Driver.class);
-                Iterator<Driver> driversIterator = loadedDrivers.iterator();
+            ServiceLoader<Driver> loadedDrivers = ServiceLoader.load(Driver.class);
+            Iterator<Driver> driversIterator = loadedDrivers.iterator();
 
-                try{
-                    while(driversIterator.hasNext()) {
-                        driversIterator.next();
-                    }
-                } catch(Throwable t) {
-                // Do nothing
+            try{
+                while(driversIterator.hasNext()) {
+                    driversIterator.next();
                 }
-                return null;
+            } catch(Throwable t) {
+            // Do nothing
             }
-        });
+            return null;
+        }
+    });
 
-    }
+}
 ```
 
 ```java
-    public static <S> ServiceLoader<S> load(Class<S> service) {
-        ClassLoader cl = Thread.currentThread().getContextClassLoader();
-        return ServiceLoader.load(service, cl);
-    }
+public static <S> ServiceLoader<S> load(Class<S> service) {
+    ClassLoader cl = Thread.currentThread().getContextClassLoader();
+    return ServiceLoader.load(service, cl);
+}
 ```
 
 这个子类加载器是通过 Thread.currentThread().getContextClassLoader() 得到的线程上下文加载器。

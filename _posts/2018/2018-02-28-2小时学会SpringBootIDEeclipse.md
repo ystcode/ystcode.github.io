@@ -170,8 +170,8 @@ spring:
 1.第一种方法
 
 ```java
-    @Value("${cupSize}")
-    private String cupSize;
+@Value("${cupSize}")
+private String cupSize;
 ```
 
 2.第二种方法
@@ -212,10 +212,10 @@ public class SpringBootDemoProperties {
 使用时
 
 ```java
-    @Autowired
-    private SpringBootDemoProperties sbdp;
-    ....
-    sbdp.getCupSize()
+@Autowired
+private SpringBootDemoProperties sbdp;
+....
+sbdp.getCupSize()
 ```
 
 ## 4.如何使用Controller
@@ -341,31 +341,31 @@ public interface GirlRepository extends JpaRepository<Girl, Integer> {
 使用方法
 
 ```javascript
-    @Autowired
-    private GirlRepository girlRepository;
-    ....
-    girlRepository.save(girl);  
-    girlRepository.findOne(id);
+@Autowired
+private GirlRepository girlRepository;
+....
+girlRepository.save(girl);  
+girlRepository.findOne(id);
 ```
 
 ## 6.事务管理
 
 ```java
-    /**
-     * 事务管理测试
-     */
-    @Transactional
-    public void insertTwo(){
-        Girl girl = new Girl();
-        girl.setAge(19);
-        girl.setCupSize("F");   
-        girlRepository.save(girl);  
+/**
+ * 事务管理测试
+ */
+@Transactional
+public void insertTwo(){
+    Girl girl = new Girl();
+    girl.setAge(19);
+    girl.setCupSize("F");   
+    girlRepository.save(girl);  
 
-        girl = new Girl();
-        girl.setAge(20);
-        girl.setCupSize("BB");  
-        girlRepository.save(girl);  
-    }
+    girl = new Girl();
+    girl.setAge(20);
+    girl.setCupSize("BB");  
+    girlRepository.save(girl);  
+}
 ```
 
 ## 7.使用AOP面向切面处理请求
@@ -506,21 +506,21 @@ public enum ResultEnum {
 3）在需要的地方抛出异常
 
 ```java
-    /**
-     * @param id
-     * @throws Exception
-     */
-    public void getAge(int id) throws Exception{
-        Girl girl = girlRepository.findOne(id);
-        Integer age = girl.getAge();
-        if(age < 10){
-            throw new GirlException(ResultEnum.PRIMARY_SCHOOL);
-        }else if(age>10 && age<16){
-            throw new GirlException(ResultEnum.MIDDLE_SCHOOL);
-        }else{
-            throw new GirlException(ResultEnum.NO_SCHOOL);
-        }
+/**
+ * @param id
+ * @throws Exception
+ */
+public void getAge(int id) throws Exception{
+    Girl girl = girlRepository.findOne(id);
+    Integer age = girl.getAge();
+    if(age < 10){
+        throw new GirlException(ResultEnum.PRIMARY_SCHOOL);
+    }else if(age>10 && age<16){
+        throw new GirlException(ResultEnum.MIDDLE_SCHOOL);
+    }else{
+        throw new GirlException(ResultEnum.NO_SCHOOL);
     }
+}
 ```
 
 4）定义异常捕获类（核心类：上面3步可忽略，直接定义该类即可使用）

@@ -18,12 +18,12 @@ Java8 的新特性：Lambda表达式、强大的 Stream API、全新时间日期
 在IDE中，你是否遇到在写以下列代码时，被友情提示的情况：
 
 ```java
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("thread");
-            }
-        });
+new Thread(new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("thread");
+    }
+});
 ```
 
 这时候，我们按一下快捷键，IDE自动帮我们把代码优化为酱个样子：
@@ -97,18 +97,18 @@ lambda表达式还有两种简化代码的手段，它们是**方法引用**、*
 举例：
 
 ```java
-        Function function1 = (x) -> x;
-        Function function2 = String::valueOf;
+Function function1 = (x) -> x;
+Function function2 = String::valueOf;
 ```
 
 对比Function接口的抽象方法与String的value方法，可以看到它们是类似的。
 
 ```java
-    R apply(T t);
-    
-    public static String valueOf(Object obj) {
-        return (obj == null) ? "null" : obj.toString();
-    }
+R apply(T t);
+
+public static String valueOf(Object obj) {
+    return (obj == null) ? "null" : obj.toString();
+}
 ```
 
 方法引用的语法：
@@ -285,47 +285,47 @@ System.out.println(reduce);
 collect（收集）：将流转换为其他形式。需要Collectors类的一些方法。
 
 ```java
-        //转集合
-        Set<Integer> collect = list.stream()
-                .collect(Collectors.toSet());
+//转集合
+Set<Integer> collect = list.stream()
+        .collect(Collectors.toSet());
 
-        List<Integer> collect2 = list.stream()
-                .collect(Collectors.toList());
+List<Integer> collect2 = list.stream()
+        .collect(Collectors.toList());
 
-        HashSet<Integer> collect1 = list.stream()
-                .collect(Collectors.toCollection(HashSet::new));
+HashSet<Integer> collect1 = list.stream()
+        .collect(Collectors.toCollection(HashSet::new));
 
-        //分组 {group=[444, 555, 666, 777, 555]}
-        Map<String, List<Integer>> collect3 = list.stream()
-                .collect(Collectors.groupingBy((x) -> "group"));//将返回值相同的进行分组
-        System.out.println(collect3);
+//分组 {group=[444, 555, 666, 777, 555]}
+Map<String, List<Integer>> collect3 = list.stream()
+        .collect(Collectors.groupingBy((x) -> "group"));//将返回值相同的进行分组
+System.out.println(collect3);
 
-        //多级分组 {group={777=[777], 666=[666], 555=[555, 555], 444=[444]}}
-        Map<String, Map<Integer, List<Integer>>> collect4 = list.stream()
-                .collect(Collectors.groupingBy((x) -> "group", Collectors.groupingBy((x) -> x)));
-        System.out.println(collect4);
+//多级分组 {group={777=[777], 666=[666], 555=[555, 555], 444=[444]}}
+Map<String, Map<Integer, List<Integer>>> collect4 = list.stream()
+        .collect(Collectors.groupingBy((x) -> "group", Collectors.groupingBy((x) -> x)));
+System.out.println(collect4);
 
-        //分区 {false=[444], true=[555, 666, 777, 555]}
-        Map<Boolean, List<Integer>> collect5 = list.stream()
-                .collect(Collectors.partitioningBy((x) -> x > 500));
-        System.out.println(collect5);
+//分区 {false=[444], true=[555, 666, 777, 555]}
+Map<Boolean, List<Integer>> collect5 = list.stream()
+        .collect(Collectors.partitioningBy((x) -> x > 500));
+System.out.println(collect5);
 
-        //汇总
-        DoubleSummaryStatistics collect6 = list.stream()
-                .collect(Collectors.summarizingDouble((x) -> x));
-        System.out.println(collect6.getMax());
-        System.out.println(collect6.getCount());
+//汇总
+DoubleSummaryStatistics collect6 = list.stream()
+        .collect(Collectors.summarizingDouble((x) -> x));
+System.out.println(collect6.getMax());
+System.out.println(collect6.getCount());
 
-        //拼接 444,555,666,777,555
-        String collect7 = list.stream()
-                .map(s -> s.toString())
-                .collect(Collectors.joining(","));
-        System.out.println(collect7);
+//拼接 444,555,666,777,555
+String collect7 = list.stream()
+        .map(s -> s.toString())
+        .collect(Collectors.joining(","));
+System.out.println(collect7);
 
-        //最大值
-        Optional<Integer> integer = list.stream()
-                .collect(Collectors.maxBy(Integer::compare));
-        System.out.println(integer.get());
+//最大值
+Optional<Integer> integer = list.stream()
+        .collect(Collectors.maxBy(Integer::compare));
+System.out.println(integer.get());
 ```
 
 关于Stream的其它用法推荐参考下源码与API文档。

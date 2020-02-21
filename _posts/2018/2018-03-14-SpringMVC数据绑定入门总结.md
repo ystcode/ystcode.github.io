@@ -54,41 +54,41 @@ public class HelloController {
 # 3.简单对象&多层级对象&同属性对象
 
 ```java
-    //简单对象
-    //http://127.0.0.1:8080/Spring/hi?age=10&name=Tom
-    @RequestMapping(value="/hi", method = RequestMethod.GET)    
-    @ResponseBody
-    public String object(Student student){
-        return student.toString();
-    }
+//简单对象
+//http://127.0.0.1:8080/Spring/hi?age=10&name=Tom
+@RequestMapping(value="/hi", method = RequestMethod.GET)    
+@ResponseBody
+public String object(Student student){
+    return student.toString();
+}
 
-    //多层级对象
-    //http://127.0.0.1:8080/Spring/hi2?age=10&name=Tom&student.age=18
-    @RequestMapping(value="/hi2", method = RequestMethod.GET)   
-    @ResponseBody
-    public String object2(Admin admin){
-        return admin.toString();
-    }
+//多层级对象
+//http://127.0.0.1:8080/Spring/hi2?age=10&name=Tom&student.age=18
+@RequestMapping(value="/hi2", method = RequestMethod.GET)   
+@ResponseBody
+public String object2(Admin admin){
+    return admin.toString();
+}
 
-    //同属性的多对象
-    //http://127.0.0.1:8080/Spring/hi3?name=Tom&student.age=18
-    @RequestMapping(value="/hi3", method = RequestMethod.GET)   
-    @ResponseBody
-    public String object3(Student student, Admin admin){
-        return student.toString()+admin.toString();
-    }
+//同属性的多对象
+//http://127.0.0.1:8080/Spring/hi3?name=Tom&student.age=18
+@RequestMapping(value="/hi3", method = RequestMethod.GET)   
+@ResponseBody
+public String object3(Student student, Admin admin){
+    return student.toString()+admin.toString();
+}
 
-    //同属性的多对象赋值 需指定对象的前缀
-    @InitBinder("student")
-    public void initStudent(WebDataBinder binder){
-        binder.setFieldDefaultPrefix("student.");
-    }
+//同属性的多对象赋值 需指定对象的前缀
+@InitBinder("student")
+public void initStudent(WebDataBinder binder){
+    binder.setFieldDefaultPrefix("student.");
+}
 
-    //同属性的多对象赋值 需指定对象的前缀
-    @InitBinder("admin")
-    public void initStudent2(WebDataBinder binder){
-        binder.setFieldDefaultPrefix("admin.");
-    }
+//同属性的多对象赋值 需指定对象的前缀
+@InitBinder("admin")
+public void initStudent2(WebDataBinder binder){
+    binder.setFieldDefaultPrefix("admin.");
+}
 ```
 
 # 4.List&Set&Map
@@ -146,11 +146,11 @@ public class DataController {
 ###### `@RequestBody 注解`
 
 ```java
-    //发送json数据到该url即可实现数据绑定
-    @RequestMapping(value="/json", method = RequestMethod.POST) 
-    public String object3(@RequestBody Student s){
-        return s.toString();
-    }
+//发送json数据到该url即可实现数据绑定
+@RequestMapping(value="/json", method = RequestMethod.POST) 
+public String object3(@RequestBody Student s){
+    return s.toString();
+}
 ```
 
 对于xml数据，需要在实体类中添加注释
@@ -182,11 +182,11 @@ this.age = age;
 然后
 
 ```java
-    //发送xml数据到该url即可实现数据绑定
-    @RequestMapping(value="/xml", method = RequestMethod.POST)  
-    public String object3(@RequestBody Admin s){
-        return s.toString();
-    }
+//发送xml数据到该url即可实现数据绑定
+@RequestMapping(value="/xml", method = RequestMethod.POST)  
+public String object3(@RequestBody Admin s){
+    return s.toString();
+}
 ```
 
 # 6. PropertyEditor、Formatter、Converter
@@ -194,16 +194,16 @@ this.age = age;
 局部配置
 
 ```java
-    //PropertyEditor
-    //http://127.0.0.1:8080/Spring_iMooc/date1?date1=2018-01-01
-    @RequestMapping(value="/date1", method = RequestMethod.GET) 
-    public String date1(Date date1){
-        return date1.toString();
-    }
-    @InitBinder("date1")
-    public void initDate1(WebDataBinder binder){
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
-    }
+//PropertyEditor
+//http://127.0.0.1:8080/Spring_iMooc/date1?date1=2018-01-01
+@RequestMapping(value="/date1", method = RequestMethod.GET) 
+public String date1(Date date1){
+    return date1.toString();
+}
+@InitBinder("date1")
+public void initDate1(WebDataBinder binder){
+    binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+}
 ```
 
 全局配置 

@@ -25,30 +25,30 @@ tags:
 一些js库依赖，这里也使用maven方式导入，官网[https://www.webjars.org/](https://www.webjars.org/)
 
 ```java
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>sockjs-client</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>stomp-websocket</artifactId>
-            <version>2.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>3.3.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.1.0</version>
-        </dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>webjars-locator-core</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>sockjs-client</artifactId>
+    <version>1.0.2</version>
+</dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>stomp-websocket</artifactId>
+    <version>2.3.3</version>
+</dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>bootstrap</artifactId>
+    <version>3.3.7</version>
+</dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.1.0</version>
+</dependency>
 ```
 
 Thymeleaf模板引擎，不用多说了吧
@@ -299,8 +299,8 @@ subscribe()方法的第一个参数是注册客户端地址，注意前戳必须
 其实很简单，直接引用该消息模板
 
 ```java
-    @Autowired
-    private SimpMessagingTemplate messagingTemplate;
+@Autowired
+private SimpMessagingTemplate messagingTemplate;
 ```
 
 消息模板内置了一系列方法，比如
@@ -441,12 +441,12 @@ public class STOMPConnectEventListener implements ApplicationListener<SessionCon
 这里我们使用更可靠的请求下线方式，代码如下：
 
 ```java
-    @MessageMapping("/chatOut")
-    public void sayHello(String userId) {
-        String sessionId = socketSessionMap.getUserSessionId(userId);
-        System.out.println("下线：" + userId + "  " + sessionId);
-        socketSessionMap.removeSession(userId,sessionId);
-    }
+@MessageMapping("/chatOut")
+public void sayHello(String userId) {
+    String sessionId = socketSessionMap.getUserSessionId(userId);
+    System.out.println("下线：" + userId + "  " + sessionId);
+    socketSessionMap.removeSession(userId,sessionId);
+}
 ```
 
 当收到下线请求时，移除SessionId。
@@ -458,21 +458,21 @@ public class STOMPConnectEventListener implements ApplicationListener<SessionCon
 在一对一服务器中，主要处理的就是一对一的消息发送。大致逻辑是接收客户端消息，分析消息结构，通过SessionMap判断对方是否在线，然后发送相应内容。代码如下：
 
 ```java
-    @MessageMapping("/chat")
-    public void sayHello(Message user) {
-        System.out.println(user.getId()+"-->"+user.getPid()+":"+user.getContent());
-        String userPid = String.valueOf(user.getPid());
-        String userId = String.valueOf(user.getId());
-        String sendTo = "/topic/chat/"+userPid;
-        String content = user.getId()+":"+user.getContent();
-        if (socketSessionMap.getUserSessionId(userPid)!=null){
-            messagingTemplate.convertAndSend(sendTo, HtmlUtils.htmlEscape(content));
-        }else {
-            sendTo = "/topic/chat/"+userId;
-            content = "对方已下线";
-            messagingTemplate.convertAndSend(sendTo, HtmlUtils.htmlEscape(content));
-        }
+@MessageMapping("/chat")
+public void sayHello(Message user) {
+    System.out.println(user.getId()+"-->"+user.getPid()+":"+user.getContent());
+    String userPid = String.valueOf(user.getPid());
+    String userId = String.valueOf(user.getId());
+    String sendTo = "/topic/chat/"+userPid;
+    String content = user.getId()+":"+user.getContent();
+    if (socketSessionMap.getUserSessionId(userPid)!=null){
+        messagingTemplate.convertAndSend(sendTo, HtmlUtils.htmlEscape(content));
+    }else {
+        sendTo = "/topic/chat/"+userId;
+        content = "对方已下线";
+        messagingTemplate.convertAndSend(sendTo, HtmlUtils.htmlEscape(content));
     }
+}
 ```
 
 值得一体的是，关于用户ID的处理，这里使用的是自定义客户端地址，不同的地址表示不同的用户。最后通过convertAndSend()方法发送，这种方式比较可靠方便。
@@ -491,13 +491,13 @@ public class Message {
 服务端使用FreeMarker模板引擎返回html网页，代码如下：
 
 ```java
-    @RequestMapping("/chat/{id}")
-    public String chat_page(@PathVariable int id, ModelMap model) {
-        model.addAttribute("id", id);
-        int count = socketSessionMap.onlineCount();
-        model.addAttribute("count", count);
-        return "chat";
-    }
+@RequestMapping("/chat/{id}")
+public String chat_page(@PathVariable int id, ModelMap model) {
+    model.addAttribute("id", id);
+    int count = socketSessionMap.onlineCount();
+    model.addAttribute("count", count);
+    return "chat";
+}
 ```
 
 通过RESTful形式的URl注册ID。

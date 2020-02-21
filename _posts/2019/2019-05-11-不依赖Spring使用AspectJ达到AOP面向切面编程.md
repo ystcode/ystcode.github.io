@@ -92,17 +92,17 @@ public class TestComponent {
 原因很简单，对象内部的方法调用该对象的其他方法是通过自身this进行引用，并不是通过代理类引用。而AspectJ则不同，AspectJ是通过织入的方式将切面代码织入进原对象内部，并不会生成额外的代理类。关于这一点，我们反编译看一下切点代码：
 
 ```java
-    //原方法
-    public void say() {
-        System.out.println(this.getClass().getName());
-        hi();
-    }
-    //反编译
-    public void say() {
-        ResourceAspect.aspectOf().before();
-        System.out.println(this.getClass().getName());
-        this.hi();
-    }
+//原方法
+public void say() {
+    System.out.println(this.getClass().getName());
+    hi();
+}
+//反编译
+public void say() {
+    ResourceAspect.aspectOf().before();
+    System.out.println(this.getClass().getName());
+    this.hi();
+}
 ```
 
 深究下去，在Spring AOP中，我们只有调用代理类的切点方法才能触发Before方法，因为代理类本质上是对原类的一层封装，原类是没有变化的，原类的方法内部的this指向的依旧是原类，这就导致了原类方法内部的嵌套调用无法被代理类感知到，而AspectJ的织入就不同了，它会动态改变你的原类代码，将Before等方法全部写入进你的原方法中，这就保证了面向切面编程的万无一失。两种方式，各有利弊，如何使用还需要视情况而行。

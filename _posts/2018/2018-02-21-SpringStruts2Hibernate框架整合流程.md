@@ -29,186 +29,186 @@ tags:
 若不使用maven：请前往[Maven官网](http://mvnrepository.com/)依次下载jar包导入）
 
 ```xml
-    <properties>
-        <!-- 统一源码的编码方式 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- 统一各个框架版本 -->
-        <spring.version>4.3.7.RELEASE</spring.version>
-        <hibernate.version>4.3.10.Final</hibernate.version>
-        <struts2.version>2.5.5</struts2.version>
-    </properties>
+<properties>
+    <!-- 统一源码的编码方式 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 统一各个框架版本 -->
+    <spring.version>4.3.7.RELEASE</spring.version>
+    <hibernate.version>4.3.10.Final</hibernate.version>
+    <struts2.version>2.5.5</struts2.version>
+</properties>
 
-    <dependencies>
-        <!-- junit依赖 -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
+<dependencies>
+    <!-- junit依赖 -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+        <scope>test</scope>
+    </dependency>
 
-        <!--补全项目依赖 -->
-        <!--1.日志 java日志有:slf4j,log4j,logback,common-logging 
-                slf4j:是规范/接口 
-                日志实现:log4j,logback,common-logging 
-                使用:slf4j+                   -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
-        </dependency>
+    <!--补全项目依赖 -->
+    <!--1.日志 java日志有:slf4j,log4j,logback,common-logging 
+            slf4j:是规范/接口 
+            日志实现:log4j,logback,common-logging 
+            使用:slf4j+                   -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.25</version>
+    </dependency>
 
-        <!--2.数据库相关依赖 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
-        </dependency>
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.1.1</version>
-        </dependency>
+    <!--2.数据库相关依赖 -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.35</version>
+    </dependency>
+    <dependency>
+        <groupId>c3p0</groupId>
+        <artifactId>c3p0</artifactId>
+        <version>0.9.1.1</version>
+    </dependency>
 
-        <!--2.dao框架:hibernate-lib-required依赖 -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <!--1) hibernate-lib-jpa/包 -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
+    <!--2.dao框架:hibernate-lib-required依赖 -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+    </dependency>
+    <!--1) hibernate-lib-jpa/包 -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>${hibernate.version}</version>
+    </dependency>
 
-        <!--3.Servlet web相关依赖 -->
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-　　　　 <dependency>
-   　　　　　<groupId>javax.servlet.jsp</groupId>
-   　　　　　<artifactId>jsp-api</artifactId>
-  　　　　　 <version>2.2</version>
-  　　　　　 <scope>provided</scope>
-　　　　 </dependency>
-        <!--4.spring依赖 -->
-        <!--1)IOC依赖 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!--2)spring AOP依赖 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aopalliance</groupId>
-            <artifactId>com.springsource.org.aopalliance</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.6.8</version>
-        </dependency>
-        <!--3)spring dao层依赖 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!--4)spring 事务管理 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!--5)spring web相关依赖 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!--6)spring test相关依赖 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!--7)spring log4j 日志记录 -->
-        <dependency>
-            <groupId>org.apache.log4j</groupId>
-            <artifactId>com.springsource.org.apache.log4j</artifactId>
-            <version>1.2.15</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>com.springsource.org.apache.commons.logging</artifactId>
-            <version>1.1.1</version>
-        </dependency>
+    <!--3.Servlet web相关依赖 -->
+    <dependency>
+        <groupId>taglibs</groupId>
+        <artifactId>standard</artifactId>
+        <version>1.1.2</version>
+    </dependency>
+    <dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
+        <scope>provided</scope>
+    </dependency>
+ <dependency>
+　　　　<groupId>javax.servlet.jsp</groupId>
+　　　　<artifactId>jsp-api</artifactId>
+　　　 <version>2.2</version>
+　　　 <scope>provided</scope>
+ </dependency>
+    <!--4.spring依赖 -->
+    <!--1)IOC依赖 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-expression</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <!--2)spring AOP依赖 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.aopalliance</groupId>
+        <artifactId>com.springsource.org.aopalliance</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.6.8</version>
+    </dependency>
+    <!--3)spring dao层依赖 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <!--4)spring 事务管理 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <!--5)spring web相关依赖 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <!--6)spring test相关依赖 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <!--7)spring log4j 日志记录 -->
+    <dependency>
+        <groupId>org.apache.log4j</groupId>
+        <artifactId>com.springsource.org.apache.log4j</artifactId>
+        <version>1.2.15</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>com.springsource.org.apache.commons.logging</artifactId>
+        <version>1.1.1</version>
+    </dependency>
 
-        <!--5.struts2 依赖 -->
-        <dependency>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts2-core</artifactId>
-            <version>${struts2.version}</version>
-        </dependency>
-        <!--1)Struts2整合Spring -->
-        <dependency>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts2-spring-plugin</artifactId>
-            <version>${struts2.version}</version>
-        </dependency>
-        <!--2)Struts2注解开发 -->
-        <dependency>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts2-convention-plugin</artifactId>
-            <version>${struts2.version}</version>
-        </dependency>
-    </dependencies>
+    <!--5.struts2 依赖 -->
+    <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-core</artifactId>
+        <version>${struts2.version}</version>
+    </dependency>
+    <!--1)Struts2整合Spring -->
+    <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-spring-plugin</artifactId>
+        <version>${struts2.version}</version>
+    </dependency>
+    <!--2)Struts2注解开发 -->
+    <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-convention-plugin</artifactId>
+        <version>${struts2.version}</version>
+    </dependency>
+</dependencies>
 ```
 
 2.在WEB-INF的web.xml中进行配置

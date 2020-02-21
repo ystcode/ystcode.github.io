@@ -73,49 +73,49 @@ public class InheritableThreadLocal<T> extends ThreadLocal<T> {
 可以看到，getMap() 方法和 creatMap() 方法都是重写的 ThreadLocal 类方法，区别在于把 ThreadLocal 中的 threadLocals 换成了 inheritableThreadLocals，这两个变量都是ThreadLocalMap类型，并且都是Thread类的属性，源码如下：
 
 ```java
-    /* ThreadLocal values pertaining to this thread. This map is maintained
-     * by the ThreadLocal class. */
-    ThreadLocal.ThreadLocalMap threadLocals = null;
+/* ThreadLocal values pertaining to this thread. This map is maintained
+ * by the ThreadLocal class. */
+ThreadLocal.ThreadLocalMap threadLocals = null;
 
-    /*
-     * InheritableThreadLocal values pertaining to this thread. This map is
-     * maintained by the InheritableThreadLocal class.
-     */
-    ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
+/*
+ * InheritableThreadLocal values pertaining to this thread. This map is
+ * maintained by the InheritableThreadLocal class.
+ */
+ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
 ```
 
 inheritableThreadLocal 如何实现值继承的呢？继续看下面的代码：
 
 ``` java
-        /**
-         * Construct a new map including all Inheritable ThreadLocals
-         * from given parent map. Called only by createInheritedMap.
-         *
-         * @param parentMap the map associated with parent thread.
-         */
-        private ThreadLocalMap(ThreadLocalMap parentMap) {
-            Entry[] parentTable = parentMap.table;
-            int len = parentTable.length;
-            setThreshold(len);
-            table = new Entry[len];
+/**
+ * Construct a new map including all Inheritable ThreadLocals
+ * from given parent map. Called only by createInheritedMap.
+ *
+ * @param parentMap the map associated with parent thread.
+ */
+private ThreadLocalMap(ThreadLocalMap parentMap) {
+    Entry[] parentTable = parentMap.table;
+    int len = parentTable.length;
+    setThreshold(len);
+    table = new Entry[len];
 
-            for (int j = 0; j < len; j++) {
-                Entry e = parentTable[j];
-                if (e != null) {
-                    @SuppressWarnings("unchecked")
-                    ThreadLocal<Object> key = (ThreadLocal<Object>) e.get();
-                    if (key != null) {
-                        Object value = key.childValue(e.value);
-                        Entry c = new Entry(key, value);
-                        int h = key.threadLocalHashCode & (len - 1);
-                        while (table[h] != null)
-                            h = nextIndex(h, len);
-                        table[h] = c;
-                        size++;
-                    }
-                }
+    for (int j = 0; j < len; j++) {
+        Entry e = parentTable[j];
+        if (e != null) {
+            @SuppressWarnings("unchecked")
+            ThreadLocal<Object> key = (ThreadLocal<Object>) e.get();
+            if (key != null) {
+                Object value = key.childValue(e.value);
+                Entry c = new Entry(key, value);
+                int h = key.threadLocalHashCode & (len - 1);
+                while (table[h] != null)
+                    h = nextIndex(h, len);
+                table[h] = c;
+                size++;
             }
         }
+    }
+}
 ```
 
 在构造方法的完整源代码算法中可以发现，子线程将父线程中的 table 对象以复制的方式赋值给子线程的 table 数组，这个过程是在创建 Thread 类对象时发生的，也就说明当子线程对象创建完毕后，子线程中的数据就是主线程中旧的数据，主线程使用新的数据时，子线程还是使用旧的数据，因为主子线程使用两个 Entry[] 对象数组各自存储自己的值。

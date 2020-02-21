@@ -21,19 +21,19 @@ tags: Jsoup
 这个示例是完整下载一张 [图片](http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg) 的所有步骤。
 
 ```java
-    @Test
-    public void test() throws IOException {
-        Response response = Jsoup.connect("http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg")
-                .ignoreContentType(true)
-                .method(Method.GET)
-                .execute();
-        byte[] bytes = response.bodyAsBytes();
-        File file = new File("D:\\img.png");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        fileOutputStream.write(bytes);
-        fileOutputStream.flush();
-        fileOutputStream.close();
-    }
+@Test
+public void test() throws IOException {
+    Response response = Jsoup.connect("http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg")
+            .ignoreContentType(true)
+            .method(Method.GET)
+            .execute();
+    byte[] bytes = response.bodyAsBytes();
+    File file = new File("D:\\img.png");
+    FileOutputStream fileOutputStream = new FileOutputStream(file);
+    fileOutputStream.write(bytes);
+    fileOutputStream.flush();
+    fileOutputStream.close();
+}
 ```
 
 上面的方法很简单，但是我并不推荐使用。
@@ -44,27 +44,27 @@ tags: Jsoup
 ## 完美方案
 
 ```java
-    @Test
-    public void test() throws IOException {
-        Response response = Jsoup.connect("http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg")
-                .ignoreContentType(true)
-                .method(Method.GET)
-                .execute();
-        //声明缓冲字节输入流
-        BufferedInputStream bufferedInputStream = response.bodyStream();
-        //缓冲字节输出流-》文件字节输出流-》文件
-        File file = new File("D:\\img.png");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
-        //把缓冲字节输入流写入到输出流
-        byte[] b = new byte[1024]; //每次最多读1KB的大小
-        int length; //实际读入的字节
-        while ((length = bufferedInputStream.read(b))!=-1){
-            //写入到输出流
-            bufferedOutputStream.write(b,0,length);
-        }
-        //刷新缓冲的输出流。这将强制将任何缓冲的输出字节写入底层输出流。
-        bufferedOutputStream.flush();
-        bufferedInputStream.close();
+@Test
+public void test() throws IOException {
+    Response response = Jsoup.connect("http://sjbz.fd.zol-img.com.cn/t_s640x960c/g5/M00/0F/09/ChMkJlfJQcWIDXJEAAN5CfxwAOYAAU7hwBVxTQAA3kh337.jpg")
+            .ignoreContentType(true)
+            .method(Method.GET)
+            .execute();
+    //声明缓冲字节输入流
+    BufferedInputStream bufferedInputStream = response.bodyStream();
+    //缓冲字节输出流-》文件字节输出流-》文件
+    File file = new File("D:\\img.png");
+    FileOutputStream fileOutputStream = new FileOutputStream(file);
+    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+    //把缓冲字节输入流写入到输出流
+    byte[] b = new byte[1024]; //每次最多读1KB的大小
+    int length; //实际读入的字节
+    while ((length = bufferedInputStream.read(b))!=-1){
+        //写入到输出流
+        bufferedOutputStream.write(b,0,length);
     }
+    //刷新缓冲的输出流。这将强制将任何缓冲的输出字节写入底层输出流。
+    bufferedOutputStream.flush();
+    bufferedInputStream.close();
+}
 ```

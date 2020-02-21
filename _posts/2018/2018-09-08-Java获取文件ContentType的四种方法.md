@@ -12,46 +12,46 @@ tags: Java
 另外还有第三方包 Magic 也提供了API。Magic依赖：
 
 ```java
-        <dependency>
-            <groupId>net.sf.jmimemagic</groupId>
-            <artifactId>jmimemagic</artifactId>
-            <version>0.1.4</version>
-        </dependency>
+<dependency>
+    <groupId>net.sf.jmimemagic</groupId>
+    <artifactId>jmimemagic</artifactId>
+    <version>0.1.4</version>
+</dependency>
 ```
 
 下面我们来通过单元测试看下这四种方式的效果。主要代码：
 
 ```java
-    @Test
-    public void test() {
-        String pathname = "D:\\...";
+@Test
+public void test() {
+    String pathname = "D:\\...";
 
-        try {
-            Magic parser = new Magic() ;
-            MagicMatch match = parser.getMagicMatch(new File(pathname),false);
-            System.out.println("第一种Magic: " + match.getMimeType()) ;
-        } catch (MagicParseException e) {
-            e.printStackTrace();
-        } catch (MagicMatchNotFoundException e) {
-            e.printStackTrace();
-        } catch (MagicException e) {
-            e.printStackTrace();
-        }
-
-        String type = new MimetypesFileTypeMap().getContentType(new File(pathname));
-        System.out.println("第二种javax.activation: "+type);
-
-        try {
-            String s = Files.probeContentType(new File(pathname).toPath());
-            System.out.println("第三种java.nio: "+s);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        FileNameMap fileNameMap = URLConnection.getFileNameMap();
-        String contentType = fileNameMap.getContentTypeFor(pathname);
-        System.out.println("第四种java.net: "+contentType);
+    try {
+        Magic parser = new Magic() ;
+        MagicMatch match = parser.getMagicMatch(new File(pathname),false);
+        System.out.println("第一种Magic: " + match.getMimeType()) ;
+    } catch (MagicParseException e) {
+        e.printStackTrace();
+    } catch (MagicMatchNotFoundException e) {
+        e.printStackTrace();
+    } catch (MagicException e) {
+        e.printStackTrace();
     }
+
+    String type = new MimetypesFileTypeMap().getContentType(new File(pathname));
+    System.out.println("第二种javax.activation: "+type);
+
+    try {
+        String s = Files.probeContentType(new File(pathname).toPath());
+        System.out.println("第三种java.nio: "+s);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    FileNameMap fileNameMap = URLConnection.getFileNameMap();
+    String contentType = fileNameMap.getContentTypeFor(pathname);
+    System.out.println("第四种java.net: "+contentType);
+}
 ```
 
 首先，新建文本文件更名为new.json，测试。
@@ -128,19 +128,19 @@ nio 和 net的方式区别不大。Magic的异常需要注意。javax.activation
 建议使用nio 与javax.activation 结合的方法。代码如下：
 
 ```java
-    public String getContentType() {
-        //利用nio提供的类判断文件ContentType
-        Path path = Paths.get(getUri());
-        String content_type = null;
-        try {
-            content_type = Files.probeContentType(path);
-        } catch (IOException e) {
-            logger.error("Read File ContentType Error");
-        }
-        //若失败则调用另一个方法进行判断
-        if (content_type == null) {
-            content_type = new MimetypesFileTypeMap().getContentType(new File(getUri()));
-        }
-        return content_type;
+public String getContentType() {
+    //利用nio提供的类判断文件ContentType
+    Path path = Paths.get(getUri());
+    String content_type = null;
+    try {
+        content_type = Files.probeContentType(path);
+    } catch (IOException e) {
+        logger.error("Read File ContentType Error");
     }
+    //若失败则调用另一个方法进行判断
+    if (content_type == null) {
+        content_type = new MimetypesFileTypeMap().getContentType(new File(getUri()));
+    }
+    return content_type;
+}
 ```

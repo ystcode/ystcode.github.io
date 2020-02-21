@@ -243,19 +243,19 @@ direct 类型的行为是&rdquo;先匹配, 再投送&rdquo;. 即在绑定时设�
 **发送消息**
 
 ```java
-    @Autowired
-    RabbitTemplate rabbitTemplate;
+@Autowired
+RabbitTemplate rabbitTemplate;
 
-    @Test
-    public void contextLoads() {
-       //message需要自己构造一个，定义消息体内容和消息体
-       //rabbitTemplate.send(exchange,routingkey,message);
-       Map map = new HashMap();
-       map.put("key","值");
-       map.put("msg",true);
-       //对象被默认序列化后发送
-       rabbitTemplate.convertAndSend("demo-direct","demo",map);
-    }
+@Test
+public void contextLoads() {
+   //message需要自己构造一个，定义消息体内容和消息体
+   //rabbitTemplate.send(exchange,routingkey,message);
+   Map map = new HashMap();
+   map.put("key","值");
+   map.put("msg",true);
+   //对象被默认序列化后发送
+   rabbitTemplate.convertAndSend("demo-direct","demo",map);
+}
 ```
 
 此时发送消息我们在rabbitmq网页发现消息是经序列化后的，我们如果想改变序列化机制为JSON，也很简单，只需要注入一个人Bean：
@@ -277,12 +277,12 @@ public class MyAMQPConfig {
 `demo`是消息队列名，也就是消费者只需要得到消息队列的名字就可以接收队列中的消息。
 
 ```java
-    @Test
-    public void receive(){
-        Object o = rabbitTemplate.receiveAndConvert("demo");
-        System.out.println(o.getClass());
-        System.out.println(o);
-    }
+@Test
+public void receive(){
+    Object o = rabbitTemplate.receiveAndConvert("demo");
+    System.out.println(o.getClass());
+    System.out.println(o);
+}
 ```
 
 查看打印
@@ -319,28 +319,28 @@ class java.util.HashMap
 **发送消息**
 
 ```java
-    @Autowired
-    RabbitTemplate rabbitTemplate;
+@Autowired
+RabbitTemplate rabbitTemplate;
 
-    @Test
-    public void send() {
-        Book book = new Book();
-        book.setName("<西游记>");
-        book.setAnthony("吴承恩");
-        //对象被默认序列化后发送
-        rabbitTemplate.convertAndSend("demo-fanout","",book);
-    }
+@Test
+public void send() {
+    Book book = new Book();
+    book.setName("<西游记>");
+    book.setAnthony("吴承恩");
+    //对象被默认序列化后发送
+    rabbitTemplate.convertAndSend("demo-fanout","",book);
+}
 ```
 
 **接收消息**
 
 ```java
-    @Test
-    public void receive(){
-        Object o = rabbitTemplate.receiveAndConvert("demo");
-        System.out.println(o.getClass());
-        System.out.println(o);
-    }
+@Test
+public void receive(){
+    Object o = rabbitTemplate.receiveAndConvert("demo");
+    System.out.println(o.getClass());
+    System.out.println(o);
+}
 ```
 
 打印输出：
@@ -384,27 +384,27 @@ Book{name='<西游记>', anthony='吴承恩'}
 **发送消息**
 
 ```java
-    @Test
-    public void contextLoads() {
-        //message需要自己构造一个，定义消息体内容和消息体
-        //rabbitTemplate.send(exchange,routingkey,message);
-        Map map = new HashMap();
-        map.put("key","topic交换机");
-        map.put("msg",true);
-        //对象被默认序列化后发送
-        rabbitTemplate.convertAndSend("demo-topic","demo.hello",map);
-    }
+@Test
+public void contextLoads() {
+    //message需要自己构造一个，定义消息体内容和消息体
+    //rabbitTemplate.send(exchange,routingkey,message);
+    Map map = new HashMap();
+    map.put("key","topic交换机");
+    map.put("msg",true);
+    //对象被默认序列化后发送
+    rabbitTemplate.convertAndSend("demo-topic","demo.hello",map);
+}
 ```
 
 **接收消息**
 
 ```java
-    @Test
-    public void receive(){
-        Object o = rabbitTemplate.receiveAndConvert("demo");
-        System.out.println(o.getClass());
-        System.out.println(o);
-    }
+@Test
+public void receive(){
+    Object o = rabbitTemplate.receiveAndConvert("demo");
+    System.out.println(o.getClass());
+    System.out.println(o);
+}
 ```
 
 打印输出
@@ -419,22 +419,22 @@ class java.util.HashMap
 1.上面演示的是通过RabbitMQ网页后台创建，通过编程的方式也非常简单：
 
 ```java
-    @Autowired
-    AmqpAdmin amqpAdmin;
+@Autowired
+AmqpAdmin amqpAdmin;
 
-    /**
-     * 代码创建交换机与消息队列并绑定
-     */
-    @Test
-    public void createExChange(){
-//        new TopicExchange("topic.exChange");
-//        new FanoutExchange("fanout.exChange");
-        amqpAdmin.declareExchange(new DirectExchange("amqp.exChange"));//创建交换机（remove为删除交换机）
-        System.out.println("单播交换机创建完成");
-        amqpAdmin.declareQueue(new Queue("amqp.queue",true)); //创建消息队列
-        amqpAdmin.declareBinding(new Binding("amqp.queue",
-                Binding.DestinationType.QUEUE,"amqp.exChange","amqp.exChange",null));//绑定
-    }
+/**
+ * 代码创建交换机与消息队列并绑定
+ */
+@Test
+public void createExChange(){
+      new TopicExchange("topic.exChange");
+      new FanoutExchange("fanout.exChange");
+    amqpAdmin.declareExchange(new DirectExchange("amqp.exChange"));//创建交换机（remove为删除交换机）
+    System.out.println("单播交换机创建完成");
+    amqpAdmin.declareQueue(new Queue("amqp.queue",true)); //创建消息队列
+    amqpAdmin.declareBinding(new Binding("amqp.queue",
+            Binding.DestinationType.QUEUE,"amqp.exChange","amqp.exChange",null));//绑定
+}
 ```
 
 2.登录后台查看，创建成功！
@@ -485,14 +485,14 @@ public class BookService {
 **测试用例**
 
 ```java
-    @Test
-    public void send() {
-        Book book = new Book();
-        book.setName("<西游记>");
-        book.setAnthony("吴承恩");
-        //对象被默认序列化后发送
-        rabbitTemplate.convertAndSend("demo-fanout","",book);
-    }
+@Test
+public void send() {
+    Book book = new Book();
+    book.setName("<西游记>");
+    book.setAnthony("吴承恩");
+    //对象被默认序列化后发送
+    rabbitTemplate.convertAndSend("demo-fanout","",book);
+}
 ```
 
 **查看主控制台打印**
@@ -504,16 +504,16 @@ public class BookService {
 **测试用例**
 
 ```java
-    @Test
-    public void contextLoads() {
-        //message需要自己构造一个，定义消息体内容和消息体
-        //rabbitTemplate.send(exchange,routingkey,message);
-        Map map = new HashMap();
-        map.put("key","topic交换机");
-        map.put("msg",true);
-        //对象被默认序列化后发送
-        rabbitTemplate.convertAndSend("demo-topic","demo.hello",map);
-    }
+@Test
+public void contextLoads() {
+    //message需要自己构造一个，定义消息体内容和消息体
+    //rabbitTemplate.send(exchange,routingkey,message);
+    Map map = new HashMap();
+    map.put("key","topic交换机");
+    map.put("msg",true);
+    //对象被默认序列化后发送
+    rabbitTemplate.convertAndSend("demo-topic","demo.hello",map);
+}
 ```
 
 **查看主控制台打印**

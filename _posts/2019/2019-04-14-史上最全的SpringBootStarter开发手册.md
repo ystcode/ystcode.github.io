@@ -118,14 +118,14 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 当你直接执行时应该会报错，因为我们还需要在pom.xml去掉spring-boot-maven-plugin，也就是下面这段代码。
 
 ```xml
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 8.随便新建一个Spring Boot工程，引入spring-boot-starter-hello依赖。

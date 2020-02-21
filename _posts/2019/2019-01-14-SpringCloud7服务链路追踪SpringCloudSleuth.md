@@ -497,28 +497,28 @@ Zipkin Client 有两种方式将链路数据传输到Zipkin Server中， 一种�
 本节是在没有使用RabbitMQ传输数据的基础上进行改造的，只需要改造zipkin-serv er 工程。在zipkin-server 工程的porn 文件加上Zipkin Server的依赖zipkin-server 、Zipkin 的MySQL存储依赖zipkin-storage-mysql （这两个依赖的版本都为1.19.0 ）、Zipkin Server 的UI界面依赖zipkin-autoconfigure-ui 、MySQL 的连接器依赖mysql-connector-java 和JDBC的起步依赖spring-boot-starter-jdbc 。代码如下：
 
 ```xml
-        <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin-server</artifactId>
-            <version>1.19.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin-storage-mysql</artifactId>
-            <version>1.19.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.zipkin.java</groupId>
-            <artifactId>zipkin-autoconfigure-ui</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-server</artifactId>
+    <version>1.19.0</version>
+</dependency>
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-storage-mysql</artifactId>
+    <version>1.19.0</version>
+</dependency>
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-autoconfigure-ui</artifactId>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
 ```
 
 在 zipkin-server 工程的配置文件 application.yml 中加上数据源的配置，包括数据库的Url 、用户名、密码和连接驱动， 并且需要配置zipkin.storage.type 为mysql ， 代码如下：

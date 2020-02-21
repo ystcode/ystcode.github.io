@@ -188,13 +188,13 @@ ES配置详解参考：https://www.cnblogs.com/hanyouchun/p/5163183.html
 1.规范的方式
 
 ```java
- ./elasticsearch -d
+./elasticsearch -d
 ```
 
 2.通用的方式（注意&的语法是为了让程序后台执行，当你`Ctrl`+`C`退出时程序依旧运行）
 
 ```java
- ./elasticsearch &
+./elasticsearch &
 ```
 
 这里应该会报错，提示不能使用root用户启动该服务。
@@ -222,7 +222,7 @@ su admin
 执行命令
 
 ```java
- ps -ef|grep elasticsearch
+ps -ef|grep elasticsearch
 ```
 
 ![](./20190529史上最全面的Elasticsearch使用指南/007MoNnNly1g3i32tp7phj30hs04hweg.jpg)
@@ -239,7 +239,7 @@ export ES_HEAP_SIZE=1g
 2.我们可以在启动程序时限制内存大小，不过这个方法并不是每个情况都可以成功的，命令行如下
 
 ```java
- ./elasticsearch -Xms256m -Xmx256m -d
+./elasticsearch -Xms256m -Xmx256m -d
 ```
 *备注:* 确保Xmx和Xms的大小是相同的，其目的是为了能够在java垃圾回收机制清理完堆区后不需要重新分隔计算堆区的大小而浪费资源，可以减轻伸缩堆大小带来的压力。 一般来说设置ES_HEAP_SIZE环境变量，比直接写-Xmx10g  -Xms10g更好一点。 
 
@@ -681,13 +681,13 @@ Caused by: java.lang.NoSuchFieldError: LUCENE_5_3_1
 我们点击挑战到`Version.java:279`查看他的源代码：
 
 ```java
-    public static final Version V_2_1_0 = new Version(V_2_1_0_ID, false, org.apache.lucene.util.Version.LUCENE_5_3_1);
+public static final Version V_2_1_0 = new Version(V_2_1_0_ID, false, org.apache.lucene.util.Version.LUCENE_5_3_1);
 ```
 
 也就是说elasticsearch-2.1.0适配LUCENE-5.3.1，而我们的elasticsearch是2.4.6，继续查看源代码：
 
 ```java
-    public static final Version V_2_4_6 = new Version(V_2_4_6_ID, false, org.apache.lucene.util.Version.LUCENE_5_5_4);
+public static final Version V_2_4_6 = new Version(V_2_4_6_ID, false, org.apache.lucene.util.Version.LUCENE_5_5_4);
 ```
 
 所以我们需要LUCENE-5.5.4版本的依赖。
@@ -832,22 +832,22 @@ public class Book {
 ### 4.保存
 
 ```java
-    @Autowired
-    private JestClient jestClient;
-    
-    @Test
-    public void contextLoads() {
-        Book book = new Book("《西游记后传》","小白龙",120);
+@Autowired
+private JestClient jestClient;
 
-        //构建一个索引功能 参数为路径.../library/old/1
-        Index index = new Index.Builder(book).index("library").type("old").id("3").build();
-        try {
-            //执行保存
-            jestClient.execute(index);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+@Test
+public void contextLoads() {
+    Book book = new Book("《西游记后传》","小白龙",120);
+
+    //构建一个索引功能 参数为路径.../library/old/1
+    Index index = new Index.Builder(book).index("library").type("old").id("3").build();
+    try {
+        //执行保存
+        jestClient.execute(index);
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
 ```
 
 ### 5.查询
@@ -855,21 +855,21 @@ public class Book {
 此处的query语句参考前面讲过的各种搜索方式。
 
 ```java
-        String query = "{" +
-                "    \"query\" : {" +
-                "        \"match\" : {" +
-                "            \"name\" : \"西游\"" +
-                "        }" +
-                "    }" +
-                "}";
+String query = "{" +
+        "    \"query\" : {" +
+        "        \"match\" : {" +
+        "            \"name\" : \"西游\"" +
+        "        }" +
+        "    }" +
+        "}";
 
-        Search search = new Search.Builder(query).addIndex("library").addType("old").build();
-        try {
-            SearchResult result = jestClient.execute(search);
-            System.out.println(result.getJsonString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+Search search = new Search.Builder(query).addIndex("library").addType("old").build();
+try {
+    SearchResult result = jestClient.execute(search);
+    System.out.println(result.getJsonString());
+} catch (IOException e) {
+    e.printStackTrace();
+}
 ```
 
 个人觉得：JEST查询的不同与优势是可以获取全部的返回信息。
@@ -883,23 +883,23 @@ public class Book {
 如官方示例：
 
 ```java
-   public interface BookRepository extends Repository {
+public interface BookRepository extends Repository {
 
-        List findByNameAndPrice(String name, Integer price);
+     List findByNameAndPrice(String name, Integer price);
 
-        List findByNameOrPrice(String name, Integer price);
-        
-        Page findByName(String name,Pageable page);
+     List findByNameOrPrice(String name, Integer price);
+     
+     Page findByName(String name,Pageable page);
 
-        Page findByNameNot(String name,Pageable page);
+     Page findByNameNot(String name,Pageable page);
 
-        Page findByPriceBetween(int price,Pageable page);
+     Page findByPriceBetween(int price,Pageable page);
 
-        Page findByNameLike(String name,Pageable page);
+     Page findByNameLike(String name,Pageable page);
 
-        @Query("{\"bool\" : {\"must\" : {\"term\" : {\"message\" : \"?0\"}}}}")
-        Page findByMessage(String message, Pageable pageable);
-    }
+     @Query("{\"bool\" : {\"must\" : {\"term\" : {\"message\" : \"?0\"}}}}")
+     Page findByMessage(String message, Pageable pageable);
+ }
 ```
 
 #### 关键字
@@ -928,23 +928,23 @@ public class Book {
 ### 2.保存
 
 ```java
-        @Autowired
-        private SampleElasticsearchRepository repository;
+@Autowired
+private SampleElasticsearchRepository repository;
 
-        String documentId = "123456";
-        SampleEntity sampleEntity1 = new SampleEntity();
-        sampleEntity1.setId(documentId);
-        sampleEntity1.setMessage("some message");
+String documentId = "123456";
+SampleEntity sampleEntity1 = new SampleEntity();
+sampleEntity1.setId(documentId);
+sampleEntity1.setMessage("some message");
 
-        String documentId2 = "123457"
-        SampleEntity sampleEntity2 = new SampleEntity();
-        sampleEntity2.setId(documentId2);
-        sampleEntity2.setMessage("test message");
+String documentId2 = "123457"
+SampleEntity sampleEntity2 = new SampleEntity();
+sampleEntity2.setId(documentId2);
+sampleEntity2.setMessage("test message");
 
-        List sampleEntities = Arrays.asList(sampleEntity1, sampleEntity2);
+List sampleEntities = Arrays.asList(sampleEntity1, sampleEntity2);
 
-        //bulk index
-        repository.save(sampleEntities);
+//bulk index
+repository.save(sampleEntities);
 ```
 
 ### 3.更新
@@ -952,17 +952,17 @@ public class Book {
 要做到这一点，只需使用相同的ID保存该对象性即可。 
 
 ```java
-        Book name = bookRepository.findAllById(100);
-        name.setAnthony("吴承恩");	//改变
-        bookRepository.save(name); //保存，此时ID不变
-        name = bookRepository.findAllById(100); //再次查找
-        System.out.println(name);
+Book name = bookRepository.findAllById(100);
+name.setAnthony("吴承恩");	//改变
+bookRepository.save(name); //保存，此时ID不变
+name = bookRepository.findAllById(100); //再次查找
+System.out.println(name);
 ```
 
 ### 4.删除
 
 ```java
-        bookRepository.delete(1);
+bookRepository.delete(1);
 ```
 
 到此，Repository实现增删改查完成！
@@ -976,53 +976,53 @@ public class Book {
 IndexQuery的作用是保存对象到elasticsearch。用法如下。
 
 ```java
-       	@Autowired
-        private ElasticsearchTemplate elasticsearchTemplate;
-        
-        Book book = new Book("《西游记后传》", "小白龙", 100);
-        
-        IndexQuery indexQuery = new IndexQueryBuilder()
-                .withIndexName("library")
-                .withType("book")
-                .withId(book.getId()+"")
-                .withObject(book) //对象或集合
-                .build();
-        elasticsearchTemplate.index(indexQuery);
+	@Autowired
+ private ElasticsearchTemplate elasticsearchTemplate;
+ 
+ Book book = new Book("《西游记后传》", "小白龙", 100);
+ 
+ IndexQuery indexQuery = new IndexQueryBuilder()
+         .withIndexName("library")
+         .withType("book")
+         .withId(book.getId()+"")
+         .withObject(book) //对象或集合
+         .build();
+ elasticsearchTemplate.index(indexQuery);
 ```
 
 ### 2.删除
 
 ```java
-        //第一种删除具体的一条记录
-        elasticsearchTemplate.delete("library","book",100+"");
-        
-        //第二种删除indexName/type/下的所有
-        DeleteQuery deleteQuery = new DeleteQuery();
-        deleteQuery.setIndex("library");
-        deleteQuery.setType("book");
-        elasticsearchTemplate.delete(deleteQuery);
+//第一种删除具体的一条记录
+elasticsearchTemplate.delete("library","book",100+"");
 
-        //第三种删除indexName/下的所有
-        elasticsearchTemplate.deleteIndex("library");
-        
-        //第四种删除查询出来的所有
-        deleteQuery = new DeleteQuery();
-        deleteQuery.setQuery(QueryBuilders.matchQuery("id","100"));
-        elasticsearchTemplate.delete(deleteQuery);
+//第二种删除indexName/type/下的所有
+DeleteQuery deleteQuery = new DeleteQuery();
+deleteQuery.setIndex("library");
+deleteQuery.setType("book");
+elasticsearchTemplate.delete(deleteQuery);
+
+//第三种删除indexName/下的所有
+elasticsearchTemplate.deleteIndex("library");
+
+//第四种删除查询出来的所有
+deleteQuery = new DeleteQuery();
+deleteQuery.setQuery(QueryBuilders.matchQuery("id","100"));
+elasticsearchTemplate.delete(deleteQuery);
 ```
 
 ### 3.更新
 
 ```java
-        Book book = new Book("《西游记后传》", "猪八戒", 100);
+Book book = new Book("《西游记后传》", "猪八戒", 100);
 
-        UpdateQuery updateQuery = new UpdateQueryBuilder()
-                .withIndexName("library")
-                .withType("book")
-                .withId(book.getId()+"")
-                .build();
+UpdateQuery updateQuery = new UpdateQueryBuilder()
+        .withIndexName("library")
+        .withType("book")
+        .withId(book.getId()+"")
+        .build();
 
-        elasticsearchTemplate.update(updateQuery);
+elasticsearchTemplate.update(updateQuery);
 ```
 
 ### 4.查询
@@ -1030,25 +1030,25 @@ IndexQuery的作用是保存对象到elasticsearch。用法如下。
 查询不同于前面几个，查询比较复杂，比如模糊查询，组合查询，准确查询等。这些变化来源于不同的`QueryBuilder`，查询的模板是相同的。如下：
 
 ```java
-        @Autowired
-        private ElasticsearchTemplate elasticsearchTemplate;
-        
-        Sort sort = new Sort(Sort.Direction.DESC, "id");//以id值为准 降序排列，ASC为升序
-        Pageable pageable = new PageRequest(0, 10, sort);//查看第0页，以每页10条划分
-        
-        SearchQuery searchQuery = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.matchAllQuery()) // 自定义查询（这是不同的地方）
-                .withPageable(pageable) // 自定义分页
-                .build();
-                
-        Page sampleEntities = elasticsearchTemplate.queryForPage(searchQuery,Book.class);
+@Autowired
+private ElasticsearchTemplate elasticsearchTemplate;
 
-        System.out.println("页数" + sampleEntities.getTotalPages());
-        System.out.println("行数" + sampleEntities.getTotalElements());
-        System.out.println("大小" + sampleEntities.getSize());
-        System.out.println("当前第几页" + sampleEntities.getNumber());
-        System.out.println("当前页的数量"+sampleEntities.getNumberOfElements());
-        System.out.println("List:"+sampleEntities.getContent());
+Sort sort = new Sort(Sort.Direction.DESC, "id");//以id值为准 降序排列，ASC为升序
+Pageable pageable = new PageRequest(0, 10, sort);//查看第0页，以每页10条划分
+
+SearchQuery searchQuery = new NativeSearchQueryBuilder()
+        .withQuery(QueryBuilders.matchAllQuery()) // 自定义查询（这是不同的地方）
+        .withPageable(pageable) // 自定义分页
+        .build();
+        
+Page sampleEntities = elasticsearchTemplate.queryForPage(searchQuery,Book.class);
+
+System.out.println("页数" + sampleEntities.getTotalPages());
+System.out.println("行数" + sampleEntities.getTotalElements());
+System.out.println("大小" + sampleEntities.getSize());
+System.out.println("当前第几页" + sampleEntities.getNumber());
+System.out.println("当前页的数量"+sampleEntities.getNumberOfElements());
+System.out.println("List:"+sampleEntities.getContent());
 ```
 
 其它条件查询下面讲解！
@@ -1285,10 +1285,10 @@ QueryBuilder queryBuilder = QueryBuilders.matchPhraseQuery("name", "Love You");
 ### 3.模糊匹配
 
 ```java
-        MoreLikeThisQueryBuilder queryBuilder = QueryBuilders
-                .moreLikeThisQuery("name")// 要匹配的字段, 不填默认_all
-                .like("西游")// 匹配的文本
-                .minTermFreq(1);// 文本最少出现的次数（默认是2，我们设为1）
+MoreLikeThisQueryBuilder queryBuilder = QueryBuilders
+        .moreLikeThisQuery("name")// 要匹配的字段, 不填默认_all
+        .like("西游")// 匹配的文本
+        .minTermFreq(1);// 文本最少出现的次数（默认是2，我们设为1）
 ```
 
 我们再从源码去看其它方法

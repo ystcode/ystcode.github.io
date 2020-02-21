@@ -80,11 +80,11 @@ tags: Hibernate
 ##### 第三步：在hibernate.cfg.xml中配置
 
 ```xml
-     <!-- 配置二级缓存 -->
-     <!-- hibernate4以前的版本 配置缓存的提供类-->
-     <!-- <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</property> -->
-     <!--hibernate4以后版本二级缓存的提供类-->
-    <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+<!-- 配置二级缓存 -->
+<!-- hibernate4以前的版本 配置缓存的提供类-->
+<!-- <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</property> -->
+<!--hibernate4以后版本二级缓存的提供类-->
+property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 ```
 
 如果是Spring+Hibernate，需要在spring.xml中

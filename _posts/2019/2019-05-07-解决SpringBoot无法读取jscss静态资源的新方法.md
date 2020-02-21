@@ -123,23 +123,23 @@ public class ReadClasspathFile {
 接下来就是Controller层进行映射匹配响应了，这里利用Spring MVC取个巧，代码如下：
 
 ```java
-    @ResponseBody
-    @RequestMapping(value = "view/{path}.html",produces = {"text/html; charset=UTF-8"})
-    public String view_html(@PathVariable String path) throws IOException {
-        return ReadClasspathFile.read("view/"+path+".html");
-    }
+@ResponseBody
+@RequestMapping(value = "view/{path}.html",produces = {"text/html; charset=UTF-8"})
+public String view_html(@PathVariable String path) throws IOException {
+    return ReadClasspathFile.read("view/"+path+".html");
+}
 
-    @ResponseBody
-    @RequestMapping(value = "view/{path}.js",produces = {"application/x-javascript; charset=UTF-8"})
-    public String view_js(@PathVariable String path) throws IOException {
-        return ReadClasspathFile.read("view/"+path+".js");
-    }
+@ResponseBody
+@RequestMapping(value = "view/{path}.js",produces = {"application/x-javascript; charset=UTF-8"})
+public String view_js(@PathVariable String path) throws IOException {
+    return ReadClasspathFile.read("view/"+path+".js");
+}
 
-    @ResponseBody
-    @RequestMapping(value = "view/{path}.css",produces = {"text/css; charset=UTF-8"})
-    public String view_html(@PathVariable String path) throws IOException {
-        return ReadClasspathFile.read("view/"+path+".css");
-    }
+@ResponseBody
+@RequestMapping(value = "view/{path}.css",produces = {"text/css; charset=UTF-8"})
+public String view_html(@PathVariable String path) throws IOException {
+    return ReadClasspathFile.read("view/"+path+".css");
+}
 
 ```
 
@@ -148,42 +148,42 @@ public class ReadClasspathFile {
 但是，使用@PathVariable注解的这种方式不支持多级路径，也就是不支持包含“/”，为了支持匹配多级目录，我们只能放弃这种方案，使用另一种方案。
 
 ```java
-    @ResponseBody
-    @RequestMapping(value = "/view/**",method = RequestMethod.GET)
-    public void view_js(HttpServletResponse response, HttpServletRequest request) throws IOException {
-        String uri = request.getRequestURI().trim();
-        if (uri.endsWith(".js")){
-            response.setContentType("application/javascript");
-        }else if (uri.endsWith(".css")){
-            response.setContentType("text/css");
-        }else if (uri.endsWith(".ttf")||uri.endsWith(".woff")){
-            response.setContentType("application/octet-stream");
-        }else {
-            String contentType = new MimetypesFileTypeMap().getContentType(uri);
-            response.setContentType(contentType);
-        }
-        response.getWriter().print(ReadClasspathFile.read(uri));
+@ResponseBody
+@RequestMapping(value = "/view/**",method = RequestMethod.GET)
+public void view_js(HttpServletResponse response, HttpServletRequest request) throws IOException {
+    String uri = request.getRequestURI().trim();
+    if (uri.endsWith(".js")){
+        response.setContentType("application/javascript");
+    }else if (uri.endsWith(".css")){
+        response.setContentType("text/css");
+    }else if (uri.endsWith(".ttf")||uri.endsWith(".woff")){
+        response.setContentType("application/octet-stream");
+    }else {
+        String contentType = new MimetypesFileTypeMap().getContentType(uri);
+        response.setContentType(contentType);
     }
+    response.getWriter().print(ReadClasspathFile.read(uri));
+}
 ```
 
 将读取文件的静态方法更换为我们最新的返回字节流的方法，最终代码为：
 
 ```java
-    @RequestMapping(value = "/tree/**",method = RequestMethod.GET)
-    public void view_js(HttpServletResponse response, HttpServletRequest request) throws IOException {
-        String uri = request.getRequestURI().trim();
-        if (uri.endsWith(".js")){
-            response.setContentType("application/javascript");
-        }else if (uri.endsWith(".css")){
-            response.setContentType("text/css");
-        }else if (uri.endsWith(".woff")){
-            response.setContentType("application/x-font-woff");
-        }else if (uri.endsWith(".ttf")){
-            response.setContentType("application/x-font-truetype");
-        }else if (uri.endsWith(".html")){
-            response.setContentType("text/html");
-        }
-        byte[] s = ReadClasspathFile.read(uri);
-        response.getOutputStream().write(Optional.ofNullable(s).orElse("404".getBytes()));
+@RequestMapping(value = "/tree/**",method = RequestMethod.GET)
+public void view_js(HttpServletResponse response, HttpServletRequest request) throws IOException {
+    String uri = request.getRequestURI().trim();
+    if (uri.endsWith(".js")){
+        response.setContentType("application/javascript");
+    }else if (uri.endsWith(".css")){
+        response.setContentType("text/css");
+    }else if (uri.endsWith(".woff")){
+        response.setContentType("application/x-font-woff");
+    }else if (uri.endsWith(".ttf")){
+        response.setContentType("application/x-font-truetype");
+    }else if (uri.endsWith(".html")){
+        response.setContentType("text/html");
     }
+    byte[] s = ReadClasspathFile.read(uri);
+    response.getOutputStream().write(Optional.ofNullable(s).orElse("404".getBytes()));
+}
 ```

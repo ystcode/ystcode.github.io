@@ -16,12 +16,12 @@ tags:
 一种最为简单的线程创建和回收的方法类似如下：
 
 ```java
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //do sth
-            }
-        }).start();
+new Thread(new Runnable() {
+    @Override
+    public void run() {
+        //do sth
+    }
+}).start();
 ```
 
 以上代码创建了一条线程，并在run()方法结束后，自动回收该线程。在简单的应用系统中，这段代码并没有太多问题。但是在真实的生产环境中，系统由于真实环境的需要，可能会开启很多线程来支撑其应用。而当线程数量过大时，反而会耗尽CPU和内存资源。
@@ -173,21 +173,21 @@ public class PThread extends Thread {
 3.测试Main方法
 
 ```java
-    public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < 1000; i++) {
-            ThreadPool.getInstance().start(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        //休眠100ms
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+public static void main(String[] args) throws InterruptedException {
+    for (int i = 0; i < 1000; i++) {
+        ThreadPool.getInstance().start(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //休眠100ms
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            });
-        }
+            }
+        });
     }
+}
 ```
 
 ## 3.ThreadPoolExecutor
@@ -195,28 +195,28 @@ public class PThread extends Thread {
 为了能够更好地控制多线程，JDK提供了一套Executor框架，帮助开发人员有效地进行线程控制。Executor框架无论是newFixedThreadPool()方法、newSingleThreadExecutor()方法、newScheduledThreadPool()方法、还是newCachedThreadPool()方法，其内部实现均使用了 ThreadPoolExecutor：
 
 ```java
-    public static ExecutorService newCachedThreadPool() {
-        return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
-                                      60L, TimeUnit.SECONDS,
-                                      new SynchronousQueue<Runnable>());
-    }
-    
-    public static ExecutorService newFixedThreadPool(int nThreads) {
-        return new ThreadPoolExecutor(nThreads, nThreads,
-                                      0L, TimeUnit.MILLISECONDS,
-                                      new LinkedBlockingQueue<Runnable>());
-    }
-    
-    public static ExecutorService newSingleThreadExecutor() {
-        return new FinalizableDelegatedExecutorService
-            (new ThreadPoolExecutor(1, 1,
-                                    0L, TimeUnit.MILLISECONDS,
-                                    new LinkedBlockingQueue<Runnable>()));
-    }
+public static ExecutorService newCachedThreadPool() {
+    return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                  60L, TimeUnit.SECONDS,
+                                  new SynchronousQueue<Runnable>());
+}
 
-    public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
-        return new ScheduledThreadPoolExecutor(corePoolSize);
-    }
+public static ExecutorService newFixedThreadPool(int nThreads) {
+    return new ThreadPoolExecutor(nThreads, nThreads,
+                                  0L, TimeUnit.MILLISECONDS,
+                                  new LinkedBlockingQueue<Runnable>());
+}
+
+public static ExecutorService newSingleThreadExecutor() {
+    return new FinalizableDelegatedExecutorService
+        (new ThreadPoolExecutor(1, 1,
+                                0L, TimeUnit.MILLISECONDS,
+                                new LinkedBlockingQueue<Runnable>()));
+}
+
+public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
+    return new ScheduledThreadPoolExecutor(corePoolSize);
+}
 ```
 
 由以上线程池的实现代码可以知道，它们只是对 ThreadPoolExecutor 类的封装。为何 ThreadPoolExecutor 类有如此强大的功能？来看一下 ThreadPoolExecutor 最重要的构造方法。
@@ -244,41 +244,41 @@ public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveT
 ThreadPoolExecutor的使用示例，通过execute()方法提交任务。
 
 ```java
-    public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(4, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-        for (int i = 0; i < 10; i++) {
-            executor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println(Thread.currentThread().getName());
-                }
-            });
-        }
-        executor.shutdown();
+public static void main(String[] args) {
+    ThreadPoolExecutor executor = new ThreadPoolExecutor(4, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+    for (int i = 0; i < 10; i++) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+            }
+        });
     }
+    executor.shutdown();
+}
 ```
 
 或者通过submit()方法提交任务
 
 ```java
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(4, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-        List<Future> futureList = new Vector<>();
-        //在其它线程中执行100次下列方法
-        for (int i = 0; i < 100; i++) {
-            futureList.add(executor.submit(new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    return Thread.currentThread().getName();
-                }
-            }));
-        }
-        for (int i = 0;i<futureList.size();i++){
-            Object o = futureList.get(i).get();
-            System.out.println(o.toString());
-        }
-        executor.shutdown();
+public static void main(String[] args) throws ExecutionException, InterruptedException {
+    ThreadPoolExecutor executor = new ThreadPoolExecutor(4, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+    List<Future> futureList = new Vector<>();
+    //在其它线程中执行100次下列方法
+    for (int i = 0; i < 100; i++) {
+        futureList.add(executor.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return Thread.currentThread().getName();
+            }
+        }));
     }
+    for (int i = 0;i<futureList.size();i++){
+        Object o = futureList.get(i).get();
+        System.out.println(o.toString());
+    }
+    executor.shutdown();
+}
 ```
 
 运行结果：
@@ -374,21 +374,21 @@ ThreadPoolExecutor 表示一个线程池，Executors 类则扮演着线程池工
 使用 Executors 框架实现上节中的例子，其代码如下：
 
 ```java
-    public static void main(String[] args) {
-        //新建一个线程池
-        ExecutorService executor = Executors.newCachedThreadPool();
-        //在其它线程中执行100次下列方法
-        for (int i = 0; i < 100; i++) {
-            executor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println(Thread.currentThread().getName());
-                }
-            });
-        }
-        //执行完关闭
-        executor.shutdown();
+public static void main(String[] args) {
+    //新建一个线程池
+    ExecutorService executor = Executors.newCachedThreadPool();
+    //在其它线程中执行100次下列方法
+    for (int i = 0; i < 100; i++) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+            }
+        });
     }
+    //执行完关闭
+    executor.shutdown();
+}
 ```
 
 ### 4.1 Executors框架的结构
@@ -452,25 +452,25 @@ public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize)
 示例代码：
 
 ```java
-   public static void main(String[] args) throws InterruptedException, ExecutionException {
-        //新建一个线程池
-        ExecutorService executor = Executors.newCachedThreadPool();
-        List<Future> futureList = new Vector<>();
-        //在其它线程中执行100次下列方法
-        for (int i = 0; i < 100; i++) {
-            futureList.add(executor.submit(new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    return Thread.currentThread().getName()+" "+System.currentTimeMillis()+" ";
-                }
-            }));
-        }
-        for (int i = 0;i<futureList.size();i++){
-            Object o = futureList.get(i).get();
-            System.out.println(o.toString()+i);
-        }
-        executor.shutdown();
-    }
+public static void main(String[] args) throws InterruptedException, ExecutionException {
+     //新建一个线程池
+     ExecutorService executor = Executors.newCachedThreadPool();
+     List<Future> futureList = new Vector<>();
+     //在其它线程中执行100次下列方法
+     for (int i = 0; i < 100; i++) {
+         futureList.add(executor.submit(new Callable<String>() {
+             @Override
+             public String call() throws Exception {
+                 return Thread.currentThread().getName()+" "+System.currentTimeMillis()+" ";
+             }
+         }));
+     }
+     for (int i = 0;i<futureList.size();i++){
+         Object o = futureList.get(i).get();
+         System.out.println(o.toString()+i);
+     }
+     executor.shutdown();
+ }
 ```
 
 运行结果：

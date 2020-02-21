@@ -281,10 +281,10 @@ public class MyFallbackProvider implements ZuulFallbackProvider {
 如果需要所有的路由服务都加熔断功能，只需要在 getRoute 方法上返回 “*” 的匹配符即可.
 
 ```java
-    @Override
-    public String getRoute() {
-        return "*";
-    }
+@Override
+public String getRoute() {
+    return "*";
+}
 ```
 
 ## 6.Zuul的常见使用方式
