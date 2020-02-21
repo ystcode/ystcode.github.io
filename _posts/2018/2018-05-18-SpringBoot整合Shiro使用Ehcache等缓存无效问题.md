@@ -27,16 +27,16 @@ tags: SpringBoot
 1.比如使用Shiro时我们自定义了Realm，并在其中使用了
 
 ```java
-    @Autowired
-    private UserService userService;
+@Autowired
+private UserService userService;
 ```
 
 2.现在修改为
 
 ```java
-    @Autowired
-    @Lazy
-    private UserService userService;
+@Autowired
+@Lazy
+private UserService userService;
 ```
 
 即可，还有方法，比如ApplicationContextRegister.getBean()手动注入Bean。

@@ -26,145 +26,145 @@ tags:
 若不使用maven：请前往[Maven官网](http://mvnrepository.com/)依次下载jar包导入）
 
 ```xml
-    <properties>
-        <!-- 统一源码的编码方式 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- 统一各个框架版本 -->
-        <spring.version>4.1.7.RELEASE</spring.version>
-        <mybatis.version>3.3.0</mybatis.version>
-        <mybatis-spring>1.2.3</mybatis-spring>
-    </properties>
+<properties>
+    <!-- 统一源码的编码方式 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 统一各个框架版本 -->
+    <spring.version>4.1.7.RELEASE</spring.version>
+    <mybatis.version>3.3.0</mybatis.version>
+    <mybatis-spring>1.2.3</mybatis-spring>
+</properties>
 
-    <dependencies>
-        <dependency>
-      <!--3.0的junit是使用编程的方式来进行测试，而junit4是使用注解的方式来运行junit-->
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-
-
-    <!--补全项目依赖-->
-    <!--1.日志 java日志有:slf4j,log4j,logback,common-logging
-        slf4j:是规范/接口
-        日志实现:log4j,logback,common-logging
-        使用:slf4j+logback
-    -->
+<dependencies>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.12</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-    <!--实现slf4j接口并整合-->
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.1.1</version>
-    </dependency>
+  <!--3.0的junit是使用编程的方式来进行测试，而junit4是使用注解的方式来运行junit-->
+  <groupId>junit</groupId>
+  <artifactId>junit</artifactId>
+  <version>4.11</version>
+  <scope>test</scope>
+</dependency>
 
 
-    <!--1.数据库相关依赖-->
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.35</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>c3p0</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.9.1.1</version>
-    </dependency>
+<!--补全项目依赖-->
+<!--1.日志 java日志有:slf4j,log4j,logback,common-logging
+    slf4j:是规范/接口
+    日志实现:log4j,logback,common-logging
+    使用:slf4j+logback
+-->
+<dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-api</artifactId>
+  <version>1.7.12</version>
+</dependency>
+<dependency>
+  <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-core</artifactId>
+  <version>1.1.1</version>
+</dependency>
+<!--实现slf4j接口并整合-->
+<dependency>
+  <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-classic</artifactId>
+  <version>1.1.1</version>
+</dependency>
 
-    <!--2.dao框架:MyBatis依赖-->
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>${mybatis.version}</version>
-    </dependency>
-    <!--mybatis自身实现的spring整合依赖-->
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis-spring</artifactId>
-      <version>${mybatis-spring}</version>
-    </dependency>
 
-    <!--3.Servlet web相关依赖-->
-    <dependency>
-      <groupId>taglibs</groupId>
-      <artifactId>standard</artifactId>
-      <version>1.1.2</version>
-    </dependency>
-    <dependency>
-      <groupId>jstl</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.5.4</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-      <scope>provided</scope>
-    </dependency>
+<!--1.数据库相关依赖-->
+<dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>5.1.35</version>
+  <scope>runtime</scope>
+</dependency>
+<dependency>
+  <groupId>c3p0</groupId>
+  <artifactId>c3p0</artifactId>
+  <version>0.9.1.1</version>
+</dependency>
 
-    <!--4:spring依赖-->
-    <!--1)spring核心依赖-->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <!--2)spring dao层依赖-->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <!--3)springweb相关依赖-->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <!--4)spring test相关依赖-->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
+<!--2.dao框架:MyBatis依赖-->
+<dependency>
+  <groupId>org.mybatis</groupId>
+  <artifactId>mybatis</artifactId>
+  <version>${mybatis.version}</version>
+</dependency>
+<!--mybatis自身实现的spring整合依赖-->
+<dependency>
+  <groupId>org.mybatis</groupId>
+  <artifactId>mybatis-spring</artifactId>
+  <version>${mybatis-spring}</version>
+</dependency>
 
-    </dependencies>
+<!--3.Servlet web相关依赖-->
+<dependency>
+  <groupId>taglibs</groupId>
+  <artifactId>standard</artifactId>
+  <version>1.1.2</version>
+</dependency>
+<dependency>
+  <groupId>jstl</groupId>
+  <artifactId>jstl</artifactId>
+  <version>1.2</version>
+</dependency>
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>2.5.4</version>
+</dependency>
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>javax.servlet-api</artifactId>
+  <version>3.1.0</version>
+  <scope>provided</scope>
+</dependency>
+
+<!--4:spring依赖-->
+<!--1)spring核心依赖-->
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-core</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-beans</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-context</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<!--2)spring dao层依赖-->
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-jdbc</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-tx</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<!--3)springweb相关依赖-->
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-web</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-webmvc</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+<!--4)spring test相关依赖-->
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-test</artifactId>
+  <version>${spring.version}</version>
+</dependency>
+
+</dependencies>
 ```
 
 2.新建entity包，并根据数据库(表)新建相关实体类。

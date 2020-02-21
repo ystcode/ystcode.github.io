@@ -48,28 +48,28 @@ FileChannel用于文件的数据读写。 DatagramChannel用于UDP的数据读�
 一个使用NIO进行文件复制的例子如下：
 
 ```java
-    @Test
-    public void test() throws IOException {
- 		//写文件通道
-        FileOutputStream fileOutputStream = new FileOutputStream(new File(path_copy));
-        FileChannel wChannel = fileOutputStream.getChannel();
-        
-        //读文件通道
-        FileInputStream fileInputStream = new FileInputStream(new File(path));
-        FileChannel rChannel = fileInputStream.getChannel();
-        
-        ByteBuffer byteBufferRead = ByteBuffer.allocate(1024);//从堆中分配缓冲区
-        
-        while(rChannel.read(byteBufferRead)!=-1){
-            byteBufferRead.flip();//将Buffer从写状态切换到读状态
-            while(byteBufferRead.hasRemaining()){
-                wChannel.write(byteBufferRead);
-            }
-            byteBufferRead.clear();//为读入数据到Buffer做准备
+@Test
+public void test() throws IOException {
+/写文件通道
+    FileOutputStream fileOutputStream = new FileOutputStream(new File(path_copy));
+    FileChannel wChannel = fileOutputStream.getChannel();
+    
+    //读文件通道
+    FileInputStream fileInputStream = new FileInputStream(new File(path));
+    FileChannel rChannel = fileInputStream.getChannel();
+    
+    ByteBuffer byteBufferRead = ByteBuffer.allocate(1024);//从堆中分配缓冲区
+    
+    while(rChannel.read(byteBufferRead)!=-1){
+        byteBufferRead.flip();//将Buffer从写状态切换到读状态
+        while(byteBufferRead.hasRemaining()){
+            wChannel.write(byteBufferRead);
         }
-        wChannel.close();
-        rChannel.close();
+        byteBufferRead.clear();//为读入数据到Buffer做准备
     }
+    wChannel.close();
+    rChannel.close();
+}
 ```
 
 ## 2. Buffer的基本原理
@@ -194,38 +194,38 @@ NIO提供处理结构化数据的方法，称之为散射（Scattering）和聚�
 示例功能：写入两段话到文件，然后读取打印。
 
 ```java
-    @Test
-    public void test() throws IOException {
-        String path = "D:\\test.txt";
-        //聚集写
-        //这是一组数据
-        ByteBuffer byteBuffer1 = ByteBuffer.wrap("Java是最好的工具".getBytes(Charset.forName("UTF-8")));
-        ByteBuffer byteBuffer2 = ByteBuffer.wrap("像风一样".getBytes(Charset.forName("UTF-8")));
-        //记录数据长度
-        int length1 = byteBuffer1.limit();
-        int length2 = byteBuffer2.limit();
-        //用 ByteBuffer 数组存放ByteBuffer实例的引用。
-        ByteBuffer[] byteBuffers = new ByteBuffer[]{byteBuffer1, byteBuffer2};
-        //获取文件写通道
-        FileOutputStream fileOutputStream = new FileOutputStream(new File(path));
-        FileChannel channel = fileOutputStream.getChannel();
-        //开始写
-        channel.write(byteBuffers);
-        channel.close();
-        
-        //散射读
-        byteBuffer1 = ByteBuffer.allocate(length1);
-        byteBuffer2 = ByteBuffer.allocate(length2);
-        byteBuffers = new ByteBuffer[]{byteBuffer1,byteBuffer2};
-        //获取文件读通道
-        FileInputStream fileInputStream = new FileInputStream(new File(path));
-        channel = fileInputStream.getChannel();
-        //开始读
-        channel.read(byteBuffers);
-        //读取
-        System.out.println(new String(byteBuffers[0].array(),"utf-8"));
-        System.out.println(new String(byteBuffers[1].array(),"utf-8"));
-    }
+@Test
+public void test() throws IOException {
+    String path = "D:\\test.txt";
+    //聚集写
+    //这是一组数据
+    ByteBuffer byteBuffer1 = ByteBuffer.wrap("Java是最好的工具".getBytes(Charset.forName("UTF-8")));
+    ByteBuffer byteBuffer2 = ByteBuffer.wrap("像风一样".getBytes(Charset.forName("UTF-8")));
+    //记录数据长度
+    int length1 = byteBuffer1.limit();
+    int length2 = byteBuffer2.limit();
+    //用 ByteBuffer 数组存放ByteBuffer实例的引用。
+    ByteBuffer[] byteBuffers = new ByteBuffer[]{byteBuffer1, byteBuffer2};
+    //获取文件写通道
+    FileOutputStream fileOutputStream = new FileOutputStream(new File(path));
+    FileChannel channel = fileOutputStream.getChannel();
+    //开始写
+    channel.write(byteBuffers);
+    channel.close();
+    
+    //散射读
+    byteBuffer1 = ByteBuffer.allocate(length1);
+    byteBuffer2 = ByteBuffer.allocate(length2);
+    byteBuffers = new ByteBuffer[]{byteBuffer1,byteBuffer2};
+    //获取文件读通道
+    FileInputStream fileInputStream = new FileInputStream(new File(path));
+    channel = fileInputStream.getChannel();
+    //开始读
+    channel.read(byteBuffers);
+    //读取
+    System.out.println(new String(byteBuffers[0].array(),"utf-8"));
+    System.out.println(new String(byteBuffers[1].array(),"utf-8"));
+}
 ```
 
 执行完成后，我们打开test.txt文件，看到：Java是最好的工具像风一样
@@ -246,9 +246,9 @@ DirectByteBuffer继承自ByteBuffer，但和普通Buffer不同。普通的ByteBu
 使用很简单，只需要把 ByteBuffer.allocate(1024) 换成 ByteBuffer.allocateDirect(1024) 即可。该方法的源码为
 
 ```java
-    public static ByteBuffer allocateDirect(int capacity) {
-        return new DirectByteBuffer(capacity);
-    }
+public static ByteBuffer allocateDirect(int capacity) {
+    return new DirectByteBuffer(capacity);
+}
 ```
 
 有必要说明的是，使用参数-XX:MaxDirectMemorySize=10M 可以指定DirectByteBuffer的大小最多是 10M。
@@ -270,19 +270,19 @@ I/O和NIO的最大区别就是 **传统I/O是面向（缓冲）流，NIO是面�
 用传统I/O实现刚开始的文件复制例子，代码如下：
 
 ```java
-    @Test
-    public void test6() throws IOException {
-        //缓冲输出流
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(path_copy)));
-        //缓冲输入流
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(new File(path)));
-        byte[] bytes = new byte[1024];
-        while (bufferedInputStream.read(bytes) != -1) {
-            bufferedOutputStream.write(bytes);
-        }
-        bufferedInputStream.close();
-        bufferedOutputStream.close();
+@Test
+public void test6() throws IOException {
+    //缓冲输出流
+    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(path_copy)));
+    //缓冲输入流
+    BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(new File(path)));
+    byte[] bytes = new byte[1024];
+    while (bufferedInputStream.read(bytes) != -1) {
+        bufferedOutputStream.write(bytes);
     }
+    bufferedInputStream.close();
+    bufferedOutputStream.close();
+}
 ```
 
 需要注意的是，虽然使用ByteBuffer读写文件比Stream快很多，但不足以表明两者存在很如此之大的差距。这其中，由于ByteBuffer是将文件一次性读入内存再做后续处理，而Stream方式是则是边读文件边处理数据（虽然使用了缓冲组件 BufferedInputStream），这也是导致两者性能差异的原因之一。虽如此，仍不能掩盖使用NIO的优势。使用NIO替代传统I/O操作，对系统整体性能的优化，应该是有立竿见影的效果的。

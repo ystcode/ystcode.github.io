@@ -16,13 +16,13 @@ Vector 或者 CopyOnWriteArrayList 是两个线程安全的List实现，ArrayLis
 示例代码：
 
 ```java
-        List list = Collections.synchronizedList(new ArrayList());
-            ...
-        synchronized (list) {
-            Iterator i = list.iterator(); // 必须在同步块中
-            while (i.hasNext())
-                foo(i.next());
-        }
+List list = Collections.synchronizedList(new ArrayList());
+    ...
+synchronized (list) {
+    Iterator i = list.iterator(); // 必须在同步块中
+    while (i.hasNext())
+        foo(i.next());
+}
 ```
 
 CopyOnWriteArrayList 的内部实现与Vector又有所不同。顾名思义，Copy-On-Write 就是 CopyOnWriteArrayList 的实现机制。即当对象进行写操作时，复制该对象；若进行的读操作，则直接返回结果，操作过程中不需要进行同步。
@@ -42,32 +42,32 @@ CopyOnWriteArrayList 很好地利用了对象的不变性，在没有对对象�
 通过查看CopyOnWriteArrayList类的源码可知，在add操作上，是使用了Lock锁做了同步处理，内部拷贝了原数组，并在新数组上进行添加操作，最后将新数组替换掉旧数组。
 
 ```java
-    public boolean add(E e) {
-        final ReentrantLock lock = this.lock;
-        lock.lock();
-        try {
-            Object[] elements = getArray();
-            int len = elements.length;
-            Object[] newElements = Arrays.copyOf(elements, len + 1);
-            newElements[len] = e;
-            setArray(newElements);
-            return true;
-        } finally {
-            lock.unlock();
-        }
+public boolean add(E e) {
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        Object[] elements = getArray();
+        int len = elements.length;
+        Object[] newElements = Arrays.copyOf(elements, len + 1);
+        newElements[len] = e;
+        setArray(newElements);
+        return true;
+    } finally {
+        lock.unlock();
     }
+}
 ```
 
 CopyOnWriteArrayList的get(int index)方法是没有任何锁处理的，直接返回数组对象。
 
 ```java
-    public E get(int index) {
-        return get(getArray(), index);
-    }
+public E get(int index) {
+    return get(getArray(), index);
+}
 
-    final Object[] getArray() {
-        return array;
-    }
+final Object[] getArray() {
+    return array;
+}
 ```
 
 那么Copy-On-Write的优缺点有哪些呢？
@@ -96,15 +96,15 @@ CopyOnWriteArrayList的get(int index)方法是没有任何锁处理的，直接�
 Collections的示例代码1：
 
 ```java
-        Map m = Collections.synchronizedMap(new HashMap());
-            ...
-        Set s = m.keySet();  // 不需要同步块
-            ...
-        synchronized (m) {  // 同步在m上，而不是s上!!
-            Iterator i = s.iterator(); // 必须在同步块中
-            while (i.hasNext())
-                foo(i.next());
-        }
+Map m = Collections.synchronizedMap(new HashMap());
+    ...
+Set s = m.keySet();  // 不需要同步块
+    ...
+synchronized (m) {  // 同步在m上，而不是s上!!
+    Iterator i = s.iterator(); // 必须在同步块中
+    while (i.hasNext())
+        foo(i.next());
+}
 ```
 
 1.为什么不能在高并发下使用HashMap？

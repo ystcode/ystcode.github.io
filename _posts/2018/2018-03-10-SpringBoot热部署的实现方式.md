@@ -17,12 +17,12 @@ tags: SpringBoot
 一般情况下直接在pom.xml文件添加下面的依赖即可，但eclipse和IDEA有时也会造成影响。
 
 ```javascript
-        <!-- 热部署 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
+<!-- 热部署 -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
 ```
 
 如下配置，可有可无：

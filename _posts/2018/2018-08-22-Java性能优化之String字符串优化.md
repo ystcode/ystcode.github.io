@@ -54,12 +54,12 @@ public StringTokenizer(String str, String delim, boolean returnDelims)
 ```
 其中str是要分割的字符串，delim是分割符，returnDelims是否返回分隔符，默认false。
 ```java
-  String s = "a;b;c";
-  StringTokenizer stringTokenizer = new StringTokenizer(s, ";", false);
-  System.out.println(stringTokenizer.countTokens());
-  while (stringTokenizer.hasMoreTokens()) {
-      System.out.println(stringTokenizer.nextToken());
-  }
+String s = "a;b;c";
+StringTokenizer stringTokenizer = new StringTokenizer(s, ";", false);
+System.out.println(stringTokenizer.countTokens());
+while (stringTokenizer.hasMoreTokens()) {
+    System.out.println(stringTokenizer.nextToken());
+}
 ```
 
 #### 3、最优化的字符串分割方式
@@ -67,20 +67,20 @@ public StringTokenizer(String str, String delim, boolean returnDelims)
 indexOf()方法是一个执行速度非常快的方法，subString()是采用了时间换空间技术，因此速度相对快。
 
 ```java
-    public static List<String> mySplit(String str, String delim){
-        List<String> stringList = new ArrayList<>();
-        while(true) {
-            int k = str.indexOf(delim);
-            if (k < 0){
-                stringList.add(str);
-                break;
-            }
-            String s = str.substring(0, k);
-            stringList.add(s);
-            str = str.substring(k+1);
+public static List<String> mySplit(String str, String delim){
+    List<String> stringList = new ArrayList<>();
+    while(true) {
+        int k = str.indexOf(delim);
+        if (k < 0){
+            stringList.add(str);
+            break;
         }
-        return stringList;
+        String s = str.substring(0, k);
+        stringList.add(s);
+        str = str.substring(k+1);
     }
+    return stringList;
+}
 ```
 
 #### 4、三种分割方法的对比与选择
@@ -104,16 +104,16 @@ charAt(int index) 返回指定索引处的 char 值。功能和indexOf()相反�
 这两个Java内置函数效率远远低于charAt()方法。单元测试：
 
 ```java
-    @Test
-    public void test(){
-        String str = "hello";
-        if (str.charAt(0)=='h'&&str.charAt(1)=='e'){
-            System.out.println(true);
-        }
-        if (str.startsWith("he")){
-            System.out.println(true);
-        }
+@Test
+public void test(){
+    String str = "hello";
+    if (str.charAt(0)=='h'&&str.charAt(1)=='e'){
+        System.out.println(true);
     }
+    if (str.startsWith("he")){
+        System.out.println(true);
+    }
+}
 ```
 
 ## 1.3 StringBuffer和StringBuilder

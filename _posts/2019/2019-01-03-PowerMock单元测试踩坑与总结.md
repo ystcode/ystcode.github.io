@@ -131,18 +131,18 @@ public class DirectoryStructureTest {
 
 
 ```java
-       PowerMockito.when(demoService.findNameById(Mockito.argThat(new ArgumentMatcher<String>() {
-            @Override
-            public boolean matches(String s) {
-                if (s.equals("Jerry")) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }))).thenReturn("Marry");
-        System.out.println(demoService.findNameById("Jerry")); //返回Marry
-        System.out.println(demoService.findNameById("NotJerry")); //返回null
+PowerMockito.when(demoService.findNameById(Mockito.argThat(new ArgumentMatcher<String>() {
+     @Override
+     public boolean matches(String s) {
+         if (s.equals("Jerry")) {
+             return true;
+         } else {
+             return false;
+         }
+     }
+ }))).thenReturn("Marry");
+ System.out.println(demoService.findNameById("Jerry")); //返回Marry
+ System.out.println(demoService.findNameById("NotJerry")); //返回null
 ```
 
 
@@ -151,20 +151,20 @@ public class DirectoryStructureTest {
 一个作为参数的接口类，可以应对“根据不同参数返回不同值”的场景。更强大。
 
 ```java
-        PowerMockito.when(demoService.findNameById(Mockito.anyString())).then(new Answer<Object>() {
-            @Override
-            public Object answer(InvocationOnMock invocationOnMock) {
-                Object[] arguments = invocationOnMock.getArguments();
-                String arg = (String) arguments[0];
-                if (arg.equals("Jerry")){
-                    return "Marry";
-                }else {
-                    return "Not";
-                }
-            }
-        });
-        System.out.println(demoService.findNameById("Jerry")); //返回Marry
-        System.out.println(demoService.findNameById("NotJerry")); //返回Not
+PowerMockito.when(demoService.findNameById(Mockito.anyString())).then(new Answer<Object>() {
+    @Override
+    public Object answer(InvocationOnMock invocationOnMock) {
+        Object[] arguments = invocationOnMock.getArguments();
+        String arg = (String) arguments[0];
+        if (arg.equals("Jerry")){
+            return "Marry";
+        }else {
+            return "Not";
+        }
+    }
+});
+System.out.println(demoService.findNameById("Jerry")); //返回Marry
+System.out.println(demoService.findNameById("NotJerry")); //返回Not
 ```
 
 ### 任意数
@@ -192,61 +192,61 @@ PowerMockito.doReturn(application).when(Application).getById(ArgumentMatchers.an
 首先看我的依赖，对于mockito-core的2.8.55版本我一直无法进行Maven下载，无奈手动下载导包。
 
 ```xml
-    <properties>
-        <java.version>1.8</java.version>
-        <powermock.version>1.7.1</powermock.version>
-        <mock.version>2.8.55</mock.version>
-    </properties>
+<properties>
+    <java.version>1.8</java.version>
+    <powermock.version>1.7.1</powermock.version>
+    <mock.version>2.8.55</mock.version>
+</properties>
 
-    <dependencies>
-        <!-- mockito-core 手动安装 -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mock.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-junit4</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito2</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-testng</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-classloading-xstream</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-junit4-rule</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-support</artifactId>
-            <version>${powermock.version}</version>
-        </dependency>
+<dependencies>
+    <!-- mockito-core 手动安装 -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mock.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-module-junit4</artifactId>
+        <version>${powermock.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-api-mockito2</artifactId>
+        <version>${powermock.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-module-testng</artifactId>
+        <version>${powermock.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-classloading-xstream</artifactId>
+        <version>${powermock.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-module-junit4-rule</artifactId>
+        <version>${powermock.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-api-support</artifactId>
+        <version>${powermock.version}</version>
+    </dependency>
 
-        <!--web-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-    </dependencies>
+    <!--web-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+</dependencies>
 ```
 
 假如我的Controller层有这么一个方法

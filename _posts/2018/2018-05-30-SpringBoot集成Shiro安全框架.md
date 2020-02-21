@@ -14,22 +14,22 @@ Spring集成Shiro的GitHub：[https://github.com/yueshutong/shiro-imooc](https:/
 # 一：导包
 
 ```xml
-        <!-- Shiro安全框架 -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>1.4.0</version>
-        </dependency>
+<!-- Shiro安全框架 -->
+<dependency>
+    <groupId>org.apache.shiro</groupId>
+    <artifactId>shiro-core</artifactId>
+    <version>1.4.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.shiro</groupId>
+    <artifactId>shiro-web</artifactId>
+    <version>1.4.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.shiro</groupId>
+    <artifactId>shiro-spring</artifactId>
+    <version>1.4.0</version>
+</dependency>
 ```
 
 # 二：ShiroConfig配置
@@ -244,28 +244,28 @@ public class CustomRealm extends AuthorizingRealm {
 ## 1）登录验证：
 
 ```java
-    @RequestMapping(value = "/login/result", method = RequestMethod.POST)
-    public String userLogin(User user) {
-        String error = null;
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getMail(), user.getPassword());
-        try {
-            token.setRememberMe(user.isRememberMe());//记住我
-            subject.login(token);
-        } catch (UnknownAccountException e) {
-            error = "用户名/密码错误";
-        } catch (IncorrectCredentialsException e) {
-            error = "用户名/密码错误";
-        } catch (AuthenticationException e) {
-            //其他错误，比如锁定，如果想单独处理请单独catch处理
-            error = "其他错误：" + e.getMessage();
-        }
-        if(error != null) {//出错了，返回登录页面
-
-        } else {//登录成功
-
-        }
+@RequestMapping(value = "/login/result", method = RequestMethod.POST)
+public String userLogin(User user) {
+    String error = null;
+    Subject subject = SecurityUtils.getSubject();
+    UsernamePasswordToken token = new UsernamePasswordToken(user.getMail(), user.getPassword());
+    try {
+        token.setRememberMe(user.isRememberMe());//记住我
+        subject.login(token);
+    } catch (UnknownAccountException e) {
+        error = "用户名/密码错误";
+    } catch (IncorrectCredentialsException e) {
+        error = "用户名/密码错误";
+    } catch (AuthenticationException e) {
+        //其他错误，比如锁定，如果想单独处理请单独catch处理
+        error = "其他错误：" + e.getMessage();
     }
+    if(error != null) {//出错了，返回登录页面
+
+    } else {//登录成功
+
+    }
+}
 ```
 
 ## 2）权限验证：
@@ -275,11 +275,11 @@ public class CustomRealm extends AuthorizingRealm {
 *  使用诸如    @RequiresRoles(“user”) 注解在controller层的方法上，进行角色验证，或者使用@RequiresPermissions(“index:hello”)进行权限验证，不过使用注解Shiro就只抛出异常，无法使用shiro设置自动跳转到页面等。针对这个问题，可以用@ControllerAdvice统一异常处理。
 
 ```java
-    @RequiresRoles("user")
-    @RequestMapping(value = "/up")
-    public String up(){
+@RequiresRoles("user")
+@RequestMapping(value = "/up")
+public String up(){
 
-    }
+}
 ```
 
 ---

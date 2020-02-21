@@ -22,21 +22,21 @@ tags: Maven
 1.对于第一个问题可以在我们的用户配置settings.xml里配置下述代码，机器上的jdk是多少就写多少。
 
 ```xml
-   <profile>
-      <id>jdk-1.8</id>
+<profile>
+   <id>jdk-1.8</id>
 
-      <activation>
-      	<activeByDefault>true</activeByDefault>
-        <jdk>1.8</jdk>
-      </activation>
+   <activation>
+   	<activeByDefault>true</activeByDefault>
+     <jdk>1.8</jdk>
+   </activation>
 
-      <properties>  
-     	 <maven.compiler.source>1.8</maven.compiler.source> 
-     	 <maven.compiler.target>1.8</maven.compiler.target> 
-     	 <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>  
-  	  </properties> 
+   <properties>  
+  	 <maven.compiler.source>1.8</maven.compiler.source> 
+  	 <maven.compiler.target>1.8</maven.compiler.target> 
+  	 <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>  
+  </properties> 
 
-    </profile>
+ </profile>
 ```
 
 2.第二个问题博主没有想到太好的解决办法，网上有作者推荐了一种不太健全的方法，如下：

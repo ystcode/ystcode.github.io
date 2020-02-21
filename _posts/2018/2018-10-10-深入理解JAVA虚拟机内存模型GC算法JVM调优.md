@@ -40,13 +40,13 @@ Java虚拟机栈也是线程的私有空间，它和Java线程在同一时间创
 如果一个局部变量被保存在局部变量表中，那么GC根就能引用到这个局部变量所指向的内存空间，从而在GC时，无法回收这部分空间。这里有一个非常简单的示例来说明局部变量对GC的影响。
 
 ```java
-    public void test(){
-        {
-            byte[] b = new byte[1024 * 1024 * 60]; // 1024*60 KB = 60 MB
-        }
-        System.gc();
-        System.out.println("gc over");
+public void test(){
+    {
+        byte[] b = new byte[1024 * 1024 * 60]; // 1024*60 KB = 60 MB
     }
+    System.gc();
+    System.out.println("gc over");
+}
 ```
 
 在运行Java程序时设置参数`-XX:+PrintGC`打印GC日志，运行结果：
@@ -62,14 +62,14 @@ gc over
 假设在该变量失效后，在这个函数体内，又未能有定义足够多的局部变量来复用该变量所占的字，那么，在整个函数体中，这块内存区域是不会被回收的。在这种环境下，手工对要释放的变量赋值为null，是一种有效的做法。
 
 ```java
-    public void test(){
-        {
-            byte[] b = new byte[1024 * 1024 * 5]; // 5MB
-            b = null;
-        }
-        System.gc();
-        System.out.println("gc over");
+public void test(){
+    {
+        byte[] b = new byte[1024 * 1024 * 5]; // 5MB
+        b = null;
     }
+    System.gc();
+    System.out.println("gc over");
+}
 ```
 
 运行结果：
@@ -84,14 +84,14 @@ gc over
 在实际开发中，遇到上述情况的可能性并不大。因为在大多数情况下，如果后续仍然需要进行大量的操作，那么极有可能会申明新的局部变量，从而复用变量b的字，使b占的内存空间可以被GC回收。
 
 ```java
-    public void test(){
-        {
-            byte[] b = new byte[1024 * 1024 * 5];
-        }
-        int a = 0;
-        System.gc();
-        System.out.println("gc over");
+public void test(){
+    {
+        byte[] b = new byte[1024 * 1024 * 5];
     }
+    int a = 0;
+    System.gc();
+    System.out.println("gc over");
+}
 ```
 
 运行结果：
@@ -202,13 +202,13 @@ eden：对象的出生地，大部分对象刚刚建立时，通常会存放在�
 
 
 ```java
-    public void test2(){
-        byte[] byte1 = new byte[1024*1024/2];
-        byte[] byte2 = new byte[1024*1024*8];
-        byte2 = null;
-        byte2 = new byte[1024*1024*8];
-        System.gc();    //注释此行
-    }
+public void test2(){
+    byte[] byte1 = new byte[1024*1024/2];
+    byte[] byte2 = new byte[1024*1024*8];
+    byte2 = null;
+    byte2 = new byte[1024*1024*8];
+    System.gc();    //注释此行
+}
 ```
 运行结果：
 ```java
@@ -246,12 +246,12 @@ Heap
 使用JVM参数`-XX:+PrintGCDetails -XX:MetaspaceSize=4M -XX:MaxMetaspaceSize=5M`运行这段代码：
 
 ```java
-    @Test
-    public void test4() {
-        for (int i=0; i<Integer.MAX_VALUE;i++){
-            String s = String.valueOf(i).intern();  //加入常量池并返回
-        }
+@Test
+public void test4() {
+    for (int i=0; i<Integer.MAX_VALUE;i++){
+        String s = String.valueOf(i).intern();  //加入常量池并返回
     }
+}
 ```
 
 运行结果：
@@ -294,10 +294,10 @@ Full GC 在这种情况下不能回收类的元数据。
 比如在运行时设置参数 `-Xmx3M`：
 
 ```java
-    @Test
-    public void test5(){
-        System.out.println(Runtime.getRuntime().maxMemory()/1024/1024);
-    }
+@Test
+public void test5(){
+    System.out.println(Runtime.getRuntime().maxMemory()/1024/1024);
+}
 ```
 
 运行结果：
@@ -360,7 +360,7 @@ JDK1.8取消了PermGen，取而代之的是Metaspace（元空间），所以Perm
 当系统由于内存不够无法创建新的线程时，会抛出 OOM 异常如下：
 
 ```java
- java.lang.OutOfMemoryError: unable to create new native thread
+java.lang.OutOfMemoryError: unable to create new native thread
 ```
 
 根据以上内容可知，这并不是由于堆内存不够而导致的 OOM，而是因为操作系统内存减去堆内存后，剩余的系统内存不足而无法创建新的线程。在这种情况下，可以尝试减少堆内存，以换取更多的系统空间，来解决这个问题。

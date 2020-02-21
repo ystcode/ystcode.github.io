@@ -77,10 +77,10 @@ public class AsyncTask {
 3.使用异步任务
 
 ```java
-    @Autowired
-    private AsyncTask async;
+@Autowired
+private AsyncTask async;
 
-    async.dotask();
+async.dotask();
 ```
 
 >就是这么简洁不墨迹~~

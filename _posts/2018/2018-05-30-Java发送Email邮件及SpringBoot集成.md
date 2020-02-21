@@ -12,18 +12,18 @@ tags:
 ### 1.导包
 
 ```xml
-        <!--Java MAil 发送邮件API-->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <!-- 真正的实现库 -->
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.1</version>
-        </dependency>
+<!--Java MAil 发送邮件API-->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>javax.mail-api</artifactId>
+    <version>1.6.1</version>
+</dependency>
+<!-- 真正的实现库 -->
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.1</version>
+</dependency>
 ```
 
 ### 2.代码
@@ -31,37 +31,37 @@ tags:
 *  实例：通过一个已知的163邮箱发送给他人邮件
 
 ```java
-    public static void main(String[] args) throws MessagingException {
-        // 1.创建一个程序与邮件服务器会话对象 Session
-        Properties props = new Properties();
-        props.setProperty("mail.transport.protocol", "SMTP");
-        props.setProperty("mail.smtp.host", "smtp.163.com");
-        props.setProperty("mail.smtp.port", "25");
-        // 指定验证为true
-        props.setProperty("mail.smtp.auth", "true");
-        props.setProperty("mail.smtp.timeout", "1000");
-        // 验证账号及密码，密码对应邮箱授权码（163密码可行，qq必须授权码）
-        Authenticator auth = new Authenticator() {
-            public PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("xxxx@163.com", "xxxxx");
-            }
-        };
-        Session session = Session.getInstance(props, auth);
+public static void main(String[] args) throws MessagingException {
+    // 1.创建一个程序与邮件服务器会话对象 Session
+    Properties props = new Properties();
+    props.setProperty("mail.transport.protocol", "SMTP");
+    props.setProperty("mail.smtp.host", "smtp.163.com");
+    props.setProperty("mail.smtp.port", "25");
+    // 指定验证为true
+    props.setProperty("mail.smtp.auth", "true");
+    props.setProperty("mail.smtp.timeout", "1000");
+    // 验证账号及密码，密码对应邮箱授权码（163密码可行，qq必须授权码）
+    Authenticator auth = new Authenticator() {
+        public PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication("xxxx@163.com", "xxxxx");
+        }
+    };
+    Session session = Session.getInstance(props, auth);
 
-        // 2.创建一个Message，它相当于是邮件内容
-        Message message = new MimeMessage(session);
-        // 设置发送者
-        message.setFrom(new InternetAddress("xxx同上xxx@163.com"));
-        // 设置发送方式与接收者
-        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress("xx10086xx@qq.com"));
-        // 设置主题
-        message.setSubject("邮件发送测试");
-        // 设置内容
-        message.setContent("Hello!", "text/html;charset=utf-8");
+    // 2.创建一个Message，它相当于是邮件内容
+    Message message = new MimeMessage(session);
+    // 设置发送者
+    message.setFrom(new InternetAddress("xxx同上xxx@163.com"));
+    // 设置发送方式与接收者
+    message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress("xx10086xx@qq.com"));
+    // 设置主题
+    message.setSubject("邮件发送测试");
+    // 设置内容
+    message.setContent("Hello!", "text/html;charset=utf-8");
 
-        // 3.创建 Transport用于将邮件发送
-        Transport.send(message);
-    }
+    // 3.创建 Transport用于将邮件发送
+    Transport.send(message);
+}
 ```
 
 ---
@@ -200,13 +200,13 @@ public class MailUtil {
 ##### 4.开始发送一封邮件
 
 ```java
-    public static void main(String[] args){
-        try {
-            MailUtil.sendMail("xxxx@qq.com", "标题", "内容");
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+public static void main(String[] args){
+    try {
+        MailUtil.sendMail("xxxx@qq.com", "标题", "内容");
+    } catch (MessagingException e) {
+        e.printStackTrace();
+    } catch (UnsupportedEncodingException e) {
+        e.printStackTrace();
     }
+}
 ```

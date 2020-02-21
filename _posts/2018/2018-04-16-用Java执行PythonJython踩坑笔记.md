@@ -69,14 +69,14 @@ System.out.println(o.toString());
 fibo.py
 
 ```py
- # Fibonacci numbers module  
-def fib(n): # return Fibonacci series up to n  
-    result = []  
-    a, b = 0, 1  
-    while b < n:  
-        result.append(b)  
-        a, b = b, a+b  &middot;
-    return result 
+# Fibonacci numbers module  
+ef fib(n): # return Fibonacci series up to n  
+   result = []  
+   a, b = 0, 1  
+   while b < n:  
+       result.append(b)  
+       a, b = b, a+b  &middot;
+   return result 
 ```
 
 ---
@@ -100,9 +100,9 @@ Jython在执行普通py脚本时速度很慢，而且在含有第三方库（req
 关于路径问题，我们有两种解决方法，**一是手动添加第三方库路径**，调用
 
 ```java
-        PySystemState sys = Py.getSystemState(); 
-        System.out.println(sys.path.toString());
-        sys.path.add("F:\\Python27\\Lib\\site-packages\\jieba"); 
+PySystemState sys = Py.getSystemState(); 
+System.out.println(sys.path.toString());
+sys.path.add("F:\\Python27\\Lib\\site-packages\\jieba"); 
 ```
 
 **二是把第三方库文件夹放到执行的.py脚本同级目录**。 

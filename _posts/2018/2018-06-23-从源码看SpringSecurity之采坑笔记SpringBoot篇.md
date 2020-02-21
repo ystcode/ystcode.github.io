@@ -24,35 +24,35 @@ tags:
 *  导入依赖
 
 ```xml
-        <!-- Web工程 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- 数据库相关 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- security 核心 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <!-- thymeleaf 模板-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <!-- 可以在HTML使用sec标签操作Security -->
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-        </dependency><br />
+<!-- Web工程 -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<!-- 数据库相关 -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+<!-- security 核心 -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+<!-- thymeleaf 模板-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+<!-- 可以在HTML使用sec标签操作Security -->
+<dependency>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+</dependency><br />
 ```
 
 ## 2.开启Security并配置
@@ -137,19 +137,19 @@ public class MySerurityConfig extends WebSecurityConfigurerAdapter {
 *  自定义认证也有两种方法，第一是注入DaoAuthenticationProvider（org.springframework.security.authentication.dao）
 
 ```java
-    @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider(){
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setUserDetailsService(userDetailsService);//获取用户信息
-        daoAuthenticationProvider.setPasswordEncoder(new Md5PasswordEncoder());//MD5加密
-        daoAuthenticationProvider.setSaltSource(new SaltSource() {  //加盐
-            @Override
-            public Object getSalt(UserDetails user) {
-                return user.getUsername();
-            }
-        });
-        return daoAuthenticationProvider;
-    }
+@Bean
+public DaoAuthenticationProvider daoAuthenticationProvider(){
+    DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+    daoAuthenticationProvider.setUserDetailsService(userDetailsService);//获取用户信息
+    daoAuthenticationProvider.setPasswordEncoder(new Md5PasswordEncoder());//MD5加密
+    daoAuthenticationProvider.setSaltSource(new SaltSource() {  //加盐
+        @Override
+        public Object getSalt(UserDetails user) {
+            return user.getUsername();
+        }
+    });
+    return daoAuthenticationProvider;
+}
 ```
 
 *  然后改一下设置
@@ -226,17 +226,17 @@ public class MyAuthenticationProvider implements AuthenticationProvider{
 *  附一些常用异常
 
 ```java
- <span class="hljs-comment">/* 
-    AuthenticationException常用的的子类：(会被底层换掉，不推荐使用)
-    UsernameNotFoundException 用户找不到
-    BadCredentialsException 坏的凭据
+<span class="hljs-comment">/* 
+   AuthenticationException常用的的子类：(会被底层换掉，不推荐使用)
+   UsernameNotFoundException 用户找不到
+   BadCredentialsException 坏的凭据
 
-    AccountStatusException用户状态异常它包含如下子类：（推荐使用）
-    AccountExpiredException 账户过期
-    LockedException 账户锁定
-    DisabledException 账户不可用
-    CredentialsExpiredException 证书过期
-*/</span>
+   AccountStatusException用户状态异常它包含如下子类：（推荐使用）
+   AccountExpiredException 账户过期
+   LockedException 账户锁定
+   DisabledException 账户不可用
+   CredentialsExpiredException 证书过期
+/</span>
 ```
 
 ---
@@ -310,11 +310,11 @@ public class MyUserDetailsService implements UserDetailsService {
 *  我们在保存用户信息到内存中时是这样的
 
 ```java
-  auth.inMemoryAuthentication()
-      .withUser("张三")
-      .password("123456")
-      .roles("ROLE_VIP1")
-      .authorities("VIP1")
+auth.inMemoryAuthentication()
+    .withUser("张三")
+    .password("123456")
+    .roles("ROLE_VIP1")
+    .authorities("VIP1")
 ```
 
 *  角色和权限是分开设置的，但我们在自定义时只有权限设置，
@@ -470,40 +470,40 @@ public class MyController {
 *  下面为我自己写的方法，看看就好！
 
 ```java
-    /**
-     * 不使用sec标签（不推荐）
-     * 在Controller获取用户信息
-     */
-    @RequestMapping("/index")
-    public String index1(ModelMap model){
-        userAndRoles(model);
-        return "index";
-    }
+/**
+ * 不使用sec标签（不推荐）
+ * 在Controller获取用户信息
+ */
+@RequestMapping("/index")
+public String index1(ModelMap model){
+    userAndRoles(model);
+    return "index";
+}
 
-    /**
-     * Security辅助方法：获取用户信息
-     */
-    private void userAndRoles(ModelMap model) {
-        //从Security获取当前用户会话
-        Object principal = SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
-        User user = null;
-        //判断用户已经登录
-        if (principal instanceof User){
-            user = (User) principal;
-            //遍历迭代器获取用户权限
-            Iterator<GrantedAuthority> iterator = user.getAuthorities().iterator();
-            List<String> roles = new ArrayList<>();
-            while (iterator.hasNext()){
-                roles.add(iterator.next().getAuthority());
-            }
-            //保存角色信息
-            model.addAttribute("roles",roles.toString());
+/**
+ * Security辅助方法：获取用户信息
+ */
+private void userAndRoles(ModelMap model) {
+    //从Security获取当前用户会话
+    Object principal = SecurityContextHolder.getContext()
+            .getAuthentication()
+            .getPrincipal();
+    User user = null;
+    //判断用户已经登录
+    if (principal instanceof User){
+        user = (User) principal;
+        //遍历迭代器获取用户权限
+        Iterator<GrantedAuthority> iterator = user.getAuthorities().iterator();
+        List<String> roles = new ArrayList<>();
+        while (iterator.hasNext()){
+            roles.add(iterator.next().getAuthority());
         }
-        //保存用户信息，未登录为空
-        model.addAttribute("user",user);
+        //保存角色信息
+        model.addAttribute("roles",roles.toString());
     }
+    //保存用户信息，未登录为空
+    model.addAttribute("user",user);
+}
 ```
 
 ---

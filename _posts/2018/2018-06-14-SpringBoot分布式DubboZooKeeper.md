@@ -75,18 +75,18 @@ $ Starting zookeeper ... STARTED
 ## 2.编程 - 需要的依赖
 
 ```java
-    <!--Dubbo与SpringBoot的集成 -->
-    <dependency>
-        <groupId>com.alibaba.boot</groupId>
-        <artifactId>dubbo-spring-boot-starter</artifactId>
-        <version>0.1.0</version>
-    </dependency>
-    <!-- zookeeper客户端 -->
-    <dependency>
-        <groupId>com.github.sgroschupf</groupId>
-        <artifactId>zkclient</artifactId>
-        <version>0.1</version>
-    </dependency>
+<!--Dubbo与SpringBoot的集成 -->
+<dependency>
+    <groupId>com.alibaba.boot</groupId>
+    <artifactId>dubbo-spring-boot-starter</artifactId>
+    <version>0.1.0</version>
+</dependency>
+<!-- zookeeper客户端 -->
+<dependency>
+    <groupId>com.github.sgroschupf</groupId>
+    <artifactId>zkclient</artifactId>
+    <version>0.1</version>
+</dependency>
 ```
 
 ---
@@ -148,10 +148,10 @@ dubbo:
 **总结**
 
 ```java
- 将服务提供者注册到注册中心-->
- 1.引入Dubbo和Zookeeper的相关依赖
- 2.配置Dubbo的扫描包和注册中心地址
- 3.使用@Service发布服务
+将服务提供者注册到注册中心-->
+1.引入Dubbo和Zookeeper的相关依赖
+2.配置Dubbo的扫描包和注册中心地址
+3.使用@Service发布服务
 ```
 
 ---

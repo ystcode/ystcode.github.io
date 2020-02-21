@@ -59,7 +59,7 @@ visualvm_jdkhome="D:\Java\jdk1.8.0"
 3）添加远程主机。远程主机可以通过jstatd工具建立，如使用以下命令开启
 
 ```java
- jstatd -J-Djava.security.policy=c:\jstatd.all.policy
+jstatd -J-Djava.security.policy=c:\jstatd.all.policy
 ```
 
 文本文件jstatd.all.policy的内容为：
@@ -227,14 +227,14 @@ public class TimeLogger {
 监控参数
 
 ```java
- public static void endMethod(@ProbeClassName String pcn, @ProbeMethodName String pmn, AnyType[]  args){
-	//pcn 类名称
+public static void endMethod(@ProbeClassName String pcn, @ProbeMethodName String pmn, AnyType[]  args){
+//pcn 类名称
 
-	//pmn 方法名称
+//pmn 方法名称
 
-	//args 参数
+//args 参数
 
-  }
+ }
 ```
 
 监控文件

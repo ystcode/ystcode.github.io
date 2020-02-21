@@ -70,13 +70,13 @@ GenerationType.TABLE //使用指定表来决定主键取值，结合TableGenerat
 在进行多对多(一)保存操作时，数据表定义主键为自增，但在执行插入前需设置ID为-1。有多个级联关系，每个对象都要进行设置。即可避免该异常。如下：
 
 ```java
-   public void test() {
-        User user=new User();
-        user.setId(-1);  //加上这一句即可！！！
-        user.setUsername("李彤");
-        user.setPassword("1144");
-        user.setRoles(roles);
-    }
+public void test() {
+     User user=new User();
+     user.setId(-1);  //加上这一句即可！！！
+     user.setUsername("李彤");
+     user.setPassword("1144");
+     user.setRoles(roles);
+ }
 ```
 
 ## 级联查询异常
