@@ -478,7 +478,7 @@ put -r ~/test /tmp/
 
 输入 help 或 ? 命令可以查看sftp支持的命令操作：
 
-```
+```java
 sftp> help
 Available commands:
 bye                                退出sftp

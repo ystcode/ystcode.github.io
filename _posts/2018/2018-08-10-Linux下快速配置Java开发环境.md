@@ -38,25 +38,25 @@ jdk8官网下载地址
 
 **1.进入jdk存放目录**
 
-```
+```java
 cd /usr/local/java
 ```
 
 **2.查看**
 
-```
+```java
 ls
 ```
 
 **3.解压**
 
-```
+```java
 tar -zxvf jdk8.tar.gz
 ```
 
 **4.编辑**
 
-```
+```java
 vi /etc/profile
 ```
 
@@ -64,7 +64,7 @@ vi /etc/profile
 
 **5.在下面添加下面这段**
 
-```
+```java
 export JAVA_HOME=/usr/local/java/jdk1.8
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=${JAVA_HOME}/bin:$PATH
@@ -74,19 +74,19 @@ export PATH=${JAVA_HOME}/bin:$PATH
 
 **6.设置立即生效**
 
-```
+```java
 source /etc/profile
 ```
 
 **7.验证**
 
-```
+```java
 java -version
 ```
 
 出现如下所示信息即为安装成功
 
-```
+```java
 java version "1.8.0_144"
 Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
 Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)

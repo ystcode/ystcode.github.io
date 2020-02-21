@@ -11,7 +11,7 @@ tags: Java
 
 另外还有第三方包 Magic 也提供了API。Magic依赖：
 
-```
+```java
         <dependency>
             <groupId>net.sf.jmimemagic</groupId>
             <artifactId>jmimemagic</artifactId>
@@ -21,7 +21,7 @@ tags: Java
 
 下面我们来通过单元测试看下这四种方式的效果。主要代码：
 
-```
+```java
     @Test
     public void test() {
         String pathname = "D:\\...";
@@ -56,7 +56,7 @@ tags: Java
 
 首先，新建文本文件更名为new.json，测试。
 
-```
+```java
 log4j:WARN No appenders could be found for logger (net.sf.jmimemagic.Magic).
 log4j:WARN Please initialize the log4j system properly.
 net.sf.jmimemagic.MagicMatchNotFoundException
@@ -70,7 +70,7 @@ net.sf.jmimemagic.MagicMatchNotFoundException
 
 接下来随便写入字符串到new.json文件。然后运行。
 
-```
+```java
 第一种Magic: text/plain
 第二种javax.activation: application/octet-stream
 第三种java.nio: null
@@ -81,7 +81,7 @@ Magic提示的是文本类型，javax.activation提示不知道的二进制流�
 
 接下来把new.json文件改名为new.xml文件。再次运行。
 
-```
+```java
 第一种Magic: text/plain
 第二种javax.activation: application/octet-stream
 第三种java.nio: text/xml
@@ -92,7 +92,7 @@ javax.activation又提示不知道的二进制流。其它几个提示的都差�
 
 再把文件更名为new.html，运行。
 
-```
+```java
 第一种Magic: text/plain
 第二种javax.activation: text/html
 第三种java.nio: text/html
@@ -103,7 +103,7 @@ javax.activation又提示不知道的二进制流。其它几个提示的都差�
 
 再次把文件改为new.png，运行。
 
-```
+```java
 第一种Magic: text/plain
 第二种javax.activation: application/octet-stream
 第三种java.nio: image/png
@@ -112,7 +112,7 @@ javax.activation又提示不知道的二进制流。其它几个提示的都差�
 
 我们再把pathname改为一张真实图片的地址，运行。
 
-```
+```java
 第一种Magic: image/png
 第二种javax.activation: application/octet-stream
 第三种java.nio: image/png
@@ -127,7 +127,7 @@ nio 和 net的方式区别不大。Magic的异常需要注意。javax.activation
 
 建议使用nio 与javax.activation 结合的方法。代码如下：
 
-```
+```java
     public String getContentType() {
         //利用nio提供的类判断文件ContentType
         Path path = Paths.get(getUri());

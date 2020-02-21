@@ -45,7 +45,7 @@ SpringData让数据访问变得更加方便。
 
 通过一行代码就可以快速使用：
 
-```
+```java
 Sort sort = new Sort(Sort.Direction.DESC, "id");
 ```
 
@@ -55,25 +55,25 @@ Sort sort = new Sort(Sort.Direction.DESC, "id");
 
 你也可以创建一个多属性的Sort实例。
 
-```
+```java
 Sort(Sort.Direction direction, List<String> properties)
 ```
 
 你也可以只传入属性而不声明方向：
 
-```
+```java
 Sort(String... properties)
 ```
 
 不过官方已经弃用该方法，推荐使用
 
-```
+```java
 public static Sort by(String... properties)
 ```
 
 当你不声明方向时，默认方向为升序。
 
-```
+```java
 public static final Direction DEFAULT_DIRECTION = Direction.ASC;
 ```
 
@@ -105,13 +105,13 @@ Sort的一些方法
 
 简单来讲，你可以定义一个Order，在需要时传入order构建Sord实例。
 
-```
+```java
 Order(Sort.Direction direction, String property)
 ```
 
 更独特的使用是加入自己的空处理提示的枚举：
 
-```
+```java
 Order(Sort.Direction direction, String property, Sort.NullHandling nullHandlingHint)
 ```
 
@@ -119,7 +119,7 @@ Order(Sort.Direction direction, String property, Sort.NullHandling nullHandlingH
 
 在需要Sort时，可通过Order创建：
 
-```
+```java
 Sort(Sort.Order... orders)
 ```
 
@@ -169,7 +169,7 @@ QPageRequest：基本的Java Bean实现，可以支持QueryDSL。
 
 分页功能也只需要一行代码：
 
-```
+```java
 Pageable pageable = new PageRequest(int page, int size, Sort sort);
 ```
 
@@ -181,13 +181,13 @@ Pageable pageable = new PageRequest(int page, int size, Sort sort);
 
 你也可以创建没有排序的分页
 
-```
+```java
 PageRequest(int page, int size)
 ```
 
 更方便的是可以一行代码创建有排序方向和属性的分页
 
-```
+```java
 PageRequest(int page, int size, Sort.Direction direction, String... properties)
 ```
 
@@ -213,7 +213,7 @@ PageRequest(int page, int size, Sort.Direction direction, String... properties)
 
 **注意：**在使用`next()`方法时，不要把`pageable.next()`直接作为参数传入方法，如`repository.findAll(page.next())`这样的写法会导致死循环。查看next()方法的源码发现这个方法只是帮我们new了一个新的`Pageable`对象，原来的`pageable`还是没啥变化。一直next()下去也只是在原地踏步。
 
-```
+```java
 	public Pageable next() {
 		return new PageRequest(getPageNumber() + 1, getPageSize(), getSort());
 	}
@@ -221,7 +221,7 @@ PageRequest(int page, int size, Sort.Direction direction, String... properties)
 
 正确的写法：
 
-```
+```java
 repository.findAll(pageable = pageable.next());
 ```
 
@@ -229,7 +229,7 @@ repository.findAll(pageable = pageable.next());
 
 Spring Data Jpa除了会通过命名规范帮助我们扩展Sql语句外，还会帮助我们处理类型为`Pageable`的参数，将`pageable`参数转换成为sql语句中的条件，同时，还会帮助我们处理类型为`Page`的返回值，当发现返回值类型为`Page`，Spring Data Jpa将会把数据的整体信息、当前数据的信息，分页的信息都放入到返回值中。这样，我们就能够方便的进行个性化的分页查询。 
 
-```
+```java
 public interface UserRepository extends JpaRepository<User,Long> {
 
     @Override
@@ -243,7 +243,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
 Spring Data JPA目前不支持原生查询的动态排序，因为它必须操作声明的实际查询，这对于原生SQL是无法可靠地做到的。但是，您可以通过自己指定count查询来使用原生查询进行分页，如下面的示例所示: 
 
-```
+```java
 public interface UserRepository extends JpaRepository<User, Long> {
 
   @Query(value = "SELECT * FROM USERS WHERE LASTNAME = ?1",
@@ -259,7 +259,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 分页查询：
 
-```
+```java
 Page<Book> sampleEntities = userRepository.findAll(pageable);
 ```
 
@@ -269,86 +269,86 @@ Page<Book> sampleEntities = userRepository.findAll(pageable);
 
 总页数
 
-```
+```java
 int getTotalPages()
 ```
 元素的总数
 
-```
+```java
 long getTotalElements()
 ```
 
 返回当前页的索引（是第几页） 
 
-```
+```java
 int	getNumber()
 ```
 
 返回作为`List`的页面内容
 
-```
+```java
 List<T>	getContent()
 ```
 
 返回当前在这个页上的元素的数量
 
-```
+```java
 int	getNumberOfElements()
 ```
 
 返回用于请求当前页的`Pageable` 
 
-```
+```java
 default Pageable	getPageable()
 ```
 
 返回页的大小。 
 
-```
+```java
 int	getSize()
 ```
 
 返回页的排序参数。 
 
-```
+```java
 Sort getSort()
 ```
 
 页面是否有内容。
 
-```
+```java
 boolean	hasContent()
 ```
 
 是否有下一页。 
 
-```
+```java
 boolean	hasNext()
 ```
 
 是否有上一页
 
-```
+```java
 boolean	hasPrevious()
 ```
 
 当前页是否是第一个 
 
-```
+```java
 boolean	isFirst()
 ```
 
 当前页是否是最后一个 
 
-```
+```java
 boolean	isLast()
 ```
 下一页的Pageable 
-```
+```java
 Pageable nextPageable()
 ```
 上一页的Pageable 
-```
+```java
 Pageable previousPageable()
 ```
 

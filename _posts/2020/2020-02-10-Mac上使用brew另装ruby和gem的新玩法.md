@@ -69,7 +69,7 @@ zsh: command not found: jekyll
 
 执行 `gem env`命令可以找到有效的帮助：
 
-```
+```java
 % /usr/local/Cellar/ruby/2.6.5/bin/gem env        
 RubyGems Environment:
   - RUBYGEMS VERSION: 3.0.6
@@ -130,7 +130,7 @@ jekyll 4.0.0
 
 系统的环境变量加载顺序为：
 
-```
+```java
 /etc/profile
 /etc/paths 
 ~/.bash_profile 
@@ -141,7 +141,7 @@ jekyll 4.0.0
 
 依次通过 cat 命令查看，找到 `/etc/paths`中的 `/usr/bin`路径中存放着系统的 ruby 命令执行程序，我们将 brew 安装的 ruby 的 bin 目录插入到`/etc/paths`文件的第一行：
 
-```
+```java
 % cat /etc/paths
 /usr/local/opt/ruby/bin
 /usr/local/bin
@@ -153,13 +153,13 @@ jekyll 4.0.0
 
 然后使用 source 命令使之生效：
 
-```
+```java
 % source /etc/profile
 ```
 
 检验 ruby 是否切换成功：
 
-```
+```java
 % ruby -v            
 ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin19]
 ```
@@ -168,7 +168,7 @@ ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin19]
 
 事情到这里并没有结束，还需要将 gem 安装的软件的执行目录加载到环境变量中，通过执行 `gem env`可以找到 EXECUTABLE DIRECTORY 目录的位置，和上面步骤相同，添加到 `/etc/paths`中：
 
-```
+```java
 % cat /etc/paths
 /usr/local/opt/ruby/bin
 /usr/local/lib/ruby/gems/2.6.0/bin

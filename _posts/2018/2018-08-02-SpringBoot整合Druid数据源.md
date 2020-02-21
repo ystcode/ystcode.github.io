@@ -28,7 +28,7 @@ Druid是一个开源项目，源码托管在github上，源代码仓库地址是
 
 ### 1.导入依赖
 
-```
+```java
 <dependency>
     <groupId>com.alibaba</groupId>
     <artifactId>druid</artifactId>
@@ -43,7 +43,7 @@ Druid是一个开源项目，源码托管在github上，源代码仓库地址是
 
 ### 2.配置数据源与连接池
 
-```
+```java
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -72,7 +72,7 @@ spring:
 
 ### 3.注入DataSource
 
-```
+```java
 @Configuration
 public class DruidConfig {
     @ConfigurationProperties(prefix = "spring.datasource")

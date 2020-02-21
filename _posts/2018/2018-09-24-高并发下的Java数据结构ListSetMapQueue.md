@@ -15,7 +15,7 @@ Vector 或者 CopyOnWriteArrayList 是两个线程安全的List实现，ArrayLis
 
 示例代码：
 
-```
+```java
         List list = Collections.synchronizedList(new ArrayList());
             ...
         synchronized (list) {
@@ -95,7 +95,7 @@ CopyOnWriteArrayList的get(int index)方法是没有任何锁处理的，直接�
 
 Collections的示例代码1：
 
-```
+```java
         Map m = Collections.synchronizedMap(new HashMap());
             ...
         Set s = m.keySet();  // 不需要同步块

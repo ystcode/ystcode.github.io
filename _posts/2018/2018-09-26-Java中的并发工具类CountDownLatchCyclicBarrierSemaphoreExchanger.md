@@ -15,7 +15,7 @@ CountDownLatch允许一个或多个线程等待其他线程完成操作。
 
 其实最简单的做噶是使用join()方法，join用于让当前执行线程等待join线程执行结束。其实现原理是不停检查join线程是否存活，如果join线程存活则让当前线程永远等待。其中，wait(0) 表示永远等待下去，代码片段如下：
 
-```
+```java
             while (isAlive()) {
                 wait(0);
             }
@@ -27,7 +27,7 @@ CountDownLatch允许一个或多个线程等待其他线程完成操作。
 
 示例代码：
 
-```
+```java
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch c = new CountDownLatch(2);
         new Thread(new Runnable() {
@@ -46,7 +46,7 @@ CountDownLatch允许一个或多个线程等待其他线程完成操作。
 
 运行结果：
 
-```
+```java
 1
 2
 3
@@ -70,7 +70,7 @@ CyclicBarrier默认的构造方法是CyclicBarrier(int parties)，其参数表�
 
 示例代码：
 
-```
+```java
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
         CyclicBarrier c = new CyclicBarrier(2);
         new Thread(new Runnable() {
@@ -93,14 +93,14 @@ CyclicBarrier默认的构造方法是CyclicBarrier(int parties)，其参数表�
 
 运行结果：
 
-```
+```java
 1
 2
 ```
 
 或者
 
-```
+```java
 2
 1
 ```
@@ -113,7 +113,7 @@ CyclicBarrier还提供一个更高级的构造函数CyclicBarrier(int parties, R
 
 示例代码：
 
-```
+```java
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
         CyclicBarrier c = new CyclicBarrier(2, new Runnable() {
             @Override
@@ -141,7 +141,7 @@ CyclicBarrier还提供一个更高级的构造函数CyclicBarrier(int parties, R
 
 运行结果：
 
-```
+```java
 3
 1
 2
@@ -159,7 +159,7 @@ CyclicBarrier还提供其他有用的方法，比如getNumberWaiting方法可以
 
 示例代码：
 
-```
+```java
     public static void main(String[] args){
         CyclicBarrier c = new CyclicBarrier(2);
         Thread t = new Thread(new Runnable() {
@@ -190,7 +190,7 @@ CyclicBarrier还提供其他有用的方法，比如getNumberWaiting方法可以
 
 运行结果：
 
-```
+```java
 true
 ```
 
@@ -208,7 +208,7 @@ Semaphore也是一个线程同步的辅助类，可以维护当前访问自身�
 
 Semaphore可以用于做流量控制，特别公用资源有限的应用场景，比如数据库连接。假如有一个需求，要读取几万个文件的数据，因为都是IO密集型任务，我们可以启动几十个线程并发的读取，但是如果读到内存后，还需要存储到数据库中，而数据库的连接数只有10个，这时我们必须控制只有十个线程同时获取数据库连接保存数据，否则会报错无法获取数据库连接。这个时候，我们就可以使用Semaphore来做流控，代码如下：
 
-```
+```java
 public static void main(String[] args) {
     final int THREAD_NUM = 30;
     ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_NUM);
@@ -252,7 +252,7 @@ Exchanger（交换者）是一个用于线程间协作的工具类。Exchanger�
 **1、**Exchanger可以用于遗传算法，遗传算法里需要选出两个人作为交配对象，这时候会交换两人的数据，并使用交叉规则得出2个交配结果。
 **2、**Exchanger也可以用于校对工作。比如我们需要将纸制银流通过人工的方式录入成电子银行流水，为了避免错误，采用AB岗两人进行录入，录入到Excel之后，系统需要加载这两个Excel，并对这两个Excel数据进行校对，看看是否录入的一致。代码如下：
 
-```
+```java
     public static void main(String[] args) {
         Exchanger<String> exchanger = new Exchanger<>();
         new Thread(new Runnable() {
@@ -283,7 +283,7 @@ Exchanger（交换者）是一个用于线程间协作的工具类。Exchanger�
 
 运行结果：
 
-```
+```java
 在B中获取到录入的A是：银行流水A
 ```
 

@@ -37,7 +37,7 @@ pip install 模块名
 
 ###### 3.卸载模块
 
-```
+```java
 pip uninstall 模块名
 ```
 
@@ -60,7 +60,7 @@ pip uninstall 模块名
 *  下载第一个xxxxx-win32.whl，解压到本地。
 *  执行
 
-```
+```java
 pip install D:<span class="hljs-command">\本</span>地路径<span class="hljs-command">\xxx</span>.whl
 ```
 

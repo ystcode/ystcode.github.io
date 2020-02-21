@@ -29,7 +29,7 @@ SSL协议提供的功能主要有：
 
 
 
-```
+```java
 mysql> show global variables like '%ssl%';
 +---------------+----------+| Variable_name | Value    |+---------------+----------+| have_openssl  | DISABLED || have_ssl      | DISABLED || ssl_ca        |          || ssl_capath    |          || ssl_cert      |          || ssl_cipher    |          || ssl_crl       |          || ssl_crlpath   |          || ssl_key       |          |+---------------+----------+9 rows in set
 ```
@@ -38,7 +38,7 @@ mysql> show global variables like '%ssl%';
 
 
 
-```
+```java
 jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
 ```
 

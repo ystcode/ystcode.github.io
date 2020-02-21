@@ -14,7 +14,7 @@ tags: Tomcat
 
 找到conf目录下的tomcat-users.xml文件，打开。
 
-```
+```java
 <role rolename="admin-gui"/>
 <role rolename="manager-gui"/>
 <role rolename="manager-jmx"/>

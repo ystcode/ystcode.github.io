@@ -199,7 +199,7 @@ MAT的OQL语法与Visual VM支持的OQL有着很大不同。MAT支持一种类�
 
 在MAT中，Select子句的格式与SQL基本一致，用于指定要显示的列。Select子句中可以使用“*”，查看结果对象的引用实例（相当于outgoing references）。
 
-```
+```java
 select * from java.util.ArrayList A
 ```
 
@@ -210,7 +210,7 @@ select * from java.util.ArrayList A
 
 OQL还可以指定对象的属性进行输出，下例输出所有Vector对象的内部数组，输出结果如图7.31所示。使用“OBJECTS”关键字，可以将返回结果集中的项以对象的形式显示。
 
-```
+```java
 SELECT OBJECTS v.elementData FROM java.util.Vector v 
 ```
 
@@ -219,19 +219,19 @@ SELECT OBJECTS v.elementData FROM java.util.Vector v
 
 下例显示String对象的char数组（用于JDK 1.7的堆）：
 
-```
+```java
 SELECT OBJECTS s.value FROM java.lang.String s 
 ```
 
 在Select子句中，使用“AS RETAINED SET”关键字可以得到所得对象的保留集。下例得到geym.zbase.ch7.heap.Student对象的保留集。
 
-```
+```java
 SELECT AS RETAINED SET * FROM geym.zbase.ch7.heap.Student 
 ```
 
 “DISTINCT”关键字用于在结果集中去除重复对象。下例的输出结果中只有一条“class java.lang.String”记录。如果没有“DISTINCT”，那么查询将为每个String实例输出其对应的Class信息。
 
-```
+```java
 SELECT DISTINCT OBJECTS classof(s) FROM java.lang.String s 
 ```
 
@@ -241,13 +241,13 @@ From子句用于指定查询范围，它可以指定类名、正则表达式或�
 
 下例使用From子句，指定类名进行搜索，并输出所有的java.lang.String实例。
 
-```
+```java
 SELECT * FROM java.lang.String s 
 ```
 
 下例使用正则表达式，限定搜索范围，输出所有java.lang包下所有类的实例，如图所示。
 
-```
+```java
 SELECT * FROM "java\.lang\..*" 
 ```
 
@@ -255,7 +255,7 @@ SELECT * FROM "java\.lang\..*"
 
 也可以直接使用类的地址进行搜索。使用类的地址的好处是可以区分被不同ClassLoader加载的同一种类型。下例中“0x37a014d8”为类的地址。
 
-```
+```java
 select * from 0x37a014d8 
 ```
 
@@ -266,13 +266,13 @@ select * from 0x37a014d8
 
 在From子句中，还可以使用“INSTANCEOF”关键字，返回指定类的所有子类实例。下例的查询返回了当前堆快照中所有的抽象集合实例，包括java.util.Vector、java.util.ArrayList和java.util.HashSet等。
 
-```
+```java
 SELECT * FROM INSTANCEOF java.util.AbstractCollection 
 ```
 
 在From子句中，还可以使用“OBJECTS”关键字。使用“OBJECTS”关键字后，那么原本应该返回类的实例的查询，将返回类的信息。
 
-```
+```java
 SELECT * FROM OBJECTS java.lang.String 
 ```
 
@@ -284,7 +284,7 @@ SELECT * FROM OBJECTS java.lang.String
 
 “OBJECTS”关键字也支持与正则表达式一起使用。下面的查询，返回了所有满足给定正则表达式的所有类，其结果如图所示。
 
-```
+```java
 SELECT * FROM OBJECTS "cn\.zyzpp\..*" 
 ```
 
@@ -299,25 +299,25 @@ Where子句用于指定OQL的查询条件。OQL查询将只返回满足Where子�
 
 下例返回长度大于10的char数组。
 
-```
+```java
 SELECT * FROM char[] s WHERE s.@length>10 
 ```
 
 下例返回包含“java”子字符串的所有字符串，使用“LIKE”操作符，“LIKE”操作符的操作参数为正则表达式。
 
-```
+```java
 SELECT * FROM java.lang.String s WHERE toString(s) LIKE ".*java.*" 
 ```
 
 下例返回所有value域不为null的字符串，使用“=”操作符。
 
-```
+```java
 SELECT * FROM java.lang.String s where s.value!=null 
 ```
 
 Where子句支持多个条件的AND、OR运算。下例返回数组长度大于15，并且深堆大于1000字节的所有Vector对象。
 
-```
+```java
 SELECT * FROM java.util.Vector v WHERE v.elementData.@length>15 AND v.@retainedHeapSize>1000
 ```
 
@@ -325,7 +325,7 @@ SELECT * FROM java.util.Vector v WHERE v.elementData.@length>15 AND v.@retainedH
 
 OQL中可以访问堆内对象的属性，也可以访问堆内代理对象的属性。访问堆内对象的属性时，格式如下：
 
-```
+```java
 [ <alias>. ] <field> . <field>. <field> 
 ```
 
@@ -333,7 +333,7 @@ OQL中可以访问堆内对象的属性，也可以访问堆内代理对象的�
 
 下例访问java.io.File对象的path属性，并进一步访问path的value属性。
 
-```
+```java
 SELECT toString(f.path.value) FROM java.io.File f 
 ```
 
@@ -346,7 +346,7 @@ SELECT toString(f.path.value) FROM java.io.File f
 
 MAT为了能快捷地获取堆内对象的额外属性（比如对象占用的堆大小、对象地址等），为每种元类型的堆内对象建立了相对应的代理对象，以增强原有的对象功能。访问代理对象的属性时，使用如下格式：
 
-```
+```java
 [ <alias>. ] @<attribute> 
 ```
 
@@ -354,19 +354,19 @@ MAT为了能快捷地获取堆内对象的额外属性（比如对象占用的�
 
 下例显示了String对象的内容、objectid和objectAddress。
 
-```
+```java
 SELECT s.toString(), s.@objectId, s.@objectAddress FROM java.lang.String s 
 ```
 
 下例显示了File对象的对象ID、对象地址、代理对象的类型、类的类型、对象的浅堆大小以及对象的显示名称。
 
-```
+```java
 SELECT f.@objectId, f.@objectAddress, f.@class, f.@clazz, f.@usedHeapSize, f.@displayName FROM java.io.File f 
 ```
 
 下例显示java.util.Vector内部数组的长度。
 
-```
+```java
 SELECT v.elementData.@length FROM java.util.Vector v 
 ```
 
@@ -388,31 +388,31 @@ SELECT v.elementData.@length FROM java.util.Vector v
 
 除了使用代理对象的属性，OQL中还可以使用代理对象的方法，使用格式如下：
 
-```
+```java
 [ <alias> . ] @<method>( [ <expression>, <expression> ] ) 
 ```
 
 下例显示int数组中索引下标为2的数据内容。
 
-```
+```java
 SELECT s.getValueAt(2) FROM int[] s WHERE (s.@length > 2) 
 ```
 
 下例显示对象数组中索引下标为2的对象。
 
-```
+```java
 SELECT OBJECTS s.@referenceArray.get(2) FROM java.lang.Object[] s WHERE (s.@length > 2)
 ```
 
 下例显示了当前堆中所有的类型。
 
-```
+```java
 select * from ${snapshot}.getClasses() 
 ```
 
 下例显示了所有的java.util.Vector对象及其子类型，它的输出如图所示。
 
-```
+```java
 select * from INSTANCEOF java.util.Vector 
 ```
 
@@ -421,7 +421,7 @@ select * from INSTANCEOF java.util.Vector
 
 下例显示当前对象是否是数组。
 
-```
+```java
 SELECT c, classof(c).isArrayType() FROM ${snapshot}.getClasses() c 
 ```
 
@@ -460,13 +460,13 @@ MAT的OQL中还内置一些有用的函数，如表所示。
 
 下例显示所有长度为15的字符串内容（JDK 1.7导出的堆）。
 
-```
+```java
 SELECT toString(s) FROM java.lang.String s WHERE ((s.value.@length = 15) and (s.value != null)) 
 ```
 
 下例显示所有cn.zyzpp.jConsole.HProfTest对象的直接支配对象。即给定对象回收后，将释放的对象集合。
 
-```
+```java
 SELECT objects dominators(s) FROM cn.zyzpp.jConsole.HProfTest s
 ```
 
@@ -477,7 +477,7 @@ SELECT objects dominators(s) FROM cn.zyzpp.jConsole.HProfTest s
 
 函数dominatorof()与dominators()的功能相反，它获取直接支配当前对象的对象。
 
-```
+```java
 SELECT distinct objects dominatorof(s) FROM cn.zyzpp.jConsole.HProfTest s 
 ```
 
@@ -490,13 +490,13 @@ SELECT distinct objects dominatorof(s) FROM cn.zyzpp.jConsole.HProfTest s
 
 下例取得引用WebPage的对象。
 
-```
+```java
 SELECT objects inbounds(w) FROM geym.zbase.ch7.heap.WebPage w 
 ```
 
 下例取得堆快照中所有在cn.zyzpp包中的存在对象实例的类型，其输出如图所示。
 
-```
+```java
 SELECT distinct objects classof(obj) FROM "cn\.zyzpp\..*" obj 
 ```
 

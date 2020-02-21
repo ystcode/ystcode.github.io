@@ -23,7 +23,7 @@ GRADLE_USER_HOME 的作用是让其他程序检测到本地.gradle文件夹的�
 
 然后在D:\\.gradle目录下新建init.gradle文件，使用记事本打开粘贴下列代码：
 
-```
+```java
 allprojects{
     repositories {
         def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'
@@ -72,7 +72,7 @@ allprojects{
 
 **list**: 
 
-```
+```java
 def buildTools=['ant','maven']
 //添加list
 buildTools << 'gradle'
@@ -80,7 +80,7 @@ buildTools << 'gradle'
 
 **map**：
 
-```
+```java
 def buildYears=['ant':2000,'maven':2004]
 //添加map
 buildYears.gardle=2009
@@ -90,13 +90,13 @@ buildYears.gardle=2009
 
 闭包是一个代码块，语法如下：
 
-```
+```java
 { [closureParameters -> ] statements }
 ```
 
 其中`[]`内是可选的闭包参数，可省略。当闭包带有参数，就需要`->`来将参数和闭包体相分离。示例：
 
-```
+```java
 def c1={ v -> println v }
 ```
 
@@ -104,7 +104,7 @@ def c1={ v -> println v }
 
 新建gradle Java项目的默认脚本文件内容：
 
-```
+```java
 plugins {
     id 'java'
 }
@@ -147,7 +147,7 @@ dependencies {
 
 **4.3** 执行命令行 
 
-```
+```java
 java -classpath build/libs/useGradle-1.0-SNAPSHOT.jar cn.zyzpp.App
 ```
 
@@ -182,7 +182,7 @@ Gradle 里的任何东西都是基于这两个基础概念:
 
 在build.gradle中添加自定义task很简单，代码如下：
 
-```
+```java
 //自定义一个方法，这里是创建目录
 def createDir = {
     path ->
@@ -232,7 +232,7 @@ task makeJavaDir(){
 
 2 自定义maven仓库 
 
-```
+```java
 repositories {
     maven{
         url '私服地址一般放首位'
@@ -254,7 +254,7 @@ testCompile是在测试的编译阶段，其它如runtime等。
 
 编译阶段的依赖在运行时也是存在的。典型的例子是JDBC驱动实现，项目主代码的编译只需要jdk提供的jdbc的接口，只有在执行测试或者运行测试的时候才需要实现上述接口的jdbc的驱动。
 
-```
+```java
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
@@ -271,7 +271,7 @@ dependencies {
 
 2.取消默认策略，如果有版本冲突，直接让其构建失败
 
-```
+```java
 configurations.all{
     resolutionStrategy{
         failOnVersionConflict()
@@ -281,7 +281,7 @@ configurations.all{
 
 3.排除传递性依赖（默认排除最低版本）
 
-```
+```java
 //排除哪个jar的依赖
 compile('org.spring-core:3.6.3.Final'){
     //指定要排除的依赖的group和module=name,不指定版本，默认排除最低版本
@@ -292,7 +292,7 @@ compile('org.spring-core:3.6.3.Final'){
 
 4.强制指定默认使用某个版本
 
-```
+```java
 configurations.all{
     resolutionStrategy{
         force 'org.slf4j:slf4j-api:1.7.24'
@@ -318,7 +318,7 @@ configurations.all{
 
 我们可以再次新建model模块。如果我们想在model模块使用web模块的类，如何写呢？
 
-```
+```java
 dependencies {
     compile project(":web")	//这里是模块名
     ...
@@ -333,7 +333,7 @@ dependencies {
 
 我们可以在root根模块设置全局配置，比如在root模块使用allprojects：
 
-```
+```java
 allprojects{
     apply plugin : 'java'
     sourceCompatibility = 1.8
@@ -344,7 +344,7 @@ allprojects{
 
 也可以使用subprojects配置这个项目的子项目：
 
-```
+```java
 subprojects {
     dependencies {
         compile 'ch.qos.logback:logback-classic:1.2.1'
@@ -357,7 +357,7 @@ subprojects {
 
 统一项目的版本，只需要在项目目录下新建gradle.properties文件，写入
 
-```
+```java
 group = 'cn.zyzpp'
 version = '1.0-SNAPSHOT'
 ```
@@ -368,7 +368,7 @@ version = '1.0-SNAPSHOT'
 
 在web模块添加war插件，只需要在web模块下的build.gradle写入
 
-```
+```java
 plugins{
     id 'war'
 }
@@ -394,7 +394,7 @@ plugins{
 
 在项目的build.gradle中加入:
 
-```
+```java
 apply plugin: 'maven-publish'//添加maven发布插件
 //配置发布
 publishing{
@@ -423,7 +423,7 @@ publishing{
 
 # 14.常用语句
 
-```
+```java
 // 解决打包无main函数，不包含其它依赖
 jar {
     manifest {

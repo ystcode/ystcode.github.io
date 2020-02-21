@@ -109,7 +109,7 @@ spring:
 
 在源文件夹下新建i18n/messages文件夹目录，在该目录下新建messages.properties：
 
-```
+```java
 roles<span class="hljs-preprocessor">.manager</span>=manager
 roles<span class="hljs-preprocessor">.superadmin</span>=superadmin
 ```

@@ -39,7 +39,7 @@ Java虚拟机栈也是线程的私有空间，它和Java线程在同一时间创
 
 如果一个局部变量被保存在局部变量表中，那么GC根就能引用到这个局部变量所指向的内存空间，从而在GC时，无法回收这部分空间。这里有一个非常简单的示例来说明局部变量对GC的影响。
 
-```
+```java
     public void test(){
         {
             byte[] b = new byte[1024 * 1024 * 60]; // 1024*60 KB = 60 MB
@@ -51,7 +51,7 @@ Java虚拟机栈也是线程的私有空间，它和Java线程在同一时间创
 
 在运行Java程序时设置参数`-XX:+PrintGC`打印GC日志，运行结果：
 
-```
+```java
 [GC (System.gc())  64775K->62176K(125952K), 0.0011984 secs]
 [Full GC (System.gc())  62176K->62097K(125952K), 0.0063403 secs]
 gc over
@@ -61,7 +61,7 @@ gc over
 
 假设在该变量失效后，在这个函数体内，又未能有定义足够多的局部变量来复用该变量所占的字，那么，在整个函数体中，这块内存区域是不会被回收的。在这种环境下，手工对要释放的变量赋值为null，是一种有效的做法。
 
-```
+```java
     public void test(){
         {
             byte[] b = new byte[1024 * 1024 * 5]; // 5MB
@@ -74,7 +74,7 @@ gc over
 
 运行结果：
 
-```
+```java
 [GC (Allocation Failure)  1513K->616K(7680K), 0.0011590 secs]
 [GC (System.gc())  6191K->5880K(7680K), 0.0011550 secs]
 [Full GC (System.gc())  5880K->651K(7680K), 0.0095708 secs]
@@ -83,7 +83,7 @@ gc over
 
 在实际开发中，遇到上述情况的可能性并不大。因为在大多数情况下，如果后续仍然需要进行大量的操作，那么极有可能会申明新的局部变量，从而复用变量b的字，使b占的内存空间可以被GC回收。
 
-```
+```java
     public void test(){
         {
             byte[] b = new byte[1024 * 1024 * 5];
@@ -96,7 +96,7 @@ gc over
 
 运行结果：
 
-```
+```java
 [GC (Allocation Failure)  1530K->656K(7680K), 0.0011337 secs]
 [GC (System.gc())  6189K->5824K(7680K), 0.0010571 secs]
 [Full GC (System.gc())  5824K->651K(7680K), 0.0077965 secs]
@@ -107,7 +107,7 @@ gc over
 
 完整代码如下：
 
-```
+```java
 package com.oscar999.performance.JVMTune;
  
 public class SystemGC {
@@ -201,7 +201,7 @@ eden：对象的出生地，大部分对象刚刚建立时，通常会存放在�
 使用JVM参数`-XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=15 -Xms40M -Xmx40M -Xmn20M`运行这段代码：
 
 
-```
+```java
     public void test2(){
         byte[] byte1 = new byte[1024*1024/2];
         byte[] byte2 = new byte[1024*1024*8];
@@ -211,7 +211,7 @@ eden：对象的出生地，大部分对象刚刚建立时，通常会存放在�
     }
 ```
 运行结果：
-```
+```java
 [GC (System.gc()) [PSYoungGen: 11004K->1256K(18432K)] 19196K->9456K(38912K), 0.0013429 secs][Times: user=0.00 sys=0.00, real=0.00 secs] 
 [Full GC (System.gc()) [PSYoungGen: 1256K->0K(18432K)] [ParOldGen: 8200K->9361K(20480K)] 9456K->9361K(38912K), [Metaspace: 3478K->3478K(1056768K)], 0.0072324 secs][Times: user=0.00 sys=0.00, real=0.01 secs] 
 Heap
@@ -245,7 +245,7 @@ Heap
 
 使用JVM参数`-XX:+PrintGCDetails -XX:MetaspaceSize=4M -XX:MaxMetaspaceSize=5M`运行这段代码：
 
-```
+```java
     @Test
     public void test4() {
         for (int i=0; i<Integer.MAX_VALUE;i++){
@@ -256,7 +256,7 @@ Heap
 
 运行结果：
 
-```
+```java
 [GC (Metadata GC Threshold) [PSYoungGen: 1331K->696K(38400K)] 1331K->696K(125952K), 0.0011365 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
 [Full GC (Metadata GC Threshold) [PSYoungGen: 696K->0K(38400K)] [ParOldGen: 0K->550K(62976K)] 696K->550K(101376K), [Metaspace: 2875K->2875K(1056768K)], 0.0062965 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
 [GC (Metadata GC Threshold) [PSYoungGen: 4672K->640K(38400K)] 5222K->1198K(101376K), 0.0016105 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
@@ -293,7 +293,7 @@ Full GC 在这种情况下不能回收类的元数据。
 
 比如在运行时设置参数 `-Xmx3M`：
 
-```
+```java
     @Test
     public void test5(){
         System.out.println(Runtime.getRuntime().maxMemory()/1024/1024);
@@ -302,7 +302,7 @@ Full GC 在这种情况下不能回收类的元数据。
 
 运行结果：
 
-```
+```java
 3
 ```
 
@@ -359,7 +359,7 @@ JDK1.8取消了PermGen，取而代之的是Metaspace（元空间），所以Perm
 
 当系统由于内存不够无法创建新的线程时，会抛出 OOM 异常如下：
 
-```
+```java
  java.lang.OutOfMemoryError: unable to create new native thread
 ```
 
@@ -674,7 +674,7 @@ G1收集器之所以能**建立可预测的停顿时间模型**，是因为它�
 
 测试代码：
 
-```
+```java
 import java.util.HashMap;
 
 public class  GCTimeTest {
@@ -813,7 +813,7 @@ public class  GCTimeTest {
 
 吞吐量优先的方案将会尽可能减少系统执行垃圾回收的总时间，故可以考虑关注系统吞吐量的并行回收收集器。在拥有4GB内存和32核CPU的计算机上，进行吞吐量的优化，可以使用参数：
 
-```
+```java
 java –Xmx3800m –Xms3800m –Xmn2G –Xss128k –XX:+UseParallelGC 
    –XX:ParallelGCThreads=20 –XX:+UseParallelOldGC
 ```
@@ -834,7 +834,7 @@ java –Xmx3800m –Xms3800m –Xmn2G –Xss128k –XX:+UseParallelGC
 
 在 Solaris 系统中，JVM 可以支持 Large Page Size 的使用。使用大的内存分页可以增强 CPU 的内存寻址能力，从而提升系统的性能。
 
-```
+```java
 java –Xmx2506m –Xms2506m –Xmn1536m –Xss128k -XX:++UseParallelGC
  –XX:ParallelGCThreads=20 –XX:+UseParallelOldGC –XX:+LargePageSizeInBytes=256m
 ```
@@ -845,7 +845,7 @@ java –Xmx2506m –Xms2506m –Xmn1536m –Xss128k -XX:++UseParallelGC
 
 为降低应用软件的垃圾回收时的停顿，首先考虑的是使用关注系统停顿的 CMS 回收器，其次，为了减少 Full GC 次数，应尽可能将对象预留在年轻代，因为年轻代 Minor GC 的成本远远小于年老代的 Full GC。 
 
-```
+```java
 java –Xmx3550m –Xms3550m –Xmn2g –Xss128k –XX:ParallelGCThreads=20
  –XX:+UseConcMarkSweepGC –XX:+UseParNewGC –XX:+SurvivorRatio=8 –XX:TargetSurvivorRatio=90
  –XX:MaxTenuringThreshold=31
@@ -881,7 +881,7 @@ JVM的JIT（Just-In-Time）编译器，可以在运行时将字节码编译成�
 
 通过参数 -XX:heapDumpPath 可以指定堆快照的保存位置。
 
-```
+```java
 -Xmx10m -XX:+HeapDumpOnOutOfMemoryError -XX:heapDumpPath=C:\m.hprof
 ```
 
@@ -889,7 +889,7 @@ JVM的JIT（Just-In-Time）编译器，可以在运行时将字节码编译成�
 
 当系统发生OOM错误时，虚拟机在错误发生时运行一段第三方脚本， 比如， 当OOM发生时，重置系统
 
-```
+```java
 -XX:OnOutOfMemoryError=c:\reset.bat
 ```
 
@@ -899,7 +899,7 @@ JVM虚拟机提供了许多参数帮助开发人员获取GC信息。
 
 获取一段简要的GC信息，可以使用  -verbose:gc 或者 -XX:+PrintGC。它们的输出如下：
 
-```
+```java
 [GC 118250K->113543K(130112K), 0.0094143 secs]
 [Full GC 121376K->10414K(130112K), 0.0650971 secs]
 ```
@@ -908,7 +908,7 @@ JVM虚拟机提供了许多参数帮助开发人员获取GC信息。
 
 如果要获得更加详细的信息， 可以使用 -XX:+PrintGCDetails。示例输出：
 
-```
+```java
 [GC [DefNew: 8614K->781K(9088K), 0.0123035 secs] 118250K->113543K(130112K), 0.0124633 secs]
 [GC [DefNew: 8614K->8614K(9088K), 0.0000665 secs][Tenured: 112761K->10414K(121024K), 0.0433488 secs] 121376K->10414K(130112K), 0.0436268 secs]
 ```
@@ -917,7 +917,7 @@ JVM虚拟机提供了许多参数帮助开发人员获取GC信息。
 
 如果想要在GC发生的时刻打印GC发生的时间，则可以追加使用-XX:+PrintGCTimeStamps选项。因此，可以知道GC的频率和间隔。打印输出如下：
 
-```
+```java
 11.851: [GC 98328K->93620K(130112K), 0.0082960 secs]
 ```
 
@@ -927,7 +927,7 @@ JVM虚拟机提供了许多参数帮助开发人员获取GC信息。
 
 如果需要查看GC与实际程序相互执行的耗时， 可以使用 -XX:+PrintGCApplicationtStoppedTime 和 -XX:+PrintGCApplicationConcurrentTime参数。它们将分别显示应用程序在GC发生时的停顿时间和应用程序在GC停顿期间的执行时间。它们的输出如下：
 
-```
+```java
 Total time for which application threads were stopped: 0.0468229 seconds
 Application time: 0.5291524 seconds
 ```
@@ -942,7 +942,7 @@ JVM 还提供了一组参数用于获取系统运行时的加载、卸载类的�
 
 除了类的跟踪， JVM 还提供了 -XX:+PrintClassHistogram 开关用于打印运行时实例的信息。 当此开关被打开时，  当Ctrl+Break 被按下， 会输出系统内类的统计信息。 
 
-```
+```java
 ...
  4: 990 23760 java.lang.String
 ...
@@ -1004,37 +1004,37 @@ JVM 还提供了一组参数用于获取系统运行时的加载、卸载类的�
 
 获取GC信息可以加入：
 
-```
+```java
 set CATALINA_OPTS=-Xloggc:gc.log -XX:+PrintGCDetails
 ```
 
 为了减少Minor GC的次数， 增大新生代：
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% -Xmx32M -Xms32M
 ```
 
 禁用显示GC：
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% -XX:+DisableExplicitGC
 ```
 
 在堆内存不变的前提下，为了能进一步减少Minor GC的次数，可以扩大新生代的大小：
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% -XX:NewRation=2
 ```
 
 为了加快Minor GC的速度，在多核计算机上可以考虑使用新生代并行回收收集器，加快Minor GC 的速度：
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% -XX:+UseParallelGC
 ```
 
 由于JVM虚拟机在加载类时，处于完全考虑，会对Class进行校验和认证，如果类文件是可信任的， 为了加快程序的运行速度，也可以考虑禁用这些效应：
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% -Xverify:none
 ```
 
@@ -1096,7 +1096,7 @@ JMeter是Apache 下基于Java 的一款性能测试和压力测试工具。它�
 
 为了减少GC次数， 可以使用合理的堆大小和永久区大小。这里将堆大小设置为512MB, 永久区使用32MB, 同时， 禁用显示GC, 并去掉类校验。参数如下：
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% "-Xmx512M"
 set CATALINA_OPTS=%CATALINA_OPTS% "-Xms512M"
 set CATALINA_OPTS=%CATALINA_OPTS% "-XX:PermSize=32M"
@@ -1107,7 +1107,7 @@ set CATALINA_OPTS=%CATALINA_OPTS% "-Xverify:none"
 
  为了进一步提高系统的吞吐量， 可以尝试使用并行回收收集器代替串行收集器。 
 
-```
+```java
 set CATALINA_OPTS=%CATALINA_OPTS% "-Xmx512M"
 set CATALINA_OPTS=%CATALINA_OPTS% "-Xms512M"
 set CATALINA_OPTS=%CATALINA_OPTS% "-XX:PermSize=32M"

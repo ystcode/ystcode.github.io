@@ -47,7 +47,7 @@ FileChannel用于文件的数据读写。 DatagramChannel用于UDP的数据读�
 
 一个使用NIO进行文件复制的例子如下：
 
-```
+```java
     @Test
     public void test() throws IOException {
  		//写文件通道
@@ -94,13 +94,13 @@ buffer中有三个重要参数：位置（position）、容量（capacity）、�
 
 第一种从堆中创建
 
-```
+```java
 ByteBuffer byteBufferRead = ByteBuffer.allocate(1024);
 ```
 
 从既有数组中创建
 
-```
+```java
 byte[] bytes = new byte[1024];
 ByteBuffer byteBufferRead = ByteBuffer.wrap(bytes);
 ```
@@ -109,7 +109,7 @@ ByteBuffer byteBufferRead = ByteBuffer.wrap(bytes);
 
 Buffer提供了一些用于重置和清空 Buffer 状态的函数，如下：
 
-```
+```java
 public final Buffer rewind()
 public final Buffer clear()
 public final Buffer flip()
@@ -117,7 +117,7 @@ public final Buffer flip()
 
 `rewind()` 方法将position置零，并清除标志位（mark）。作用是为提取Buffer的有效数据做准备：
 
-```
+```java
 out.write(buf); //从buffer读取数据写入channel
 buf.rewind();//回滚buffer
 buf.get(array);//将buffer的有效数据复制到数组中
@@ -125,7 +125,7 @@ buf.get(array);//将buffer的有效数据复制到数组中
 
 `clear()`方法将position置零，同时将limit设置为capacity的大小，并清除了mark。为重新写Buffer做准备：
 
-```
+```java
 buf.clear();//为读入数据到Buffer做准备
 ch.read(buf);
 ```
@@ -136,7 +136,7 @@ ch.read(buf);
 
 标志（mark）缓冲区是一项在数据处理时比较有用的功能，它就像书签一样，可以在数据处理过程中。随时记录当前位置，然后在任意时刻，回到这个位置，从而加快或简化数据处理流程。主要函数如下：
 
-```
+```java
 public final Buffer mark()
 public final Buffer reset()
 ```
@@ -147,7 +147,7 @@ mark()方法用于记录当前位置，reset()方法用于回到当前位置。
 
 复制缓冲区是指以原缓冲区为基础，生成一个完全一样的新缓冲区。方法如下：
 
-```
+```java
 public abstract ByteBuffer duplicate()
 ```
 
@@ -157,7 +157,7 @@ public abstract ByteBuffer duplicate()
 
 缓存区分片使用slice()方法实现，它将在现有的缓冲区中，创建新的子缓冲区，子缓冲区和父缓冲区共享数据。
 
-```
+```java
 public abstract ByteBuffer slice()
 ```
 
@@ -167,7 +167,7 @@ public abstract ByteBuffer slice()
 
 可以使用缓冲区对象的asReadOnlyBuffer()方法得到一个与当前缓冲区一致的，并且共享内存数据的只读缓冲区。只读缓冲区对于数据安全非常有用。如果不希望数据被随意修改，返回一个只读缓冲区是很有帮助的。
 
-```
+```java
 public abstract ByteBuffer asReadOnlyBuffer()
 ```
 
@@ -175,7 +175,7 @@ public abstract ByteBuffer asReadOnlyBuffer()
 
 NIO提供了一种将文件映射到内存的方法进行I/O操作，它可以比常规的基于流的方式快很多。这个操作主要由FileChannel.map()方法实现。如下
 
-```
+```java
 MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_WRITE, 0, 1024);
 ```
 
@@ -193,7 +193,7 @@ NIO提供处理结构化数据的方法，称之为散射（Scattering）和聚�
 
 示例功能：写入两段话到文件，然后读取打印。
 
-```
+```java
     @Test
     public void test() throws IOException {
         String path = "D:\\test.txt";
@@ -232,7 +232,7 @@ NIO提供处理结构化数据的方法，称之为散射（Scattering）和聚�
 
 并在控制台打印出：
 
-```
+```java
 Java是最好的工具
 像风一样
 ```
@@ -245,7 +245,7 @@ DirectByteBuffer继承自ByteBuffer，但和普通Buffer不同。普通的ByteBu
 
 使用很简单，只需要把 ByteBuffer.allocate(1024) 换成 ByteBuffer.allocateDirect(1024) 即可。该方法的源码为
 
-```
+```java
     public static ByteBuffer allocateDirect(int capacity) {
         return new DirectByteBuffer(capacity);
     }
@@ -269,7 +269,7 @@ I/O和NIO的最大区别就是 **传统I/O是面向（缓冲）流，NIO是面�
 
 用传统I/O实现刚开始的文件复制例子，代码如下：
 
-```
+```java
     @Test
     public void test6() throws IOException {
         //缓冲输出流
@@ -296,7 +296,7 @@ I/O和NIO的最大区别就是 **传统I/O是面向（缓冲）流，NIO是面�
 
  以1KB的文件举例：
 
-```
+```java
 1Byte = 8Bit
 1KB = 1024Byte
 ```

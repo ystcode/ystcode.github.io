@@ -15,7 +15,7 @@ tags:
 
 主要的webSocket依赖
 
-```
+```java
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-websocket</artifactId>
@@ -24,7 +24,7 @@ tags:
 
 一些js库依赖，这里也使用maven方式导入，官网[https://www.webjars.org/](https://www.webjars.org/)
 
-```
+```java
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
@@ -53,7 +53,7 @@ tags:
 
 Thymeleaf模板引擎，不用多说了吧
 
-```
+```java
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -64,7 +64,7 @@ Thymeleaf模板引擎，不用多说了吧
 
 接下来开启webSocket并配置一番
 
-```
+```java
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
@@ -89,7 +89,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 2）registerStompEndpoints()方法只写了一行代码：
 
-```
+```java
 registry.addEndpoint("/gs-guide-websocket").withSockJS();
 ```
 
@@ -101,7 +101,7 @@ registry.addEndpoint("/gs-guide-websocket").withSockJS();
 
 # 3.提供接口
 
-```
+```java
 @Controller
 public class GreetingController {
 
@@ -125,7 +125,7 @@ public class GreetingController {
 
 HelloMessage.java
 
-```
+```java
 public class HelloMessage {
     private String name;
     ...
@@ -134,7 +134,7 @@ public class HelloMessage {
 
 Greeting.java
 
-```
+```java
 public class Greeting {
     private String content;
 }
@@ -146,7 +146,7 @@ public class Greeting {
 
 index.html
 
-```
+```java
 <!DOCTYPE html>
 <html>
 <head>
@@ -205,7 +205,7 @@ index.html
 
 main.css
 
-```
+```java
 body {
     background-color: #f5f5f5;
 }
@@ -224,7 +224,7 @@ body {
 
 app.js
 
-```
+```java
 var stompClient = null;
 
 function setConnected(connected) {
@@ -298,14 +298,14 @@ subscribe()方法的第一个参数是注册客户端地址，注意前戳必须
 
 其实很简单，直接引用该消息模板
 
-```
+```java
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 ```
 
 消息模板内置了一系列方法，比如
 
-```
+```java
 void convertAndSendToUser(String user, String destination, Object payload)
 
 void convertAndSend(D destination, Object payload)
@@ -317,7 +317,7 @@ void convertAndSend(D destination, Object payload)
 
 监听webSocket服务器的连接只需要实现ApplicationListener<>接口。代码如下：
 
-```
+```java
 @Component
 public class STOMPConnectEventListener implements ApplicationListener<SessionConnectEvent> {
 
@@ -356,7 +356,7 @@ public class STOMPConnectEventListener implements ApplicationListener<SessionCon
 
 webSocket提供的是一个socket框架，并不会帮我们管理session，我们需要自己去编写session管理类，进行session的读写。代码如下：
 
-```
+```java
 @Component
 public class SocketSessionMap {
     private final static ConcurrentMap<String, String> sessionMap = new ConcurrentHashMap<>();
@@ -408,7 +408,7 @@ public class SocketSessionMap {
 
 接着，对STOMP监听类进行扩展。
 
-```
+```java
 @Component
 public class STOMPConnectEventListener implements ApplicationListener<SessionConnectEvent> {
 
@@ -440,7 +440,7 @@ public class STOMPConnectEventListener implements ApplicationListener<SessionCon
 
 这里我们使用更可靠的请求下线方式，代码如下：
 
-```
+```java
     @MessageMapping("/chatOut")
     public void sayHello(String userId) {
         String sessionId = socketSessionMap.getUserSessionId(userId);
@@ -457,7 +457,7 @@ public class STOMPConnectEventListener implements ApplicationListener<SessionCon
 
 在一对一服务器中，主要处理的就是一对一的消息发送。大致逻辑是接收客户端消息，分析消息结构，通过SessionMap判断对方是否在线，然后发送相应内容。代码如下：
 
-```
+```java
     @MessageMapping("/chat")
     public void sayHello(Message user) {
         System.out.println(user.getId()+"-->"+user.getPid()+":"+user.getContent());
@@ -479,7 +479,7 @@ public class STOMPConnectEventListener implements ApplicationListener<SessionCon
 
 Message.java
 
-```
+```java
 public class Message {
     private int id; //用户ID
     private String content;//发送内容
@@ -490,7 +490,7 @@ public class Message {
 
 服务端使用FreeMarker模板引擎返回html网页，代码如下：
 
-```
+```java
     @RequestMapping("/chat/{id}")
     public String chat_page(@PathVariable int id, ModelMap model) {
         model.addAttribute("id", id);
@@ -504,7 +504,7 @@ public class Message {
 
 chat.html
 
-```
+```java
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -565,7 +565,7 @@ chat.html
 
 chat.js
 
-```
+```java
 var stompClient = null;
 
 function setConnected(connected) {
@@ -634,7 +634,7 @@ $(function () {
 
 其次是在用户断开链接前，会向服务端发送断开通知。
 
-```
+```java
 stompClient.send("/app/chatOut", {},$("#id").val());
 ```
 

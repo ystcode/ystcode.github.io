@@ -28,7 +28,7 @@ LinkedList 使用了循环双向链表数据结构。LinkedList 由一系列表�
 
 LinkedList的表项源码：
 
-```
+```java
     private static class Node<E> {
         E item;
         Node<E> next;
@@ -78,7 +78,7 @@ LinkedList是基于链表实现的，在任意位置插入和在尾端增加是�
 
 默认ArrayList的数组初始大小为10。
 
-```
+```java
 private static final int DEFAULT_CAPACITY = 10;
 ```
 
@@ -108,7 +108,7 @@ Hashtable和hashMap的区别在于Hashtable的大部分方法都做了线程同�
 
 用代码简单表示如下：
 
-```
+```java
 object[key_hash] = value;
 ```
 
@@ -124,12 +124,12 @@ object[key_hash] = value;
 
 HashMap提供了两个可以指定初始化大小的构造函数：
 
-```
+```java
 HashMap(int initialCapacity) 
           构造一个带指定初始容量和默认负载因子 (0.75) 的空 HashMap。
 ```
 
-```
+```java
 HashMap(int initialCapacity, float loadFactor) 
           构造一个带指定初始容量和负载因子的空 HashMap。
 ```
@@ -147,7 +147,7 @@ HashMap(int initialCapacity, float loadFactor)
 
 默认情况下，HashMap的初始大小是16，负载因子为0.75。
 
-```
+```java
 static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 static final float DEFAULT_LOAD_FACTOR = 0.75f;
 ```
@@ -158,7 +158,7 @@ LinkedHashMap继承自HashMap，因此，它具备了HashMap的优良特性，�
 
 LinkedHashMap 提供两种类型的顺序：一是元素插入时的顺序；二是最近访问的顺序。
 
-```
+```java
 LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder) 
           构造一个带指定初始容量、负载因子和排序模式的空 LinkedHashMap 实例
 ```
@@ -173,7 +173,7 @@ LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder)
 
 （1）在TreeMap的构造函数中注入一个Comparator：
 
-```
+```java
 TreeMap(Comparator<? super K> comparator) 
 ```
 
@@ -183,29 +183,29 @@ TreeMap(Comparator<? super K> comparator)
 
 TreeMap 其它排序接口如下：
 
-```
+```java
 subMap(K fromKey, K toKey) 
           返回此映射的部分视图，其键值的范围从 fromKey（包括）到 toKey（不包括）。
 ```
 
-```
+```java
 tailMap(K fromKey) 
           返回此映射的部分视图，其键大于等于 fromKey。
 ```
 
-```
+```java
 firstKey() 
           返回此映射中当前第一个（最低）键。
 ```
 
-```
+```java
 headMap(K toKey) 
           返回此映射的部分视图，其键值严格小于 toKey。
 ```
 
 一个简单示例如下：
 
-```
+```java
 public class MyKey implements Comparable<MyKey> {
     private int id;
 
@@ -252,7 +252,7 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 
 举个例子，当我们要使用for循环遍历集合时
 
-```
+```java
         for (int i =0;i<collection.size();i++){
             //.....
         }
@@ -260,7 +260,7 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 
 很明显，每次循环都会调用size()方法，并且每次都会返回相同的数值。分离所有类似的代码对提升循环性能有着积极地意义。因此，可以将上段代码改造成
 
-```
+```java
         int size= collection.size();
         for (int i =0;i<size;i++){
             //.....
@@ -273,7 +273,7 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 
 假设我们有一段类似的操作如下
 
-```
+```java
         int size= collection.size();
         for (int i =0;i<size;i++){
             if (list.get(i)==1||list.get(i)==2||list.get(i)==3){
@@ -284,7 +284,7 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 
 虽然每次循环调用get(i)的返回值不同，但在同一次调用中，结果是相同的，因此可以提取这些相同的操作。
 
-```
+```java
         int size= collection.size();
         int k=0;
         for (int i =0;i<size;i++){
@@ -300,7 +300,7 @@ Set并没有在Collection接口之上增加额外的操作，**Set集合中的�
 
 假设上面的代码是Vector.class的子类的部分代码，那么可以这么改写
 
-```
+```java
         int size = this.elementCount;
         Object k=null;
         for (int i =0;i<size;i++){

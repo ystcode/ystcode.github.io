@@ -87,13 +87,13 @@ Jython在执行普通py脚本时速度很慢，而且在含有第三方库（req
 
 **python执行时：**
 
-```
+```java
 <span class="hljs-special">[</span>'F:<span class="hljs-command">\\</span>Eclipse for Java EE<span class="hljs-command">\\</span>workspace<span class="hljs-command">\\</span>Jython<span class="hljs-command">\\</span>pythonSrc', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>DLLs', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>lib-tk', 'F:<span class="hljs-command">\\</span>Python27', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages<span class="hljs-command">\\</span>unknown-0.0.0-py2.7.egg', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages<span class="hljs-command">\\</span>requests-2.18.4-py2.7.egg', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages<span class="hljs-command">\\</span>certifi-2018.1.18-py2.7.egg', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages<span class="hljs-command">\\</span>urllib3-1.22-py2.7.egg', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages<span class="hljs-command">\\</span>idna-2.6-py2.7.egg', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>site-packages<span class="hljs-command">\\</span>chardet-3.0.4-py2.7.egg', 'C:<span class="hljs-command">\\</span>windows<span class="hljs-command">\\</span>system32<span class="hljs-command">\\</span>python27.zip', 'F:<span class="hljs-command">\\</span>Python27<span class="hljs-command">\\</span>lib<span class="hljs-command">\\</span>plat-win'<span class="hljs-special">]</span>
 ```
 
 **Jython 执行时：**
 
-```
+```java
 <span class="hljs-special">[</span>'F:<span class="hljs-command">\\</span>Maven<span class="hljs-command">\\</span>repo<span class="hljs-command">\\</span>org<span class="hljs-command">\\</span>python<span class="hljs-command">\\</span>jython-standalone<span class="hljs-command">\\</span>2.7.0<span class="hljs-command">\\</span>Lib', 'F:<span class="hljs-command">\\</span>Maven<span class="hljs-command">\\</span>repo<span class="hljs-command">\\</span>org<span class="hljs-command">\\</span>python<span class="hljs-command">\\</span>jython-standalone<span class="hljs-command">\\</span>2.7.0<span class="hljs-command">\\</span>jython-standalone-2.7.0.jar<span class="hljs-command">\\</span>Lib', '__classpath__', '__pyclasspath__/'<span class="hljs-special">]</span>
 ```
 

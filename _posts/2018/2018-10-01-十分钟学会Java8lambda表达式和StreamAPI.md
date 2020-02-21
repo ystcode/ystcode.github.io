@@ -17,7 +17,7 @@ Java8 的新特性：Lambda表达式、强大的 Stream API、全新时间日期
 
 在IDE中，你是否遇到在写以下列代码时，被友情提示的情况：
 
-```
+```java
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -28,7 +28,7 @@ Java8 的新特性：Lambda表达式、强大的 Stream API、全新时间日期
 
 这时候，我们按一下快捷键，IDE自动帮我们把代码优化为酱个样子：
 
-```
+```java
 	new Thread(() -> System.out.println("thread"));
 ```
 
@@ -40,7 +40,7 @@ Java8 的新特性：Lambda表达式、强大的 Stream API、全新时间日期
 
 先来看lambda表达式的语法：
 
-```
+```java
 () -> {}
 ```
 
@@ -56,7 +56,7 @@ Java8 的新特性：Lambda表达式、强大的 Stream API、全新时间日期
 
 消费型接口（有参无返回值）
 
-```
+```java
 Consumer<T>
 
 void accept(T t);
@@ -64,7 +64,7 @@ void accept(T t);
 
 供给型接口（无参有返回值）
 
-```
+```java
 Supplier<T>
 
 T get();
@@ -72,7 +72,7 @@ T get();
 
 函数型接口（有参有返回值）
 
-```
+```java
 Function<T, R>
 
 R apply(T t);
@@ -80,7 +80,7 @@ R apply(T t);
 
 断言型接口（有参有布尔返回值）
 
-```
+```java
 Predicate<T>
 
 boolean test(T t);
@@ -96,14 +96,14 @@ lambda表达式还有两种简化代码的手段，它们是**方法引用**、*
 
 举例：
 
-```
+```java
         Function function1 = (x) -> x;
         Function function2 = String::valueOf;
 ```
 
 对比Function接口的抽象方法与String的value方法，可以看到它们是类似的。
 
-```
+```java
     R apply(T t);
     
     public static String valueOf(Object obj) {
@@ -113,7 +113,7 @@ lambda表达式还有两种简化代码的手段，它们是**方法引用**、*
 
 方法引用的语法：
 
-```
+```java
 对象::实例方法
 类::静态方法
 类::实例方法
@@ -123,13 +123,13 @@ lambda表达式还有两种简化代码的手段，它们是**方法引用**、*
 
 当出现如下这种情况时：
 
-```
+```java
 Compare<Boolean> c = (a, b) -> a.equals(b);
 ```
 
 用lambda表达式实现Compare接口的抽象方法，并且方法体只有一行，且该行代码为参数1调用方法传入参数2。此时，就可以简化为下面这种形式：
 
-```
+```java
 Compare<Boolean> c = String::equals;
 ```
 
@@ -137,7 +137,7 @@ Compare<Boolean> c = String::equals;
 
 值得一提的是，当参数b不存在时，该方式依旧适用。例如：
 
-```
+```java
 Function function1 = (x) -> x.toString();
 
 Function function1 = Object::toString;
@@ -147,43 +147,43 @@ Function function1 = Object::toString;
 
 先来创建一个供给型接口对象：
 
-```
+```java
 Supplier<String> supplier = () -> new String();
 ```
 
 在这个lammbda表达式中只做了一件事，就是返回一个新的Test对象，而这种形式可以更简化：
 
-```
+```java
 Supplier<String> supplier = String::new;
 ```
 
 提炼一下构造引用的**语法**：
 
-```
+```java
 类名::new
 ```
 
 当通过含参构造方法创建对象，并且参数列表与抽象方法的参数列表一致，也就是下面的这种形式：
 
-```
+```java
 Function1 function = (x) -> new String(x);
 ```
 
 也可以简化为：
 
-```
+```java
 Function1 function = String::new;
 ```
 
 特殊点的数组类型：
 
-```
+```java
 Function<Integer,String[]> function = (x) -> new String[x];
 ```
 
 可以简化为：
 
-```
+```java
 Function<Integer,String[]> function = String[]::new;
 ```
 
@@ -213,7 +213,7 @@ Stream 不是集合元素，它不是数据结构并不保存数据，它是有�
 
 ## 3.生成Stream的方式
 
-```
+```java
 //Collection系的 stream() 和 parallelStream();
 List<String> list = new ArrayList<>();
 Stream<String> stream = list.stream();
@@ -239,7 +239,7 @@ generate.forEach(System.out::println);
 
 多个中间操作连接而成为流水线，流水线不遇到终止操作是不触发任何处理的，所为又称为“惰性求值”。
 
-```
+```java
 list.stream()
                 .map(s -> s + 1)  //映射
                 .flatMap(s -> Stream.of(s)) //和map差不多，但返回类型为Stream，类似list.add()和list.addAll()的区别
@@ -257,7 +257,7 @@ list.stream()
 
 ## 5.Stream的终止操作
 
-```
+```java
 list.stream().allMatch((x) -> x == 555); // 检查是否匹配所有元素
 list.stream().anyMatch(((x) -> x>600)); // 检查是否至少匹配一个元素
 list.stream().noneMatch((x) -> x>500); //检查是否没有匹配所有元素
@@ -270,7 +270,7 @@ Optional<Integer> min = list.stream().min(Integer::compareTo);//返回流中最�
 System.out.println("min "+min.get());
 ```
 reduce （归约）：将流中元素反复结合起来得到一个值
-```
+```java
 Integer reduce = list.stream()
         .map(s -> (s + 1))
         .reduce(0, (x, y) -> x + y);    //归约：0为第一个参数x的默认值，x是计算后的返回值，y为每一项的值。
@@ -284,7 +284,7 @@ System.out.println(reduce);
 
 collect（收集）：将流转换为其他形式。需要Collectors类的一些方法。
 
-```
+```java
         //转集合
         Set<Integer> collect = list.stream()
                 .collect(Collectors.toSet());

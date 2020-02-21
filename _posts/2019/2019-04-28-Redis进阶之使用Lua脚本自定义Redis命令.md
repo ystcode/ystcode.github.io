@@ -13,7 +13,7 @@ tags:
 
 ###1.1 eval
 
-```
+```java
 eval 脚本内容 key个数 key列表 参数列表
 ```
 
@@ -56,13 +56,13 @@ $ redis-cli script load "$(cat lua_get.lua)"
 
 evalsha的使用方法如下，参数使用SHA1值，执行逻辑和eval一致。
 
-```
+```java
 evalsha 脚本SHA1值 key个数 key列表 参数列表
 ```
 
 所以只需要执行如下操作，就可以调用lua_get.lua脚本：
 
-```
+```java
 127.0.0.1:6379> evalsha 7413dc2440db1fea7c0a0bde841fa68eefaf149c 1 redis world
 "hello redisworld"
 ```
@@ -92,7 +92,7 @@ redis.call("get", "hello")
 Lua可以使用redis.log函数将Lua脚本的日志输出到Redis的日志文件中，但是一定要控制日志级别。
 Redis3.2提供了Lua Script Debugger功能用来调试复杂的Lua脚本，具体可以参考：http://redis.io/topics/ldb。
 
-```
+```java
 redis.log(redis.LOG_DEBUG,key1)
 ```
 

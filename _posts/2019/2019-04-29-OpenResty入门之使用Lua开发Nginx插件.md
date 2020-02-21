@@ -88,13 +88,13 @@ http {
 
 接下来我们可以使用 curl 来测试是否能够正常范围：
 
-```
+```java
 curl http://localhost:9000/
 ```
 
 输出结果为：
 
-```
+```java
 <p>Hello, World!</p>
 ```
 
@@ -147,7 +147,7 @@ curl 'localhost:9000'
 
 输出结果为：
 
-```
+```java
 <p>Hello, World!</p>
 ```
 
@@ -155,7 +155,7 @@ curl 'localhost:9000'
 
 使用 set_by_lua 指定可以用类似调用函数的形式去调用Lua脚本。语法：
 
-```
+```java
 set_by_lua $res <lua-script-str> [$arg1 $arg2 ...]
 ```
 
@@ -202,7 +202,7 @@ curl 'localhost:9000/?a=2&b=5'
 
 输出结果为：
 
-```
+```java
 7
 ```
 
@@ -210,7 +210,7 @@ curl 'localhost:9000/?a=2&b=5'
 
 set_by_lua_file可以调用本地Lua脚本文件。语法与set_by_lua相同：
 
-```
+```java
 set_by_lua_file $res <lua-script-str> [$arg1 $arg2 ...]
 ```
 
@@ -256,7 +256,7 @@ curl 'localhost:9000/?a=2&b=5'
 
 输出结果为：
 
-```
+```java
 7
 ```
 
@@ -405,7 +405,7 @@ ngx.say("nowTime : ", now, "<br/>")
 
 访问 http://127.0.0.1:9000/?a=8&b=55 ，手动输入两个Cookie，输出结果：
 
-```
+```java
 headers begin
 Host : 127.0.0.1:9000
 user-agent : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36
@@ -489,7 +489,7 @@ local http = require "resty.http"
 
 我们只需要在错误日志的第一个目录下添加上面两个http模块的lua文件即可。目录：
 
-```
+```java
 /usr/local/openresty/lualib/resty/
 ```
 

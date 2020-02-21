@@ -15,7 +15,7 @@ tags:
 
 一种最为简单的线程创建和回收的方法类似如下：
 
-```
+```java
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -38,7 +38,7 @@ tags:
 
 1.线程池的实现
 
-```
+```java
 public class ThreadPool {
     private static ThreadPool instance = null;
 
@@ -108,7 +108,7 @@ public class ThreadPool {
 
 2.要实现上面的线程池，就需要一个永不退出的线程与之配合。PThread就是一个这样的线程。它的主体部分是一个无限循环，该线程在手动关闭前永不结束，并一直等待新的任务到达。
 
-```
+```java
 public class PThread extends Thread {
     //线程池
     private ThreadPool pool;
@@ -172,7 +172,7 @@ public class PThread extends Thread {
 
 3.测试Main方法
 
-```
+```java
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 1000; i++) {
             ThreadPool.getInstance().start(new Runnable() {
@@ -194,7 +194,7 @@ public class PThread extends Thread {
 
 为了能够更好地控制多线程，JDK提供了一套Executor框架，帮助开发人员有效地进行线程控制。Executor框架无论是newFixedThreadPool()方法、newSingleThreadExecutor()方法、newScheduledThreadPool()方法、还是newCachedThreadPool()方法，其内部实现均使用了 ThreadPoolExecutor：
 
-```
+```java
     public static ExecutorService newCachedThreadPool() {
         return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
                                       60L, TimeUnit.SECONDS,
@@ -225,7 +225,7 @@ public class PThread extends Thread {
 
 ThreadPoolExecutor最重要的构造方法如下：
 
-```
+```java
 public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler)
 ```
 
@@ -243,7 +243,7 @@ public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveT
 
 ThreadPoolExecutor的使用示例，通过execute()方法提交任务。
 
-```
+```java
     public static void main(String[] args) {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(4, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         for (int i = 0; i < 10; i++) {
@@ -260,7 +260,7 @@ ThreadPoolExecutor的使用示例，通过execute()方法提交任务。
 
 或者通过submit()方法提交任务
 
-```
+```java
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(4, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         List<Future> futureList = new Vector<>();
@@ -283,7 +283,7 @@ ThreadPoolExecutor的使用示例，通过execute()方法提交任务。
 
 运行结果：
 
-```
+```java
 ...
 pool-1-thread-4
 pool-1-thread-3
@@ -373,7 +373,7 @@ ThreadPoolExecutor 表示一个线程池，Executors 类则扮演着线程池工
 
 使用 Executors 框架实现上节中的例子，其代码如下：
 
-```
+```java
     public static void main(String[] args) {
         //新建一个线程池
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -409,31 +409,31 @@ ThreadPoolExecutor 表示一个线程池，Executors 类则扮演着线程池工
 
 Executors工厂类的主要方法：
 
-```
+```java
 public static ExecutorService newFixedThreadPool(int nThreads)
 ```
 
 - 该方法返回一个固定线程数量的线程池，该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。
 
-```
+```java
 public static ExecutorService newSingleThreadExecutor()
 ```
 
 - 该方法返回一个只有一个线程的线程池。若多余一个任务被提交到线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。
 
-```
+```java
 public static ExecutorService newCachedThreadPool()
 ```
 
 - 该方法返回一个可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。但所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。
 
-```
+```java
 public static ScheduledExecutorService newSingleThreadScheduledExecutor() 
 ```
 
 - 该方法返回一个ScheduledExecutorService对象，线程池大小为1。ScheduledExecutorService接口在ExecutorService接口之上扩展了在给定时间执行某任务的功能，如在某个固定的延时之后执行，或者周期性执行某个任务。
 
-```
+```java
 public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize)
 ```
 
@@ -451,7 +451,7 @@ public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize)
 
 示例代码：
 
-```
+```java
    public static void main(String[] args) throws InterruptedException, ExecutionException {
         //新建一个线程池
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -475,7 +475,7 @@ public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize)
 
 运行结果：
 
-```
+```java
 ...
 pool-1-thread-11 1537872778612 96
 pool-1-thread-11 1537872778613 97
@@ -485,7 +485,7 @@ pool-1-thread-10 1537872778613 99
 
 到这里，就不得不提Future接口与FutureTask实现类，它们代表异步计算的结果。
 
-```
+```java
 Future<T> submit(Callable<T> task)
 Future<?> submit(Runnable task);
 Future<T> submit(Runnable task, T result);

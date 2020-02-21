@@ -94,7 +94,7 @@ make && make install
 
 把erlang加入环境变量：
 
-```
+```java
 vi /etc/profile
 ```
 
@@ -159,7 +159,7 @@ tar -xvf rabbitmq-server-generic-unix-3.6.1.tar
 
 添加用户:
 
-```
+```java
 ./rabbitmqctl add_user admin admin 
 ```
 

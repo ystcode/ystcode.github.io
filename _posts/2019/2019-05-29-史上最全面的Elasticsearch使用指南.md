@@ -58,7 +58,7 @@ Putty远程连接
 
 下载地址去官网啥的复制下来
 
-```
+```java
 wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.1/elasticsearch-2.4.1.tar.gz
 ```
 
@@ -66,7 +66,7 @@ wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distrib
 
 新手注意下执行目录不要错
 
-```
+```java
 tar -zxvf elasticsearch-2.4.1.tar.gz
 ```
 
@@ -187,13 +187,13 @@ ES配置详解参考：https://www.cnblogs.com/hanyouchun/p/5163183.html
 
 1.规范的方式
 
-```
+```java
  ./elasticsearch -d
 ```
 
 2.通用的方式（注意&的语法是为了让程序后台执行，当你`Ctrl`+`C`退出时程序依旧运行）
 
-```
+```java
  ./elasticsearch &
 ```
 
@@ -201,19 +201,19 @@ ES配置详解参考：https://www.cnblogs.com/hanyouchun/p/5163183.html
 
 然后你可以新建一个用户admin，并设置elasticsearch解压后的所有文件权限为777，命令行：
 
-```
+```java
 useradd admin
 ```
 
-```
+```java
 chmod -R 777 elasticsearch
 ```
 
-```
+```java
 su admin
 ```
 
-```
+```java
 ./elasticsearch -d
 ```
 
@@ -221,7 +221,7 @@ su admin
 
 执行命令
 
-```
+```java
  ps -ef|grep elasticsearch
 ```
 
@@ -233,12 +233,12 @@ su admin
 
 1.最简单的一个方法就是指定ES_HEAP_SIZE环境变量。服务进程在启动时候会读取这个变量，并相应的设置堆的大小。设置命令如下： 
 
-```
+```java
 export ES_HEAP_SIZE=1g
 ```
 2.我们可以在启动程序时限制内存大小，不过这个方法并不是每个情况都可以成功的，命令行如下
 
-```
+```java
  ./elasticsearch -Xms256m -Xmx256m -d
 ```
 *备注:* 确保Xmx和Xms的大小是相同的，其目的是为了能够在java垃圾回收机制清理完堆区后不需要重新分隔计算堆区的大小而浪费资源，可以减轻伸缩堆大小带来的压力。 一般来说设置ES_HEAP_SIZE环境变量，比直接写-Xmx10g  -Xms10g更好一点。 
@@ -247,7 +247,7 @@ export ES_HEAP_SIZE=1g
 
 因为开启了http访问，并设置可以远程连接，所以我们直接请求网址即可：
 
-```
+```java
 http://你的服务器IP:9200
 ```
 
@@ -277,13 +277,13 @@ http://你的服务器IP:9200
 
 注意目录：
 
-```
+```java
 ./bin/plugin install mobz/elasticsearch-head
 ```
 
 安装完后访问
 
-```
+```java
 http://你的服务器IP:9200/_plugin/head/
 ```
 
@@ -301,7 +301,7 @@ Elasticsearch的数据迁移相当简单，把原项目目录下 的所有文件
 
 Elasticsearch允许我们搜索存在于所有索引或一些特定索引中的文档。 例如，如果我们需要搜索名称包含`central`的所有文档。**注意此时的URL无索引**
 
-```
+```java
 GET http://localhost:9200/_search?q = name:central
 ```
 
@@ -355,7 +355,7 @@ GET http://localhost:9200/_search?q = name:central
 
 还可以在所有类型或某种指定类型的索引中搜索所有文档。 例如，**注意此时的URL无类型**
 
-```
+```java
 Get http://localhost:9200/schools/_search?q = tags:sports
 ```
 
@@ -422,7 +422,7 @@ Get http://localhost:9200/schools/_search?q = tags:sports
 
 还可以在请求正文中使用查询`DSL`来指定查询，并且在前面的章节中已经给出了很多示例，
 
-```
+```java
 POST http://localhost:9200/schools/_search
 ```
 
@@ -558,7 +558,7 @@ GET /my_index/my_type/_search
 
 显示应该跳过的初始结果数量，默认是 `0`
 
-```
+```java
 如果每页展示 5 条结果，可以用下面方式请求得到 1 到 3 页的结果：
 
 GET /_search?size=5
@@ -670,7 +670,7 @@ org.springframework.bootspring-boot-starter-data-elasticsearchorg.springframewor
 
 再次启动程序，报错：
 
-```
+```java
 Caused by: java.lang.NoSuchFieldError: LUCENE_5_3_1
 	at org.elasticsearch.Version.(Version.java:279) ~[elasticsearch-2.4.6.jar:2.4.6]
 	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:131) ~[elasticsearch-2.4.6.jar:2.4.6]
@@ -680,13 +680,13 @@ Caused by: java.lang.NoSuchFieldError: LUCENE_5_3_1
 
 我们点击挑战到`Version.java:279`查看他的源代码：
 
-```
+```java
     public static final Version V_2_1_0 = new Version(V_2_1_0_ID, false, org.apache.lucene.util.Version.LUCENE_5_3_1);
 ```
 
 也就是说elasticsearch-2.1.0适配LUCENE-5.3.1，而我们的elasticsearch是2.4.6，继续查看源代码：
 
-```
+```java
     public static final Version V_2_4_6 = new Version(V_2_4_6_ID, false, org.apache.lucene.util.Version.LUCENE_5_5_4);
 ```
 
@@ -791,7 +791,7 @@ public class RobotsApplicationTests {
 
 查看打印：
 
-```
+```java
 Book{id=1, name='《西游记后传》', anthony='小白龙'}
 ```
 
@@ -1141,120 +1141,120 @@ IndexQuery的作用是保存对象到elasticsearch。用法如下。
 
 我们从源码的角度去分析它的一些方法！
 
-```
+```java
 匹配所有文档的查询。
 matchAllQuery()
 ```
 
-```
+```java
 为提供的字段名和文本创建类型为“BOOLEAN”的匹配查询。(解释过来就是单个匹配，可以模糊匹配)
 matchQuery(String name, Object text) //name 字段值 ，text 查询文本（不支持通配符）
 ```
 
-```
+```java
 为提供的字段名和文本创建一个通用查询。
 commonTermsQuery(String name, Object text)
 ```
 
-```
+```java
 为提供的字段名和文本创建类型为“BOOLEAN”的匹配查询。
 multiMatchQuery(Object text, String... fieldNames) 
 ```
 
-```
+```java
 为提供的字段名和文本创建一个文本查询，并输入“短句”。
 matchPhraseQuery(String name, Object text)
 ```
 
-```
+```java
 为提供的字段名和文本创建一个与类型“PHRASE_PREFIX”匹配的查询。
 matchPhrasePrefixQuery(String name, Object text)
 ```
 
-```
+```java
 匹配包含术语的文档的查询。
 termQuery(String name, Object value)
 ```
 
-```
+```java
 使用模糊查询匹配文档的查询
 fuzzyQuery(String name, Object value)
 ```
 
-```
+```java
 与包含指定前缀的术语的文档相匹配的查询。
 prefixQuery(String name, String prefix)
 ```
 
-```
+```java
 在一定范围内匹配文档的查询。
 rangeQuery(String name)
 ```
 
-```
+```java
 实现通配符搜索查询。支持的通配符是*，它匹配任何字符序列(包括空字符)，而?它匹配任何单个字符。注意，这个查询可能很慢，因为它需要遍历许多项。为了防止异常缓慢的通配符查询，通配符项不应该以一个通配符*或?开头。
 
 wildcardQuery(String name, String query) //query 通配符查询字符串
 ```
 
-```
+```java
 将包含术语的文档与指定的正则表达式匹配的查询
 regexpQuery(String name, String regexp) //regexp的正则表达式
 ```
 
-```
+```java
 解析查询字符串并运行它的查询。有两种模式。第一,当没有字段添加(使用QueryStringQueryBuilder.field(字符串),将运行查询一次,非前缀字段将使用QueryStringQueryBuilder.defaultField(字符串)。第二,当一个或多个字段添加(使用QueryStringQueryBuilder.field(String)),将运行提供的解析查询字段,并结合使用DisMax或普通的布尔查询(参见QueryStringQueryBuilder.useDisMax(布尔))。
 
 queryStringQuery(String queryString)
 ```
 
-```
+```java
 类似于query_string查询的查询，但不会为任何奇怪的字符串语法抛出异常。
 simpleQueryStringQuery(String queryString)
 ```
 
-```
+```java
 可以使用BoostingQuery类来有效地降级与给定查询匹配的结果。
 boostingQuery()
 ```
 
-```
+```java
 匹配与其他查询的布尔组合匹配的文档的查询
 boolQuery()
 ```
 
-```
+```java
 创建一个可用于实现MultiTermQueryBuilder的子查询的SpanQueryBuilder。
 spanMultiTermQueryBuilder(MultiTermQueryBuilder multiTermQueryBuilder)
 ```
 
-```
+```java
 允许定义自定义得分函数的查询。
 functionScoreQuery(QueryBuilder queryBuilder, ScoreFunctionBuilder function)
 ```
 
-```
+```java
 更像这样的查询，查找“like”提供的文档，例如提供的MoreLikeThisQueryBuilder.likeText(String)，它是针对查询所构造的字段进行检查的
 
 moreLikeThisQuery(String... fields)
 ```
 
-```
+```java
 构造一个新的非计分子查询，包含子类型和要在子文档上运行的查询。这个查询的结果是这些子文档匹配的父文档。
 hasChildQuery(String type, QueryBuilder query)
 ```
 
-```
+```java
 构造一个新的非评分父查询，父类型和在父文档上运行的查询。这个查询的结果是父文档匹配的子文档。
 hasParentQuery(String type, QueryBuilder query)
 ```
 
-```
+```java
 基于对其中任何一个项进行匹配的若干项的字段文件
 termsQuery(String name, String... values)
 ```
 
-```
+```java
 一个查询构建器，它允许构建给定JSON字符串或二进制数据作为输入的查询。当您希望使用Java Builder API，但仍然需要将JSON查询字符串与其他查询构建器结合时，这是非常有用的。
 
 wrapperQuery(String source)
@@ -1270,7 +1270,7 @@ wrapperQuery(String source)
 
 ### 1.完全匹配
 
-```
+```java
 MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("字段名", "查询文本");
 ```
 
@@ -1278,13 +1278,13 @@ MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("字段名", "查询�
 
 比如你要查询短语`Love You`，当你使用`QueryBuilders.matchQuery("name", "Love You")`时，可能会查询到`Love And You`这样分开的结果，这时候我们指定为短语进行查询：
 
-```
+```java
 QueryBuilder queryBuilder = QueryBuilders.matchPhraseQuery("name", "Love You");
 ```
 
 ### 3.模糊匹配
 
-```
+```java
         MoreLikeThisQueryBuilder queryBuilder = QueryBuilders
                 .moreLikeThisQuery("name")// 要匹配的字段, 不填默认_all
                 .like("西游")// 匹配的文本
@@ -1293,67 +1293,67 @@ QueryBuilder queryBuilder = QueryBuilders.matchPhraseQuery("name", "Love You");
 
 我们再从源码去看其它方法
 
-```
+```java
 添加一些文本以查找“类似”的文档
 addLikeText(String... likeTexts)
 ```
 
-```
+```java
 查找类似文档
 like(Item... likeItems)
 ```
 
-```
+```java
 设置不从其中选择（比如我们调用.like("西游").unlike("西游记")这样会导致啥也查不到）
 unlike(String... unlikeTexts)
 ```
 
-```
+```java
 添加一些文本以查找与此不同的文档
 addUnlikeText(String... unlikeTexts)
 ```
 
-```
+```java
 设置将包含在任何生成查询中的查询条件的最大数量。默认25
 maxQueryTerms(int maxQueryTerms)
 ```
 
-```
+```java
 设置单词被忽略的频率，默认5，小于将不会被发现
 minDocFreq(int minDocFreq)
 ```
 
-```
+```java
 设置单词仍然出现的最大频率。单词出现更多的文档将被忽略。默认为无限
 maxDocFreq(int maxDocFreq)
 ```
 
-```
+```java
 设置将被忽略的单词的最小单词长度，默认0
 minWordLength(int minWordLength)
 ```
 
-```
+```java
 设置将被忽略的单词的最大单词长度，默认无限
 maxWordLength(int maxWordLength)
 ```
 
-```
+```java
 设置停止词，匹配时会忽略停止词
 stopWords(String... stopWords)
 ```
 
-```
+```java
 设置词语权重，默认是1
 boostTerms(float boostTerms)
 ```
 
-```
+```java
 查询权重（默认1）
 boost(float boost)
 ```
 
-```
+```java
 设置不从其中选择术语的文本（文档Item）
 ignoreLike(String... likeText)
 ```

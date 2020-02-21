@@ -169,19 +169,19 @@ public class DirectoryStructureTest {
 
 ### 任意数
 
-```
+```java
 ArgumentMatchers.anyLong()
 ```
 
 示例：
 
-```
+```java
 PowerMockito.doReturn(application).when(Application).getById(ArgumentMatchers.anyLong());
 ```
 
 注意：不可以出现
 
-```
+```java
 PowerMockito.doReturn(application).when(Application).getById(ArgumentMatchers.anyLong(), object);
 ```
 
@@ -251,7 +251,7 @@ PowerMockito.doReturn(application).when(Application).getById(ArgumentMatchers.an
 
 假如我的Controller层有这么一个方法
 
-```
+```java
 @RestController
 public class DemoController {
     @Autowired
@@ -267,7 +267,7 @@ public class DemoController {
 
 他的DemoService方法是下面这个简单的例子
 
-```
+```java
 @Service
 public class DemoService {
 
