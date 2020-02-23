@@ -1,10 +1,10 @@
 <!-- 解决_post文件夹相对路径图片无法加载问题 -->
 <script type="text/javascript">
-    const prefix = "//"+window.location.host+'/_posts'
+    const prefix = "//" + window.location.host + '/_posts'
     const imgs = document.querySelectorAll(".post-content img")
     for (let i = 0; i < imgs.length; i++) {
         const img = imgs[i]
-        const href = window.location.href
+        const href = window.location.protocol+'//'+window.location.host + window.location.pathname
         if (img.src && img.src.startsWith(href)) {
             // 图片相对路径
             const src = img.src.substring(href.length)
