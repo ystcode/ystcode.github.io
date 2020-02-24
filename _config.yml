@@ -46,7 +46,7 @@ alipay: /assets/img/alipay.png
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  token: VIP
+  token: 博客解锁
   qcode: /assets/img/wechat.png
   description: "欢迎您扫一扫订阅我的微信公众号！"
 
