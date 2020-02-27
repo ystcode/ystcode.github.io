@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 终于搞明白Unicode,ASCII,UTF8,UCS2编码是啥了
-date: 2019-12-11 15:07:00
+date: 2020-02-19 15:07:00
 author: 薛勤
 tags: Unicode
 ---
