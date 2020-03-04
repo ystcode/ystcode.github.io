@@ -115,9 +115,11 @@
                 // And add the div to the TOC container.
                 toc.appendChild(entry);
             }
-            let title = document.createElement("span");
-            title.innerHTML = '目录'
-            toc.insertBefore(title, toc.firstChild)
+            if(toc.childElementCount>0) {
+                let title = document.createElement("span");
+                title.innerHTML = '目录'
+                toc.insertBefore(title, toc.firstChild)
+            }
         }
         function getCookie(cname) {
             var name = cname + "=";
