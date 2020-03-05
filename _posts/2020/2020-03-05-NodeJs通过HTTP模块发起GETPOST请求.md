@@ -6,7 +6,7 @@ author: 薛勤
 tags: nodejs
 ---
 
-Node.js 的 http 模块和 https 模块在使用差不多，只是换个名称，本文以 http 模块为例。http 的 get / post 等请求都是以 `http.request() `方法进行的，所以搞懂该方法就搞懂了 Node.js 的 http 模块。 
+Node.js 的 http 模块和 https 模块在使用差不多，只是换个名称，本文以 http 模块为例。http 的 get / post 等请求都是以 `http.request()` 方法进行的，所以搞懂该方法就搞懂了 Node.js 的 http 模块。 
 
 `http.request()` 方法有两种形参，区别在于是否添加 url 参数。
 
