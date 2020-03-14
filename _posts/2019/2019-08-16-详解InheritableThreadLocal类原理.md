@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 详解InheritableThreadLocal类原理
+title: 并发编程之详解InheritableThreadLocal类原理
 date: 2019-08-16 15:14:00
 author: 薛勤
 tags: Java
