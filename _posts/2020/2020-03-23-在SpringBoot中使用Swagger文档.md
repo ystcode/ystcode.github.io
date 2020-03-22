@@ -332,7 +332,7 @@ public User delete(
 
 ### 运行项目
 
-如下图所示，运行项目后你就会发现在 SwaggerUI 页面的主页菜单栏下会出现我们自定义的这些信息，包括左上角设置的 GroupName。
+如下图所示，运行项目后访问 /doc.html 路径你就会发现在 SwaggerUI 页面的主页菜单栏下会出现我们自定义的这些信息，包括左上角设置的 GroupName。
 
 ![](./20200323在SpringBoot中使用Swagger文档/image-20200322235629394.png)
 
