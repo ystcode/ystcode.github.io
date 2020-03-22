@@ -22,7 +22,7 @@ Swagger 文档支持 YAML 语法和 JSON 语法，这两种语法风格可以相
 
 ### Swagger组成
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200322145442985.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200322145442985.png)
 
 如图所示，Swagger 主要包含了以下三个部分：
 
@@ -30,7 +30,7 @@ Swagger 文档支持 YAML 语法和 JSON 语法，这两种语法风格可以相
 
 官方提供的[在线编辑器](https://editor.swagger.io)截图如下：
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200322152511060.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200322152511060.png)
 
 2.Swagger UI：它会将我们编写的 OpenAPI 规范文档呈现为交互式的 API 文档，后文我将使用浏览器来查看并且操作我们的 Rest API，你也可以访问官方提供的 [Demo](https://petstore.swagger.io) 率先体验。
 
@@ -40,7 +40,7 @@ Swagger 文档支持 YAML 语法和 JSON 语法，这两种语法风格可以相
 
 Swagger 的大体流程是通过 Swagger Editor 或者嵌入到代码中的注解来生成具有 OpenAPI 规范的 Swagger 文档，即 swagger.json 或 swagger.yaml 文件，然后交给 Swagger UI 和 Swagger Codegen 使用并生成相应服务，如下图所示。
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200322154130592.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200322154130592.png)
 
 ### Swagger优势
 
@@ -189,7 +189,7 @@ Swagger 允许我们通过 Docket 的 `globalResponseMessage()` 方法全局覆�
 ```
 添加如上面的代码后，如下图所示，等会运行你就会发现在 SwaggerUI 页面展示的所有 GET 类型请求的 404 以及 500 错误的响应消息都变成了我们自定义的内容。
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200322235459055.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200322235459055.png)
 
 #### 默认参数
 
@@ -334,15 +334,15 @@ public User delete(
 
 如下图所示，运行项目后你就会发现在 SwaggerUI 页面的主页菜单栏下会出现我们自定义的这些信息，包括左上角设置的 GroupName。
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200322235629394.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200322235629394.png)
 
 当你点击左侧“查询用户”菜单时，可以看到如下图所示的请求参数，除了参数 id 外，还包括我们设置的默认参数 auth。
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200323001143474.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200323001143474.png)
 
 点击左侧“新增用户”菜单，选择调试，可以看到已经为我们生成了模拟参数，我们可以直接点击“发送”进行调试。
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200323001546289.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200323001546289.png)
 
 ## 结束语
 
