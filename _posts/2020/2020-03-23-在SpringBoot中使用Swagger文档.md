@@ -36,9 +36,9 @@ Swagger 文档支持 YAML 语法和 JSON 语法，这两种语法风格可以相
 
 3.Swagger Codegen：它可以通过为 OpenAPI（以前称为 Swagger）规范定义的任何 API 生成服务器存根和客户端 SDK 来简化构建过程。
 
-### Swagger流程
+### Swagger原理
 
-Swagger 的大体流程是通过 Swagger Editor 或者嵌入到代码中的注解来生成具有 OpenAPI 规范的 Swagger 文档，即 swagger.json 或 swagger.yaml 文件，然后交给 Swagger UI 和 Swagger Codegen 使用并生成相应服务，如下图所示。
+Swagger 的大致原理是通过 Swagger Editor 或者嵌入到代码中的注解来生成具有 OpenAPI 规范的 Swagger 文档，即 swagger.json 或 swagger.yaml 文件，然后交给 Swagger UI 和 Swagger Codegen 使用并生成相应服务，如下图所示。
 
 ![](./20200323在SpringBoot中使用Swagger文档/image-20200322154130592.png)
 
@@ -332,9 +332,13 @@ public User delete(
 
 ### 运行项目
 
-如下图所示，运行项目后访问 /doc.html 路径你就会发现在 SwaggerUI 页面的主页菜单栏下会出现我们自定义的这些信息，包括左上角设置的 GroupName。
+如下图所示，运行项目后访问 `/doc.html` 路径你就会发现在 SwaggerUI 页面的主页菜单栏下会出现我们自定义的这些信息，包括左上角设置的 GroupName。
 
 ![](./20200323在SpringBoot中使用Swagger文档/image-20200322235629394.png)
+
+正如我们刚开始讲解的 Swagger 原理，访问 `/v2/api-docs?group=example` 路径即可以看到生成的 JSON 格式的 Swagger 文档。
+
+![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200323120521840.png)
 
 当你点击左侧“查询用户”菜单时，可以看到如下图所示的请求参数，除了参数 id 外，还包括我们设置的默认参数 auth。
 
