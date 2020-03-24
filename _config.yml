@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 薛勤的博客
+title: 代码艺术
 author: 薛勤
 description: "一位阿里人的技术进阶之路"
 baseurl:  # the subpath of your site, e.g. /blog
@@ -33,6 +33,7 @@ exclude:
   - jekyll-whiteglass.gemspec
   - screenshot.png
   - vendor
+filing: 鲁ICP备17033275号
 
 # static file
 favicon: /assets/img/favicon.ico
