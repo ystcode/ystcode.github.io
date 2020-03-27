@@ -25,6 +25,7 @@ url 可以是字符串或 [URL](http://nodejs.cn/s/5dwq7G) 对象。 如果 `url
 ```js
 const http = require('http')
 const querystring = require('querystring')
+const zlib = require('zlib')
 
 // 用于将对象转换成query字符串
 const postData = querystring.stringify({
@@ -45,20 +46,25 @@ const options = {
 
 const request = http.request(options, (response) => {
     if (response.headers['content-encoding'] === 'gzip') {
-        console.log('已解决返回数据使用gzip进行压缩')
+        console.log('解决返回数据使用gzip进行压缩')
         let gzip = zlib.createGunzip();
         response.pipe(gzip);
         response = gzip;
     }
+
     console.log(`状态码: ${response.statusCode}`);
     console.log(`响应头: ${JSON.stringify(response.headers)}`);
+
     response.setEncoding('utf8');
+
+    let body = ''
     response.on('data', (chunk) => {
-        console.log(`响应主体: ${chunk}`);
+        body+=chunk;
     });
     response.on('end', () => {
-        console.log('响应中已无数据');
+        console.log(`响应主体: ${body}`);
     });
+    
 });
 
 request.on('error', (e) => {
@@ -94,21 +100,27 @@ const getData = querystring.stringify({
                                         })
 
 http.get(`http://nodejs.cn/?${getData}`, (response) => {
+    
+    console.log(`状态码: ${response.statusCode}`);
+    console.log(`响应头: ${JSON.stringify(response.headers)}`);
+    
     if (response.statusCode!==200){
         // 如果不想读取数据一定记得手动消费哦
         response.resume();
         return;
     }
+    
     response.setEncoding('utf8');
-    let rawData = '';
+    let body = '';
     response.on('data', (chunk) => {
-        rawData += chunk;
+        body += chunk;
     });
     response.on('end', () => {
-        console.log(rawData)
+        console.log(`响应主体: ${body}`);
     });
+
 }).on('error', (e) => {
-    console.error(`出现错误: ${e.message}`);
+    console.error(`请求出现问题: ${e.message}`);
 });
 ```
 
