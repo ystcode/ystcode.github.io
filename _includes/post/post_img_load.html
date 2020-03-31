@@ -4,6 +4,7 @@
     const imgs = document.querySelectorAll(".post-content img")
     for (let i = 0; i < imgs.length; i++) {
         const img = imgs[i]
+        img.alt = '图片加载中..'
         const href = window.location.protocol+'//'+window.location.host + window.location.pathname
         if (img.src && img.src.startsWith(href)) {
             // 图片相对路径
