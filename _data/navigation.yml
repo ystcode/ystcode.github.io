@@ -5,8 +5,6 @@ main:
     url: /archives/
   - title: "关于"
     url: /about/
-  - title: "联系"
-    url: /relation/
   - title: "搜索"
     url: javascript:void(0);
   - title: "GitHub"
