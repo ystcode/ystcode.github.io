@@ -33,7 +33,7 @@ exclude:
   - jekyll-whiteglass.gemspec
   - screenshot.png
   - vendor
-filing: 鲁ICP备17033275号
+#filing: 鲁ICP备17033275号
 
 # static file
 favicon: /assets/img/favicon.ico
