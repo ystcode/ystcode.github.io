@@ -62,7 +62,7 @@ comments: false
 # Plugins
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
+#  - jekyll-sitemap
 
 # Build settings
 markdown: kramdown
