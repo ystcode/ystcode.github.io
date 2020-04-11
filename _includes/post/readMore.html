@@ -35,7 +35,7 @@
     function loginApp(sub) {
         var key = $('input[id=key]').val()
         $.ajax({
-                   url: `https://f.onblogs.cn/vip/authcode?code=${key}&group=ystblog`,
+                   url: `https://f.ystblog.com/vip/authcode?code=${key}&group=ystblog`,
                    type: 'POST',
                    dataType: 'text',
                    success: function (result) { //成功响应的结果
