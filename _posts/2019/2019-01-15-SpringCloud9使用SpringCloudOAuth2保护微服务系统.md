@@ -224,7 +224,7 @@ SET FOREIGN_KEY_CHECKS = 1;
         <module>service-hi</module>
     </modules>
 
-    <groupId>cn.yueshutong</groupId>
+    <groupId>com.github.ystcode</groupId>
     <artifactId>spring-cloud-autho2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-autho2</name>
@@ -284,7 +284,7 @@ SET FOREIGN_KEY_CHECKS = 1;
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.yueshutong</groupId>
+    <groupId>com.github.ystcode</groupId>
     <artifactId>eureka-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -293,7 +293,7 @@ SET FOREIGN_KEY_CHECKS = 1;
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>cn.yueshutong</groupId>
+        <groupId>com.github.ystcode</groupId>
         <artifactId>spring-cloud-autho2</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -363,7 +363,7 @@ public class EurekaServerApplication {
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.yueshutong</groupId>
+    <groupId>com.github.ystcode</groupId>
     <artifactId>service-auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -372,7 +372,7 @@ public class EurekaServerApplication {
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>cn.yueshutong</groupId>
+        <groupId>com.github.ystcode</groupId>
         <artifactId>spring-cloud-autho2</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -702,7 +702,7 @@ public class UserController {
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.yueshutong</groupId>
+    <groupId>com.github.ystcode</groupId>
     <artifactId>service-hi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -711,7 +711,7 @@ public class UserController {
     <description>Demo project for Spring Boot</description>
 
     <parent>
-        <groupId>cn.yueshutong</groupId>
+        <groupId>com.github.ystcode</groupId>
         <artifactId>spring-cloud-autho2</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>

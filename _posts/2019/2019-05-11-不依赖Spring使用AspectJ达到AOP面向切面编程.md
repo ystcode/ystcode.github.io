@@ -45,7 +45,7 @@ tags: AOP
 @Aspect
 public class AspectDemo {
 
-    @Pointcut("execution(* cn.yueshutong.App.say())")
+    @Pointcut("execution(* cn.ystcode.App.say())")
     private void pointcut() {}  // signature
 
     @Before("pointcut()")

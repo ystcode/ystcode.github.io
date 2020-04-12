@@ -173,6 +173,3 @@ JSONObject：相当于Map
 //如果不把内部类修饰为static，这句不好通过：
 List<NewBean> List = JSON.parseArray(json, NewBean.class);
 ```
-
-
-下载项目源代码：[http://download.csdn.net/download/yueshutong123/10182732](http://download.csdn.net/download/yueshutong123/10182732)

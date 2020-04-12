@@ -11,7 +11,6 @@ tags: SpringCloud
 *  微服务(Microservices Architecture)是一种架构风格，一个大型复杂软件应用由一个或多个微服务组成。系统中的各个微服务可被独立部署，各个微服务之间是松耦合的。每个微服务仅关注于完成一件任务并很好地完成该任务。在所有情况下，每个任务代表着一个小的业务能力。
 *  Spring Cloud 中文文档 [https://springcloud.cc/spring-cloud-dalston.html](https://springcloud.cc/spring-cloud-dalston.html)
 *  Spring Cloud 官方文档 [http://projects.spring.io/spring-cloud/#quick-start](http://projects.spring.io/spring-cloud/#quick-start)
-*  SpringCloud 教程PDF下载：[https://download.csdn.net/download/yueshutong123/10501017](https://download.csdn.net/download/yueshutong123/10501017)
 
 # 二：入门
 
@@ -211,7 +210,3 @@ public class UserController {
 
 *  启动服务消费者模块。查看服务提供者的控制台打印。
 *  会发现第一次请求8001，第二次8002，8001，8002，，这是因为使用了负载均衡。
-
----
-
-本文只讲解了服务的注册与发现，Spring cloud的更多内容推荐阅读：[SpringCloud分布式教程](https://download.csdn.net/download/yueshutong123/10501017)

@@ -229,7 +229,7 @@ public class BootStrap {
     <configuration>
         <archive>
             <manifest>
-                <mainClass>com.github.yueshutong.BootStrap</mainClass>
+                <mainClass>com.github.ystcode.BootStrap</mainClass>
             </manifest>
         </archive>
         <descriptorRefs>

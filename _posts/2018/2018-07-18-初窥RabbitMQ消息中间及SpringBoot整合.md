@@ -112,7 +112,7 @@ source /etc/profile
 然后，我们测试下是否安装成功：
 
 ```java
-[root@yueshutong ~]# erl
+[root@ystcode ~]# erl
 Erlang/OTP 18 [erts-7.3] [source] [64-bit] [async-threads:10] [hipe] [kernel-poll:false]
 
 Eshell V7.3  (abort with ^G)
