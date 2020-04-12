@@ -26,7 +26,7 @@ jdk8官网下载地址
 
 ~~推荐工具 [WinScp](https://winscp.net/eng/download.php)~~
 
-墙裂推荐 [XShell Enterprise Plus 6.0.0.82绿色破解版(集成xftp)](https://download.csdn.net/download/yueshutong123/11080082)
+墙裂推荐 XShell Enterprise Plus 6.0.0.82绿色破解版(集成xftp)
 
 直接拖拽上传！
 

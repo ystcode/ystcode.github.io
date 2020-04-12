@@ -338,7 +338,7 @@ public User delete(
 
 正如我们刚开始讲解的 Swagger 原理，访问 `/v2/api-docs?group=example` 路径即可以看到生成的 JSON 格式的 Swagger 文档。
 
-![](/Users/yueshutong/Library/Application Support/typora-user-images/image-20200323120521840.png)
+![](./20200323在SpringBoot中使用Swagger文档/image-20200323120521840.png)
 
 当你点击左侧“查询用户”菜单时，可以看到如下图所示的请求参数，除了参数 id 外，还包括我们设置的默认参数 auth。
 

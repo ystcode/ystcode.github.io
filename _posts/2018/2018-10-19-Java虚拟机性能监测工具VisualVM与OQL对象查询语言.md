@@ -14,8 +14,6 @@ Visual VM是一个功能强大的多合一故障诊断和性能监控的可视�
 
 官方下载：[https://visualvm.github.io/download.html](https://visualvm.github.io/download.html)
 
-中文汉化版：[https://download.csdn.net/download/yueshutong123/10729777](https://download.csdn.net/download/yueshutong123/10729777)
-
 Visual VM插件的安装非常容易，既可以通过离线下载插件*.nbm。然后在 PLugin 对话框的Downloaded页面下，添加已下载的插件。也可以在Availble Plugin页面下，在线安装插件，如图所示。
 
 ![](./20181019Java虚拟机性能监测工具VisualVM与OQL对象查询语言/1136672-20181019195349854-1273448410.png)

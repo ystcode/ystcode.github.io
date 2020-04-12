@@ -7,7 +7,7 @@ tags: SpringBoot
 ---
 ##### 跟着我的步骤：先运行起来再说
 
-Spring集成Shiro的GitHub：[https://github.com/yueshutong/shiro-imooc](https://github.com/yueshutong/shiro-imooc)
+Spring集成Shiro的GitHub：[https://github.com/ystcode/shiro-imooc](https://github.com/ystcode/shiro-imooc)
 
 ---
 

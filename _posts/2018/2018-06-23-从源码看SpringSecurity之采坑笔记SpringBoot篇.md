@@ -552,11 +552,10 @@ public class User {
 ---
 
 >*  关于Security的部分先到这里，之所以写这篇博客，源于网上的相关资料略少，坑略多，毕竟做伸手党做惯了，一些坑踩的还是不容易的！
->*  项目我已经打包上传至：[https://download.csdn.net/download/yueshutong123/10494694](https://download.csdn.net/download/yueshutong123/10494694)
 
-# []()2019/1/9补充
+# 2019/1/9补充
 
-## []()Spring Security在方法级别上的保护
+## Spring Security在方法级别上的保护
 
 Spring Security从2.0版本开始，提供了方法级别的安全支持，并提供了 JSR-250 的支持。写一个配置类 SecurityConfig 继承 WebSecurityConfigurationAdapter，并加上相关注解，就可以开启方法级别的保护。
 
