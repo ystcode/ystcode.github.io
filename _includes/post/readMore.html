@@ -2,7 +2,7 @@
 <div>
 <script src="//cdn.bootcss.com/Readmore.js/2.2.1/readmore.min.js"></script>
 <script type="text/javascript">
-    const loginSiteKey = 'loginSite'
+    const loginSiteKey = 'login'
     const height = parseInt(document.getElementsByClassName('post-content')[0].clientHeight* 0.5)
 
     function readMoreOne(node, key, img) {
@@ -21,11 +21,18 @@
     }
 
     function readMoreOpen(key, img) {
+//         $('body').append(`
+// <div id="gzh" style="position: fixed;background: whitesmoke;align-content: center;text-align: center;width: 80%;height: 45%;padding: 5% 0;z-index: 9;left: 10%;bottom: 20%;">
+//     <p style="margin: 0;font-size: 16px;">扫码关注微信公众号回复<span style="color: red;">${key}</span>获取验证码</p>
+//     <input style="height: 20px" type="text" id="key"/>
+//     <input type="submit" style="font-size: 15px;border: 1px #BDBDBD solid;border-radius: 2px;background-color: #fff;" value="提交" onclick="loginApp(this)"/>
+//     <img src="${img}"
+//     style="display: block; margin: 10px auto;max-width: 180px;"/>
+//     <p>广告合作请加微信codeblog</p>
+// </div>`)
         $('body').append(`
 <div id="gzh" style="position: fixed;background: whitesmoke;align-content: center;text-align: center;width: 80%;height: 45%;padding: 5% 0;z-index: 9;left: 10%;bottom: 20%;">
-    <p style="margin: 0;font-size: 16px;">扫码关注微信公众号回复<span style="color: red;">${key}</span>获取验证码</p>
-    <input style="height: 20px" type="text" id="key"/>
-    <input type="submit" style="font-size: 15px;border: 1px #BDBDBD solid;border-radius: 2px;background-color: #fff;" value="提交" onclick="loginApp(this)"/>
+    <p style="margin: 0;font-size: 16px;">前往微信公众号查看全文</p>
     <img src="${img}"
     style="display: block; margin: 10px auto;max-width: 180px;"/>
     <p>广告合作请加微信codeblog</p>
