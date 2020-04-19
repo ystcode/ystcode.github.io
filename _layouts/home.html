@@ -12,7 +12,7 @@ layout: default
 
 <!--  置顶文章列表  -->
     {% for post in site.posts %}
-      {% if paginator.page == 1 and post.top == true %}
+      {% if paginator.page == 1 and post.top == true and post.score != 'private' %}
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
@@ -50,7 +50,7 @@ layout: default
     {% endfor %}
 <!-- 普通文章列表 -->
     {% for post in paginator.posts %}
-      {% if post.top != true %}
+      {% if post.top != true and post.score != 'private' %}
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
