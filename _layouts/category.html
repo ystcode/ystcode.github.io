@@ -10,6 +10,7 @@ layout: default
 
     <ul class="post-archives">
         {% for post in category[1] %}
+        {% if post.score != 'private' %}
         {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
         {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
@@ -34,6 +35,7 @@ layout: default
                 {% endif %}
             </h2>
         </li>
+        {% endif %}
         {% endfor %}
     </ul>
 
