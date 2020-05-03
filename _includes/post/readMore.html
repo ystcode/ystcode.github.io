@@ -3,12 +3,14 @@
 <script src="//cdn.bootcss.com/Readmore.js/2.2.1/readmore.min.js"></script>
 <script type="text/javascript">
     const loginSiteKey = 'login'
-    const height = parseInt(document.getElementsByClassName('post-content')[0].clientHeight* 0.01)
+    const height = parseInt(document.getElementsByClassName('post-content')[0].clientHeight* 0.1)
 
     function readMoreOne(node, key, img) {
         if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
             return
         }
+        // 跳转
+        window.location.href = 'https://git.ystblog.com/assets/img/wechat.png'
         document.querySelector(node).style.overflowY = 'hidden'
         $(node).readmore({
                              collapsedHeight: height,
