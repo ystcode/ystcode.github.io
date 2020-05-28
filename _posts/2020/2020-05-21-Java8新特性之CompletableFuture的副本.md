@@ -406,10 +406,6 @@ private CompletableFuture<T> uniWhenCompleteStage(
 
 因篇幅有限，本文并没有分析更多的 CompletableFuture 源码，感兴趣的小伙伴可以自行查看。
 
-为什么用到链表、栈？
-
-如何实现回调方法的顺序执行？
-
 ## 六、用法集锦
 
 ### 异常处理
