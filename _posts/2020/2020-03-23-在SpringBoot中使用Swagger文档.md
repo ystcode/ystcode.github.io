@@ -212,7 +212,7 @@ Swagger 允许我们通过 Docket 的 `globalResponseMessage()` 方法全局覆�
 
 到这里，我们的文档在全局上已经配置完成，但是我们还需要在细节上对接口进行描述。正如开头提到的，我们需要使用 Swagger 注解嵌入到代码中去完善 Swagger 文档信息。
 
-#### @API
+#### 描述类：@API
 
 通过在控制器类上增加`@Api` 注解，可以给控制器增加标签和描述信息。
 
@@ -223,9 +223,13 @@ public class UserController {
 }
 ```
 
-值得一提的是，属性 description 已经被废弃，使用亦是无效的。
+属性列表:
 
-#### @ApiOperation
+- tags: API分组标签。具有相同标签的API将会被归并在一组内展示。
+- value: 如果tags没有定义，value将作为Api的tags使用
+- description: API的详细描述，在1.5.X版本之后不再使用，但实际发现在2.0.0版本中仍然可以使用
+
+#### 描述接口：@ApiOperation
 
 通过在接口方法上增加 `@ApiOperation` 注解来展开对接口的描述：
 
@@ -248,17 +252,16 @@ public User update(@RequestBody User user) {
 }
 ```
 
-当然这个注解还可以指定很多内容，包括如下几个属性：
+属性列表:
 
-| **注解属性** | **类型** | **描述**       |
-| :----------- | :------- | :------------- |
-| value        | String   | 接口说明。     |
-| notes        | String   | 接口发布说明。 |
-| tags         | Stirng[] | 标签。         |
-| response     | Class<?> | 接口返回类型。 |
-| httpMethod   | String   | 接口请求方式。 |
+- value: 对接口的简单说明，长度为120个字母，60个汉字
+- notes: 对接口的详细说明
+- tags: 标签
+- response: 接口返回类型
+- httpMethod: 接口请求方式，可选值有："GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS" and "PATCH"
+- produces: 对应接口的 produces 字段，例如 "application/json, application/xml"
 
-#### @ApiModel 和 @ApiModelProperty
+#### 描述实体：@ApiModel 和 @ApiModelProperty
 
 1. `@ApiModel`: 可设置接口相关实体的描述。
 2. `@ApiModelProperty`: 可设置实体属性的相关描述。
@@ -277,20 +280,18 @@ public class User {
 }
 ```
 
-当然这个注解还可以指定很多内容，包括如下几个属性：
+属性列表:
 
-| **注解属性**    | **类型** | **描述**                                                     |
-| :-------------- | :------- | :----------------------------------------------------------- |
-| value           | String   | 字段说明。                                                   |
-| name            | String   | 重写字段名称。                                               |
-| dataType        | Stirng   | 重写字段类型。                                               |
-| required        | boolean  | 是否必填。                                                   |
-| example         | Stirng   | 举例说明。                                                   |
-| hidden          | boolean  | 是否在文档中隐藏该字段。                                     |
-| allowEmptyValue | boolean  | 是否允许为空。                                               |
-| allowableValues | String   | 该字段允许的值，当我们 API 的某个参数为枚举类型时，使用这个属性就可以清楚地告诉 API 使用者该参数所能允许传入的值。 |
+- value: 字段说明
+- name: 重写字段名称
+- dataType: 重写字段类型
+- required: 是否必填
+- example: 举例说明
+- hidden: 是否在文档中隐藏该字段
+- allowEmptyValue: 是否允许为空
+- allowableValues: 该字段允许的值，当我们 API 的某个参数为枚举类型时，使用这个属性就可以清楚地告诉 API 使用者该参数所能允许传入的值。
 
-#### @ApiImplicitParam
+#### 描述参数：@ApiImplicitParam
 
 1. `@ApiImplicitParams`: 用于描述接口的非对象参数集。
 2. `@ApiImplicitParam`: 用于描述接口的非对象参数，一般与 `@ApiImplicitParams` 组合使用。
@@ -311,7 +312,16 @@ public User findById(@PathVariable("id") Integer id) {
     return null;
 }
 ```
-#### @ApiParam
+
+属性列表:
+
+- name: 参数名称
+- value: 参数的简短描述
+- required: 是否为必传参数
+- dataType: 参数类型，可以为类名，也可以为基本类型（String，int、boolean等）
+- paramType: 指定参数的位置，可选值有 path, query, body, header, form
+
+#### 描述参数：@ApiParam
 
 我们还可以使用 `@ApiParam`  注解对接口参数进行描述，这种方式更加简洁，推荐使用。
 
@@ -329,6 +339,37 @@ public User delete(
     return user;
 }
 ```
+
+属性列表:
+
+- required: 是否为必传参数
+- value: 参数简短说明
+
+#### 描述返回值：@ApiResponse
+
+1. `@ApiResponses`: 用于描述接口返回值的所有可能集。
+2. `@ApiResponse`: 用于描述接口可能的返回值。
+
+用法示例：
+```java
+@ApiResponses({
+       @ApiResponse(code = 200, message = "ok", response = User.class)
+})  
+@GetMapping("/find/{id}")
+public User findById(@PathVariable("id") Integer id) {
+    if (userService.containsKey(id)) {
+        return userService.get(id);
+    }
+    return null;
+}
+```
+
+属性列表:
+
+- code: HTTP请求返回码。有效值必须符合标准的HTTP Status Code Definitions
+- message: 更加易于理解的文本消息
+- response: 返回类型信息，必须使用完全限定类名
+- responseContainer: 如果返回类型为容器类型，可以设置相应的值。有效值为 "List", "Set" or "Map"，其他任何无效的值都会被忽略
 
 ### 运行项目
 
