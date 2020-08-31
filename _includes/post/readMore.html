@@ -2,37 +2,30 @@
 <div>
 <script src="//cdn.bootcss.com/Readmore.js/2.2.1/readmore.min.js"></script>
 <script type="text/javascript">
-    const loginSiteKey = 'login'
-    const height = parseInt(document.getElementsByClassName('post-content')[0].clientHeight* 0.3)
+    const loginSiteKey = 'login';
+    const height = parseInt(document.getElementsByClassName('post-content')[0].clientHeight* 0.3);
 
     function readMoreOne(node, key, img) {
         if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
             return
         }
-        document.querySelector(node).style.overflowY = 'hidden'
+        document.querySelector(node).style.overflowY = 'hidden';
         $(node).readmore({
                              collapsedHeight: height,
                              moreLink: '<a id="readMore1" style="visibility: hidden"  href="#">展开阅读全文</a>',
                              lessLink: '<a style="visibility: hidden" href="#">收起</a>'
-                         })
+                         });
         $('#readMore1').after(`<div style="width: 100%;text-align: center">
         <a id="readMore2" style="font-size: 16px;color: #03A9F4;" onclick="readMoreOpen('${key}','${img}')" href="#">展开阅读全文</a>
     </div>`)
     }
 
     function readMoreOpen(key, img) {
-//         $('body').append(`
-// <div id="gzh" style="position: fixed;background: whitesmoke;align-content: center;text-align: center;width: 80%;height: 45%;padding: 5% 0;z-index: 9;left: 10%;bottom: 20%;">
-//     <p style="margin: 0;font-size: 16px;">扫码关注微信公众号回复<span style="color: red;">${key}</span>获取验证码</p>
-//     <input style="height: 20px" type="text" id="key"/>
-//     <input type="submit" style="font-size: 15px;border: 1px #BDBDBD solid;border-radius: 2px;background-color: #fff;" value="提交" onclick="loginApp(this)"/>
-//     <img src="${img}"
-//     style="display: block; margin: 10px auto;max-width: 180px;"/>
-//     <p>广告合作请加微信codeblog</p>
-// </div>`)
         $('body').append(`
 <div id="gzh" style="position: fixed;background: whitesmoke;align-content: center;text-align: center;width: 80%;height: 45%;padding: 5% 0;z-index: 9;left: 10%;bottom: 20%;">
-    <p style="margin: 0;font-size: 16px;">前往微信公众号查看全文</p>
+    <p style="margin: 0;font-size: 16px;">扫码关注微信公众号回复<span style="color: red;">${key}</span>获取验证码</p>
+    <input style="height: 20px" type="text" id="key"/>
+    <input type="submit" style="font-size: 15px;border: 1px #BDBDBD solid;border-radius: 2px;background-color: #fff;" value="提交" onclick="loginApp(this)"/>
     <img src="${img}"
     style="display: block; margin: 10px auto;max-width: 180px;"/>
     <p>广告合作请加微信codeblog</p>
@@ -40,7 +33,7 @@
     }
 
     function loginApp(sub) {
-        var key = $('input[id=key]').val()
+        var key = $('input[id=key]').val();
         $.ajax({
                    url: `https://f.ystblog.com/vip/authcode?code=${key}&group=ystblog`,
                    type: 'POST',
@@ -50,7 +43,7 @@
                            // $('#gzh').remove()
                            // $('#readMore1').click()
                            // $('#readMore2').css("visibility","hidden");
-                           setCookie(loginSiteKey, 'true', 7)
+                           setCookie(loginSiteKey, 'true', 7);
                            window.location.reload();
                        } else {
                            sub.value = '提交失败'
