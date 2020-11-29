@@ -11,3 +11,4 @@ _site
 .jekyll-cache
 package-lock.json
 target
+Gemfile.lock
