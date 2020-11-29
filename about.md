@@ -10,5 +10,5 @@ My name is 薛勤，很高兴你能看到这句话！
 
 您可以通过以下方式联系到我：
 
-邮箱：<yster@foxmail.com>
+邮箱：<codeblog@qq.com>
 

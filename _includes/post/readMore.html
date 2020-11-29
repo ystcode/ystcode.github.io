@@ -75,7 +75,9 @@
     }
 
     $(document).ready(function () {
-        readMoreOne('.post', '{{site.wechat_subscriber.token}}', '{{site.wechat_subscriber.qcode}}')
+        if ({{site.wechat_subscriber.enable}}){
+            readMoreOne('.post', '{{site.wechat_subscriber.token}}', '{{site.wechat_subscriber.qcode}}')
+        }
     });
 </script>
 </div>

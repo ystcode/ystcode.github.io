@@ -46,7 +46,7 @@ alipay: /assets/img/alipay.png
 
 # Wechat Subscriber
 wechat_subscriber:
-  enabled: true
+  enabled: false
   token: 博客解锁
   qcode: /assets/img/wechat.png
   description: "欢迎您扫一扫订阅我的微信公众号！"
@@ -62,7 +62,9 @@ comments: false
 # Plugins
 plugins:
   - jekyll-paginate
-#  - jekyll-sitemap
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-archives
 
 # Build settings
 markdown: kramdown
