@@ -83,7 +83,3 @@ kramdown:
   footnote_nr: 1
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   toc_levels: 1..6
-
-# feed (RSS)
-feed:
-  path: /feed.xml
