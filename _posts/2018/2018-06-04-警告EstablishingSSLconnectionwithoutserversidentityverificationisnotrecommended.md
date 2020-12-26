@@ -49,7 +49,7 @@ mysql> show global variables like '%ssl%';
 9 rows in set
 ```
 
-###### 我没开启，所以我的解决方法是：
+我没开启，所以我的解决方法是：
 
 
 ```shell
