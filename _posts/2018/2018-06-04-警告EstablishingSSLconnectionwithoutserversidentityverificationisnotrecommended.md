@@ -33,11 +33,23 @@ SSL协议提供的功能主要有：
 
 ```shell
 mysql> show global variables like '%ssl%';
-+---------------+----------+| Variable_name | Value    |+---------------+----------+| have_openssl  | DISABLED || have_ssl      | DISABLED || ssl_ca        |          || ssl_capath    |          || ssl_cert      |          || ssl_cipher    |          || ssl_crl       |          || ssl_crlpath   |          || ssl_key       |          |+---------------+----------+9 rows in set
++---------------+----------+
+| Variable_name | Value    |
++---------------+----------+
+| have_openssl  | DISABLED |
+| have_ssl      | DISABLED |
+| ssl_ca        |          |
+| ssl_capath    |          |
+| ssl_cert      |          |
+| ssl_cipher    |          |
+| ssl_crl       |          |
+| ssl_crlpath   |          |
+| ssl_key       |          |
++---------------+----------+
+9 rows in set
 ```
 
 ###### 我没开启，所以我的解决方法是：
-
 
 
 ```shell
