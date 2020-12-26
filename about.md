@@ -12,3 +12,5 @@ My name is 薛勤，很高兴你能看到这句话！
 
 邮箱：<codeblog@qq.com>
 
+微信：codeblog
+
