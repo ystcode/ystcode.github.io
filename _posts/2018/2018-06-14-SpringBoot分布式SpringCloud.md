@@ -107,7 +107,7 @@ package cn.zyzpp.providerticket.service;
 import org.springframework.stereotype.Service;
 
 /**
- * Create by yster@foxmail.com 2018/6/4/004 18:37
+ * Create by codeblog@qq.com 2018/6/4/004 18:37
  */
 @Service
 public class TicketService {
@@ -122,7 +122,7 @@ public class TicketService {
 
 ```java
 /**
- * Create by yster@foxmail.com 2018/6/4/004 18:39
+ * Create by codeblog@qq.com 2018/6/4/004 18:39
  */
 @RestController
 public class TicketControllert {
@@ -193,7 +193,7 @@ public class ConsumerUserApplication {
 
 ```java
 /**
- * Create by yster@foxmail.com 2018/6/4/004 19:13
+ * Create by codeblog@qq.com 2018/6/4/004 19:13
  */
 @RestController
 public class UserController {

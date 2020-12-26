@@ -93,7 +93,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Create by yster@foxmail.com 2018/5/28/028 21:00
+ * Create by codeblog@qq.com 2018/5/28/028 21:00
  */
 public class MailConfig {
     private static final String PROPERTIES_DEFAULT = "mailConfig.properties";
@@ -146,7 +146,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 /**
- * Create by yster@foxmail.com 2018/5/28/028 21:05
+ * Create by codeblog@qq.com 2018/5/28/028 21:05
  */
 public class MailUtil {
     private static final String HOST = MailConfig.host;

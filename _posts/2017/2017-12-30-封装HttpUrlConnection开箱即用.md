@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 /**
  * 封装HttpURLConnection开箱即用
- * Create by yster@foxmail.com 2018/9/10/010 19:17
+ * Create by codeblog@qq.com 2018/9/10/010 19:17
 */public class HttpUtil {
 private HttpURLConnection connection;
 private Charset charset = Charset.forName("UTF-8");

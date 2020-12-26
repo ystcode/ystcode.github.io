@@ -128,8 +128,8 @@ public class Swagger2Config {
                 .apiInfo(new ApiInfoBuilder()
                         .title("Spring Boot中使用Swagger2构建RESTFul APIs")
                         .description("这是一段简介说明")
-                        .termsOfServiceUrl("http://github.com/ystcode")
-                        .contact(new Contact("薛勤", "https://ystblog.com", "yster@foxmail.com"))
+                        .termsOfServiceUrl("http://github.com/onblog")
+                        .contact(new Contact("薛勤", "https://ystblog.com", "codeblog@qq.com"))
                         .version("1.0")
                         .build())
                 // 如果存在多个Docket实例，则每个实例都必须具有此方法提供的唯一组名称。默认值为"default"。
@@ -391,7 +391,7 @@ public User findById(@PathVariable("id") Integer id) {
 
 ## 结束语
 
-在本教程中，我们学会了如何使用 Swagger 2 来生成 Spring Boot REST API 的文档。我们还研究了如何过滤 API、自定义 HTTP 响应消息以及如何使用 SwaggerUI 直接调用我们的 API。您可以在 Gitee 上找到本教程的[完整实现](https://gitee.com/yster/SwaggerDemo)，这是一个基于 IntelliJ IDEA 的项目，因此它应该很容易导入和运行，当然如果您想对本教程做补充的话欢迎发表评论或者直接在 Gitee 上提交 Pull Request。
+在本教程中，我们学会了如何使用 Swagger 2 来生成 Spring Boot REST API 的文档。我们还研究了如何过滤 API、自定义 HTTP 响应消息以及如何使用 SwaggerUI 直接调用我们的 API。您可以在 Gitee 上找到本教程的[完整实现](https://gitee.com/onblog/SwaggerDemo)，这是一个基于 IntelliJ IDEA 的项目，因此它应该很容易导入和运行，当然如果您想对本教程做补充的话欢迎发表评论或者直接在 Gitee 上提交 Pull Request。
 
 ## 参考文章
 

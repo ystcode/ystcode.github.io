@@ -71,7 +71,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
- * Create by yster@foxmail.com 2018/6/10/010 18:07
+ * Create by codeblog@qq.com 2018/6/10/010 18:07
  */
 @EnableWebSecurity
 public class MySerurityConfig extends WebSecurityConfigurerAdapter {
@@ -179,7 +179,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 /**
- * Create by yster@foxmail.com 2018/6/21/021 15:53
+ * Create by codeblog@qq.com 2018/6/21/021 15:53
  * Authentication 是一个接口，用来表示用户认证信息的
  */
 @Component
@@ -263,7 +263,7 @@ import java.util.List;
 /**
  * 进行认证的时候需要一个 UserDetailsService 来获取用户的信息 UserDetails，
  * 其中包括用户名、密码和所拥有的权限等。
- * Create by yster@foxmail.com 2018/6/21/021 15:56
+ * Create by codeblog@qq.com 2018/6/21/021 15:56
  */
 @Component
 public class MyUserDetailsService implements UserDetailsService {
@@ -351,7 +351,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * Create by yster@foxmail.com 2018/6/10/010 18:35
+ * Create by codeblog@qq.com 2018/6/10/010 18:35
  */
 @Controller
 public class MyController {
@@ -515,7 +515,7 @@ private void userAndRoles(ModelMap model) {
 ```java
 /**
  * 权限表
- * Create by yster@foxmail.com 2018/6/21/021 18:00
+ * Create by codeblog@qq.com 2018/6/21/021 18:00
  */
 @Entity
 @Table(name = "role")
@@ -532,7 +532,7 @@ public class Role {
 
 ```java
 /**
- * Create by yster@foxmail.com 2018/6/21/021 17:59
+ * Create by codeblog@qq.com 2018/6/21/021 17:59
  */
 @Entity
 @Table(name = "user",uniqueConstraints = {@UniqueConstraint(columnNames="username")})

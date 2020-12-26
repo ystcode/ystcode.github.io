@@ -226,7 +226,7 @@ public class Person {
 除了在默认的application文件进行属性配置，我们也可以自定义配置文件，例如新建 peoson.properties ，配置内容如下
 
 ```java
-person.mail=yster@foxmail.com
+person.mail=codeblog@qq.com
 ```
 
 然后在配置类中使用@PropertySource注解注入该配置文件

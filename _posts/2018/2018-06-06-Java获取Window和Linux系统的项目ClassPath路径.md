@@ -13,7 +13,7 @@ tags:
 ```java
 /**
  * 在windows和linux系统下均可正常使用
- * Create by yster@foxmail.com 2018/6/6/006 14:51
+ * Create by codeblog@qq.com 2018/6/6/006 14:51
  */
 public class PathUtil {
     //获取项目的根路径

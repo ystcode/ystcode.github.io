@@ -13,7 +13,7 @@ tags:
 import org.apache.commons.codec.binary.Base64;
 
 /**
- * Created by yster@foxmail.com
+ * Created by codeblog@qq.com
  * 2018年4月9日 下午10:17:09
 */
 public class JdkBase64 {

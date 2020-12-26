@@ -458,7 +458,7 @@ ProducerService.java
 ```java
 package cn.zyzpp.spring.producer;
 /**
- * Created by yster@foxmail.com
+ * Created by codeblog@qq.com
 */
 public interface ProducerService {
     void sendMessage(String message);
@@ -482,7 +482,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
 /**
- * Created by yster@foxmail.com 2018年4月24日 下午7:13:27
+ * Created by codeblog@qq.com 2018年4月24日 下午7:13:27
  */
 public class ProducerServiceImpl implements ProducerService {
 
@@ -518,7 +518,7 @@ package cn.zyzpp.spring.producer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by yster@foxmail.com
+ * Created by codeblog@qq.com
  * 2018年4月24日 下午7:29:30
 */
 public class AppProducer {
@@ -546,7 +546,7 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 /**
- * Created by yster@foxmail.com
+ * Created by codeblog@qq.com
  * 2018年4月24日 下午8:48:39
 */
 public class ConsumerMessageListener implements MessageListener {
@@ -573,7 +573,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by yster@foxmail.com
+ * Created by codeblog@qq.com
  * 2018年4月24日 下午7:29:30
 */
 public class AppConsumer {

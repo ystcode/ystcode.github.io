@@ -100,13 +100,7 @@ Class.getResourceAsStream() 代理给了加载该 class 的 ClassLoader 去实�
 
 最后推荐一个操作Resources资源的框架FileHelper：
 
-```xml
-<dependency>
-     <groupId>cn.yueshutong</groupId>
-     <artifactId>FileHelper</artifactId>
-     <version>1.0.RELEASE</version>
-</dependency>
-```
+[https://github.com/onblog/FileHelper](https://github.com/onblog/FileHelper)
 
 读取Resources下的资源
 

@@ -119,7 +119,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 /**
- * Create by yster@foxmail.com 2018/6/4/004 15:57
+ * Create by codeblog@qq.com 2018/6/4/004 15:57
  */
 @Component  //Spring注解
 @Service    //dubbo的注解

@@ -188,7 +188,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Created by yster@foxmail.com 2018年4月19日 下午1:50:06
+ * Created by codeblog@qq.com 2018年4月19日 下午1:50:06
  */
 public class ExecuteCmd {
     /** 执行外部程序,并获取标准输出 */

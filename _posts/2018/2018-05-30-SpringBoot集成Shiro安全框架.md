@@ -7,7 +7,7 @@ tags: SpringBoot
 ---
 ##### 跟着我的步骤：先运行起来再说
 
-Spring集成Shiro的GitHub：[https://github.com/ystcode/shiro-imooc](https://github.com/ystcode/shiro-imooc)
+Spring集成Shiro的GitHub：[https://github.com/onblog/shiro-imooc](https://github.com/onblog/shiro-imooc)
 
 ---
 
@@ -51,7 +51,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Create by yster@foxmail.com 2018/5/17/017 20:18
+ * Create by codeblog@qq.com 2018/5/17/017 20:18
  */
 @Configuration
 public class ShiroConfig {
@@ -183,7 +183,7 @@ import org.springframework.context.annotation.Lazy;
 import java.util.Set;
 
 /**
- * Create by yster@foxmail.com 2018/5/17/017 20:38
+ * Create by codeblog@qq.com 2018/5/17/017 20:38
  */
 public class CustomRealm extends AuthorizingRealm {
 
