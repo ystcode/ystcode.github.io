@@ -35,7 +35,8 @@ layout: null
     </author>
   {% endif %}
 
-  {% for post in site.posts limit: 20 %}
+  {% for post in site.posts limit: 10 %}
+  {% if post.score != 'private' %}
   {% unless post.draft %}
     <entry{% if post.lang %} xml:lang="{{ post.lang }}"{% endif %}>
       {% if post.external-url %}
@@ -93,5 +94,6 @@ layout: null
       {% endif %}
     </entry>
   {% endunless %}
+  {% endif %}
   {% endfor %}
 </feed>
