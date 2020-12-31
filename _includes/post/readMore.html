@@ -50,7 +50,9 @@
                        }
                    },
                    error: function (xhr, status, error) {
-                       alert('网络错误，进入试用')
+                       alert('网络错误，进入试用');
+                       setCookie(loginSiteKey, 'true', 1);
+                       window.location.reload();
                    }
                })
     }
@@ -75,8 +77,8 @@
     }
 
     $(document).ready(function () {
-        if ({{site.wechat_subscriber.enabled}}){
-            readMoreOne('.post', '{{site.wechat_subscriber.token}}', '{{site.wechat_subscriber.qcode}}')
+        if ('{{site.wechat_readmore.enabled}}'==='true'){
+            readMoreOne('.post', '{{site.wechat_readmore.token}}', '{{site.wechat_readmore.qcode}}')
         }
     });
 </script>

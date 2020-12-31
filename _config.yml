@@ -46,10 +46,15 @@ alipay: /assets/img/alipay.png
 
 # Wechat Subscriber
 wechat_subscriber:
+  enabled: true
+  qcode: /assets/img/wechat.png
+  description: "欢迎您扫一扫订阅我的微信公众号！"
+
+# Wechat ReadMore
+wechat_readmore:
   enabled: false
   token: 博客解锁
   qcode: /assets/img/wechat.png
-  description: "欢迎您扫一扫订阅我的微信公众号！"
 
 # Social media
 twitter_username:
