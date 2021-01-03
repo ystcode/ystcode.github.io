@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot通过RedisTemplate执行Lua脚本
 date: 2019-04-28 19:50:00
-author: 薛勤
+author: 薛师兄
 tags:
   - SpringBoot
   - Lua

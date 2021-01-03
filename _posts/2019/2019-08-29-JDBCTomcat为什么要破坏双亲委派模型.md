@@ -2,7 +2,7 @@
 layout: post
 title: JDBC、Tomcat为什么要破坏双亲委派模型？
 date: 2019-08-29 17:19:00
-author: 薛勤
+author: 薛师兄
 tags: Java
 ---
 ### 问题一：双亲委派模型是什么

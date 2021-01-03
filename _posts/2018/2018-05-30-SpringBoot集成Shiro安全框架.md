@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot集成Shiro安全框架
 date: 2018-05-30 13:37:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 ##### 跟着我的步骤：先运行起来再说

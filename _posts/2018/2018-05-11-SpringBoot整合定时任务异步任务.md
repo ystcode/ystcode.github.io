@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot整合定时任务异步任务
 date: 2018-05-11 11:00:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 # 1.定时任务

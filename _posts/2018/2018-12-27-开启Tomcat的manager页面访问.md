@@ -2,7 +2,7 @@
 layout: post
 title: 开启Tomcat的manager页面访问
 date: 2018-12-27 11:30:00
-author: 薛勤
+author: 薛师兄
 tags: Tomcat
 ---
 # 如何进入Tomcat的manager页面

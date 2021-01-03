@@ -2,7 +2,7 @@
 layout: post
 title: 使用hibernate造成的MySql 8小时问题解决方案
 date: 2017-08-17 17:02:00
-author: 薛勤
+author: 薛师兄
 tags: Hibernate
 ---
 

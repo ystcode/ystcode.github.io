@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot如何配置动态cron任务
 date: 2020-12-31 13:00:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 

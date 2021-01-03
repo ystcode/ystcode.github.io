@@ -2,7 +2,7 @@
 layout: post
 title: Git&Github基本操作与分支管理
 date: 2018-12-28 21:00:00
-author: 薛勤
+author: 薛师兄
 tags: Git
 ---
 Git的原理涉及快照流、链表、指针等，这里不作过多叙述。

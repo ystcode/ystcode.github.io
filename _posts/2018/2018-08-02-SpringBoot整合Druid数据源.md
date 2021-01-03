@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot整合Druid数据源
 date: 2018-08-02 20:45:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 ## 一：Druid介绍

@@ -2,7 +2,7 @@
 layout: post
 title: NodeJs通过HTTP模块发起GET/POST请求
 date: 2020-03-05 14:49:00
-author: 薛勤
+author: 薛师兄
 tags: nodejs
 ---
 

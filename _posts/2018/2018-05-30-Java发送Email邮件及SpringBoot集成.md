@@ -2,7 +2,7 @@
 layout: post
 title: Java发送Email邮件及SpringBoot集成
 date: 2018-05-30 19:36:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - SpringBoot

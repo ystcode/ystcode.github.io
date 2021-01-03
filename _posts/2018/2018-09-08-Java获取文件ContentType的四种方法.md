@@ -2,7 +2,7 @@
 layout: post
 title: Java获取文件Content-Type的四种方法
 date: 2018-09-08 00:22:00
-author: 薛勤
+author: 薛师兄
 tags: Java
 ---
 > [HTTP Content-Type在线工具](http://tool.oschina.net/commons) 

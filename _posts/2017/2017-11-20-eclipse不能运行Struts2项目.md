@@ -2,7 +2,7 @@
 layout: post
 title: eclipse不能运行Struts2项目
 date: 2017-11-20 13:32:00
-author: 薛勤
+author: 薛师兄
 tags:
   - eclipse
   - Struts2

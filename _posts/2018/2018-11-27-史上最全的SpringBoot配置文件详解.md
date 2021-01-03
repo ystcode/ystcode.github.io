@@ -2,7 +2,7 @@
 layout: post
 title: 史上最全的Spring Boot配置文件详解
 date: 2018-11-27 13:20:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 > Spring Boot在工作中是用到的越来越广泛了，简单方便，有了它，效率提高不知道多少倍。Spring Boot配置文件对Spring Boot来说就是入门和基础，经常会用到，所以写下做个总结以便日后查看。

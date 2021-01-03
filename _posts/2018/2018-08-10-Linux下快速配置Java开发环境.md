@@ -2,7 +2,7 @@
 layout: post
 title: Linux下快速配置Java开发环境
 date: 2018-08-10 10:14:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - Linux

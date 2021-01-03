@@ -2,7 +2,7 @@
 layout: post
 title: Mac上使用brew另装ruby和gem的新玩法
 date: 2020-02-10 11:05:00
-author: 薛勤
+author: 薛师兄
 tags: Mac
 ---
 

@@ -2,9 +2,8 @@
 layout: post
 title: Java8异步编程之CompletableFuture源码解读
 date: 2020-05-21 17:21:00
-author: 薛勤
+author: 薛师兄
 tags: Java
-score: private
 ---
 
 ## 一、引言

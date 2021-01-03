@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot热部署的实现方式
 date: 2018-03-10 21:17:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 # 一：热部署的实现

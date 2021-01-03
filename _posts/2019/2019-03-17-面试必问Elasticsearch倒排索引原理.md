@@ -2,7 +2,7 @@
 layout: post
 title: 面试必问Elasticsearch倒排索引原理
 date: 2019-03-17 20:46:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Elasticsearch
   - 算法

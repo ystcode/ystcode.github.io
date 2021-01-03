@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot分布式 - SpringCloud
 date: 2018-06-14 22:04:00
-author: 薛勤
+author: 薛师兄
 tags: SpringCloud
 ---
 # 一：介绍

@@ -2,7 +2,7 @@
 layout: post
 title: Hibernate缓存策略(一级缓存和EHcache二级缓存)
 date: 2018-02-23 18:13:00
-author: 薛勤
+author: 薛师兄
 tags: Hibernate
 ---
 ![这里写图片描述](./20180223Hibernate缓存策略一级缓存和EHcache二级缓存/83695343.png) 

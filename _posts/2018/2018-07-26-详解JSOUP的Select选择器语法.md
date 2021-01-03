@@ -2,7 +2,7 @@
 layout: post
 title: 详解JSOUP的Select选择器语法
 date: 2018-07-26 19:55:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - Jsoup

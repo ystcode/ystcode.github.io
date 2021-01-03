@@ -2,7 +2,7 @@
 layout: post
 title: 在IDEA中构建Tomcat项目流程
 date: 2018-07-22 19:08:00
-author: 薛勤
+author: 薛师兄
 tags: IDEA
 ---
 打开你的IDEA，跟着我走！

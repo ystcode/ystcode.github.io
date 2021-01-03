@@ -2,7 +2,7 @@
 layout: post
 title: SpringCloud（1）服务注册与发现Eureka
 date: 2019-01-12 22:53:00
-author: 薛勤
+author: 薛师兄
 tags: SpringCloud
 ---
 ## 1.创建1个空白的工程

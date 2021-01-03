@@ -2,7 +2,7 @@
 layout: post
 title: Maven报错Archive for required library:某.jar' in project '项目名'
 date: 2018-02-23 00:17:00
-author: 薛勤
+author: 薛师兄
 tags: Maven
 ---
 ###### Maven报错Archive for required library:某.jar’ in project ‘项目名’cannot be read or is not a valid ZIP file

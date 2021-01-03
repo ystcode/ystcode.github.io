@@ -2,7 +2,7 @@
 layout: post
 title: Netty入门（一）之webSocket聊天室
 date: 2018-03-04 21:13:00
-author: 薛勤
+author: 薛师兄
 tags: Netty
 ---
 #### 一：简介

@@ -2,7 +2,7 @@
 layout: post
 title: Spring Boot项目使用Swagger2文档教程
 date: 2020-03-23 12:00:00
-author: 薛勤
+author: 薛师兄
 tags: swagger
 ---
 
@@ -128,8 +128,8 @@ public class Swagger2Config {
                 .apiInfo(new ApiInfoBuilder()
                         .title("Spring Boot中使用Swagger2构建RESTFul APIs")
                         .description("这是一段简介说明")
-                        .termsOfServiceUrl("http://github.com/onblog")
-                        .contact(new Contact("薛勤", "https://ystblog.com", "codeblog@qq.com"))
+                        .termsOfServiceUrl("http://site.com/index.html")
+                        .contact(new Contact("姓名", "https://github.com/onblog", "example@foxmail.com"))
                         .version("1.0")
                         .build())
                 // 如果存在多个Docket实例，则每个实例都必须具有此方法提供的唯一组名称。默认值为"default"。

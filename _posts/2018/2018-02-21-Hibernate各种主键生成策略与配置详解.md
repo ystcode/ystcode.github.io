@@ -2,7 +2,7 @@
 layout: post
 title: Hibernate各种主键生成策略与配置详解
 date: 2018-02-21 23:01:00
-author: 薛勤
+author: 薛师兄
 tags: Hibernate
 ---
 转载自：[原文博客](https://www.cnblogs.com/hoobey/p/5508992.html)

@@ -2,7 +2,7 @@
 layout: post
 title: Java消息中间件入门笔记 - ActiveMQ篇
 date: 2018-04-30 23:01:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - ActiveMQ

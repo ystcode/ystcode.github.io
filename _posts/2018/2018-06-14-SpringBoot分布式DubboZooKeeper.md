@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot分布式 - Dubbo+ZooKeeper
 date: 2018-06-14 21:21:00
-author: 薛勤
+author: 薛师兄
 tags:
   - SpringBoot
   - Dubbo

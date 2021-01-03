@@ -2,7 +2,7 @@
 layout: post
 title: SpringCloud（2）服务消费者（rest+ribbon）
 date: 2019-01-13 00:00:00
-author: 薛勤
+author: 薛师兄
 tags: SpringCloud
 ---
 ## 1.准备工作

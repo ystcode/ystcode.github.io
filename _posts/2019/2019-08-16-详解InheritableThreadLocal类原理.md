@@ -2,7 +2,7 @@
 layout: post
 title: 并发编程之详解InheritableThreadLocal类原理
 date: 2019-08-16 15:14:00
-author: 薛勤
+author: 薛师兄
 tags: Java
 ---
 在Java并发编程中，InheritableThreadLocal 与 ThreadLocal 都可以用于线程间通信，不同的是 InheritableThreadLocal 继承了 ThreadLocal，并且扩展了 ThreadLocal。使用类 InheritableThreadLocal 可使子线程继承父线程的值。相反，类 ThreadLocal 不能实现值继承。

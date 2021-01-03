@@ -2,7 +2,7 @@
 layout: post
 title: 用Java执行Python：Jython踩坑笔记
 date: 2018-04-16 17:39:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - Python

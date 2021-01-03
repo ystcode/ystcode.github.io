@@ -2,7 +2,7 @@
 layout: post
 title: Jsoup+FastJson制作新闻数据接口-Demo
 date: 2017-12-30 21:51:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Jsoup
   - Java

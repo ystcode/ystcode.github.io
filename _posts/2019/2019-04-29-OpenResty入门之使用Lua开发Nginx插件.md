@@ -2,7 +2,7 @@
 layout: post
 title: OpenResty入门之使用Lua开发Nginx插件
 date: 2019-04-29 19:32:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Nginx
   - Lua

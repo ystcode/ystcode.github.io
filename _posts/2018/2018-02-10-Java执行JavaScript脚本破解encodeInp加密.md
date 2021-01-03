@@ -2,7 +2,7 @@
 layout: post
 title: Java执行JavaScript脚本破解encodeInp()加密
 date: 2018-02-10 18:04:00
-author: 薛勤
+author: 薛师兄
 tags: JavaScript
 ---
 # 一：背景

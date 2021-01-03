@@ -2,7 +2,7 @@
 layout: post
 title: SpringBoot整合Shiro使用Ehcache等缓存无效问题
 date: 2018-05-18 13:14:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 # 前言

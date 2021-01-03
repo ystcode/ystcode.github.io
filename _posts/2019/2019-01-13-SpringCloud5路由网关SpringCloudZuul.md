@@ -2,7 +2,7 @@
 layout: post
 title: SpringCloud（5）路由网关Spring Cloud Zuul
 date: 2019-01-13 18:37:00
-author: 薛勤
+author: 薛师兄
 tags: SpringCloud
 ---
 一个简单的微服务系统如下图:

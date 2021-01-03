@@ -2,7 +2,7 @@
 layout: post
 title: 史上最全面的Elasticsearch使用指南
 date: 2019-05-29 13:06:00
-author: 薛勤
+author: 薛师兄
 tags: Elasticsearch
 ---
 -  Create by codeblog@qq.com  2018-7-1 侵权必究

@@ -2,7 +2,7 @@
 layout: post
 title: Redis进阶之使用Lua脚本自定义Redis命令
 date: 2019-04-28 19:13:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Redis
   - Lua

@@ -2,7 +2,7 @@
 layout: post
 title: 关于Spring Data JPA更新部分字段的问题
 date: 2018-08-31 16:33:00
-author: 薛勤
+author: 薛师兄
 tags: SpringBoot
 ---
 ## 1、问题背景

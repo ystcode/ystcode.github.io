@@ -2,7 +2,7 @@
 layout: post
 title: 高并发下的Java数据结构(List、Set、Map、Queue)
 date: 2018-09-24 18:46:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - 多线程

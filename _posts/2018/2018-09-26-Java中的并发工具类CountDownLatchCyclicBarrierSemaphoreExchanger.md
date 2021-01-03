@@ -2,7 +2,7 @@
 layout: post
 title: Java中的并发工具类(CountDownLatch、CyclicBarrier、Semaphore、Exchanger)
 date: 2018-09-26 17:45:00
-author: 薛勤
+author: 薛师兄
 tags:
   - Java
   - 多线程

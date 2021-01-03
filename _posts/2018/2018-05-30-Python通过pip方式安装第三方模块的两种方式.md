@@ -2,7 +2,7 @@
 layout: post
 title: Python通过pip方式安装第三方模块的两种方式
 date: 2018-05-30 15:21:00
-author: 薛勤
+author: 薛师兄
 tags: Python
 ---
 # 一：环境
