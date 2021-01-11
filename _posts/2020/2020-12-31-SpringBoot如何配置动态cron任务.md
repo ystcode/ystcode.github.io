@@ -47,6 +47,7 @@ import java.util.Date;
  * @date 2020/12/30
  */
 public class CronScheduledBean implements SchedulingConfigurer {
+    private static final int HEART_BEAT = 60 * 1000;
     private String cron;
     private TriggerTask triggerTask;
     private ScheduledTaskRegistrar scheduledTaskRegistrar;
@@ -101,7 +102,12 @@ public class CronScheduledBean implements SchedulingConfigurer {
             @Override
             public Date nextExecutionTime(TriggerContext triggerContext) {
                 // 根据触发器上下文获取下一次执行的时间
-                nextDate = new CronTrigger(cron).nextExecutionTime(triggerContext);
+                try {
+                    nextDate = new CronTrigger(cron).nextExecutionTime(triggerContext);
+                } catch (Exception e) {
+                    // 出现异常过1分钟再检查,可以自行修改监测时间
+                    nextDate = new Date(System.currentTimeMillis() + HEART_BEAT);
+                }
                 System.out.println("触发器："+nextDate);
                 return nextDate;
             }
@@ -141,3 +147,4 @@ public class TaskController {
 }
 ```
 
+注意，分布式应用慎用。
