@@ -765,3 +765,7 @@ pre > code {
 h1.top {
     text-decoration: none;
 }
+
+.font_link > a {
+    color: #7e7e7e;
+}
