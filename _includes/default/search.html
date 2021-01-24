@@ -43,25 +43,25 @@
         }
     }
 </style>
-<script src="//unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+<script src="/assets/css/simple-jekyll-search.min.js"></script>
 <script type="text/javascript">
-    let s = document.querySelectorAll('a.page-link')
+    let s = document.querySelectorAll('a.page-link');
     for (let i = 0; i < s.length; i++) {
-        const a = s[i]
+        const a = s[i];
         if (a.innerText === '搜索') {
             // 打开
             a.addEventListener('click', function () {
-                document.getElementById('search').style.display = 'block'
-                document.getElementById('search-input').select()
+                document.getElementById('search').style.display = 'block';
+                document.getElementById('search-input').select();
                 document.getElementsByTagName('main')[0].classList.add("touMing")
             })
         }
     }
     // 关闭
     document.getElementsByTagName('main')[0].addEventListener('click', () => {
-        document.getElementById('search').style.display = 'none'
+        document.getElementById('search').style.display = 'none';
         document.getElementsByTagName('main')[0].classList.remove("touMing")
-    })
+    });
     SimpleJekyllSearch({
                                      searchInput: document.getElementById('search-input'),
                                      resultsContainer: document.getElementById('results-container'),
