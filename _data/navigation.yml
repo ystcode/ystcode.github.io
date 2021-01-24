@@ -9,3 +9,4 @@ main:
     url: javascript:void(0);
   - title: "GitHub"
     url: https://github.com/onblog
+    target: _black
