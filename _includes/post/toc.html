@@ -133,8 +133,12 @@
             return "";
         }
         // 如果还没有解锁，这部分是阅读更多的代码
-        if (getCookie(loginSiteKey) && getCookie(loginSiteKey) !== "") {
+        if ('{{site.wechat_readmore.enabled}}'==='true' &&
+            getCookie(loginSiteKey) && getCookie(loginSiteKey) !== ""){
+                toc()
+        }else {
             toc()
         }
+
     </script>
 </div>
