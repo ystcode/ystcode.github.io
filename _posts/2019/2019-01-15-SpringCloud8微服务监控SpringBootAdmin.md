@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SpringCloud（8）微服务监控Spring Boot Admin
+title: SpringCloud（8）微服务监控SpringBoot Admin
 date: 2019-01-15 16:06:00
 author: 薛师兄
 tags: SpringCloud

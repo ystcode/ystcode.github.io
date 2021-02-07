@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2小时学会Spring Boot（IDE：eclipse）
+title: 2小时学会SpringBoot（IDE：eclipse）
 date: 2018-02-28 22:21:00
 author: 薛师兄
 tags: SpringBoot

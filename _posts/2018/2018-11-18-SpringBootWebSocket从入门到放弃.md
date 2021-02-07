@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot WebSocket从入门到放弃
+title: SpringBoot WebSocket从入门到放弃
 date: 2018-11-18 15:16:00
 author: 薛勤
 tags:

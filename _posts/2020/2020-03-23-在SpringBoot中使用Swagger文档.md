@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot项目使用Swagger2文档教程
+title: SpringBoot项目使用Swagger2文档教程
 date: 2020-03-23 12:00:00
 author: 薛师兄
 tags: swagger
