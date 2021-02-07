@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 深入理解JAVA虚拟机（内存模型+GC算法+JVM调优）
+title: 深入理解JAVA虚拟机（内存区域+GC算法+JVM调优）
 date: 2018-10-10 18:41:00
 author: 薛师兄
 tags:
@@ -8,7 +8,7 @@ tags:
   - JVM
 ---
 
-# 1.Java虚拟机内存模型
+# 1.Java虚拟机内存区域
 
 JVM虚拟机将内存数据分为程序计数器、虚拟机栈、本地方法栈、Java堆和方法区等部分。
 
