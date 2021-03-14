@@ -329,5 +329,3 @@ System.out.println(integer.get());
 ```
 
 关于Stream的其它用法推荐参考下源码与API文档。
-
-> 本文已授权微信公众号“后端技术精选”独家发布。

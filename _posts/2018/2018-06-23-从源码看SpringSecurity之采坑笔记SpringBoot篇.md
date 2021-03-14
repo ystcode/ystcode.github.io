@@ -11,7 +11,6 @@ tags:
 
 >*  鼓捣了两天的Spring Security，踩了不少坑。如果你在学Spring Security，恰好又是使用的Spring Boot，那么给我点个赞吧！这篇博客将会让你了解Spring Security的各种坑！
 >*  阅读前说一下，这篇博客是我一字一字打出来的，转载务必注明出处哦！
->*  另外，本文已授权微信公众号&ldquo;后端技术精选&rdquo;独家发布
 
 ---
 

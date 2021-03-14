@@ -364,5 +364,3 @@ public class AutoPowerMock implements ApplicationListener<ContextRefreshedEvent>
 [Spring Boot、Dubbo项目Mock测试踩坑与总结](http://www.itmuch.com/dubbo/spring-boot-dubbo-mock/)
 
 [SpringMVC测试mockMVC](https://www.cnblogs.com/lyy-2016/p/6122144.html)
-
-> 本文已授权公众号后端技术精选发布

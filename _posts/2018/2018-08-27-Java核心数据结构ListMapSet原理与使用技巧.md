@@ -321,5 +321,3 @@ RandomAccess接口是一个标志接口，本身并没有提供任何方法，�
 在实际操作中，可以根据`list instanceof RandomAccess`来判断对象是否实现 RandomAccess 接口，从而选择是使用随机访问还是iterator迭代器进行访问。
 
 在应用程序中，如果需要通过索引下标对 List 做随机访问，尽量不要使用 LinkedList，ArrayList和Vector都是不错的选择。
-
-> 本文已授权微信公众号“后端技术精选”发布
