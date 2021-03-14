@@ -3,7 +3,9 @@ layout: post
 title: Mac OS 生成 icon 和 ico 文件
 date: 2020-04-12 22:00:00
 author: 薛师兄
-tags: Electron,Mac
+tags: 
+  - Electron
+  - Mac
 ---
 
 ## 1. 生成 ICON 文件
